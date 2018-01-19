@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-19T12:49:46.069Z">
+<meta property="og:updated_time" content="2018-01-19T13:27:41.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -195,36 +195,50 @@
 <li><p>部署至 Git 的准备工作</p>
 <blockquote>
 <ul>
-<li><p>在部署前，还需要安装「Git部署插件」:<br>npm install hexo-deployer-git –save</p>
+<li>在部署前，还需要安装「Git部署插件」:<br>npm install hexo-deployer-git –save</li>
+</ul>
+</blockquote>
 </li>
-<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):  </p>
-</li>
+<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
+<blockquote>
+<ul>
+<li>若之前在机器上配置了 Git 的信息，请跳过该步骤。  </li>
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).  </span><br><span class="line">fatal: Could not read from remote repository.  </span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
-<li>配置「SSH KEY / Public KEY」<ul>
-<li>配置 Git 的 UserName 和 Email</li>
+<li>配置「SSH KEY / Public KEY」</li>
 </ul>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 这里的“YourAnonymousName&quot; 可以替换成自己的用户名</span><br><span class="line">git config --global user.name &quot;YourAnonymousName&quot;</span><br><span class="line"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱</span><br><span class="line">git config --global user.email  &quot;UserName@xxx.com&quot;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<pre><code>* 检查是否已经有 SSH KEY
-</code></pre></blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>配置「_config.yml」文件<br>在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</li>
-</ul>
+<p>配置 Git 的 UserName 和 Email</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	# 这里的“YourAnonymousName&quot; 可以替换成自己的用户名</span><br><span class="line">	git config --global user.name &quot;YourAnonymousName&quot;</span><br><span class="line">	# 这里的邮箱 UserName@xxx.com  替换成自己的邮箱</span><br><span class="line">	git config --global user.email  &quot;UserName@xxx.com&quot;</span><br><span class="line">```	</span><br><span class="line">&gt;&gt; 检查是否已经有 SSH KEY</span><br></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">		type: git </span><br><span class="line">		repo: https://github.com/yourname/yourname.github.io.git </span><br><span class="line">		branch: master</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>[注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">		repo:</span><br><span class="line">- type: heroku </span><br><span class="line">		repo:</span><br></pre></td></tr></table></figure>
+<pre><code>cd ~/.ssh
+# 列出该目录下的文件，看是否存在「id_isa」和「id_isa.pub」文件，没有则执行「生成密钥」步骤
+ls
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 生成密钥</span><br></pre></td></tr></table></figure>
+<pre><code># 邮箱「UserName@xxx.com」替换成自己的邮箱
+ssh-keygen -t rsa -C &quot;UserName@xxx.com&quot;
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 登陆 Github, 添加 SSH KEY</span><br></pre></td></tr></table></figure>
+<pre><code>1. Avatar(头像) &gt; Settings &gt; Personal Settings &gt; SSH and GPG keys
+2. New SSH KEY，把「id_isa.pub」的密钥粘贴过去即可
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 测试是否配置成功</span><br></pre></td></tr></table></figure>
+<pre><code>1. ssh -T git@github.com
+2. 提示「Hi YourName! You&apos;ve successfully authenticated, but GitHub does not provide shell access.」即成功配置
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&gt; * 配置「_config.yml」文件  </span><br><span class="line">&gt;   在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</span><br></pre></td></tr></table></figure>
+<pre><code>deploy: 
+  type: git 
+  repo: https://github.com/yourname/yourname.github.io.git 
+  branch: master
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; [注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</span><br></pre></td></tr></table></figure>
+<pre><code>deploy:
+- type: git
+  repo:
+- type: heroku 
+  repo:
+</code></pre><p>```</p>
 </li>
 <li><p>部署至 Git</p>
 <blockquote>
