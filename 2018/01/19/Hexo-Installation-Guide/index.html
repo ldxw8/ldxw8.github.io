@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-19T10:48:41.515Z">
+<meta property="og:updated_time" content="2018-01-19T12:49:46.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -204,19 +204,27 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).  </span><br><span class="line">fatal: Could not read from remote repository.  </span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
+<li>配置「SSH KEY / Public KEY」<ul>
+<li>配置 Git 的 UserName 和 Email</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 这里的“YourAnonymousName&quot; 可以替换成自己的用户名</span><br><span class="line">git config --global user.name &quot;YourAnonymousName&quot;</span><br><span class="line"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱</span><br><span class="line">git config --global user.email  &quot;UserName@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<pre><code>* 检查是否已经有 SSH KEY
+</code></pre></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
 <li>配置「_config.yml」文件<br>在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</li>
 </ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">		type: git </span><br><span class="line">		repo: https://github.com/用户名/用户名.github.io.git </span><br><span class="line">		branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">		type: git </span><br><span class="line">		repo: https://github.com/yourname/yourname.github.io.git </span><br><span class="line">		branch: master</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>[注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">		repo:</span><br><span class="line">- type: heroku </span><br><span class="line">		repo:</span><br></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>当然，以上工作完成后，</li>
-</ul>
-</blockquote>
 </li>
 <li><p>部署至 Git</p>
 <blockquote>
