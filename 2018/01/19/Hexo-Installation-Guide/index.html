@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-19T13:27:41.312Z">
+<meta property="og:updated_time" content="2018-01-19T14:18:23.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -177,7 +177,7 @@
 </li>
 </ul>
 <ul>
-<li><p>使用 HEXO    </p>
+<li><p>使用 HEXO</p>
 <blockquote>
 <p>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。</p>
 </blockquote>
@@ -199,55 +199,78 @@
 </ul>
 </blockquote>
 </li>
-<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
+<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):  </p>
+<pre><code>[注意] 若之前在机器上配置了 Git 的信息，请跳过该步骤。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).  </span><br><span class="line">fatal: Could not read from remote repository.  </span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <ul>
-<li>若之前在机器上配置了 Git 的信息，请跳过该步骤。  </li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).  </span><br><span class="line">fatal: Could not read from remote repository.  </span><br><span class="line">Please make sure you have the correct access rights and the repository exists.</span><br></pre></td></tr></table></figure>
-<blockquote>
+<li><p>配置「SSH KEY / Public KEY」</p>
 <ul>
-<li>配置「SSH KEY / Public KEY」</li>
+<li><p>配置 Git 的 UserName 和 Email</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;		# 这里的“YourAnonymousName&quot; 可以替换成自己的用户名  </span><br><span class="line">&gt;		git config --global user.name &quot;YourAnonymousName&quot;  </span><br><span class="line">&gt;		# 这里的邮箱 UserName@xxx.com  替换成自己的邮箱  </span><br><span class="line">&gt;		git config --global user.email  &quot;UserName@xxx.com&quot;  </span><br><span class="line">&gt;	```	</span><br><span class="line"></span><br><span class="line">&gt;  * 检查是否已经有 SSH KEY</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>   cd ~/.ssh</p>
+<h1 id="列出该目录下的文件，看是否存在「id-isa」和「id-isa-pub」文件"><a href="#列出该目录下的文件，看是否存在「id-isa」和「id-isa-pub」文件" class="headerlink" title="列出该目录下的文件，看是否存在「id_isa」和「id_isa.pub」文件"></a>列出该目录下的文件，看是否存在「id_isa」和「id_isa.pub」文件</h1><p>   ls</p>
+<h1 id="没有则继续下一步骤「生成密钥」"><a href="#没有则继续下一步骤「生成密钥」" class="headerlink" title="没有则继续下一步骤「生成密钥」"></a>没有则继续下一步骤「生成密钥」</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;  * 生成密钥</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="邮箱「UserName-xxx-com」替换成自己的邮箱"><a href="#邮箱「UserName-xxx-com」替换成自己的邮箱" class="headerlink" title="邮箱「UserName@xxx.com」替换成自己的邮箱"></a>邮箱「UserName@xxx.com」替换成自己的邮箱</h1><p>   ssh-keygen -t rsa -C “UserName@xxx.com”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;  * 登陆 Github, 添加 SSH KEY </span><br><span class="line"> </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Avatar(头像) &gt; Settings &gt; Personal Settings &gt; SSH and GPG keys</li>
+<li><p>New SSH KEY，把「id_isa.pub」的密钥粘贴过去即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;  * 测试是否配置成功</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ssh -T git@github.com</p>
+</li>
+<li><p>提示「Hi YourName! You’ve successfully authenticated, but GitHub does not provide shell access.」即成功配置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&gt; * 配置「_config.yml」文件  </span><br><span class="line">&gt;   在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</span><br><span class="line">	</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>deploy:<br>type: git<br>repo: <a href="https://github.com/yourname/yourname.github.io.git" target="_blank" rel="noopener">https://github.com/yourname/yourname.github.io.git</a><br>branch: master</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;	[注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>deploy:</p>
+</li>
+</ol>
+<ul>
+<li>type: git<br>repo:</li>
+<li>type: heroku<br>repo:<br>```</li>
 </ul>
-<blockquote>
-<p>配置 Git 的 UserName 和 Email</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	# 这里的“YourAnonymousName&quot; 可以替换成自己的用户名</span><br><span class="line">	git config --global user.name &quot;YourAnonymousName&quot;</span><br><span class="line">	# 这里的邮箱 UserName@xxx.com  替换成自己的邮箱</span><br><span class="line">	git config --global user.email  &quot;UserName@xxx.com&quot;</span><br><span class="line">```	</span><br><span class="line">&gt;&gt; 检查是否已经有 SSH KEY</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 </blockquote>
-</blockquote>
-<pre><code>cd ~/.ssh
-# 列出该目录下的文件，看是否存在「id_isa」和「id_isa.pub」文件，没有则执行「生成密钥」步骤
-ls
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 生成密钥</span><br></pre></td></tr></table></figure>
-<pre><code># 邮箱「UserName@xxx.com」替换成自己的邮箱
-ssh-keygen -t rsa -C &quot;UserName@xxx.com&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 登陆 Github, 添加 SSH KEY</span><br></pre></td></tr></table></figure>
-<pre><code>1. Avatar(头像) &gt; Settings &gt; Personal Settings &gt; SSH and GPG keys
-2. New SSH KEY，把「id_isa.pub」的密钥粘贴过去即可
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 测试是否配置成功</span><br></pre></td></tr></table></figure>
-<pre><code>1. ssh -T git@github.com
-2. 提示「Hi YourName! You&apos;ve successfully authenticated, but GitHub does not provide shell access.」即成功配置
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">&gt; * 配置「_config.yml」文件  </span><br><span class="line">&gt;   在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</span><br></pre></td></tr></table></figure>
-<pre><code>deploy: 
-  type: git 
-  repo: https://github.com/yourname/yourname.github.io.git 
-  branch: master
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; [注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</span><br></pre></td></tr></table></figure>
-<pre><code>deploy:
-- type: git
-  repo:
-- type: heroku 
-  repo:
-</code></pre><p>```</p>
 </li>
 <li><p>部署至 Git</p>
 <blockquote>
-<p>hexo deploy<br>hexo d -g                // 即在部署之前先生成 </p>
+<p>hexo deploy<br>hexo d -g                // 即在部署之前先生成</p>
 </blockquote>
 </li>
 </ul>
 </li>
 </ul>
+<h3 id="Windows-版本"><a href="#Windows-版本" class="headerlink" title="Windows 版本"></a>Windows 版本</h3><h4 id="配置环境-1"><a href="#配置环境-1" class="headerlink" title="配置环境"></a>配置环境</h4><blockquote>
+<p>Github 账号注册和配置和 Hexo 的安装和配置与 MacOS 通用，在 Windows 版本中，主要阐述 Node.Js和 Git 的安装和配置。</p>
+</blockquote>
+<ul>
+<li><p>Node.Js 的安装和准备</p>
+<ul>
+<li>下载并安装「<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.Js for Windows x86/x64 bit</a>」</li>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装</p>
+<blockquote>
+<p>终端下输入命令:<br>node -v<br>npm -v         </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Git 的安装和准备</p>
+<ul>
+<li>下载并安装「<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git for Windows x86/x64 bit</a>」</li>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装</p>
+<blockquote>
+<p>终端下输入命令:<br>git –version</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="叁-优化拓展"><a href="#叁-优化拓展" class="headerlink" title="叁 优化拓展"></a>叁 优化拓展</h2><p>至此，Hexo 的安装以及 GitHub 的配置工作暂告一段落。能正常运行使用 Hexo 是没问题的，而下面的章节则是对 Hexo 的扩展和个性化定制，根据自己的需求挑选阅读、实践。</p>
 
       
     </div>
