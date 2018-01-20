@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-20T18:01:57.082Z">
+<meta property="og:updated_time" content="2018-01-20T18:06:13.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -259,7 +259,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-19T18:46:03+08:00">
                 2018-01-19
@@ -393,9 +393,10 @@
 </li>
 </ul>
 <ul>
-<li>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):    </li>
+<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Permission denied (publickey).  </span></span><br><span class="line"> <span class="comment"># fatal: Could not read from remote repository.  </span></span><br><span class="line"> <span class="comment"># Please make sure you have the correct access rights and the repository exists.</span></span><br><span class="line"> ``` </span><br><span class="line"> </span><br><span class="line">- 配置「SSH KEY / Public KEY」 </span><br><span class="line">&gt; [注意] 若之前机器上配置了 Git 的信息，请跳过该步骤。</span><br><span class="line">   </span><br><span class="line"> - 配置 Git 的 UserName 和 Email</span><br><span class="line"> </span><br><span class="line"> ```bash</span><br><span class="line"> <span class="comment"># 这里的“YourAnonymousName" 可以替换成自己的用户名   </span></span><br><span class="line"> git config --global user.name <span class="string">"YourAnonymousName"</span>  </span><br><span class="line"> <span class="comment"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱  </span></span><br><span class="line"> git config --global user.email  <span class="string">"UserName@xxx.com"</span>  </span><br><span class="line"> ```	</span><br><span class="line">	</span><br><span class="line"> - 检查是否已经有 SSH KEY</span><br><span class="line">	</span><br><span class="line"> ```bash</span><br><span class="line"> <span class="comment"># 1. 列出该目录下的文件</span></span><br><span class="line"> <span class="comment"># 2. 看是否存在「id_isa」和「id_isa.pub」文件</span></span><br><span class="line"> <span class="comment"># 3. 没有则继续下一步骤「生成密钥」</span></span><br><span class="line"> <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"> ls</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># Permission denied (publickey).  </span></span><br><span class="line"> <span class="comment"># fatal: Could not read from remote repository.  </span></span><br><span class="line"> <span class="comment"># Please make sure you have the correct access rights and the repository exists.</span></span><br><span class="line">``` </span><br><span class="line"> </span><br><span class="line">- 配置「SSH KEY / Public KEY」 </span><br><span class="line">&gt; [注意] 若之前机器上配置了 Git 的信息，请跳过该步骤。</span><br><span class="line">   </span><br><span class="line"> - 配置 Git 的 UserName 和 Email</span><br><span class="line"> </span><br><span class="line"> ```bash</span><br><span class="line"> <span class="comment"># 这里的“YourAnonymousName" 可以替换成自己的用户名   </span></span><br><span class="line"> git config --global user.name <span class="string">"YourAnonymousName"</span>  </span><br><span class="line"> <span class="comment"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱  </span></span><br><span class="line"> git config --global user.email  <span class="string">"UserName@xxx.com"</span>  </span><br><span class="line"> ```	</span><br><span class="line">	</span><br><span class="line"> - 检查是否已经有 SSH KEY</span><br><span class="line">	</span><br><span class="line"> ```bash</span><br><span class="line"> <span class="comment"># 1. 列出该目录下的文件</span></span><br><span class="line"> <span class="comment"># 2. 看是否存在「id_isa」和「id_isa.pub」文件</span></span><br><span class="line"> <span class="comment"># 3. 没有则继续下一步骤「生成密钥」</span></span><br><span class="line"> <span class="built_in">cd</span> ~/.ssh</span><br><span class="line"> ls</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>生成密钥</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 邮箱「UserName@xxx.com」替换成自己的邮箱</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"UserName@xxx.com"</span></span><br></pre></td></tr></table></figure>
@@ -458,7 +459,7 @@
 <h3 id="套用一款主题"><a href="#套用一款主题" class="headerlink" title="套用一款主题"></a>套用一款主题</h3><p>Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 themes 目录下， 然后修改下配置文件即可。</p>
 <p>在 Hexo 中有两份主要的配置文件，其名称都是「_config.yml」。 其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
 <p>为了描述方便，在以下说明中，将前者称为「<code>站点配置文件</code>」， 后者称为「<code>主题配置文件</code>」。</p>
-<p>具体到 NexT 来说，安装步骤如下。</p>
+<p>具体到 NexT[2] 来说，安装步骤如下。</p>
 <ul>
 <li>下载主题  </li>
 </ul>
@@ -554,10 +555,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -578,7 +579,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -591,7 +592,7 @@
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 
               </div>
             
@@ -653,7 +654,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
