@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-20T17:04:48.351Z">
+<meta property="og:updated_time" content="2018-01-20T17:10:57.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -361,12 +361,12 @@
 <ul>
 <li>本地选择安装目录</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment"># 终端下输入命令:</span></span><br><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p>在线安装 HEXO ( <a href="http://npm.taobao.org/" target="_blank" rel="noopener">NPM淘宝源</a> )</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment"># 终端下输入命令:</span></span><br><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -377,8 +377,22 @@
 <ul>
 <li><p>运作 HEXO ( <strong>每次发布文章的流程操作</strong> )</p>
 <ul>
-<li><p>本地运作 HEXO</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">	hexo server		<span class="comment"># 或简写 hexo s</span></span><br><span class="line">	```  </span><br><span class="line"></span><br><span class="line"> - 当终端提示以下信息，则本地配置工作基本完成。</span><br><span class="line"></span><br><span class="line">	&gt; Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br><span class="line">	</span><br><span class="line">- 使用 HEXO</span><br><span class="line"></span><br><span class="line">  `</span><br><span class="line">  [注意] 此项操作，需要确保在 Hexo 安装目录下执行。</span><br><span class="line">  `</span><br><span class="line"></span><br><span class="line"> - 新建一篇博文 ( 当然，更新同一篇文章只需修改「Hexo &gt; Source &gt; _Posts」目录下相应的MarkDown文件 )</span><br><span class="line"></span><br><span class="line">	```bash</span><br><span class="line">	hexo new post <span class="string">"Article Title"</span></span><br></pre></td></tr></table></figure>
+<li>本地运作 HEXO</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server		<span class="comment"># 或简写 hexo s</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>当终端提示以下信息，则本地配置工作基本完成。</p>
+<blockquote>
+<p>Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>使用 HEXO</p>
+<p><code>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。</code></p>
+<ul>
+<li><p>新建一篇博文 ( 当然，更新同一篇文章只需修改「Hexo &gt; Source &gt; _Posts」目录下相应的MarkDown文件 )</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"Article Title"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>生成博文 ( 生成静态网页 )</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- 部署至 Git 的准备工作</span><br><span class="line"></span><br><span class="line">&gt; * 在部署前，还需要安装「Git部署插件」:  </span><br><span class="line">&gt;   npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line">- 再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):  </span><br><span class="line"></span><br><span class="line">[注意] 若之前在机器上配置了 Git 的信息，请跳过该步骤。</span><br></pre></td></tr></table></figure>
