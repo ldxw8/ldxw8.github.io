@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/01/19/Hexo-Installation-Guide/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
-<meta property="og:updated_time" content="2018-01-20T16:55:17.670Z">
+<meta property="og:updated_time" content="2018-01-20T17:00:17.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能，且基于 Node.Js 所带来的超快生成速度，开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产">
@@ -323,12 +323,12 @@
 <li><a href="https://nodejs.org/" target="_blank" rel="noopener">官方下载</a></li>
 <li>本地安装，文件包为「Node-Vx.x.x.pkg」</li>
 <li><p>检测是否安装成功，当然返回版本信息即成功安装</p>
-<blockquote>
-<p>终端下输入命令:<br>node -v<br>npm -v </p>
-</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 终端下输入命令:  </span><br><span class="line">node -v  </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
+</ul>
+<ul>
 <li><p>Github Account ( <strong>已有账号、项目可忽略</strong> )</p>
 <ul>
 <li>注册账号「<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>」 </li>
@@ -359,23 +359,22 @@
 <h4 id="安装-HEXO"><a href="#安装-HEXO" class="headerlink" title="安装 HEXO"></a>安装 HEXO</h4><ul>
 <li><p>安装 HEXO</p>
 <ul>
-<li><p>本地选择安装目录</p>
-<blockquote>
-<p>cd your-hexo-site </p>
-</blockquote>
-</li>
-<li><p>在线安装 HEXO ( <a href="http://npm.taobao.org/" target="_blank" rel="noopener">NPM淘宝源</a> )</p>
-<blockquote>
-<p>npm install hexo-cli -g<br>hexo init<br>hexo install </p>
-</blockquote>
-</li>
-<li><p>检测是否安装成功，当然返回版本信息即成功安装</p>
-<blockquote>
-<p>hexo -v</p>
-</blockquote>
+<li>本地选择安装目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd your-hexo-site</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<ul>
+<li><p>在线安装 HEXO ( <a href="http://npm.taobao.org/" target="_blank" rel="noopener">NPM淘宝源</a> )</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+<ul>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
 <li><p>运作 HEXO ( <strong>每次发布文章的流程操作</strong> )</p>
 <ul>
 <li><p>本地运作 HEXO</p>
