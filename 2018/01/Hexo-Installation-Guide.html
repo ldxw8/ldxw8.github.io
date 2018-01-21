@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T18:52:16.701Z">
+<meta property="og:updated_time" content="2018-01-21T18:57:06.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本">
@@ -402,7 +402,7 @@
 <ul>
 <li>注册账号「<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>」</li>
 <li><p>创建代码库 </p>
- <div class="note default"><p>具体操作步骤:  </p>
+<div class="note default"><p>具体操作步骤:  </p>
 <ol>
 <li>Add ( 右上角「+」图标 ) &gt; New Repository；  </li>
 <li>Repository Name，填写<code>yourname.github.io</code>；        </li>
@@ -410,15 +410,13 @@
 </ol></div>
 </li>
 <li><p>配置代码库</p>
-<blockquote>
-<p>具体操作步骤:  </p>
+<div class="note default"><p>具体操作步骤:  </p>
 <ol>
 <li>进入项目「yourname.github.io」；  </li>
 <li>Settings &gt; GitHub Pages，开启<code>GH-Pages</code>功能；  </li>
 <li>点击「Launch Automatic Page Generator」；</li>
 </ol>
-<p>第三步说明:<br>Github 将会自动替你创建出一个 GH-Pages 的页面。若配置没有问题，约15分钟后，yourname.github.io 就可以正常访问了，配置结束。</p>
-</blockquote>
+<p>第三步说明:<br>Github 将会自动替你创建出一个 GH-Pages 的页面。若配置没有问题，约15分钟后，yourname.github.io 就可以正常访问了，配置结束。</p></div>
 </li>
 </ul>
 </li>
@@ -441,15 +439,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server	<span class="comment"># 或简写 hexo s</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当终端提示以下信息，则本地配置工作基本完成。</p>
-<blockquote>
-<p>Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
-</blockquote>
+  <div class="note default"><p>Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop. </p></div>
+
+##### 使用 HEXO
+<div class="note warning"><p>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。 </p></div>
 </li>
-</ul>
-<h5 id="使用-HEXO"><a href="#使用-HEXO" class="headerlink" title="使用 HEXO"></a>使用 HEXO</h5><blockquote>
-<p>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。</p>
-</blockquote>
-<ul>
 <li><p>新建一篇博文 ( 当然，更新过往的文章只需修改「Hexo &gt; Source &gt; _Posts」目录下相应的 MarkDown 文件 )</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"Article Title"</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -466,9 +460,7 @@
 </ul>
 <ul>
 <li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
-<blockquote>
-<p>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights and the repository exists.</p>
-</blockquote>
+  <div class="note default"><p>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights and the repository exists.</p></div>
 </li>
 <li><p>配置「SSH KEY / Public KEY」</p>
 <blockquote>
@@ -937,7 +929,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-搭建环境"><span class="nav-number">2.</span> <span class="nav-text">壹 搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-版本"><span class="nav-number">2.1.</span> <span class="nav-text">MacOS 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-HEXO"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 HEXO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-HEXO-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">安装 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运作-HEXO"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">运作 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-HEXO"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">使用 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署至-GitHub"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">部署至 GitHub</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-版本"><span class="nav-number">2.2.</span> <span class="nav-text">Windows 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-优化拓展"><span class="nav-number">3.</span> <span class="nav-text">贰 优化拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#套用一款主题"><span class="nav-number">3.1.</span> <span class="nav-text">套用一款主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载主题"><span class="nav-number">3.1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启用主题"><span class="nav-number">3.1.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题设定"><span class="nav-number">3.1.3.</span> <span class="nav-text">主题设定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#揽收实用插件"><span class="nav-number">3.2.</span> <span class="nav-text">揽收实用插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-参考资料"><span class="nav-number">4.</span> <span class="nav-text">叁 参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-搭建环境"><span class="nav-number">2.</span> <span class="nav-text">壹 搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-版本"><span class="nav-number">2.1.</span> <span class="nav-text">MacOS 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-HEXO"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 HEXO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-HEXO-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">安装 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运作-HEXO"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">运作 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署至-GitHub"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">部署至 GitHub</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-版本"><span class="nav-number">2.2.</span> <span class="nav-text">Windows 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-优化拓展"><span class="nav-number">3.</span> <span class="nav-text">贰 优化拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#套用一款主题"><span class="nav-number">3.1.</span> <span class="nav-text">套用一款主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载主题"><span class="nav-number">3.1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启用主题"><span class="nav-number">3.1.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题设定"><span class="nav-number">3.1.3.</span> <span class="nav-text">主题设定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#揽收实用插件"><span class="nav-number">3.2.</span> <span class="nav-text">揽收实用插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-参考资料"><span class="nav-number">4.</span> <span class="nav-text">叁 参考资料</span></a></li></ol></div>
             
 
           </div>
