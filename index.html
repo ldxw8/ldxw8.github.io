@@ -386,21 +386,32 @@
 <p>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。</p>
 </blockquote>
 <ul>
-<li>新建一篇博文 ( 当然，更新同一篇文章只需修改「Hexo &gt; Source &gt; _Posts」目录下相应的MarkDown文件 )</li>
+<li>新建一篇博文 ( 当然，更新过往的文章只需修改「Hexo &gt; Source &gt; _Posts」目录下相应的 MarkDown 文件 )</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"Article Title"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>生成博文 ( 生成静态网页 )</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-<ul>
+<h5 id="部署至-GitHub"><a href="#部署至-GitHub" class="headerlink" title="部署至 GitHub"></a>部署至 GitHub</h5><ul>
 <li>部署至 Git 的准备工作</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在部署前，还需要安装「Git部署插件」:  </span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <ul>
-<li>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):    </li>
+<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
+<blockquote>
+<p>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights and the repository exists.</p>
+</blockquote>
+</li>
+<li><p>配置「SSH KEY / Public KEY」</p>
+<blockquote>
+<p>[注意] 若之前机器上配置了 Git 的信息，请跳过该步骤。</p>
+</blockquote>
+</li>
+<li><p>配置 Git 的 UserName 和 Email</p>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment"># Permission denied (publickey).  </span></span><br><span class="line">	<span class="comment"># fatal: Could not read from remote repository.  </span></span><br><span class="line">	<span class="comment"># Please make sure you have the correct access rights and the repository exists.</span></span><br><span class="line">``` </span><br><span class="line">	</span><br><span class="line">- 配置「SSH KEY / Public KEY」 </span><br><span class="line">&gt; [注意] 若之前机器上配置了 Git 的信息，请跳过该步骤。</span><br><span class="line">   </span><br><span class="line">- 配置 Git 的 UserName 和 Email</span><br><span class="line"> </span><br><span class="line">```bash</span><br><span class="line"> <span class="comment"># 这里的“YourAnonymousName" 可以替换成自己的用户名   </span></span><br><span class="line"> git config --global user.name <span class="string">"YourAnonymousName"</span>  </span><br><span class="line"> <span class="comment"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱  </span></span><br><span class="line"> git config --global user.email  <span class="string">"UserName@xxx.com"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里的“YourAnonymousName" 可以替换成自己的用户名   </span></span><br><span class="line">git config --global user.name <span class="string">"YourAnonymousName"</span>  </span><br><span class="line"><span class="comment"># 这里的邮箱 UserName@xxx.com  替换成自己的邮箱  </span></span><br><span class="line">git config --global user.email  <span class="string">"UserName@xxx.com"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>检查是否已经有 SSH KEY</li>
 </ul>
@@ -408,7 +419,7 @@
 <ul>
 <li>测试是否配置成功</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	1. ssh -T git@github.com</span><br><span class="line">	2. 提示「Hi YourName! You<span class="string">'ve successfully authenticated, but GitHub does not provide shell access.」即成功配置。</span></span><br><span class="line"><span class="string">```	 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 配置「_config.yml」文件  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&gt; 在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">```bash</span></span><br><span class="line"><span class="string">	deploy: </span></span><br><span class="line"><span class="string">	type: git </span></span><br><span class="line"><span class="string">	repo: https://github.com/yourname/</span></span><br><span class="line"><span class="string">	yourname.github.io.git </span></span><br><span class="line"><span class="string">	branch: master</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	ssh -T git@github.com</span><br><span class="line">	<span class="comment"># 提示「Hi YourName! You've successfully authenticated, but GitHub does not provide shell access.」即成功配置。</span></span><br><span class="line">```	 </span><br><span class="line"></span><br><span class="line">- 配置「_config.yml」文件  </span><br><span class="line"></span><br><span class="line">	&gt; 在 Hexo 安装目录下找到 _config.yml 文件，如「~/你的安装目录/Hexo/_config.yml」。找到「deploy」字段，修改配置。</span><br><span class="line">		</span><br><span class="line">```bash</span><br><span class="line">	deploy: </span><br><span class="line">	<span class="built_in">type</span>: git </span><br><span class="line">	repo: https://github.com/yourname/</span><br><span class="line">	yourname.github.io.git </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>[注意] 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</p>
 </blockquote>
