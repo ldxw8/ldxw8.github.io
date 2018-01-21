@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="壹 序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T14:09:55.656Z">
+<meta property="og:updated_time" content="2018-01-21T14:12:57.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存">
@@ -522,13 +522,12 @@
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: 首页</span><br><span class="line">archives: 归档</span><br><span class="line">categories: 分类</span><br><span class="line">tags: 标签</span><br><span class="line">about: 关于</span><br><span class="line">search: 搜索</span><br><span class="line">commonweal: 404</span><br><span class="line">something: 有料</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设定菜单项的图标，对应的字段是<code>menu_icons</code>。</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line">enable: true</span><br><span class="line"><span class="meta">#</span><span class="bash"> Icon Mapping.</span></span><br><span class="line">home: home</span><br><span class="line">about: user</span><br><span class="line">categories: th</span><br><span class="line">tags: tags</span><br><span class="line">archives: archive</span><br><span class="line">commonweal: heartbeat</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line">enable: true</span><br><span class="line"><span class="meta">#</span><span class="bash"> Icon Mapping.</span></span><br><span class="line">home: home</span><br><span class="line">about: user</span><br><span class="line">categories: th</span><br><span class="line">tags: tags</span><br><span class="line">archives: archive</span><br><span class="line">commonweal: heartbeat</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">  此设定格式是「item name: icon name」</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 「item name」与上一步所配置的菜单名字对应</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 「icon name」是 Font Awesome 图标的名字</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 「<span class="built_in">enable</span>」用于控制是否显示图标，你可以设置成「<span class="literal">false</span>」来去掉图标</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>此设定格式是`item name: icon name`，其中`item name`与上一步所配置的菜单名字对应，icon name 是 Font Awesome 图标的名字。而`enable`可用于控制是否显示图标，你可以设置成`false`来去掉图标。
-</code></pre><ul>
+<ul>
 <li><p>设置侧栏 </p>
 <p>可以通过修改<code>主题配置文件</code>中的<code>sidebar</code>字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
 <ul>
