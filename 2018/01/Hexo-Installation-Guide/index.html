@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="壹 序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T12:19:02.510Z">
+<meta property="og:updated_time" content="2018-01-21T13:18:09.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo\(^{[1]}\)，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存">
@@ -354,8 +354,8 @@
 <p>具体操作步骤:  </p>
 <ol>
 <li>Add ( 右上角「+」图标 ) &gt; New Repository；  </li>
-<li>Repository Name，填写「yourname.github.io」；        </li>
-<li>Repository Description，填写「简单描述」；</li>
+<li>Repository Name，填写<code>yourname.github.io</code>；        </li>
+<li>Repository Description，填写<code>简单描述</code>；</li>
 </ol>
 </blockquote>
 </li>
@@ -364,7 +364,7 @@
 <p>具体操作步骤:  </p>
 <ol>
 <li>进入项目「yourname.github.io」；  </li>
-<li>Settings &gt; GitHub Pages，开启「GH-Pages」功能；  </li>
+<li>Settings &gt; GitHub Pages，开启<code>GH-Pages</code>功能；  </li>
 <li>点击「Launch Automatic Page Generator」；</li>
 </ol>
 <p>第三步说明:<br>Github 将会自动替你创建出一个 GH-Pages 的页面。若配置没有问题，约15分钟后，yourname.github.io 就可以正常访问了，配置结束。</p>
@@ -473,7 +473,7 @@
 <h4 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h4><p>如果你熟悉 Git， 建议你使用<code>克隆最新版本</code>的方式，之后的更新可以通过 git pull 来快速更新， 而不用再次下载压缩包替换。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆最新版本</span></span><br><span class="line"><span class="built_in">cd</span> your-hexo-site  </span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next. themes/next</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速更新</span></span><br><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 <h4 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h4><ul>
-<li><p>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件， 找到 theme 字段，并将其值更改为 next。</p>
+<li><p>与所有 Hexo 主题启用的模式一样。 当 克隆/下载 完成后，打开 站点配置文件， 找到<code>theme</code>字段，并将其值更改为<code>next</code>。</p>
 <blockquote>
 <p>theme: next</p>
 </blockquote>
@@ -497,14 +497,47 @@
 </ul>
 </li>
 <li><p>设置语言</p>
-<p>编辑<code>站点配置文件</code>， 将「language」设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下 ( 更多请语言配置请参考下述表格 )：</p>
+<p>编辑<code>站点配置文件</code>， 将<code>language</code>设置成你所需要的语言。建议明确设置你所需要的语言，例如选用简体中文，配置如下 ( 更多请语言配置请参考下述表格 )：</p>
 <blockquote>
 <p>language: zh-Hans  </p>
 </blockquote>
 <p>  | 语言 | 代码 | 设定示例 |<br>  |:—|:—|:—|<br>  | English | en | language: en |<br>  | 简体中文 | zh-Hans    | language: zh-Hans |<br>  | Français | fr-FR | language: fr-FR |<br>  | Português | pt | language: pt or pt-BR |<br>  | 繁體中文 | zh-hk | language: zh-hk |<br>  | Русский     | язык    ru | language: ru |<br>  | Deutsch | de | language: de |<br>  | 日本語 | ja | language: ja |<br>  | Indonesian | id | language: id |<br>  | Korean | ko | language: ko |</p>
 </li>
+<li><p>设置菜单</p>
+<p>菜单配置包括三个部分，第一是菜单项（ 名称和链接 ），第二是菜单项的显示文本，第三是菜单项对应的图标。</p>
+<p>NexT 使用的是 <a href="http://fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> 提供的图标，600+ 的图标可满足大部分需求，且适配 Retina 屏幕。</p>
+<p>编辑<code>主题配置文件</code>，修改以下内容：</p>
+<ul>
+<li><p>设定菜单内容，对应的字段是<code>menu</code>，菜单内容的设置格式是：<code>item name: link</code>。其中<code>item name</code>是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: /</span><br><span class="line">archives: /archives</span><br><span class="line"><span class="comment">#about: /about</span></span><br><span class="line"><span class="comment">#categories: /categories</span></span><br><span class="line">tags: /tags</span><br><span class="line"><span class="comment">#commonweal: /404.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 若你的站点运行在子目录中，请将链接前缀的/去掉</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>NexT 默认的菜单项有（标注`*`的项表示需要手动创建这个页面）：
+
+| 键值 | 设定值| 显示文本(简体中文) | 
+|:---|:---|:---|  
+| home | home: / | 主页 |  
+| archives | archives: /archives | 归档页 |  
+| categories | categories: /categories | 分类页`*` |  
+| tags | tags: /tags | 标签页`*` |  
+| about | about: /about |     关于页面`*` |  
+| commonweal | commonweal: /404.html     | 公益 404`*` |  
+</code></pre><ul>
+<li><p>设置菜单项的显示文本，在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用这个名称查找对应的语言翻译，并提取显示文本。</p>
+<p>  这些翻译文本放置在 NexT 主题目录下的<code>languages/{language}.yml</code> （ {language} 为你所使用的语言 )。</p>
+<p>  以简体中文为例，若你需要添加一个菜单项，比如 something。那么就需要修改简体中文对应的翻译文件 languages/zh-Hans.yml，在 menu 字段下添加一项：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: 首页</span><br><span class="line">archives: 归档</span><br><span class="line">categories: 分类</span><br><span class="line">tags: 标签</span><br><span class="line">about: 关于</span><br><span class="line">search: 搜索</span><br><span class="line">commonweal: 404</span><br><span class="line">something: 有料</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设定菜单项的图标，对应的字段是<code>menu_icons</code>。</p>
+<p>  此设定格式是<code>item name: icon name</code>，其中<code>item name</code>与上一步所配置的菜单名字对应，icon name 是 Font Awesome 图标的名字。而<code>enable</code>可用于控制是否显示图标，你可以设置成<code>false</code>来去掉图标。</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line"><span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"><span class="comment"># Icon Mapping.</span></span><br><span class="line">home: home</span><br><span class="line">about: user</span><br><span class="line">categories: th</span><br><span class="line">tags: tags</span><br><span class="line">archives: archive</span><br><span class="line">commonweal: heartbeat</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
 <li><p>设置侧栏 </p>
-<p>默认情况下，侧栏仅在文章页面 ( 拥有目录列表 ) 时才显示，并放置于右侧位置。 可以通过修改<code>主题配置文件</code>中的「sidebar」字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
+<p>可以通过修改<code>主题配置文件</code>中的<code>sidebar</code>字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是侧栏的位置， 其二是侧栏显示的时机。</p>
 <ul>
 <li><p>设置侧栏的位置，修改 sidebar.position 的值，支持的选项有：</p>
 <blockquote>
@@ -515,10 +548,25 @@
 </li>
 <li><p>设置侧栏显示的时机，修改 sidebar.display 的值，支持的选项有：</p>
 <blockquote>
-<p>post - 默认行为，在文章页面（拥有目录列表）时显示<br>always - 在所有页面中都显示<br>hide - 在所有页面中都隐藏（可以手动展开）<br>remove - 完全移除  </p>
+<p>post - 默认行为，在文章页面（ 拥有目录列表 ）时显示<br>always - 在所有页面中都显示<br>hide - 在所有页面中都隐藏（ 可以手动展开 ）<br>remove - 完全移除  </p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line">display: post</span><br></pre></td></tr></table></figure>
-<p>已知侧栏在 use motion: false 的情况下不会展示。 影响版本5.0.0及更低版本。</p>
+<p>已知侧栏在 use motion: false 的情况下不会展示。影响版本5.0.0及更低版本。</p>
+</li>
+</ul>
+</li>
+<li><p>设置头像</p>
+<p>编辑<code>主题配置文件</code>， 修改字段<code>avatar</code>，值设置成头像的链接地址。其中，头像的链接地址可以是：</p>
+<ul>
+<li><p>站外链接</p>
+<blockquote>
+<p>avatar: <a href="http://example.com/avatar.png" target="_blank" rel="noopener">http://example.com/avatar.png</a></p>
+</blockquote>
+</li>
+<li><p>站内资源 </p>
+<blockquote>
+<p>放置在「source/images/」目录下，images 为自建目录<br>avatar: avatar: /images/avatar.png</p>
+</blockquote>
 </li>
 </ul>
 </li>
