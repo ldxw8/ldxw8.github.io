@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及 Gith">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T09:19:43.385Z">
+<meta property="og:updated_time" content="2018-01-21T09:25:40.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="壹 序言Hexo，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.Js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及 Gith">
@@ -411,12 +411,10 @@
 </ul>
 <h5 id="部署至-GitHub"><a href="#部署至-GitHub" class="headerlink" title="部署至 GitHub"></a>部署至 GitHub</h5><ul>
 <li><p>部署至 Git 的准备工作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在部署前，还需要安装「Git部署插件」:  </span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在部署前，还需要安装「Git部署插件」:  </span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若没有安装该插件，会出现情况：</span></span><br><span class="line"><span class="comment"># deloyer not found:git</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<pre><code>&gt; 若没有安装 Git 插件，会出现情况：
-&gt; deloyer not found:git
-</code></pre><ul>
+<ul>
 <li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
 <blockquote>
 <p>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights and the repository exists.</p>
