@@ -5,9 +5,9 @@
   <subtitle>Reading / Project / Research</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="www.kofes.cn/"/>
+  <link href="https//kofes.cn/"/>
   <updated>2018-01-21T09:25:40.633Z</updated>
-  <id>www.kofes.cn/</id>
+  <id>https//kofes.cn/</id>
   
   <author>
     <name>Kofe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>基于 Hexo 框架在 Github 上搭建博客</title>
-    <link href="www.kofes.cn/2018/01/Hexo-Installation-Guide/"/>
-    <id>www.kofes.cn/2018/01/Hexo-Installation-Guide/</id>
+    <link href="https//kofes.cn/2018/01/Hexo-Installation-Guide/"/>
+    <id>https//kofes.cn/2018/01/Hexo-Installation-Guide/</id>
     <published>2018-01-19T10:46:03.000Z</published>
     <updated>2018-01-21T09:25:40.633Z</updated>
     
@@ -34,7 +34,7 @@
     </summary>
     
     
-      <category term="hexo" scheme="www.kofes.cn/tags/hexo/"/>
+      <category term="hexo" scheme="https//kofes.cn/tags/hexo/"/>
     
   </entry>
   
