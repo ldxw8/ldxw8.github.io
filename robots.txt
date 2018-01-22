@@ -8,3 +8,5 @@ Disallow: /images/
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
+
+Sitemap: http://www.kofes.cn/atom.xml
