@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /lib/
