@@ -42,6 +42,38 @@
   </entry>
   
   <entry>
+    <title>读书笔记 - Java 技术手册</title>
+    <link href="http://www.kofes.cn/2017/09/Java-in-a-Nutshell.html"/>
+    <id>http://www.kofes.cn/2017/09/Java-in-a-Nutshell.html</id>
+    <published>2017-09-01T08:01:47.000Z</published>
+    <updated>2018-01-30T09:40:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>更新进度</p><ul><li>2017.09.01 - 整理 Notes 草稿；</li><li>2017.09.14 - 输出 Markdown 文档；  </li><li>2018.01.30 - 完成序言；</li></ul></li></ul><h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册为主要框架，开启我的 Java 语言学习旅程。</p><p>当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。</p><p>需要说明的是，笔记当中会包含实际项目当中深入了解、研究的知识点，如 Class 类文件结构、Regex 正则表达式、Java 范型等。既经由分析、解决、随之文档化的过程，这不仅仅可作为自己的案例库，也可用于分享、交流。毕竟自身的知识面是非常有限的，有不恰当之处、不正确的地方，欢迎广大朋友的帮忙、斧正，互为补足。</p><ul><li><p>参考书目</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基础篇</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>《 Java 技术手册 》:  O’Reilly 动物书系列 (听说集齐一套可以召唤神龙？)，因本书籍不会刻意去阐述面向对象编程（Object Oriented Programming，OOP）的相关概念、内容，适合对 OOP、Java 编程语言有一定了解后，所使用的学习材料。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进阶篇</span><br></pre></td></tr></table></figure></li></ul><ul><li>《 Java编程思想 / Thinking in Java 》：待阅读。贴上本书豆瓣的书评，供朋友评判，做出抉择。<a href="https://book.douban.com/subject/2130190/" target="_blank" rel="noopener">TIJ(中文第四版)</a> | <a href="https://book.douban.com/subject/2061172/" target="_blank" rel="noopener">TIJ(英文第四版)</a></li></ul><ul><li><p>优秀博文 (主要的采集源：Guihub、CSDN)</p><ul><li><a href="http://wdxtub.com/2012/09/11/awesome-java/" target="_blank" rel="noopener">小土刀. Java 资源索引. 2012. wdxtub.com.</a> : </li><li><a href="https://github.com/akullpp/awesome-java" target="_blank" rel="noopener">Akullpp. Awsome Java. github.com</a></li></ul></li><li><p>开源项目</p></li></ul><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul><li>壹 Java 环境介绍  </li><li>贰 Java 基本句法  </li><li>叁 Java 面向对象编程  </li><li>肆 Java 类型系统  </li><li>伍 Java 的面向对象设计  </li><li>陆 Java 实现内存管理和并发编程的方式  </li><li>柒 编程和文档约定  </li><li>捌 使用 Java 集合  </li><li>玖 处理常见的数据格式  </li><li>拾 处理文件和I/O  </li><li>拾壹 类加载、反射和方法句柄  </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;更新进度&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2017.09.01 - 整理 Notes 草稿；&lt;/li&gt;
+&lt;li&gt;2017.09.14 - 输出 Markdown 文档；  &lt;/li&gt;
+&lt;li&gt;2018.01.30 - 完成序言；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+      
+    
+    </summary>
+    
+      <category term="Programme" scheme="http://www.kofes.cn/categories/Programme/"/>
+    
+    
+      <category term="java" scheme="http://www.kofes.cn/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C语言程序设计 ( 应试篇 )</title>
     <link href="http://www.kofes.cn/2017/04/C-Programming-Design-Learning.html"/>
     <id>http://www.kofes.cn/2017/04/C-Programming-Design-Learning.html</id>
@@ -56,7 +88,7 @@
     
     </summary>
     
-      <category term="Reading" scheme="http://www.kofes.cn/categories/Reading/"/>
+      <category term="Programme" scheme="http://www.kofes.cn/categories/Programme/"/>
     
     
       <category term="C" scheme="http://www.kofes.cn/tags/C/"/>
