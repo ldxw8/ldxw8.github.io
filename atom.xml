@@ -107,6 +107,35 @@
   </entry>
   
   <entry>
+    <title>数据结构 (应试篇)</title>
+    <link href="http://www.kofes.cn/2017/04/Data-Struct-vs-C-learning.html"/>
+    <id>http://www.kofes.cn/2017/04/Data-Struct-vs-C-learning.html</id>
+    <published>2017-04-26T01:32:15.000Z</published>
+    <updated>2018-03-07T01:36:45.217Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>既管学习的目的并不是为了考试，编程也不仅是为了验证题目结果的正确性，然而在应试教育当中，论分数高低和正确解答却成为了验收学习效果和评判个人编程水平的有效方法。虽然这不科学不合理，但在人力物力有限的环境下，这就是“合情合理”的游戏规则。在这个过程当中，我们得武装自身，适应规则。</p><p>作为编程当中重要的必修课程之一「数据结构与算法」，对于课程体系要求掌握程度相信在你心里也有度量。而针对于应试层面而言，学习方法因人而异，但也可有参考性的应对策略。个人较推崇<strong>「脑图 - 细化 - 比较 - 刻意练习」</strong>的方法来学习该门课程，也是本系列文章中时刻强调的内容，既一定要建立正确的、宏观的认识后，通过做题巩固，从而达到再认识知识体的效果。切记不要为了刷题而刷题，宁缺毋滥的道理大家都懂，「刻意练习」才是正道。</p><hr><p>再者，对于「数据结构与算法」该门课程，这里分享一些自己的心得见解，以便与朋友共同探讨、学习。 </p><ul><li>熟知每章节的知识框架 (最好形成脑图)，构建章节间的联系 (第1、2章大部分内容是为后面章节服务的)，再对细枝末节的知识点填充；</li><li>由刷题模式向探索模式转变，即复习时尽可能地设想问题。始于心践于行，针对不同类型的问题要有相应的答题思路和解题步骤。</li><li>算法的题目千变万化，尤其是一些限制条件、不同角度去探讨问题，故对题目背后的知识点，自己要有<strong>「定位 - 分析 - 总结」</strong>的能力 (属于哪个知识模块，具体章节的内容，考点背后的意义，再遇同类型问题的解决方案等)。</li></ul><p>当然，少不了的配套学习的参考书目：</p><ul><li><p>[教材]《数据结构(C语言版)》. 严蔚敏,吴伟民. 清华大学出版社</p><blockquote><p>经典教程之一，作用不言而喻。可作为应试复习中的参考书目。</p></blockquote></li><li><p>[教材]《数据结构》. 陈越. 高等教育出版社  </p><blockquote><p>最初，购买本书的最大动机是拥有一本可以同步MOOC「数据结构」课堂的教材。然而，后知后觉地发现本书对数据结构的代码描述是多么的明朗，特别是面对较抽象的数据操作，书中运用了大量生动的示意图，辅助你阅读代码，达到透彻理解的效果。</p></blockquote></li><li><p>[习题]《数据结构考研复习指导》. 王道论坛. 电子工业出版社  </p><blockquote><p>备战考研时期，除了所考学校的专业课真题之外，课后习题的题量还是太少了。在应试层面中学习该门课程，光说不练是非常避忌的。此时，我选择一本联考的习题书，我相信经历了多少年的迭代、积淀，题目是非常经典的，值得你花时间练习。</p></blockquote></li></ul><hr><h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul><li><a href="#">壹 绪论</a></li><li><a href="#">贰 线性表</a></li><li><a href="#">叁 栈与队</a></li><li><a href="#">肆 串</a></li><li><a href="#">伍 数组</a></li><li><a href="#">陆 广义表</a></li><li><a href="#">柒 树</a></li><li><a href="#">捌 图</a></li><li><a href="#">玖 查找</a></li><li><a href="#">拾 内部排序</a></li></ul><h2 id="1-壹-绪论"><a href="#1-壹-绪论" class="headerlink" title="1 壹 绪论"></a>1 壹 绪论</h2><h3 id="1-1-什么是数据结构"><a href="#1-1-什么是数据结构" class="headerlink" title="1.1 什么是数据结构"></a>1.1 什么是数据结构</h3><p><strong>特定关系</strong> 的 <strong>数据元素</strong> 的集合。</p><ul><li><p>特定关系 ( 逻辑结构和存储结构 )</p><ul><li>逻辑结构<br>线性结构：线性表，栈，队列<br>非线性结构：树，图，集合  </li><li><p>存储结构<br>顺序存储结构 –&gt; 顺序映像 –&gt; 借助元素在存储器相对位置表“关系”。<br>链式存储结构 –&gt; 非顺序映像 –&gt; 借助指示元素存储地址的指针表示数据元素之间的逻辑关系。</p><blockquote><p>[附] 顺序 / 链式存储结构的优劣比较</p></blockquote><ul><li>顺序存储结构<ul><li>优：实现随机存取，既通常借助数组形式来描述 (C/C++)。</li><li>劣：<br>1.只能使用相邻的一整块存储单元；<br>2.插入和删除操作需移动元素；</li></ul></li><li>链式存储结构<ul><li>优：<br>1.存储密度小；<br>2.逻辑相邻的节点物理位置不必相邻，不会出现碎片；  </li><li>劣：<br>1.顺序存储；<br>2.元素因存储指针而占用额外存储空间；</li></ul></li></ul></li></ul></li><li><p>数据元素<br>即一定数量的数据项组成一数据元素，再有许多的数据元素组成一个数据对象。其中数据对象为数据的子集。</p>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">数据项 <span class="number">1</span> &#125; 数据元素</span><br><span class="line">数据项 <span class="number">2</span></span><br><span class="line">...</span><br><span class="line">数据项 n (最小单位)</span><br><span class="line"></span><br><span class="line">数据元素 <span class="number">1</span> &#125; 数据对象 (数据的子集)</span><br><span class="line">数据元素 <span class="number">2</span></span><br><span class="line">...</span><br><span class="line">数据元素 n</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;既管学习的目的并不是为了考试，编程也不仅是为了验证题目结果的正确性，然而在应试教育当中，论分数高低和正确解答却成为了验收学习效果和评判个人编
+      
+    
+    </summary>
+    
+      <category term="Reading" scheme="http://www.kofes.cn/categories/Reading/"/>
+    
+    
+      <category term="C" scheme="http://www.kofes.cn/tags/C/"/>
+    
+      <category term="考试" scheme="http://www.kofes.cn/tags/%E8%80%83%E8%AF%95/"/>
+    
+      <category term="数据结构" scheme="http://www.kofes.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C语言程序设计 ( 应试篇 )</title>
     <link href="http://www.kofes.cn/2017/04/C-Programming-Design-Learning.html"/>
     <id>http://www.kofes.cn/2017/04/C-Programming-Design-Learning.html</id>
