@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，你所接触过的，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。">
+<meta name="description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑">
 <meta name="keywords" content="Android,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读书笔记 - Android 源码设计模式">
 <meta property="og:url" content="http://www.kofes.cn/2018/01/Design-Pattern-Based-on-Android.html">
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
-<meta property="og:description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，你所接触过的，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。">
+<meta property="og:description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-2.png">
@@ -117,7 +117,7 @@
 <meta property="og:updated_time" content="2018-03-07T02:54:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Android 源码设计模式">
-<meta name="twitter:description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，你所接触过的，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。">
+<meta name="twitter:description" content="更新进度 2018.01.30 - 完成序言； 2018.01.31 - 更新第壹章； 2018.02.05 - 更新第贰章，共 11 / 23 种设计模式；    序言在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑">
 <meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png">
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  14,696
+                  15,022
                 </span>
               
 
@@ -419,12 +419,14 @@
 </ul>
 </li>
 </ul>
-<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在你接触过的安卓项目当中，你所接触过的，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。</p>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。</p>
+<p>当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，并不代表你的设计能力与代码质量就会突飞猛进，同样在项目中运用设计模式也不是生搬硬套就解决问题了，在《 Head First 设计模式 》一书中，则把设计模式的使用心智分为：初学者、中级人员和悟道者，虽有“玄学”的味道，但也恰当。既没有最好的模式，而是你综合众多因素，根据经验、方法来筛选合适的设计模式与你的项目结合，运用。</p>
+<p>对于设计模式的学习，也不要局限于《 Android 源码设计模式 》本身，你还可以搭配一些经典论文、综述和书籍，以至于怀疑一个问题的正误，得到最精确的理解。</p>
 <a id="more"></a>
 <ul>
 <li>推荐书目：<ul>
-<li>《 设计模式之禅 》</li>
-<li>《 设计模式（可复用面向对象软件的基础）》</li>
+<li>《 设计模式之禅 》：待补充</li>
+<li>《 设计模式（可复用面向对象软件的基础）》：待补充</li>
 </ul>
 </li>
 </ul>
@@ -1058,10 +1060,10 @@
 <center>图 2-23 观察者模式的 UML 类图</center>
 
 <h4 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>光茶则模式主要的作用就是对象解耦，将观察者与被观察者完全隔离，只依赖于 Observer 和 Obserable 抽象。</li>
+<li>观察者模式主要的作用就是对象解耦，将观察者与被观察者完全隔离，只依赖于 Observer 和 Obserable 抽象。</li>
 </ul>
 <blockquote>
-<p>如：ListView 就是运用了 Adapter 和观察者模式，使之塔的扩展性、灵活性增加，且耦合度却很低。</p>
+<p>如：ListView 就是运用了 Adapter 和观察者模式，使之它的扩展性、灵活性增强，且耦合度却很低。</p>
 </blockquote>
 <ul>
 <li>观察者模式的优缺点<ul>
