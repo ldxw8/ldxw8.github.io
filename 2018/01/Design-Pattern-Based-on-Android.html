@@ -113,6 +113,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-20.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-21.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-22.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-23.png">
 <meta property="og:updated_time" content="2018-03-07T02:54:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Android 源码设计模式">
@@ -385,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  14,429
+                  14,696
                 </span>
               
 
@@ -1046,8 +1047,30 @@
 </ul>
 </li>
 </ul>
-<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><h4 id="观察者模式的定义"><a href="#观察者模式的定义" class="headerlink" title="观察者模式的定义"></a>观察者模式的定义</h4><p>定义对象间一种一对多的依赖关系</p>
-<h4 id="观察者模式的使用场景"><a href="#观察者模式的使用场景" class="headerlink" title="观察者模式的使用场景"></a>观察者模式的使用场景</h4><h4 id="观察者模式的-UML-类图"><a href="#观察者模式的-UML-类图" class="headerlink" title="观察者模式的 UML 类图"></a>观察者模式的 UML 类图</h4><h4 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h4><h2 id="叁-MVC与MVP模式"><a href="#叁-MVC与MVP模式" class="headerlink" title="叁 MVC与MVP模式"></a>叁 MVC与MVP模式</h2><p>待补充。</p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><h4 id="观察者模式的定义"><a href="#观察者模式的定义" class="headerlink" title="观察者模式的定义"></a>观察者模式的定义</h4><p>定义对象间一种 <code>一对多</code> 的 <code>依赖关系</code>，使得每当一个对象改变状态，则所有依赖与它的对象都会得到通知并被自动更新。</p>
+<h4 id="观察者模式的使用场景"><a href="#观察者模式的使用场景" class="headerlink" title="观察者模式的使用场景"></a>观察者模式的使用场景</h4><ul>
+<li>关联行为场景，既关联行为是可拆分的，而不是“组合”关系。</li>
+<li>事件多级触发场景。</li>
+<li>跨系统的消息交换场景，如消息队列、事件总线的处理机制。</li>
+</ul>
+<h4 id="观察者模式的-UML-类图"><a href="#观察者模式的-UML-类图" class="headerlink" title="观察者模式的 UML 类图"></a>观察者模式的 UML 类图</h4><p>观察者模式的 UML 类图如图 2-23 所示。</p>
+<p><img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-23.png" alt="观察者模式的UML类图"></p>
+<center>图 2-23 观察者模式的 UML 类图</center>
+
+<h4 id="总结-9"><a href="#总结-9" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>光茶则模式主要的作用就是对象解耦，将观察者与被观察者完全隔离，只依赖于 Observer 和 Obserable 抽象。</li>
+</ul>
+<blockquote>
+<p>如：ListView 就是运用了 Adapter 和观察者模式，使之塔的扩展性、灵活性增加，且耦合度却很低。</p>
+</blockquote>
+<ul>
+<li>观察者模式的优缺点<ul>
+<li>优点<br>1) 增强系统灵活性、可扩展性；<br>2) 将观察者与被观察者之间是抽象耦合，应对业务变换。</li>
+<li>缺点 - 应用观察者模式，需考虑开放效率和运行效率问题 (一般考虑采用异步的方式)</li>
+</ul>
+</li>
+</ul>
+<h2 id="叁-MVC与MVP模式"><a href="#叁-MVC与MVP模式" class="headerlink" title="叁 MVC与MVP模式"></a>叁 MVC与MVP模式</h2><p>待补充。</p>
 
       
     </div>
