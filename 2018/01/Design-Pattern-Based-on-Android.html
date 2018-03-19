@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  27,366
+                  27,375
                 </span>
               
 
@@ -1508,7 +1508,7 @@
 <p><img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-47.png" alt="桥接模式的UML类图"></p>
 <center>图 2-47 桥接模式的 UML 类图</center>
 
-<p><strong>Abstration：抽象部分</strong><br>该类保持一个对实现部分对象的引用，抽象部分中的方法需要调用实现部分的对象来实现。该类一般为抽象类。</p>
+<p><strong>Abstraction：抽象部分</strong><br>该类保持一个对实现部分对象的引用，抽象部分中的方法需要调用实现部分的对象来实现。该类一般为抽象类。</p>
 <p><strong>RefinedAbstraction：优化的抽象部分</strong><br>抽象部分的具体实现，该类一般是对抽象部分的方法进行完善和扩展。</p>
 <p><strong>Implementor：实现部分</strong><br>可以为接口或抽象类，其方法不一定要与抽象部分中的一致，一般情况下是由实现部分提供基本的操作，而抽象部分定义的则是基于实现部分这些基本操作的业务方法。</p>
 <p><strong>ConcreteImplementorA/B：实现部分的具体实现</strong><br>完成实现部分中定义的具体逻辑。</p>
@@ -1538,8 +1538,8 @@
 </ul>
 </li>
 <li>MVC 模式的优缺点<ul>
-<li>优点 - 表现层与业务层分离实现，各司其职，即前端工程师专注界面的研发，后端工程师致力于业务逻辑。</li>
-<li>缺点：<br>1) Model 和 View 严格分离，在调试应用程序时较困难。<br>2) 小规模项目，采用 MVC 模式反而显得工作繁琐。  </li>
+<li>优点 - 表现层与业务层分离实现，各司其职。若在实际项目中，即前端工程师专注界面的研发，后端工程师致力于业务逻辑。</li>
+<li>缺点：<br>1) Model 和 View 严格分离，在调试应用程序时较困难。<br>2) 小规模项目，采用 MVC 模式反而显得工序更加繁琐。  </li>
 </ul>
 </li>
 </ul>
@@ -1563,7 +1563,7 @@
 <ul>
 <li><p>与 MVC 模式的区别</p>
 <ul>
-<li><p>MVC 特点<br>1) 用户可向 View 发送指令，再由 View 直接要求 Model 改变状态。<br>2) 用户可向 Controller 发送指令，再由 Controller 发送给 View。      3) Controller 起到时间路由的作用，同时业务逻辑都部署在 Controller 中。  </p>
+<li><p>MVC 特点<br>1) 用户可向 View 发送指令，再由 View 直接要求 Model 改变状态。<br>2) 用户可向 Controller 发送指令，再由 Controller 发送给 View。<br>3) Controller 起到时间路由的作用，同时业务逻辑都部署在 Controller 中。  </p>
 <blockquote>
 <p>View 可直接访问 Model，即 MVC 模式的耦合性还是相对较高的。</p>
 </blockquote>
