@@ -90,7 +90,7 @@
 <meta property="og:description" content="序言由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png">
-<meta property="og:updated_time" content="2018-03-20T15:56:04.463Z">
+<meta property="og:updated_time" content="2018-03-20T16:54:18.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Java 技术手册">
 <meta name="twitter:description" content="序言由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。">
@@ -290,8 +290,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-03-20T23:56:04+08:00" content="2018-03-20">
-                2018-03-20
+              <time itemprop="dateUpdated" datetime="2018-03-21T00:54:18+08:00" content="2018-03-21">
+                2018-03-21
               </time>
             </span>
           
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,498
+                  2,747
                 </span>
               
 
@@ -449,13 +449,17 @@
 </ul>
 <h2 id="壹-Java-环境介绍"><a href="#壹-Java-环境介绍" class="headerlink" title="壹 Java 环境介绍"></a>壹 Java 环境介绍</h2><h3 id="JVM-程序、环境"><a href="#JVM-程序、环境" class="headerlink" title="JVM - 程序、环境"></a>JVM - 程序、环境</h3><ul>
 <li>Java 虚拟机 (Java Virtual Machine，JVM)。</li>
+<li>JVM 是一个程序，提供运行 Java 程序所需的运行时环境。</li>
 <li>应用代码的容器。</li>
-<li>提供一个安全执行环境。</li>
-<li>跨平台的执行环境。</li>
+<li>提供一个安全、跨平台的执行环境。</li>
 <li>Java 源码 -&gt; Java 字节码 (*.class) -&gt; JVM (即字节码格式程序的解码器，即图 1-1 中的解释器)。</li>
 </ul>
 <h3 id="Java-程序的生命周期"><a href="#Java-程序的生命周期" class="headerlink" title="Java 程序的生命周期"></a>Java 程序的生命周期</h3><ul>
-<li>Java 代码的编译和加载<br>Java 代码的编译和加载过程，如图 1-1 所示。</li>
+<li><p>Java 代码的编译和加载</p>
+<p>  整个流程从 Java 源码开始，经过 Javac 程序处理后得到类文件，类文件保存的是编译源码后得到的 Java 字节码。类文件是 Java 平台能处理的最小功能单位，也是把新代码传给运行中程序的唯一方式。</p>
+<p>  新的类文件通过类加载机制载入虚拟机，从而把新类型提供给解释器执行。</p>
+<p>  Java 代码的编译和加载过程，如图 1-1 所示。</p>
+</li>
 </ul>
 <p><img src="/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png" alt="Java代码的编译和加载过程"></p>
 <center>图 1-1 Java 代码的编译和加载过程</center>
@@ -468,7 +472,7 @@
 <li><p>字节码 (Bytecode)，是一种包含执行程序、由一序列 <code>数据对</code> 组成的二进制文件。字节码是一种中间码，它比机器码更抽象，需要直译器转译后才能成为机器码的中间代码。<br>通常情况下字节码通常不像源码一样可以让人阅读，而是编码后的数值常量、引用、指令等构成的序列。</p>
 <blockquote>
 <p>关于字节码文件，即 Class 类文件，根据Java虚拟机规范的规定，Class 文件格式采用一种类似于 C 语言结构体的伪结构表示。<br>若想了解更多 Class 文件结构的内容，可参考周志明老师写的《深入理解Java虚拟机》\(^{[1]}\)，其中有对 Class 文件结构的详细介绍。  </p>
-<p>延伸：每种类型的文件的头 4 个字节称为魔数，它的作用即唯一标识该文件所属类型。</p>
+<p>延伸：其实每种类型的文件的头都有着 4 个字节的作用域，我们称其为魔数，它的作用即唯一标识该文件所属类型。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ClassFile &#123;  </span><br><span class="line">     u4 magic;  </span><br><span class="line">     u2 minor_version;  </span><br><span class="line">     u2 major_version;  </span><br><span class="line">     u2 constant_pool_count;  </span><br><span class="line">     cp_info constant_pool[constant_pool_count-<span class="number">1</span>];  </span><br><span class="line">     u2 access_flags;  </span><br><span class="line">     u2 this_class;  </span><br><span class="line">     u2 super_class;  </span><br><span class="line">     u2 interfaces_count;  </span><br><span class="line">     u2 interfaces[interfaces_count];  </span><br><span class="line">     u2 fields_count;  </span><br><span class="line">     field_info fields[fields_count];  </span><br><span class="line">     u2 methods_count;  </span><br><span class="line">     method_info methods[methods_count];  </span><br><span class="line">     u2 attributes_count;  </span><br><span class="line">     attribute_info attributes[attributes_count];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -490,8 +494,8 @@
 <td style="text-align:left">C 是面向过程的语言</td>
 </tr>
 <tr>
-<td style="text-align:left">类文件实现可移植性</td>
-<td style="text-align:left">C 需要编译</td>
+<td style="text-align:left">通过类文件实现可移植性</td>
+<td style="text-align:left">C 需要重新编译实现移植</td>
 </tr>
 <tr>
 <td style="text-align:left">没有指针</td>
@@ -499,7 +503,7 @@
 </tr>
 <tr>
 <td style="text-align:left">垃圾回收提供了自动内存管理功能</td>
-<td style="text-align:left">从低层布局内存 (结构体)</td>
+<td style="text-align:left">无法从低层布局内存 (结构体)</td>
 </tr>
 </tbody>
 </table>
@@ -528,7 +532,7 @@
 <li>对于静态、动态语言的理解，再参考知乎 <a href="https://www.zhihu.com/question/19918532/answer/21645395" target="_blank" rel="noopener">vczh</a> 的回答： <ul>
 <li>强类型：偏向于不容忍隐式类型转换。譬如说 Haskell 的 int 型就不能变成double型。</li>
 <li>弱类型：偏向于容忍隐式类型转换。譬如说 C 语言的 int 型可以强转为 double 型。  </li>
-<li>静态类型：编译的时候就知道每一个变量的类型，因为类型错误，即语法错误。  </li>
+<li>静态类型：编译的时候就知道每一个变量的类型，因为类型错误，即造成语法错误。  </li>
 <li>动态类型：编译的时候不知道每一个变量的类型，因为类型错误，运行时错误。譬如说你不能对一个数字 a 写 a[10] 当数组用。</li>
 </ul>
 </li>
@@ -555,6 +559,10 @@
 <td style="text-align:left">Java 提供良好的对象封装</td>
 <td style="text-align:left">–</td>
 </tr>
+<tr>
+<td style="text-align:left">Java 支持多线程操作</td>
+<td style="text-align:left">Js 不支持多线程</td>
+</tr>
 </tbody>
 </table>
 <h2 id="Java-基本句法"><a href="#Java-基本句法" class="headerlink" title="Java 基本句法"></a>Java 基本句法</h2><h3 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h3><div class="note success"><p>说明：词法结构的内容与 Java / Android 开发规范的内容有所交集，可参阅上述推荐的优秀博文：<br><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="noopener">BlankJ. Java / Android 开发规范. 2017. github.com</a>。</p></div>
@@ -571,13 +579,13 @@
 </li>
 <li><p>保留字<br>如 interface、class、public、private、protected、true、null 等，是不能单用来命名变量名称和类名称的。</p>
 </li>
-<li><p>标识符</p>
+<li><p>标识符：Java 程序中某个部分的名称，例如类、类中方法和方法中声明的变量。</p>
 <ul>
 <li>不能以数字开头；</li>
 <li>不能包含标点符号；</li>
-<li><p>不能包含 Unicode 的货币符号；</p>
+<li><p>可以使用货币符号 (¥或$)；</p>
 <blockquote>
-<p>以上情况不能用来命名类与变量。</p>
+<p>货币符号主要用在自动生成的源码中，例如 Javac 生成的代码。不在标识符中使用货币符号，可避免自己的标识符和自动生成的标识符冲突。</p>
 </blockquote>
 </li>
 </ul>
@@ -656,13 +664,13 @@
 </table>
 <h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>表示两种个逻辑状态，可表示开或关，也可是与否。</p>
 <ul>
-<li>零或非零表逻辑</li>
+<li><p>零或非零表逻辑</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123; <span class="comment">// -7,-1,1,8...等非零数值都可作为条件体 </span></span><br><span class="line">       <span class="comment">// 永真循环，条件体内为非零数值，即逻辑为真，若没有终止操作会一直操作下去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象体表逻辑</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">null</span> != obj) &#123;</span><br><span class="line">       <span class="comment">// 忽略实现细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123; <span class="comment">// -7,-1,1,8...等非零数值都可作为条件体 </span></span><br><span class="line">    <span class="comment">// 永真循环，条件体内为非零数值，即逻辑为真，若没有终止操作会一直操作下去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>对象体表逻辑</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">null</span> != obj) &#123;</span><br><span class="line">    <span class="comment">// 忽略实现细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h4><ul>
 <li>普通字符</li>
 <li>转义字符</li>
@@ -713,32 +721,34 @@
 <p>在上表中，以取双引号为例，只需附加上反斜杆 <code>\</code> 即可。<br>例如：<code>\\</code>、<code>\&quot;</code> <code>\&#39;</code>。</p>
 </blockquote>
 <h3 id="表达式和运算符"><a href="#表达式和运算符" class="headerlink" title="表达式和运算符"></a>表达式和运算符</h3><ul>
-<li>运算符概述<ul>
+<li><p>运算符概述</p>
+<ul>
 <li>优先级：与 <a href="https://www.kofes.cn/2017/04/C-Programming-Design-Learning.html#4-1-关系运算符及其优先次序">C语言类同</a> (单目运算符 &gt; 双目运算符 &gt; 三目运算符)</li>
 <li>结合方式：从左向右</li>
 </ul>
 </li>
-<li>算术运算符：加 (+)、减 (-)、乘(*)、除 (/)、求模 (%)、负号 (-)。</li>
-<li>字符串连接符：<code>&quot;Hello&quot; + &quot;World&quot;</code> 相当于 <code>“HelloWorld”</code>。</li>
-<li>递增、递减运算符：操作数必须是变量、数组中的元素或对象的字段。</li>
-<li>比较运算符：等于 (==)、不等于 (!=)、小于 (&lt;)、大于 (&gt;)、大于等于 (&gt;=)、小于等于 (&lt;=)。</li>
-<li>逻辑运算符：条件与 <code>&amp;&amp;</code>、条件或 <code>||</code>、逻辑非 <code>!</code>。</li>
+<li><p>算术运算符：加 <code>+</code>、减 <code>-</code>、乘 <code>*</code>、除 <code>/</code>、求模 <code>%</code>、负号 <code>-</code>。</p>
+</li>
+<li><p>字符串连接符：<code>&quot;Hello&quot; + &quot;World&quot;</code> 相当于 <code>“HelloWorld”</code>。</p>
+</li>
+<li><p>递增、递减运算符：操作数必须是变量、数组中的元素或对象的字段。</p>
+</li>
+<li><p>比较运算符：等于 <code>==</code>、不等于 <code>!=</code>、小于 <code>&lt;</code>、大于 <code>&gt;</code>、大于等于 <code>&gt;=</code>、小于等于 <code>&lt;=</code>。</p>
+</li>
+<li><p>逻辑运算符：条件与 <code>&amp;&amp;</code>、条件或 <code>||</code>、逻辑非 <code>!</code>。</p>
+</li>
 <li><p>位运算符和位移运算符</p>
 <ul>
-<li><p>按位补码 <code>~</code></p>
-</li>
-<li><p>位与 <code>&amp;</code><br>10 &amp; 7 =&gt; 00001010 &amp; 00000111    =&gt;    00000010 =&gt; 2</p>
-</li>
-<li><p>位或 <code>|</code><br>10 | 7 =&gt; 00001010 | 00000111    =&gt;    00001111 =&gt; 15</p>
-</li>
-<li><p>位异或 <code>^</code>：相异为真<br>10 ^ 7 =&gt; 00001010 ^ 00000111    =&gt;    00001101 =&gt; 13</p>
-</li>
+<li>按位补码 <code>~</code>：把操作数的每一位反相，0变1，1变0<br>~12 =&gt; ~00001100 =&gt; 11110011 =&gt; -13</li>
+<li>位与 <code>&amp;</code><br>10 &amp; 7 =&gt; 00001010 &amp; 00000111    =&gt;    00000010 =&gt; 2</li>
+<li>位或 <code>|</code><br>10 | 7 =&gt; 00001010 | 00000111    =&gt;    00001111 =&gt; 15</li>
+<li>位异或 <code>^</code>：相异为真<br>10 ^ 7 =&gt; 00001010 ^ 00000111    =&gt;    00001101 =&gt; 13</li>
 </ul>
 </li>
-<li><p>左移：高位丢掉，右边补零，向左移动 n 位，相当于乘以 2\(^{n}\)。</p>
+<li><p>左移 <code>&lt;&lt;</code>：高位丢掉，右边补零，向左移动 n 位，相当于乘以 2\(^{n}\)。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">左移运算的实例：</span><br><span class="line"></span><br><span class="line"><span class="number">10</span> &lt;&lt; <span class="number">1</span> =&gt; <span class="number">00001010</span> &lt;&lt; <span class="number">1</span> =&gt; <span class="number">00010100</span> =&gt; <span class="number">20</span> =&gt; <span class="number">10</span> * <span class="number">2</span></span><br><span class="line"><span class="number">07</span> &lt;&lt; <span class="number">3</span> =&gt; <span class="number">00000111</span> &lt;&lt; <span class="number">3</span> =&gt; <span class="number">00111000</span> =&gt; <span class="number">56</span> =&gt; <span class="number">07</span> * <span class="number">2</span>^<span class="number">3</span></span><br><span class="line">-<span class="number">1</span> &lt;&lt; <span class="number">2</span> =&gt; <span class="number">11111111</span> &lt;&lt; <span class="number">2</span> =&gt; <span class="number">11111100</span> =&gt; -<span class="number">4</span> =&gt; -<span class="number">1</span> * <span class="number">2</span>^<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// -1&lt;&lt;2 =&gt; 11111111&lt;&lt;2：即负数是补码形式存储的。</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>带符号右移动：高位 <code>补符号</code>，左侧操作数为正数则 <code>高位补0</code>，左侧操作数为负数则 <code>高位补1</code>。向右移动 n 位，相当于除以 2\(^{n}\)。</p>
+<li><p>带符号右移 <code>&gt;&gt;</code>：高位 <code>补符号</code>，左侧操作数为正数则 <code>高位补0</code>，左侧操作数为负数则 <code>高位补1</code>。向右移动 n 位，相当于除以 2\(^{n}\)。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> &gt;&gt; <span class="number">1</span>  =&gt; <span class="number">00001010</span> &gt;&gt; <span class="number">1</span> =&gt; <span class="number">0</span> <span class="number">0000101</span> =&gt; <span class="number">05</span> =&gt; <span class="number">10</span> / <span class="number">2</span></span><br><span class="line"><span class="number">27</span> &gt;&gt; <span class="number">3</span>  =&gt; <span class="number">00011011</span> &gt;&gt; <span class="number">3</span> =&gt; <span class="number">000</span> <span class="number">00011</span> =&gt; <span class="number">03</span> =&gt; <span class="number">27</span> / <span class="number">2</span>^<span class="number">3</span></span><br><span class="line">-<span class="number">50</span> &gt;&gt; <span class="number">2</span> =&gt; <span class="number">11001110</span> &gt;&gt; <span class="number">2</span> =&gt; <span class="number">11</span> <span class="number">110011</span> =&gt; -<span class="number">13</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>赋值运算符 与 条件运算符</p>
