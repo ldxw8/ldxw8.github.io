@@ -90,7 +90,7 @@
 <meta property="og:description" content="序言由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png">
-<meta property="og:updated_time" content="2018-03-20T16:54:18.722Z">
+<meta property="og:updated_time" content="2018-03-21T16:27:54.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读书笔记 - Java 技术手册">
 <meta name="twitter:description" content="序言由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。">
@@ -290,8 +290,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-03-21T00:54:18+08:00" content="2018-03-21">
-                2018-03-21
+              <time itemprop="dateUpdated" datetime="2018-03-22T00:27:54+08:00" content="2018-03-22">
+                2018-03-22
               </time>
             </span>
           
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,747
+                  4,897
                 </span>
               
 
@@ -435,8 +435,8 @@
 </li>
 </ul>
 <h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><ul>
-<li><a href="#壹-Java-环境介绍">壹 Java 环境介绍</a>  </li>
-<li><a href="#">贰 Java 基本句法</a></li>
+<li><a href="#壹-Java-环境介绍">壹 Java 环境介绍</a>  </li>
+<li><a href="#贰-Java-基本句法">贰 Java 基本句法</a></li>
 <li><a href="#">叁 Java 面向对象编程</a></li>
 <li><a href="#">肆 Java 类型系统</a>  </li>
 <li><a href="#">伍 Java 的面向对象设计</a>  </li>
@@ -472,7 +472,7 @@
 <li><p>字节码 (Bytecode)，是一种包含执行程序、由一序列 <code>数据对</code> 组成的二进制文件。字节码是一种中间码，它比机器码更抽象，需要直译器转译后才能成为机器码的中间代码。<br>通常情况下字节码通常不像源码一样可以让人阅读，而是编码后的数值常量、引用、指令等构成的序列。</p>
 <blockquote>
 <p>关于字节码文件，即 Class 类文件，根据Java虚拟机规范的规定，Class 文件格式采用一种类似于 C 语言结构体的伪结构表示。<br>若想了解更多 Class 文件结构的内容，可参考周志明老师写的《深入理解Java虚拟机》\(^{[1]}\)，其中有对 Class 文件结构的详细介绍。  </p>
-<p>延伸：其实每种类型的文件的头都有着 4 个字节的作用域，我们称其为魔数，它的作用即唯一标识该文件所属类型。</p>
+<p>延伸：其实每种类型的文件的头都有着 4 个字节的作用域，则把其称为魔数，它的作用是唯一标识该文件所属类型。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ClassFile &#123;  </span><br><span class="line">     u4 magic;  </span><br><span class="line">     u2 minor_version;  </span><br><span class="line">     u2 major_version;  </span><br><span class="line">     u2 constant_pool_count;  </span><br><span class="line">     cp_info constant_pool[constant_pool_count-<span class="number">1</span>];  </span><br><span class="line">     u2 access_flags;  </span><br><span class="line">     u2 this_class;  </span><br><span class="line">     u2 super_class;  </span><br><span class="line">     u2 interfaces_count;  </span><br><span class="line">     u2 interfaces[interfaces_count];  </span><br><span class="line">     u2 fields_count;  </span><br><span class="line">     field_info fields[fields_count];  </span><br><span class="line">     u2 methods_count;  </span><br><span class="line">     method_info methods[methods_count];  </span><br><span class="line">     u2 attributes_count;  </span><br><span class="line">     attribute_info attributes[attributes_count];  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -518,7 +518,7 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Java 是静态语言</td>
+<td style="text-align:left">Java 是静态类型语言</td>
 <td style="text-align:left">PHP 是动态类型语言</td>
 </tr>
 <tr>
@@ -529,11 +529,24 @@
 </table>
 <ul>
 <li>书本中，关于静态语言与动态语言的区别，即在于编译时还是运行时检测错误。</li>
-<li>对于静态、动态语言的理解，再参考知乎 <a href="https://www.zhihu.com/question/19918532/answer/21645395" target="_blank" rel="noopener">vczh</a> 的回答： <ul>
-<li>强类型：偏向于不容忍隐式类型转换。譬如说 Haskell 的 int 型就不能变成double型。</li>
-<li>弱类型：偏向于容忍隐式类型转换。譬如说 C 语言的 int 型可以强转为 double 型。  </li>
-<li>静态类型：编译的时候就知道每一个变量的类型，因为类型错误，即造成语法错误。  </li>
-<li>动态类型：编译的时候不知道每一个变量的类型，因为类型错误，运行时错误。譬如说你不能对一个数字 a 写 a[10] 当数组用。</li>
+<li><p>对于类型系统的概念，众说纷纭，如何理解静态、动态类型语言，推荐知乎 <a href="https://www.zhihu.com/question/19918532/answer/21647195" target="_blank" rel="noopener">rainoftime</a> 的回答： </p>
+<ul>
+<li><p>Program Errors<br>Trapped errors：导致程序终止执行，例如：零为被除数、Java 数组越界访问。<br>Untrapped errors：出错后继续执行，但可能出现任意行为。如 C 里的缓冲区溢出、Jump 到错误地址。</p>
+</li>
+<li><p>Forbidden Behaviours<br>语言设计时，可以定义一组 Forbidden behaviors，它必须包括所有 Untrapped errors，但可能包含 Trapped errors。</p>
+</li>
+<li><p>Well behaved、ill behaved<br>well behaved: 如果程序执行不可能出现 Forbidden behaviors, 则为 Well behaved。<br>ill behaved: 否则为 ill behaved。  </p>
+<p>有了上面的概念，再讨论强、弱类型，静态、动态类型强、弱类型。</p>
+</li>
+<li><p>强类型 ( Strongly typed )<br>如果一种语言的所有程序都是 Well behaved，即不可能出现 Forbidden behaviors，则该语言为 Strongly typed。</p>
+</li>
+<li><p>弱类型 ( Weakly typed)<br>否则为 Weakly typed。譬如 C 语言的缓冲区溢出，属于 Trapped errors，即属于 Forbidden behaviors，故 C 是弱类型。 </p>
+<p>弱类型语言类型检查更不严格，如偏向于容忍隐式类型转换。譬如说 C 语言的 int 型可强转为 double 型。这样的结果是：容易产生 Forbidden behaviours，所以是弱类型的。</p>
+</li>
+<li><p>静态类型 (Statically)<br>如果在编译时拒绝 ill behaved 程序，则是 Statically typed。</p>
+</li>
+<li><p>动态类型 (Dynamiclly)<br>如果在运行时拒绝 ill behaviors, 则是 Dynamiclly typed。</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -565,7 +578,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Java-基本句法"><a href="#Java-基本句法" class="headerlink" title="Java 基本句法"></a>Java 基本句法</h2><h3 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h3><div class="note success"><p>说明：词法结构的内容与 Java / Android 开发规范的内容有所交集，可参阅上述推荐的优秀博文：<br><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="noopener">BlankJ. Java / Android 开发规范. 2017. github.com</a>。</p></div>
+<h2 id="贰-Java-基本句法"><a href="#贰-Java-基本句法" class="headerlink" title="贰 Java 基本句法"></a>贰 Java 基本句法</h2><h3 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h3><div class="note success"><p>说明：词法结构的内容与 Java / Android 开发规范的内容有所交集，可参阅上述推荐的优秀博文：<br><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="noopener">BlankJ. Java / Android 开发规范. 2017. github.com</a>。</p></div>
 <ul>
 <li>Java 编码使用的是 Unicode 字符集。</li>
 <li>需要区分大小写与空白的情况<ul>
@@ -665,10 +678,10 @@
 <h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>表示两种个逻辑状态，可表示开或关，也可是与否。</p>
 <ul>
 <li><p>零或非零表逻辑</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123; <span class="comment">// -7,-1,1,8...等非零数值都可作为条件体 </span></span><br><span class="line">       <span class="comment">// 永真循环，条件体内为非零数值，即逻辑为真，若没有终止操作会一直操作下去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="number">1</span>) &#123; <span class="comment">// -7,-1,1,8...等非零数值都可作为条件体 </span></span><br><span class="line">    <span class="comment">// 永真循环，条件体内为非零数值，即逻辑为真，若没有终止操作会一直操作下去</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对象体表逻辑</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">null</span> != obj) &#123;</span><br><span class="line">       <span class="comment">// 忽略实现细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="keyword">null</span> != obj) &#123;</span><br><span class="line">    <span class="comment">// 忽略实现细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h4><ul>
@@ -762,6 +775,195 @@
 <li>lambda 表达式 <code>-&gt;</code></li>
 <li>创建对象 <code>new</code></li>
 <li>类型转换及校正 <code>()</code>，</li>
+</ul>
+</li>
+</ul>
+<h3 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h3><ul>
+<li><p>选择结构和循环结构和 C 语言的相差无几，这里就不详细列举。</p>
+</li>
+<li><p>synchronized 语句</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>( Expression ) &#123;</span><br><span class="line">       <span class="comment">// Statements</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  <code>Expression</code> 表达式的计算结果必须是一个对象或数组。<code>Statements</code> 是能导致破坏的代码块。</p>
+<p>  即 Java 解析器为 <code>Expression</code> 计算得到的对象或数组获取一个排它锁，直到语句块执行完毕再释放。只要某个线程拥有对象的排它锁，其他线程就不能再获取这个锁。</p>
+</li>
+<li><p>throw 语句</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// throw expression;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line"><span class="keyword">double</span> fact;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( x &lt; <span class="number">0</span> ) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"x must be &gt;= 0."</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(fact=<span class="number">1.0</span>; x &gt; <span class="number">1</span>; fact *= x, x--) &#123;</span><br><span class="line">        <span class="comment">// Nothing</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> fact;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>try/catch/finall 语句</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">       <span class="comment">// 正常情况，从上往下执行</span></span><br><span class="line">       <span class="comment">// 也有可能跑出异常，或是 throw 语句直接抛出异常</span></span><br><span class="line">&#125; <span class="keyword">catch</span>( SomeException e1 ) &#123;</span><br><span class="line">       <span class="comment">// 处理 SomeException 或其子类型的异常对象</span></span><br><span class="line">       <span class="comment">// 使用名称 e1 引用那个异常对象</span></span><br><span class="line">&#125; <span class="keyword">catch</span>( AnotherException e2 ) &#123;</span><br><span class="line">       <span class="comment">// 处理 AnotherException，使用名称 e2 引用传入的异常对象</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">       <span class="comment">// 不管 try 子句的结束方式如何，这段代码都会执行。</span></span><br><span class="line">       <span class="comment">// 但是 try 子句中调用了 System.exit()，解析器会马上退出，而不执 finally 子句。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  即 Java 解析器执行 throw 语句，会立即停止常规程序执行，开始捕获或处理异常的异常处理程序 ( try/catch/finally 语句编写 )。</p>
+</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h4><ul>
+<li><p>方法的定义都是以签名开头，后面跟着方法主体。方法主体，即放在花括号里的任意语句序列。方法签名包括下述内容：</p>
+<ul>
+<li>方法名称；</li>
+<li>方法所用参数的数量、顺序、类型和名称；</li>
+<li>方法的返回值类型；</li>
+<li>方法抛出的已检异常 ( 下述有解释：已检异常和未检异常 )；</li>
+<li>提供方法额外信息的多个方法修饰符.</li>
+</ul>
+</li>
+<li><p>方法签名的格式：<code>modifiers</code> <code>type</code> <code>name(paramlist)</code> [ throws <code>exceptions</code> ]  </p>
+<ul>
+<li><code>modifiers</code> : 指零个或多个特殊的修饰符关键字；  </li>
+<li><code>type</code> : 指明方法的返回类型；  </li>
+<li><code>name</code> : 即方法名称；  </li>
+<li><code>paramlist</code> : 指形参列表；  </li>
+<li><code>exceptions</code> : 抛出已检异常.  </li>
+</ul>
+</li>
+</ul>
+<h4 id="方法修饰符"><a href="#方法修饰符" class="headerlink" title="方法修饰符"></a>方法修饰符</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">修饰符</th>
+<th style="text-align:left">作用描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">abstract</td>
+<td style="text-align:left">abstract 修饰方法，类本身也必须声明 abstract。</td>
+</tr>
+<tr>
+<td style="text-align:left">final</td>
+<td style="text-align:left">final 修饰的方法不能被子类覆盖或隐藏。</td>
+</tr>
+<tr>
+<td style="text-align:left">public、protected、private</td>
+<td style="text-align:left">这些访问修饰符指定方法是否能在定义它的类之外使用，或能在何处使用。</td>
+</tr>
+<tr>
+<td style="text-align:left">synchronized</td>
+<td style="text-align:left">synchronized 修饰符的作用是实现线程安全的方法 (避免两个线程同时执行该方法)。</td>
+</tr>
+<tr>
+<td style="text-align:left">static</td>
+<td style="text-align:left">static 声明的方法是类方法。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="已检异常和未检异常"><a href="#已检异常和未检异常" class="headerlink" title="已检异常和未检异常"></a>已检异常和未检异常</h4><ul>
+<li><p>已检异常和未检异常 – <code>什么情况抛出异常</code></p>
+<ul>
+<li><p>已检异常：明确的特定情况下抛出。</p>
+<blockquote>
+<p>例如：FileNotFoundException – 打开某个文件却不在目录中。</p>
+</blockquote>
+</li>
+<li><p>未检异常：任何方法任何时候都可能抛出。</p>
+<blockquote>
+<p>例如：OutOfMemoryError、NullPointerException。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>区分已检和未检异常，记两点：  </p>
+<ol>
+<li>异常是 Throwable 对象；  </li>
+<li>异常分两种类型：Error (未检) 和 Exception (已检).</li>
+</ol>
+</li>
+<li><p>处理已检异常：在方法签名的 throws 子句中声明这个异常。Java 编译器检查方法签名，若没有声明会导致编译出错，故叫已检异常。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">estimateHomePageSize</span><span class="params">(String host)</span> throw IOException </span>&#123;</span><br><span class="line">    URL url = <span class="keyword">new</span> URL(<span class="string">"htts://"</span> + host);</span><br><span class="line">    <span class="keyword">try</span>( InputStream in = url.openStream() ) &#123;</span><br><span class="line">        <span class="keyword">return</span> in.available();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="变长参数列表"><a href="#变长参数列表" class="headerlink" title="变长参数列表"></a>变长参数列表</h4><ul>
+<li><p>变长参数列表：方法可声明为数量不定的参数。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> first, <span class="keyword">int</span>...rest)</span> </span>&#123; </span><br><span class="line">       <span class="comment">// int...rest 相当于 int[] rest</span></span><br><span class="line">       <span class="comment">// 省略实现细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="介绍类和对象"><a href="#介绍类和对象" class="headerlink" title="介绍类和对象"></a>介绍类和对象</h3><p>关于类最重要的事情是，它们定义了一种新数据类型。例如定义一个 Point 类表示笛卡尔二维坐标系中的数据点。</p>
+<ul>
+<li><p>定义类</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span> x, y;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distanceFromOrigin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.sqrt(x*x,y*y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建对象与使用对象</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Point point = <span class="keyword">new</span> Point(<span class="number">2.0</span>, <span class="number">3.5</span>);</span><br><span class="line">System.out.println( <span class="string">"Sqrt(x, y):"</span> + point.distanceFromOrigin() );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再谈数据类型<br>  谈论数据类型时，得分开数据类型和数据类型的值。Char 类型的值表示某个具体的字符，而 Point 类是一种新的数据类型，用于表示坐标 (x, y)，Point 类为引用类型，即聚合类型，而 Point 类表示的值是对象。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">数据类型的值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">unicode 字符</td>
+</tr>
+<tr>
+<td style="text-align:left">Point 类</td>
+<td style="text-align:left">point 对象</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>lambda 表达式：其实就是没有名称的函数，<code>某个类中定义的匿名方法</code>。  </p>
+<blockquote>
+<p>某个类中定义的匿名方法：Java 不允许脱离类的概念运行方法。</p>
+</blockquote>
+<p>  定义 lambda 表达式：( paramlist ) -&gt; { Statements }</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Runable r = () -&gt; &#123; System.out.println(<span class="string">"Hello World."</span>); &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="数组的类型"><a href="#数组的类型" class="headerlink" title="数组的类型"></a>数组的类型</h4><p>数组中元素的类型可是任何有效的 Java 类型，包括数组类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// byte 是基本类型</span></span><br><span class="line"><span class="keyword">byte</span> b;</span><br><span class="line"></span><br><span class="line"><span class="comment">// byte[] 是由 byte 类型的值组成的数组</span></span><br><span class="line"><span class="keyword">byte</span>[] arrayOfBytes;</span><br><span class="line"></span><br><span class="line"><span class="comment">// byte[][] 是由 byte[] 类型的值组成的数组</span></span><br><span class="line"><span class="keyword">byte</span>[][] arrayOfArrayOfBytes;</span><br><span class="line"></span><br><span class="line"><span class="comment">// String[] 是由字符串组成的数组</span></span><br><span class="line">String[] points;</span><br></pre></td></tr></table></figure>
+<h4 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h4><p>Java 在运行时 <code>初始化数组</code> 有个推论：数组初始化程序中的 <code>表达式</code> 可能会在运算时计算，而且不一定非要使用 <code>编译时常量</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Point[] point = </span><br><span class="line">	&#123;circle1.getCenterPoint(), circle2.getCenterPoint()&#125;</span><br><span class="line">		</span><br><span class="line">String[] lines = <span class="keyword">new</span> String[<span class="number">50</span>]; <span class="comment">// 中括号中使用非负整数</span></span><br><span class="line">String[] greetings = </span><br><span class="line">	<span class="keyword">new</span> String[] &#123;<span class="string">"Hello"</span>, <span class="string">"World"</span>, <span class="string">"I'm Kofes."</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h4><ul>
+<li>数组的边界：a[ 0…a.length-1 ]</li>
+<li>迭代数组：遍历数组</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] primes = &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> sumOfPrimes = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> = <span class="number">0</span>; i &lt; primes.length; i++ ) &#123;</span><br><span class="line">    sumOfPrimes += prime[i];</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 等价于上一个 for 循环</span></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> p : primes ) sumOfPrimes += p;</span><br></pre></td></tr></table></figure>
+<h4 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] products = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>][]; <span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">int</span>[][] products = <span class="keyword">new</span> <span class="keyword">int</span>[][<span class="number">10</span>]; <span class="comment">// 错误，指定的维度必须位于最左边</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ ) &#123;</span><br><span class="line">    products[i] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
+<li><p>引用类型与基本类型</p>
+<ul>
+<li>引用类型<br>1) 引用类型由用户定义，可有无限多个。<br>2) 即聚合类型，保存零或多个基本值或对象。</li>
+<li>基本类型<br>1) 8 种基本类型由 Java 语言定义，不能由我们自己定义新基本类型。<br>2) 基本类型表示单个值。<br>3) 基本类型需要 1 到 8 字节的内存空间。</li>
+</ul>
+</li>
+<li><p>处理对象和引用副本</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Point p = <span class="keyword">new</span> Point(<span class="number">1.0</span>, <span class="number">2.0</span>);</span><br><span class="line">Point q = p; <span class="comment">// 因变量 p 和 q 保存的引用都指向同一对象。</span></span><br><span class="line">System.out.println(p.x); <span class="comment">// 1.0</span></span><br><span class="line">q.x = <span class="number">13.0</span>;</span><br><span class="line">System.out.println(p.x); <span class="comment">// 13.0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>比较对象，即 <code>==</code> 与 <code>x.equal()</code> 的区别</p>
+<ul>
+<li><code>==</code> 比较引用类型时，比较的是引用是否指向同一对象。</li>
+<li><p><code>x.equal()</code> 比较的是对象内容是否一样。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String letter = <span class="string">"O"</span>;</span><br><span class="line">String s = <span class="string">"Hello"</span>;</span><br><span class="line">String t = <span class="string">"Hell"</span> + letter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( s==t ) &#123;</span><br><span class="line">    System.out.println(<span class="string">"equal"</span>); <span class="comment">// 显然不等</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>( s.equal(t) ) &#123;</span><br><span class="line">    System.out.println(<span class="string">"equal"</span>); <span class="comment">// 内容相等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="包和-Java-命名空间"><a href="#包和-Java-命名空间" class="headerlink" title="包和 Java 命名空间"></a>包和 Java 命名空间</h4><ul>
+<li><p>声明包：package org.apache.commons.net;</p>
+<blockquote>
+<p>package 指定类属于哪个包 (Java 代码的第一行标记，除注释和空格外)</p>
+</blockquote>
+</li>
+<li><p>导入类型</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 现不用输入 java.io.File 了，输入 File 定义即可</span></span><br><span class="line"><span class="keyword">import</span> java.io.File; </span><br><span class="line">File file = <span class="keyword">new</span> File();	</span><br><span class="line"></span><br><span class="line"><span class="comment">// java.io 包中的所有类都可以使用简称</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入静态成员</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line">Math.sqrt( abs(sin(x)) ); <span class="comment">// 直接使用 sqrt( abs(sin(x)) );</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Java 文件结构</p>
+<ul>
+<li><code>一个</code> 可选的 package 指令；</li>
+<li><code>零个或多个</code> import 或者 import static 指令；</li>
+<li><p>Java 文件中 <code>只有一个</code> 声明 public 的类，且类名必须与文件名相同.</p>
+<blockquote>
+<p>public 类的目的是供其他包中的类使用。不管类是否为 public，一个文件只定义一个类，并且名称相同，是良好的编程习惯。</p>
+</blockquote>
+</li>
 </ul>
 </li>
 </ul>
@@ -999,7 +1201,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总览"><span class="nav-number">2.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-Java-环境介绍"><span class="nav-number">3.</span> <span class="nav-text">壹 Java 环境介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-程序、环境"><span class="nav-number">3.1.</span> <span class="nav-text">JVM - 程序、环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-程序的生命周期"><span class="nav-number">3.2.</span> <span class="nav-text">Java 程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-和其他语言比较"><span class="nav-number">3.3.</span> <span class="nav-text">Java 和其他语言比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-基本句法"><span class="nav-number">4.</span> <span class="nav-text">Java 基本句法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法结构"><span class="nav-number">4.1.</span> <span class="nav-text">词法结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布尔类型"><span class="nav-number">4.2.1.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类型"><span class="nav-number">4.2.2.</span> <span class="nav-text">字符类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式和运算符"><span class="nav-number">4.3.</span> <span class="nav-text">表达式和运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总览"><span class="nav-number">2.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-Java-环境介绍"><span class="nav-number">3.</span> <span class="nav-text">壹 Java 环境介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-程序、环境"><span class="nav-number">3.1.</span> <span class="nav-text">JVM - 程序、环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-程序的生命周期"><span class="nav-number">3.2.</span> <span class="nav-text">Java 程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-和其他语言比较"><span class="nav-number">3.3.</span> <span class="nav-text">Java 和其他语言比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-Java-基本句法"><span class="nav-number">4.</span> <span class="nav-text">贰 Java 基本句法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法结构"><span class="nav-number">4.1.</span> <span class="nav-text">词法结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布尔类型"><span class="nav-number">4.2.1.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类型"><span class="nav-number">4.2.2.</span> <span class="nav-text">字符类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式和运算符"><span class="nav-number">4.3.</span> <span class="nav-text">表达式和运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句"><span class="nav-number">4.4.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">4.5.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义方法"><span class="nav-number">4.5.1.</span> <span class="nav-text">定义方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法修饰符"><span class="nav-number">4.5.2.</span> <span class="nav-text">方法修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已检异常和未检异常"><span class="nav-number">4.5.3.</span> <span class="nav-text">已检异常和未检异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变长参数列表"><span class="nav-number">4.5.4.</span> <span class="nav-text">变长参数列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍类和对象"><span class="nav-number">4.6.</span> <span class="nav-text">介绍类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组的类型"><span class="nav-number">4.7.1.</span> <span class="nav-text">数组的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">4.7.2.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用数组"><span class="nav-number">4.7.3.</span> <span class="nav-text">使用数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多维数组"><span class="nav-number">4.7.4.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">4.8.</span> <span class="nav-text">引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包和-Java-命名空间"><span class="nav-number">4.8.1.</span> <span class="nav-text">包和 Java 命名空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
