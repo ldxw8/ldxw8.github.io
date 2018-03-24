@@ -90,7 +90,7 @@
 <meta property="og:description" content="序言首先，《 Java In a Nutshell 》中文版翻译为《 Java 技术手册 》，但本文标题沿用的仍是英文版标题，其实这样的选择是有缘由的 (小吐槽)。Nutshell 有核桃壳之意，In a Nutshell 意为概览。当然也可按字面上通俗理解，Java In a Nutshell 即在意义层面上，相比 “技术手册” 来得更有韵味。 由于对图灵出品的 O’Reilly 动物书情有独钟">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png">
-<meta property="og:updated_time" content="2018-03-22T17:43:31.952Z">
+<meta property="og:updated_time" content="2018-03-24T14:11:08.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java In a Nutshell ( 读书笔记 + Awsome Docs )">
 <meta name="twitter:description" content="序言首先，《 Java In a Nutshell 》中文版翻译为《 Java 技术手册 》，但本文标题沿用的仍是英文版标题，其实这样的选择是有缘由的 (小吐槽)。Nutshell 有核桃壳之意，In a Nutshell 意为概览。当然也可按字面上通俗理解，Java In a Nutshell 即在意义层面上，相比 “技术手册” 来得更有韵味。 由于对图灵出品的 O’Reilly 动物书情有独钟">
@@ -300,8 +300,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-03-23T01:43:31+08:00" content="2018-03-23">
-                2018-03-23
+              <time itemprop="dateUpdated" datetime="2018-03-24T22:11:08+08:00" content="2018-03-24">
+                2018-03-24
               </time>
             </span>
           
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,310
+                  9,743
                 </span>
               
 
@@ -441,7 +441,7 @@
 <li>2017.09.01 - 整理 Notes 草稿；</li>
 <li>2017.09.14 - 输出 Markdown 文档；  </li>
 <li>2018.01.30 - 完成序言；</li>
-<li>2018.03.20 - 更新正文 (第 02 / 10 章)；</li>
+<li>2018.03.20 - 更新正文 (第 04 / 10 章)；</li>
 </ul>
 </li>
 </ul>
@@ -1094,7 +1094,300 @@
 </li>
 <li>对象可以转换成子类型，缩小转换，但需确保转换有效。</li>
 </ul>
-<h4 id="修饰符总结"><a href="#修饰符总结" class="headerlink" title="修饰符总结"></a>修饰符总结</h4><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://book.douban.com/subject/24722612/" target="_blank" rel="noopener">[1] 周志明. 深入理解Java虚拟机(第2版)[M]. 机械工业出版社, 2013</a>  </p>
+<h4 id="修饰符总结"><a href="#修饰符总结" class="headerlink" title="修饰符总结"></a>修饰符总结</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">修饰符</th>
+<th style="text-align:left">用于</th>
+<th style="text-align:left">意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">abstract</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">这个类不能实例化，且可能包含未实现的方法</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">所有接口都是抽象的，声明接口时这个修饰符是可选的</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">这个方法没有主体，主体由子类提供，签名后面紧接一个分号。所在的类必须也是抽象的</td>
+</tr>
+<tr>
+<td style="text-align:left">default</td>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">这个接口方法的实现是可选的。</td>
+</tr>
+<tr>
+<td style="text-align:left">final</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">不能创建这个类的子类</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">不能覆盖这个方法</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">字段</td>
+<td style="text-align:left">这个字段的值不能改变</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">变量</td>
+<td style="text-align:left">值不能改变的局部变量、方法参数或异常参数</td>
+</tr>
+<tr>
+<td style="text-align:left">无(包)</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">包级私有：没有声明 public 的类只能在包中访问</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">包级私有：没有声明 public 的接口只能在包中访问</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">成员</td>
+<td style="text-align:left">包级私有：没有声明 public、private 或 protected 的成员只能在包中访问</td>
+</tr>
+<tr>
+<td style="text-align:left">private</td>
+<td style="text-align:left">成员</td>
+<td style="text-align:left">该成员只在定义它的类中可以访问</td>
+</tr>
+<tr>
+<td style="text-align:left">protected</td>
+<td style="text-align:left">成员</td>
+<td style="text-align:left">该成员只在定义它的包中和子类中可以访问</td>
+</tr>
+<tr>
+<td style="text-align:left">public</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">能访问所在包的地方都能访问这个类</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">接口</td>
+<td style="text-align:left">能访问所在包的地方都能访问这个接口</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">成员</td>
+<td style="text-align:left">能访问所在类的地方都能访问这个成员</td>
+</tr>
+<tr>
+<td style="text-align:left">static</td>
+<td style="text-align:left">类</td>
+<td style="text-align:left">使用 static 声明的内部类是顶层类，而不是所在类的成员</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">static 方法是类方法，不隐式传入 this 对象引用，可通过类名调用</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">字段</td>
+<td style="text-align:left">static 字段是类字段，不管创建多少类实例，这个字段只有一个实例，可通过类名访问</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">初始化程序</td>
+<td style="text-align:left">这个初始化程序在加载类时运行，而不是创建实例时运行</td>
+</tr>
+<tr>
+<td style="text-align:left">synchronized</td>
+<td style="text-align:left">方法</td>
+<td style="text-align:left">这个方法对类或实例执行非原子操作，故得确保不能让两个线程同时修改类或实例。对 static 方法来说，执行方法前先为类获取一个锁；对非 static 方法来说，会为具体的对象实例获取一个锁</td>
+</tr>
+<tr>
+<td style="text-align:left">volatile</td>
+<td style="text-align:left">字段</td>
+<td style="text-align:left">该字段能被异步线程访问，因此必须对其做些特定的优化</td>
+</tr>
+</tbody>
+</table>
+<h2 id="肆-Java-类型系统"><a href="#肆-Java-类型系统" class="headerlink" title="肆 Java 类型系统"></a>肆 Java 类型系统</h2><p>Java 是一种静态语言，如果把不兼容型的值赋给变量，会导致编译出错。而在运作时检查类型兼容性的语言叫做动态类型语言，如 Javascript。  </p>
+<blockquote>
+<p>在 <a href="#Java-和其他语言比较">第壹章：Java 和其他语言比较</a> 中有对语言类型的深入了解。</p>
+</blockquote>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><ul>
+<li>接口的作用只是描述 API，接口提供类型的描述信息，以及实现这个 API 的类应提供的方法 (和签名)。</li>
+<li>Java 的接口不为它描述的方法提供实现代码，这些方法是强制要实现的。</li>
+</ul>
+<h4 id="定义接口"><a href="#定义接口" class="headerlink" title="定义接口"></a>定义接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Centered</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setCenter</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getCenterX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getCenterY</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>特别说明</p>
+<ul>
+<li>接口中所有强制方法都隐式使用 abstract 声明，不能有方法主体，以分号结束。</li>
+<li><p>接口定义公开的 API，接口所有成员都隐式使用了 public 声明。</p>
+<blockquote>
+<p>使用 protected 或 private 定义方法，将会编译出错。</p>
+</blockquote>
+</li>
+<li><p>接口不能实例化，因此不定义构造方法。</p>
+</li>
+<li>接口中可包含嵌套类型。</li>
+<li>接口中可包含静态方法。</li>
+</ul>
+</li>
+</ul>
+<h4 id="扩展接口"><a href="#扩展接口" class="headerlink" title="扩展接口"></a>扩展接口</h4><p>继承父接口的所有方法和常量，且可定义新方法和常量。接口的 extends 子句可包含多个父接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Transformable</span> <span class="keyword">extends</span> <span class="title">Scalable</span>, <span class="title">Translateble</span>, <span class="title">rotalable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 忽略细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：实现这个接口的类必须实现这个 <code>接口直接定义</code> 的抽象方法，包括所有 <code>父接口</code> 中继承的全部抽象方法。</p>
+<h4 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h4><p>实现多个接口：一个类即可实现一个接口，也可实现多个接口，后者表明的这个类要实现所有接口中的全部抽象方法 (强制方法)。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperDuperSquare</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Centered</span>, <span class="title">UpperRightCornered</span>, <span class="title">Scalable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 忽略细节</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h4><ul>
+<li>向后兼容性：前一版平台编写 (或已编译) 的代码在最新版平台中必须能继续使用。</li>
+<li><p>实现默认方法：若升级某一接口，重新定义接口后，尝试在为旧接口编写的代码中使用这个新接口，不会成功。<br>  即抛出 <code>NoClassDefError</code> 异常，如下例中添加新的强制方法。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Positionable</span> <span class="keyword">extends</span> <span class="title">Centered</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setUpperRightCorner</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getUpperRightX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getUpperRightY</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 在此接口增加以下强制方法，是不会成功的。后续的解决办法是使用抽象类</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setLowerLeftCorner</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getowerLeftX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getowerLeftY</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Java-泛型"><a href="#Java-泛型" class="headerlink" title="Java 泛型"></a>Java 泛型</h3><h4 id="介绍泛型"><a href="#介绍泛型" class="headerlink" title="介绍泛型"></a>介绍泛型</h4><ul>
+<li><p>使用泛型增强程序的安全性，使编译时信息避免简单的类型错误。具体以下述的引例展开学习。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List shapes = <span class="keyword">new</span> ArrayList();</span><br><span class="line">shapes.add( <span class="keyword">new</span> CenteredCircle(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>) );</span><br><span class="line">shapes.add( <span class="keyword">new</span> CenteredSquare(<span class="number">2.5</span>, <span class="number">2</span>, <span class="number">3</span>) );</span><br><span class="line"></span><br><span class="line"><span class="comment">// list::get() 返回 Object 对象，想得到 CenteredCircle 对象必须校正</span></span><br><span class="line">CenteredCircle circle0 = (CenteredCircle) shapes.get(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行此代码时会导致运行失败</span></span><br><span class="line">CenteredCircle circle1 = (CenteredCircle) shapes.get(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>  <code>CenteredCircle circle1 = (CenteredCircle) shapes.get(1);</code> 运行失败的原因，即把不同类型的对象放在同一容器中，一切正常运行。但若做了不合法的校正，程序就会崩溃。</p>
+<p>  为了解决此类问题，Java 提供了一种句法，即指明某中类型是一个容器，这个容器中保存着其他引用类型的实例。容器中保存的 <code>负载类型</code> 在尖括号中指定：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;CenteredCircle&gt; shapes = <span class="keyword">new</span> ArrayList&lt;CenteredCircle&gt;();</span><br><span class="line">shapes.add( <span class="keyword">new</span> CenteredCircle(<span class="number">1.0</span>, <span class="number">1.0</span>, <span class="number">1.0</span>) );</span><br><span class="line">shapes.add( <span class="keyword">new</span> CenteredCircle(<span class="number">2.5</span>, <span class="number">2</span>, <span class="number">3</span>) );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>容器类型，一般叫泛型</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Box</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">box</span><span class="params">(T t)</span></span>;</span><br><span class="line">    <span class="function">T <span class="title">unbox</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="泛型和类型参数"><a href="#泛型和类型参数" class="headerlink" title="泛型和类型参数"></a>泛型和类型参数</h4><ul>
+<li><code>&lt;T&gt; 句法</code>，也称 <code>类型参数</code>，因此泛型还有一个名称 <code>参数化类型</code>。</li>
+<li><p>定义有参数的类型，要使用一种不对类型参数做任何假设的方式指定具体的值。且类型参数可在方法的签名和主体中使用，就像真正的类型一样。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">Collection</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="菱形句法"><a href="#菱形句法" class="headerlink" title="菱形句法"></a>菱形句法</h4><p>使用菱形句法创建一个由 CenteredCircle 对象组成的 List。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后一个 &lt;&gt; 内为空，但编译器能推导出类型参数的值</span></span><br><span class="line">List&lt;CenteredCircle&gt; shapes = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h4 id="类型擦除"><a href="#类型擦除" class="headerlink" title="类型擦除"></a>类型擦除</h4><ul>
+<li><p>Java 平台十分看重向后兼容性，问题的关键是，如果让类型系统既能使用旧的非泛型集合类又能使用新的泛型集合类，则设计者们选择 <code>校正</code> 的解决方案。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List someThings = getSomeThing();</span><br><span class="line"><span class="comment">// 这种校正不安全，即使 someThings 的内容确定是字符串</span></span><br><span class="line">List&lt;String&gt; myStrings = (List&lt;String&gt;) SomeThings;</span><br></pre></td></tr></table></figure>
+<p>  上述代码表明，<code>List</code> 与 <code>List&lt;String&gt;</code> 是兼容的，Java 通过类型擦除实现这种兼容性。</p>
+</li>
+<li><p>类型擦除机制还能禁止使用某些其他定义方式。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OrderCounter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalOrder</span><span class="params">( Map&lt;String, List&lt;String&gt;&gt; orders )</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalOrder</span><span class="params">( Map&lt;String, Integer&gt; orders )</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  上述代码看似合法，其实是无法编译的。其实当擦除类型后，两方法的签名变成 <code>int totalOrder(Map);</code>，Java 语言规范把这种句法列为不合法的句法。</p>
+</li>
+</ul>
+<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><ul>
+<li><p>受限通配符，限制类型参数的值能使用哪些类型。</p>
+<ul>
+<li>类型协变：表示<code>容器类型之间</code> 和 <code>负载类型之间</code> 具有 <code>相同</code> 的关系，这种关系通过 <code>extends</code> 关键字表示。</li>
+<li><p>类型逆变：表示<code>容器类型之间</code> 和 <code>负载类型之间</code> 具有 <code>相反</code> 的关系，这种关系通过 <code>super</code> 关键字表示。</p>
+<p>[实例] 例如，Cat 类 扩展 Pet 类，<code>List&lt;Cat&gt;</code> 是 <code>List&lt;? extends Pet&gt;</code> 的子类型。List 是 Cat 对象的制造者，应使用关键字 extends。</p>
+<blockquote>
+<p><a href="https://baike.baidu.com/item/Josh%20Bloch/4419184?fr=aladdin" target="_blank" rel="noopener">Joshua Bloch</a> 把这种用法总结为 PECS. <code>Producer Extends, Consumer Super</code> 原则，即使用者使用 super，制造者使用 extends。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>使用和设计泛型</p>
+<ul>
+<li>使用者：理解类型擦除的基本知识。</li>
+<li>设计者：泛型更多功能。如通配符、”Capture of” 错误信息等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="枚举和注解"><a href="#枚举和注解" class="headerlink" title="枚举和注解"></a>枚举和注解</h3><h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> RegularPolygon &#123;</span><br><span class="line">    <span class="comment">// 带参数的枚举必须使用分号</span></span><br><span class="line">    TRIANGLE(<span class="number">3</span>), SQUARE(<span class="number">4</span>), PENTAGON(<span class="number">5</span>), HEXAGON(<span class="number">6</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Shape shape; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> Shape getShape &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.shape;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 因枚举实例在 Java 运行时创建，在外部不能实例化，故把构造方法声明为私有。</span></span><br><span class="line">    <span class="comment">// 只能有一个私有的构造方法 (或默认访问权限，即不写)。</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">RegularPolygon</span><span class="params">(<span class="keyword">int</span> sides)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(sides) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>: <span class="comment">// 三角形</span></span><br><span class="line">                shape = <span class="keyword">new</span> Triangle(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">60</span>, <span class="number">60</span>, <span class="number">60</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">4</span>: <span class="comment">// 矩形</span></span><br><span class="line">                shape = <span class="keyword">new</span> Rectangle(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">5</span>: <span class="comment">// 五边形</span></span><br><span class="line">                shape = <span class="keyword">new</span> Pentagon(</span><br><span class="line">                    <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">108</span>, <span class="number">108</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">6</span>: <span class="comment">// 六边形</span></span><br><span class="line">                shape = <span class="keyword">new</span> Hexagon(</span><br><span class="line">                    <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">120</span>, <span class="number">120</span>);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际使用</span></span><br><span class="line">RegularPolygon polygon = </span><br><span class="line">    <span class="keyword">new</span> RegularPolygon( RegularPolygon.TRIANGLE );</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意<ul>
+<li>枚举不能泛型化，不能被扩展；</li>
+<li>可以实现接口；</li>
+<li>只能有一个私有的构造方法 (或使用默认访问权限，不写).</li>
+</ul>
+</li>
+</ul>
+<h4 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h4><ul>
+<li>注解是一种特殊的接口，其作用是注解 Java 程序的某个部分。</li>
+<li>能为编译器和集成环境 (IDE) 提供有用的提示。</li>
+<li>注解没有直接作用，例如 <code>@Override</code> 为注解的方法提供额外信息，注明这个方法覆盖了超类中的方法。</li>
+<li>Java 平台中常见的基本注解：<ul>
+<li><code>@Override</code> - 注明方法是覆盖的。</li>
+<li><code>@Deprecated</code> - 注明方法已经废弃了。</li>
+<li><code>@SuppressWarnings</code> - 注明编译器生成的警告。</li>
+<li><code>@SafeVarargs</code> - 为变长参数方法提供增强的警告静态方法、默认方法功能</li>
+<li><code>@FunctionalInterface</code> - 接口是一正确的函数式接口，注解能够更好地让编译器进行检查。</li>
+</ul>
+</li>
+</ul>
+<h4 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h4><p>使用 <code>@interface</code> 关键字定义新的注解类型，与定义类和接口的方式差不多。</p>
+<p>自定义注解的关键是使用 <code>元注解</code>，他们是用来注解新注解类型的定义，必须使用两个基本元注解 <code>@Target</code> 和 <code>@Retention</code>。</p>
+<ul>
+<li><code>@Target</code>：指明自定义的新注解能在 Java 源码的什么地方使用。可用的值在枚举 <code>ElementType</code> 中定义，其中包括：<ul>
+<li>TYPE - 类、接口 (包括注解类型) 或 Enum 声明</li>
+<li>FIELD - 域声明 (包括 Enum 实例)</li>
+<li>METHOD - 方法声明</li>
+<li>PARAMETER - 参数声明</li>
+<li>CONSTRUCTOR - 构造器声明</li>
+<li>LOCAL_VARIABLE - 局部变量声明</li>
+<li>ANNOTATION_TYPE - 注解</li>
+<li>PACKAGE - 包声明</li>
+</ul>
+</li>
+<li><code>@Retention</code>：指明 Javac 和 Java 运行时如何处理自定义的注解类型。可用的值得在枚举 <code>RetentionPolicy</code> 中定义，其中包括：<ul>
+<li>SOURCE - 表示注解将被编译器丢弃。</li>
+<li>CLASS - 表示注解会出现在类文件中，但运行时 JVM 无法访问。</li>
+<li>RUNTIME - JVM将在运行期也保留注释，因此可以通过反射机制读取注解的信息。</li>
+</ul>
+</li>
+<li><code>@Documented</code>：将此注解包含在 Javadoc 中。</li>
+<li><p><code>@Inherited</code>：允许子类继承父类中的注解。</p>
+<p>  便于理解，这里定义一个名为 @Nickname 的注解，使用这个注解为方法指定一个昵称，运行时使用发射可以找到这个方法。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Nickname &#123;</span><br><span class="line">    String[] value() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="嵌套类型"><a href="#嵌套类型" class="headerlink" title="嵌套类型"></a>嵌套类型</h4><ul>
+<li>顶层类型：诸如类、接口和枚举类型都定义为顶层类型，即都是包中的直接成员。</li>
+<li>嵌套类型：也称为 <code>内部类</code>，不能作为完全独立的实体真实存在，类型通过四种不同方式嵌套在其他类型中。</li>
+<li><p>四种嵌套方式：</p>
+<ul>
+<li>静态成员类型：嵌套的接口，枚举和注解 (既使不使用 static 关键字)。</li>
+<li>非静态成员类型：没有 static 声明，只有类才能作为非静态成员类型。</li>
+<li>局部类：Java 代码块中定义的类，只是这个块可见。</li>
+<li><p>匿名类：局部类，匿名类是不能有名字的类，在创建 new 语句来声明它们。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Runnable runnable = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 忽略细节</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread();</span><br><span class="line">runnable.start();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>嵌套类型的运作方式</p>
+<p>  对于 Java 解析器而言，并没有所谓的嵌套类型，<code>所有类型都是普通的顶层类</code>。为了实现嵌套类型，Javac 把每个嵌套类型编译为 <code>单独类文件</code>，得到的类文件使用 <code>特殊命名约定</code>。</p>
+<ul>
+<li><p>静态 / 非静态成员类型：以 <code>EnclosingType$Member.class</code> 格式命名成员类型的类文件。</p>
+<blockquote>
+<p>例如在 LinkedStack 类中，定义一个 Linkable 的静态成员接口。<br>在编译这个 LinkedStack 类时，编译器会生成两个类文件，分别是 LinkedStack.class 和 LinkedStack$Linkable.class。</p>
+</blockquote>
+</li>
+<li><p>匿名类：类文件的名称由实现细节决定，例如 Oracle 或 OpenJDK 中 Javac 使用数字表示匿名类的名称，即 <code>EnclosingType$1.class</code>.</p>
+</li>
+<li>局部类：综合使用前两种方式命名，例如 <code>EnclosingType$1Member.class</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h4><p>列出目录中文件名以 “.java” 结尾的文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">File dir = <span class="keyword">new</span> File(<span class="string">"/src"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用 list() 方法，参数的值是匿名类实现的 FilenameFilter</span></span><br><span class="line">String[] fileList = dir.list( <span class="keyword">new</span> FilenameFilter() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File file, String str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> str.endsWith(<span class="string">".java"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lambda 表达式</span></span><br><span class="line">String[] fileList = dir.list( </span><br><span class="line">    (file, str) -&gt; &#123;<span class="keyword">return</span> str.endsWith(<span class="string">".java"</span>); &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>转换 lambda 表达式：必须满足以下条件才算是合法的 Java 代码。 <ul>
+<li>必须出现在期望使用接口类型实例的地方；</li>
+<li>期望使用接口类型必须只有一个强制方法；</li>
+<li>该强制方法的签名要完全匹配 lambda 表达式).</li>
+</ul>
+</li>
+<li><p>方法引用</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 该接口只有一个非默认方法：</span></span><br><span class="line"><span class="comment">// 该方法接受一个 MyObject 类型的参数，返回类型为 String</span></span><br><span class="line">(MyObject myobject) -&gt; &#123; myobject.toString(); &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法引用：Java 8 提供了更简洁的句法</span></span><br><span class="line">MyObject::toString;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://book.douban.com/subject/24722612/" target="_blank" rel="noopener">[1] 周志明. 深入理解Java虚拟机(第2版)[M]. 机械工业出版社, 2013</a>  </p>
 
       
     </div>
@@ -1328,7 +1621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总览"><span class="nav-number">2.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-Java-环境介绍"><span class="nav-number">3.</span> <span class="nav-text">壹 Java 环境介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-程序、环境"><span class="nav-number">3.1.</span> <span class="nav-text">JVM - 程序、环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-程序的生命周期"><span class="nav-number">3.2.</span> <span class="nav-text">Java 程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-和其他语言比较"><span class="nav-number">3.3.</span> <span class="nav-text">Java 和其他语言比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-Java-基本句法"><span class="nav-number">4.</span> <span class="nav-text">贰 Java 基本句法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法结构"><span class="nav-number">4.1.</span> <span class="nav-text">词法结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布尔类型"><span class="nav-number">4.2.1.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类型"><span class="nav-number">4.2.2.</span> <span class="nav-text">字符类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式和运算符"><span class="nav-number">4.3.</span> <span class="nav-text">表达式和运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句"><span class="nav-number">4.4.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">4.5.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义方法"><span class="nav-number">4.5.1.</span> <span class="nav-text">定义方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法修饰符"><span class="nav-number">4.5.2.</span> <span class="nav-text">方法修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已检异常和未检异常"><span class="nav-number">4.5.3.</span> <span class="nav-text">已检异常和未检异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变长参数列表"><span class="nav-number">4.5.4.</span> <span class="nav-text">变长参数列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍类和对象"><span class="nav-number">4.6.</span> <span class="nav-text">介绍类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组的类型"><span class="nav-number">4.7.1.</span> <span class="nav-text">数组的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">4.7.2.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用数组"><span class="nav-number">4.7.3.</span> <span class="nav-text">使用数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多维数组"><span class="nav-number">4.7.4.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">4.8.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包和-Java-命名空间"><span class="nav-number">4.9.</span> <span class="nav-text">包和 Java 命名空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-Java-面向对象编程"><span class="nav-number">5.</span> <span class="nav-text">叁 Java 面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">5.1.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的基本概念"><span class="nav-number">5.1.1.</span> <span class="nav-text">面向对象的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义类的句法"><span class="nav-number">5.1.2.</span> <span class="nav-text">定义类的句法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段和方法"><span class="nav-number">5.2.</span> <span class="nav-text">字段和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和初始化对象"><span class="nav-number">5.3.</span> <span class="nav-text">创建和初始化对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子类的继承"><span class="nav-number">5.4.</span> <span class="nav-text">子类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展类"><span class="nav-number">5.4.1.</span> <span class="nav-text">扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法链和默认构造方法"><span class="nav-number">5.4.2.</span> <span class="nav-text">构造方法链和默认构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖超类的方法"><span class="nav-number">5.4.3.</span> <span class="nav-text">覆盖超类的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据隐藏和封装"><span class="nav-number">5.5.</span> <span class="nav-text">数据隐藏和封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类和方法"><span class="nav-number">5.6.</span> <span class="nav-text">抽象类和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换引用类型"><span class="nav-number">5.6.1.</span> <span class="nav-text">转换引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符总结"><span class="nav-number">5.6.2.</span> <span class="nav-text">修饰符总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总览"><span class="nav-number">2.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-Java-环境介绍"><span class="nav-number">3.</span> <span class="nav-text">壹 Java 环境介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM-程序、环境"><span class="nav-number">3.1.</span> <span class="nav-text">JVM - 程序、环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-程序的生命周期"><span class="nav-number">3.2.</span> <span class="nav-text">Java 程序的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-和其他语言比较"><span class="nav-number">3.3.</span> <span class="nav-text">Java 和其他语言比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-Java-基本句法"><span class="nav-number">4.</span> <span class="nav-text">贰 Java 基本句法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词法结构"><span class="nav-number">4.1.</span> <span class="nav-text">词法结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">4.2.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#布尔类型"><span class="nav-number">4.2.1.</span> <span class="nav-text">布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符类型"><span class="nav-number">4.2.2.</span> <span class="nav-text">字符类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表达式和运算符"><span class="nav-number">4.3.</span> <span class="nav-text">表达式和运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语句"><span class="nav-number">4.4.</span> <span class="nav-text">语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">4.5.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义方法"><span class="nav-number">4.5.1.</span> <span class="nav-text">定义方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法修饰符"><span class="nav-number">4.5.2.</span> <span class="nav-text">方法修饰符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#已检异常和未检异常"><span class="nav-number">4.5.3.</span> <span class="nav-text">已检异常和未检异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变长参数列表"><span class="nav-number">4.5.4.</span> <span class="nav-text">变长参数列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍类和对象"><span class="nav-number">4.6.</span> <span class="nav-text">介绍类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">4.7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组的类型"><span class="nav-number">4.7.1.</span> <span class="nav-text">数组的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">4.7.2.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用数组"><span class="nav-number">4.7.3.</span> <span class="nav-text">使用数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多维数组"><span class="nav-number">4.7.4.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">4.8.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#包和-Java-命名空间"><span class="nav-number">4.9.</span> <span class="nav-text">包和 Java 命名空间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-Java-面向对象编程"><span class="nav-number">5.</span> <span class="nav-text">叁 Java 面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">5.1.</span> <span class="nav-text">类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象的基本概念"><span class="nav-number">5.1.1.</span> <span class="nav-text">面向对象的基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定义类的句法"><span class="nav-number">5.1.2.</span> <span class="nav-text">定义类的句法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段和方法"><span class="nav-number">5.2.</span> <span class="nav-text">字段和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和初始化对象"><span class="nav-number">5.3.</span> <span class="nav-text">创建和初始化对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子类的继承"><span class="nav-number">5.4.</span> <span class="nav-text">子类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展类"><span class="nav-number">5.4.1.</span> <span class="nav-text">扩展类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法链和默认构造方法"><span class="nav-number">5.4.2.</span> <span class="nav-text">构造方法链和默认构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖超类的方法"><span class="nav-number">5.4.3.</span> <span class="nav-text">覆盖超类的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据隐藏和封装"><span class="nav-number">5.5.</span> <span class="nav-text">数据隐藏和封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类和方法"><span class="nav-number">5.6.</span> <span class="nav-text">抽象类和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转换引用类型"><span class="nav-number">5.6.1.</span> <span class="nav-text">转换引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符总结"><span class="nav-number">5.6.2.</span> <span class="nav-text">修饰符总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#肆-Java-类型系统"><span class="nav-number">6.</span> <span class="nav-text">肆 Java 类型系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#接口"><span class="nav-number">6.1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义接口"><span class="nav-number">6.1.1.</span> <span class="nav-text">定义接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展接口"><span class="nav-number">6.1.2.</span> <span class="nav-text">扩展接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现接口"><span class="nav-number">6.1.3.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认方法"><span class="nav-number">6.1.4.</span> <span class="nav-text">默认方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-泛型"><span class="nav-number">6.2.</span> <span class="nav-text">Java 泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍泛型"><span class="nav-number">6.2.1.</span> <span class="nav-text">介绍泛型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型和类型参数"><span class="nav-number">6.2.2.</span> <span class="nav-text">泛型和类型参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#菱形句法"><span class="nav-number">6.2.3.</span> <span class="nav-text">菱形句法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型擦除"><span class="nav-number">6.2.4.</span> <span class="nav-text">类型擦除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通配符"><span class="nav-number">6.2.5.</span> <span class="nav-text">通配符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#枚举和注解"><span class="nav-number">6.3.</span> <span class="nav-text">枚举和注解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举"><span class="nav-number">6.3.1.</span> <span class="nav-text">枚举</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注解"><span class="nav-number">6.3.2.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义注解"><span class="nav-number">6.3.3.</span> <span class="nav-text">自定义注解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌套类型"><span class="nav-number">6.3.4.</span> <span class="nav-text">嵌套类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lambda-表达式"><span class="nav-number">6.3.5.</span> <span class="nav-text">Lambda 表达式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
