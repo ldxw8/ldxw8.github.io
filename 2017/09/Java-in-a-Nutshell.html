@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_6-1.png">
-<meta property="og:updated_time" content="2018-03-29T15:53:49.924Z">
+<meta property="og:updated_time" content="2018-03-29T16:32:22.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java In a Nutshell ( 读书笔记 + Awsome Docs )">
 <meta name="twitter:description" content="序言首先，《 Java In a Nutshell 》中文版翻译为《 Java 技术手册 》，但本文标题沿用的仍是英文版标题，其实这样的选择是有缘由的 (小吐槽)。Nutshell 有核桃壳之意，In a Nutshell 意为概览。当然也可按字面上通俗理解，Java In a Nutshell 即在意义层面上，相比 “技术手册” 来得更有韵味。 由于对图灵出品的 O’Reilly 动物书情有独钟">
@@ -301,8 +301,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-03-29T23:53:49+08:00" content="2018-03-29">
-                2018-03-29
+              <time itemprop="dateUpdated" datetime="2018-03-30T00:32:22+08:00" content="2018-03-30">
+                2018-03-30
               </time>
             </span>
           
@@ -1514,7 +1514,7 @@
 <p>只要修改或读取对象过程中，对象的状态可能不一致，这段代码就要受到保护。假若一个方法包含一连串操作，若在操作过程中中断，就可能导致 <code>某个对象处于不一致或非法状态</code>。如 <code>这个非法状态对另一个对象可见</code>，代码的行为就会<code>错乱</code>。</p>
 <h4 id="Volatile-关键字"><a href="#Volatile-关键字" class="headerlink" title="Volatile 关键字"></a>Volatile 关键字</h4><p>应用代码使用字段或变量前，必须重新以主内存读取值。同理，修改使用 volatile 修饰的值，在写入变量之后，必须存回主内存。</p>
 <h4 id="Thread-类中常用的方法"><a href="#Thread-类中常用的方法" class="headerlink" title="Thread 类中常用的方法"></a>Thread 类中常用的方法</h4><ul>
-<li><code>getId</code>：这个方法 <code>返回线程的 ID 值</code>，类型为 <code>long</code> 型，线程的 ID 在线程的整个生命周期中都不变。</li>
+<li><code>getId()</code>：这个方法 <code>返回线程的 ID 值</code>，类型为 <code>long</code> 型，线程的 ID 在线程的整个生命周期中都不变。</li>
 <li><code>getPriority()</code> 和 <code>setPriority()</code>：控制线程的 <code>优先级</code>。线程的优先级使用 <code>1 ~ 10 之间的整数</code> 表示。</li>
 <li><code>setName()</code> 和 <code>getName()</code>：使用这两个方法设定或取回单个线程的名称。</li>
 <li><code>getState()</code>：返回一个 Thread.state 对象，说明 <code>线程处于什么状态</code>。</li>
@@ -1525,7 +1525,7 @@
 <li>线程中涉及可中断 I/O 操作，那么 I/O 操作会终止，线程会收到 closedByInterruptException 异常。既使线程没有从事任何中断操作，线程中断状态会被设为 true。</li>
 </ul>
 </li>
-<li><code>jion()</code>：可理解为一指令，在其他线程结束前，当前线程不会继续向前运行。</li>
+<li><code>join()</code>：可理解为一指令，在其他线程结束前，当前线程不会继续向前运行。</li>
 <li><code>setDaemon()</code>：一个线程是用户线程还是守护线程，由其决定。<ul>
 <li>用户线程：<code>只要线程还 “活着”，进程就无法退出。</code> (线程默认行为)</li>
 <li>守护线程：线程不阻止进程退出。</li>
