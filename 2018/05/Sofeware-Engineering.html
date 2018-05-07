@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软件工程,需求工程,系统建模," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="序言">
+<meta name="keywords" content="软件工程,需求工程,系统建模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程 ( 读书笔记 )">
+<meta property="og:url" content="http://www.kofes.cn/2018/05/Sofeware-Engineering.html">
+<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:description" content="序言">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-1.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-2.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-3.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-4.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-5.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-6.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-7.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-8.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-9.png">
+<meta property="og:updated_time" content="2018-05-07T06:43:07.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件工程 ( 读书笔记 )">
+<meta name="twitter:description" content="序言">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/05/Sofeware-Engineering.html"/>
+
+
+
+
+
+  <title>软件工程 ( 读书笔记 ) | KOFE'S BLOG</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KOFE'S BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Research</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/05/Sofeware-Engineering.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KOFE'S BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">软件工程 ( 读书笔记 )</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T19:45:02+08:00">
+                2018-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-05-07T14:43:07+08:00" content="2018-05-07">
+                2018-05-07
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reading/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/Sofeware-Engineering.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/Sofeware-Engineering.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/05/Sofeware-Engineering.html" class="leancloud_visitors" data-flag-title="软件工程 ( 读书笔记 )">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,788
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><a id="more"></a>
+<ul>
+<li><p>参考书目：</p>
+<ul>
+<li>《 软件工程 》. Ian Sommerville 著：计算机科学丛书，且是著名软件工程学家 Ian Sommerille 系统介绍软件工程理论的经典教材。</li>
+<li>《 构建之法(第二版) 》: 待阅读。贴上本书豆瓣的书评，供朋友评判，做出抉择。<a href="https://book.douban.com/subject/26577755/" target="_blank" rel="noopener">构建之法(第二版)</a> </li>
+</ul>
+</li>
+<li><p>更新进程</p>
+<ul>
+<li>2018.05.02 - 完成初稿；</li>
+<li>2018.05.04 - 更新正文：导论部分  (第 1 / 8 章)；</li>
+</ul>
+</li>
+</ul>
+<h2 id="零-总览"><a href="#零-总览" class="headerlink" title="零 总览"></a>零 总览</h2><ul>
+<li>软件工程导论<ul>
+<li><a href="#">壹 软件过程</a></li>
+<li><a href="#">贰 敏捷软件开发</a></li>
+<li><a href="#">叁 需求工程</a></li>
+<li><a href="#">肆 系统建模</a></li>
+<li><a href="#">伍 体系结构设计</a></li>
+<li><a href="#">陆 设计与实现</a></li>
+<li><a href="#">柒 软件测试</a></li>
+<li><a href="#">捌 软件进化 / 软件维护</a></li>
+</ul>
+</li>
+<li>高级软件工程<ul>
+<li><a href="#">玖 软件复用</a></li>
+<li><a href="#">拾 基于组件的软件工程</a></li>
+</ul>
+</li>
+<li>软件管理<ul>
+<li><a href="#">拾壹 项目管理</a></li>
+<li><a href="#">拾贰 项目规划</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="壹-软件过程"><a href="#壹-软件过程" class="headerlink" title="壹 软件过程"></a>壹 软件过程</h2><ul>
+<li>学习目标<ul>
+<li>3个一般的 <code>软件过程模型</code>；</li>
+<li>了解软件需求工程、开发、测试和进化中所涉及的 <code>基本过程活动</code>；</li>
+<li>理解为什么软件过程要有效地组织以应对软件需求和设计上的变更；</li>
+<li>Rational 统一过程 (RUP).</li>
+</ul>
+</li>
+<li>软件过程必须具有的基本活动<ul>
+<li>软件描述</li>
+<li>软件设计和实现</li>
+<li>软件有效性验证</li>
+<li>软件进化</li>
+</ul>
+</li>
+<li>没有“理想”的软件过程 – 寻找平衡点<ul>
+<li>计划驱动过程：提前计划好所有的过程活动，再按计划去考核过程的执行。</li>
+<li>敏捷过程：计划是增量式的，且容易根据不断变化的客户需求变更过程。更多详细内容见 <code>第叁章</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="软件过程模型"><a href="#软件过程模型" class="headerlink" title="软件过程模型"></a>软件过程模型</h3><ul>
+<li>软件过程：产生一个软件系统的一系列活动。</li>
+<li>软件过程的简化表示 (抽象表示)。</li>
+<li><p>每个过程模型都是从一个特定的侧面表现软件过程，所以只提供过程的部分信息。</p>
+<blockquote>
+<p>如过程活动模型表现了这些活动和他们的顺序，但可能表现不出人们在这些活动中的角色。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a>瀑布模型</h4><p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-1.png" alt="图1-1瀑布模型"></p>
+<center>图1-1 瀑布模型</center>
+
+<ul>
+<li>计划驱动模型；</li>
+<li>该模型将基本的过程活动、描述、开发、有效性验证和进化，看成是一些界限分明的独立的过程阶段。<ul>
+<li>需求分析和定义：通过咨询系统用户建立系统的服务、约束和目标，并对其详细定义形成系统描述。</li>
+<li>系统和软件设计<ul>
+<li>系统设计 – 建立系统的总体体系结构，将需求区分为硬件需求和软件需求。</li>
+<li>软件设计 – 识别和描述一些基本的软件系统抽象及其之间的关系。</li>
+</ul>
+</li>
+<li>实现和单元测试<ul>
+<li>软件设计实现 – 实现为一组程序或程序单元。</li>
+<li>单元测试 – 验证每个单元是否符合其描述。</li>
+</ul>
+</li>
+<li>集成和系统测试<ul>
+<li>集成 – 集成单个的程序单元或一组程序。</li>
+<li>系统测试 – 评估系统的可靠性；是否满足软件需求。</li>
+</ul>
+</li>
+<li>运行和维护</li>
+</ul>
+</li>
+</ul>
+<h4 id="增量式开发"><a href="#增量式开发" class="headerlink" title="增量式开发"></a>增量式开发</h4><p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-2.png" alt="图1-2增量式开发"></p>
+<center>图1-2 增量式开发</center>
+
+<ul>
+<li>即可是计划驱动的，也可是敏捷方法的。<ul>
+<li>系统增量是提前定义好的，即为 <code>计划驱动方法</code>。</li>
+<li>最初的增量是定义好的，但往后的增量的开发取决于项目的进展情况及客户的优先选择，即为 <code>敏捷方法</code>。</li>
+</ul>
+</li>
+<li>系统的开发是建立一系列的版本 (增量) 每个版本添加部分功能到先前版本中。</li>
+<li>增量式开发的特性<ul>
+<li>降低了适应用户需求变更的成本。</li>
+<li>开发过程中及时得到用户已做的开发工作的反馈意见。</li>
+<li>更快地交付和部署有用的软件到客户方。</li>
+</ul>
+</li>
+</ul>
+<h4 id="面向复用的软件工程"><a href="#面向复用的软件工程" class="headerlink" title="面向复用的软件工程"></a>面向复用的软件工程</h4><p>基于复用开发的一般过程模型如图 1-3 所示。初始需求描述阶段、有效性验证阶段与其他过程差不多，面向复用过程的中间阶段是不同的。</p>
+<p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-3.png" alt="图1-3面向复用的软件工程"></p>
+<center>图1-3 面向复用的软件工程</center>
+
+<ul>
+<li>中间阶段：即组件分析、需求修改、使用复用的系统设计、开发和集成阶段。<ul>
+<li>组件分析：需求描述 -&gt; 搜组件 (往往只提供所需的部分功能)。</li>
+<li>需求修改：根据得到组件信息分析需求，再修改需求以反映可得到的组件。</li>
+<li>使用复用的系统设计：设计系统的框架或者重复使用一个已存在的框架。</li>
+<li>开发和集成</li>
+</ul>
+</li>
+</ul>
+<h3 id="过程活动"><a href="#过程活动" class="headerlink" title="过程活动"></a>过程活动</h3><h4 id="软件描述"><a href="#软件描述" class="headerlink" title="软件描述"></a>软件描述</h4><ul>
+<li>软件描述或需求工程是理解和定义系统需要提供什么样的服务，以及找出开发和运行中受到哪些约束。</li>
+<li>需求工程过程的主要阶段，如图 1-4 所示。<ul>
+<li>可行性研究</li>
+<li>需求导出和分析</li>
+<li>需求描述</li>
+<li>需求有效性验证</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-4.png" alt="图1-4需求工程过程"></p>
+<center>图1-4 需求工程过程</center>
+
+<h4 id="软件设计和实现"><a href="#软件设计和实现" class="headerlink" title="软件设计和实现"></a>软件设计和实现</h4><ul>
+<li>软件设计和实现阶段是把系统描述转换成一个可运行的系统的过程。</li>
+<li>软件设计是对实现软件的结构、系统的数据、系统组件间的接口以及所用的算法的描述。这是一反复、迭代的过程。</li>
+</ul>
+<h4 id="软件有效性验证"><a href="#软件有效性验证" class="headerlink" title="软件有效性验证"></a>软件有效性验证</h4><ul>
+<li>程序测试：用模拟测试数据运行系统。</li>
+<li>测试过程各阶段<ul>
+<li>组件 (单元) 测试：每个组件单独测试；组件可是简单实体，如函数、对象类或这些实体的集合。</li>
+<li>系统测试：集成组件形成完整系统，对组件组成的子系统测试。</li>
+<li>接收测试：客户提供真实数据测试系统。</li>
+</ul>
+</li>
+</ul>
+<h4 id="软件进化-软件维护"><a href="#软件进化-软件维护" class="headerlink" title="软件进化/软件维护"></a>软件进化/软件维护</h4><p>软件工程不再是开发和维护两个独立的过程，而是一个进化过程。即软件在其生命内不断随着需求的变更而变更的进化式过程。</p>
+<p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-5.png" alt="图1-5系统进化"></p>
+<center>图1-5 系统进化</center>
+
+<h3 id="应对变更"><a href="#应对变更" class="headerlink" title="应对变更"></a>应对变更</h3><ul>
+<li>有效降低变更成本<ul>
+<li>变更避免：预测变更，如 <code>原型系统</code> 的开发，客户试用原型，在花费高额的软件生产成本之前重新定义需求。</li>
+<li>变更容忍：<code>增量开发</code>，即使单个增量(系统一小部分)的修改来适应变更，以较低成本处理变更。</li>
+</ul>
+</li>
+<li>应对变更系统需求的方法<ul>
+<li>系统原型：快速开发一个系统版本或系统一部分，以检验客户需求和某些设计决定的可行性，即它支持 <code>变更避免</code>。</li>
+<li>增量交付：系统增量地交付给用户，给用户评审和试用。即它支持 <code>变更避免</code> 和 <code>变更容忍</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="原型构造"><a href="#原型构造" class="headerlink" title="原型构造"></a>原型构造</h4><ul>
+<li>原型是一个软件系统的最初版本，用于验证概念、试用设计选项、发现更多的问题和可能的解决方法。</li>
+<li><p>原型开发的过程模型如图 1-6 所示。</p>
+<p>  <img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-6.png" alt="图1-6原型开发的过程"></p>
+  <center>图1-6 原型开发的过程</center>
+
+<blockquote>
+<p>最后一阶段：原型评估，则必须安排用户培训，应根据原型的目标制定一个评估计划。即用户需习惯并适用新系统，一旦他们自然地使用了系统，将可能发现错误和被遗漏的需求。</p>
+</blockquote>
+</li>
+<li><p>不强求原型是可执行的。</p>
+<blockquote>
+<p>基于纸质的模型系统的用户界面，用户和这个界面交互，但他们的请求被传递给一个人，该人员解释此请求并输出相应的响应。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="增量式交付"><a href="#增量式交付" class="headerlink" title="增量式交付"></a>增量式交付</h4><ul>
+<li><p>增量式开发是软件开发的一种方法，如图 1-7 所示。</p>
+<p>  <img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-7.png" alt="图1-7增量式交付"></p>
+  <center>图1-7 增量式交付</center>
+</li>
+<li><p>增量式开发过程的好处</p>
+<ul>
+<li>早期的增量作为原型，从中获得对后面系统增量的需求经验。</li>
+<li>每一增量会满足他们大多数需求，即软件马上就能使用。</li>
+<li>具有高优先权的服务被首先交付，而后继有增量不断被集成进来，使得最重要的系统服务接受了多次测试。</li>
+</ul>
+</li>
+<li>增量式交付存在的问题<ul>
+<li>软件描述和软件本身一起开发是迭代过程的本质。在增量方法中，直到最后的增量描述完成，才会有完整的系统描述。而许多机构 (如政府) 的采购模型是，系统开发合同中附带完整的系统描述，即相互冲突。</li>
+<li>旧系统的所有功能与新系统的部分功能，多数用户宁可选前者，即获取反馈较困难。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Boehm-的螺旋模型"><a href="#Boehm-的螺旋模型" class="headerlink" title="Boehm 的螺旋模型"></a>Boehm 的螺旋模型</h4><ul>
+<li>风险驱动的软件过程框架 (螺旋模型)<ul>
+<li>在螺旋线中每个回路表示软件过程的一个阶段，如最里的回路可能与系统可行性研究有关，下一回路与系统需求定义有关等。</li>
+<li>螺旋线中每个回路被分成4部分：<br>1) 目标设置<br>2) 风险评估和规避<br>3) 开发和有效性验证<br>4) 规划  </li>
+</ul>
+</li>
+</ul>
+<h3 id="Rational-统一过程"><a href="#Rational-统一过程" class="headerlink" title="Rational 统一过程"></a>Rational 统一过程</h3><ul>
+<li>RUP 一般从3个视角描述过程<ul>
+<li>动态视角：给出模型中随时间所经历的各个阶段。</li>
+<li>静态视角：给出所进行的过程活动。</li>
+<li>实践视角：提出在过程中可采用的良好实践建议。</li>
+</ul>
+</li>
+<li><p>RUP 是一阶段化模型，如图 1-8 所示。</p>
+<ul>
+<li>开端  <ul>
+<li>目标是建立系统的一个业务案例。  </li>
+<li>识别所有与系统交互的外部实体 (人和系统) 并定义这些交互。</li>
+<li>适用这些信息评估系统对业务的贡献，若贡献微小，那么项目在此阶段结束。</li>
+</ul>
+</li>
+<li>细化<ul>
+<li>目标是增进对问题域的理解，建立系统的体系框架，给出项目计划并识别关键项目风险。</li>
+<li>输出系统的需求模型 (描述的用例、体系结构描述及开发计划)。</li>
+</ul>
+</li>
+<li>构造：系统设计、编程和测试。</li>
+<li><p>转换：将系统从开发单位转移到用户单位，并使之在真实环境中工作。</p>
+<blockquote>
+<p>1) RUP 中的阶段是紧密与业务关联，而不是与技术层面关联。<br>2) RUP 把 <code>阶段</code> (开端、细化、构造、转换) 和 <code>工作流</code> (需求、分析、设计…) 分离，即各种 RUP 工作流在整个过程的所有阶段都是可能存放的。  </p>
+</blockquote>
+<p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-8.png" alt="图1-8Rational统一过程的各阶段"></p>
+<center>图1-8 Rational 统一过程的各阶段</center>
+</li>
+</ul>
+</li>
+<li><p>实践视角</p>
+<ul>
+<li>迭代地开发软件；</li>
+<li>对需求的管理：记录并跟踪客户的需求；</li>
+<li>使用基于组件的体系结构，将系统体系结构组织成组件形态；</li>
+<li>可视化地建模软件：UML 模型表现软件的静态、动态视图；</li>
+<li>检验软件质量；</li>
+<li>控制对软件的变更：变更管理系统、配置管理程序和工具来管理软件的变更。</li>
+</ul>
+</li>
+<li><p>静态视角</p>
+<ul>
+<li>聚焦在开发过程中所发生的活动上，这些在 RUP 描述中被称为工作流。</li>
+<li><p>此过程中包含6个核心过程工作流，3个核心支持工作流，见图 1-9 所示。</p>
+<p><img src="/images/illustration/Reading/2018/05/Sofeware-Engineering_1-9.png" alt="图1-9RUP中的静态工作流"></p>
+<center>图1-9 RUP 中的静态工作流</center></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/05/Sofeware-Engineering.html" title="软件工程 ( 读书笔记 )">http://www.kofes.cn/2018/05/Sofeware-Engineering.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+          
+            <a href="/tags/需求工程/" rel="tag"># 需求工程</a>
+          
+            <a href="/tags/系统建模/" rel="tag"># 系统建模</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/Producting-An-Application.html" rel="next" title="一个 APP 的诞生 ( 笔记 + 方法论 )">
+                <i class="fa fa-chevron-left"></i> 一个 APP 的诞生 ( 笔记 + 方法论 )
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零-总览"><span class="nav-number">2.</span> <span class="nav-text">零 总览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-软件过程"><span class="nav-number">3.</span> <span class="nav-text">壹 软件过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件过程模型"><span class="nav-number">3.1.</span> <span class="nav-text">软件过程模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#瀑布模型"><span class="nav-number">3.1.1.</span> <span class="nav-text">瀑布模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增量式开发"><span class="nav-number">3.1.2.</span> <span class="nav-text">增量式开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向复用的软件工程"><span class="nav-number">3.1.3.</span> <span class="nav-text">面向复用的软件工程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过程活动"><span class="nav-number">3.2.</span> <span class="nav-text">过程活动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件描述"><span class="nav-number">3.2.1.</span> <span class="nav-text">软件描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件设计和实现"><span class="nav-number">3.2.2.</span> <span class="nav-text">软件设计和实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件有效性验证"><span class="nav-number">3.2.3.</span> <span class="nav-text">软件有效性验证</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件进化-软件维护"><span class="nav-number">3.2.4.</span> <span class="nav-text">软件进化/软件维护</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应对变更"><span class="nav-number">3.3.</span> <span class="nav-text">应对变更</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型构造"><span class="nav-number">3.3.1.</span> <span class="nav-text">原型构造</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增量式交付"><span class="nav-number">3.3.2.</span> <span class="nav-text">增量式交付</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Boehm-的螺旋模型"><span class="nav-number">3.3.3.</span> <span class="nav-text">Boehm 的螺旋模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rational-统一过程"><span class="nav-number">3.4.</span> <span class="nav-text">Rational 统一过程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'ldxw8',
+            repo: 'Gitment-Comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'f238ab9658bf2363252fa4d2636c6998391939ce',
+            
+                client_id: 'd9afffe6287f2bf42db9'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      function showGitment(){
+        document.getElementById("gitment-display-button").style.display = "none";
+        document.getElementById("gitment-container").style.display = "block";
+        renderGitment();
+      }
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
