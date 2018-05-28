@@ -495,6 +495,7 @@
 </ul>
 <h3 id="Java-和其他语言比较"><a href="#Java-和其他语言比较" class="headerlink" title="Java 和其他语言比较"></a>Java 和其他语言比较</h3><center>表 1-1 Java 与 C 语言的区别</center>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -521,8 +522,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <center>表 1-2 Java 与 PHP 语言的区别</center>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -541,6 +544,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li>书本中，关于静态语言与动态语言的区别，即在于编译时还是运行时检测错误。</li>
 <li><p>对于类型系统的概念，众说纷纭，如何理解静态、动态类型语言，推荐知乎 <a href="https://www.zhihu.com/question/19918532/answer/21647195" target="_blank" rel="noopener">rainoftime</a> 的回答： </p>
@@ -566,6 +570,7 @@
 </ul>
 <center>表 1-3 Java 与 JavaScript 语言的区别</center>
 
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -584,7 +589,7 @@
 </tr>
 <tr>
 <td style="text-align:left">Java 提供良好的对象封装</td>
-<td style="text-align:left">–</td>
+<td style="text-align:left">—</td>
 </tr>
 <tr>
 <td style="text-align:left">Java 支持多线程操作</td>
@@ -592,6 +597,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="贰-Java-基本句法"><a href="#贰-Java-基本句法" class="headerlink" title="贰 Java 基本句法"></a>贰 Java 基本句法</h2><h3 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h3><div class="note success"><p>说明：词法结构的内容与 Java / Android 开发规范的内容有所交集，可参阅上述推荐的优秀博文：<br><a href="https://github.com/Blankj/AndroidStandardDevelop" target="_blank" rel="noopener">BlankJ. Java / Android 开发规范. 2017. github.com</a>。</p></div>
 <ul>
 <li>Java 编码使用的是 Unicode 字符集。</li>
@@ -620,7 +626,8 @@
 <li><p>字面量<br>直接出现在 Java 源码中的值，包括 整数 <code>1</code>、浮点数 <code>3.141</code>，单引号字符 <code>&#39;A&#39;</code>、双引号字符 <code>&quot;Hello&quot;</code> 以及保留字 <code>true、false、null</code>。</p>
 </li>
 </ul>
-<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><table>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">类型</th>
@@ -689,6 +696,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="布尔类型"><a href="#布尔类型" class="headerlink" title="布尔类型"></a>布尔类型</h4><p>表示两种个逻辑状态，可表示开或关，也可是与否。</p>
 <ul>
 <li><p>零或非零表逻辑</p>
@@ -702,6 +710,7 @@
 <li>普通字符</li>
 <li>转义字符</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -732,7 +741,7 @@
 </tr>
 <tr>
 <td style="text-align:left">双引号</td>
-<td style="text-align:left">\“</td>
+<td style="text-align:left">\\”</td>
 </tr>
 <tr>
 <td style="text-align:left">八进制</td>
@@ -744,6 +753,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <blockquote>
 <p>在上表中，以取双引号为例，只需附加上反斜杆 <code>\</code> 即可。<br>例如：<code>\\</code>、<code>\&quot;</code> <code>\&#39;</code>。</p>
 </blockquote>
@@ -828,7 +838,8 @@
 </ul>
 </li>
 </ul>
-<h4 id="方法修饰符"><a href="#方法修饰符" class="headerlink" title="方法修饰符"></a>方法修饰符</h4><table>
+<h4 id="方法修饰符"><a href="#方法修饰符" class="headerlink" title="方法修饰符"></a>方法修饰符</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">修饰符</th>
@@ -858,12 +869,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="已检异常和未检异常"><a href="#已检异常和未检异常" class="headerlink" title="已检异常和未检异常"></a>已检异常和未检异常</h4><ul>
-<li><p>已检异常和未检异常 – <code>什么情况抛出异常</code></p>
+<li><p>已检异常和未检异常 — <code>什么情况抛出异常</code></p>
 <ul>
 <li><p>已检异常：明确的特定情况下抛出。</p>
 <blockquote>
-<p>例如：FileNotFoundException – 打开某个文件却不在目录中。</p>
+<p>例如：FileNotFoundException — 打开某个文件却不在目录中。</p>
 </blockquote>
 </li>
 <li><p>未检异常：任何方法任何时候都可能抛出。</p>
@@ -899,6 +911,7 @@
 <li><p>再谈数据类型<br>  谈论数据类型时，得分开数据类型和数据类型的值。Char 类型的值表示某个具体的字符，而 Point 类是一种新的数据类型，用于表示坐标 (x, y)，Point 类为引用类型，即聚合类型，而 Point 类表示的值是对象。</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -917,6 +930,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <ul>
 <li><p>lambda 表达式：其实就是没有名称的函数，<code>某个类中定义的匿名方法</code>。  </p>
 <blockquote>
@@ -1095,7 +1109,8 @@
 </li>
 <li>对象可以转换成子类型，缩小转换，但需确保转换有效。</li>
 </ul>
-<h4 id="修饰符总结"><a href="#修饰符总结" class="headerlink" title="修饰符总结"></a>修饰符总结</h4><table>
+<h4 id="修饰符总结"><a href="#修饰符总结" class="headerlink" title="修饰符总结"></a>修饰符总结</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th style="text-align:left">修饰符</th>
@@ -1216,6 +1231,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="肆-Java-类型系统"><a href="#肆-Java-类型系统" class="headerlink" title="肆 Java 类型系统"></a>肆 Java 类型系统</h2><p>Java 是一种静态语言，如果把不兼容型的值赋给变量，会导致编译出错。而在运作时检查类型兼容性的语言叫做动态类型语言，如 Javascript。  </p>
 <blockquote>
 <p>在 <a href="#Java-和其他语言比较">第壹章：Java 和其他语言比较</a> 中有对语言类型的深入了解。</p>
@@ -1422,7 +1438,7 @@
 </li>
 </ul>
 </li>
-<li><p>单例 – 单例模式 – 只需要为类创建一个实例。更多设计模式可参考：</p>
+<li><p>单例 — 单例模式 — 只需要为类创建一个实例。更多设计模式可参考：</p>
 <p>  <a href="https://www.kofes.cn/2018/01/Design-Pattern-Based-on-Android.html">Android 设计模式之实践与案例 ( 笔记 + 速记手册 )</a></p>
 </li>
 </ul>
@@ -1512,7 +1528,7 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="互斥和状态保护"><a href="#互斥和状态保护" class="headerlink" title="互斥和状态保护"></a>互斥和状态保护</h4><p>互斥和状态保护 –  声明 <code>synchronized 关键字</code></p>
+<h4 id="互斥和状态保护"><a href="#互斥和状态保护" class="headerlink" title="互斥和状态保护"></a>互斥和状态保护</h4><p>互斥和状态保护 —  声明 <code>synchronized 关键字</code></p>
 <p>只要修改或读取对象过程中，对象的状态可能不一致，这段代码就要受到保护。假若一个方法包含一连串操作，若在操作过程中中断，就可能导致 <code>某个对象处于不一致或非法状态</code>。如 <code>这个非法状态对另一个对象可见</code>，代码的行为就会<code>错乱</code>。</p>
 <h4 id="Volatile-关键字"><a href="#Volatile-关键字" class="headerlink" title="Volatile 关键字"></a>Volatile 关键字</h4><p>应用代码使用字段或变量前，必须重新以主内存读取值。同理，修改使用 volatile 修饰的值，在写入变量之后，必须存回主内存。</p>
 <h4 id="Thread-类中常用的方法"><a href="#Thread-类中常用的方法" class="headerlink" title="Thread 类中常用的方法"></a>Thread 类中常用的方法</h4><ul>
@@ -1651,6 +1667,7 @@
 <li><p>实现 Set 接口的类</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1711,6 +1728,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="List-接口"><a href="#List-接口" class="headerlink" title="List 接口"></a>List 接口</h4><ul>
 <li>List 是一组 <code>有序</code> 的对象集合。</li>
 <li>列表中的每个元素都有特定的位置，且 List 接口定义了一些方法，用于查询或设定特定位置 (或叫索引) 的元素。从这个角度看，<code>List 对象和数组类似</code>，不过<code>列表的大小能按需变化</code>。</li>
@@ -1721,6 +1739,7 @@
 <ul>
 <li>实现 List 接口的类</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1751,11 +1770,13 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="Map-接口"><a href="#Map-接口" class="headerlink" title="Map 接口"></a>Map 接口</h4><ul>
 <li>映射，一系列键值对，一个键对应一个值。</li>
 <li>Map 是参数化类型，即 <code>Map&lt;k,v&gt;</code>，<code>k</code> 表示映射中键的类型，<code>v</code> 表示键对应的值，如：<code>Map&lt;String, Integer&gt;</code></li>
 <li>实现 Map 接口的类</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1825,6 +1846,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="Queue、BlockingQueue-接口"><a href="#Queue、BlockingQueue-接口" class="headerlink" title="Queue、BlockingQueue 接口"></a>Queue、BlockingQueue 接口</h4><ul>
 <li>队列是一组有序的元素，提取元素时按顺序从对头读取。队列插入元素的顺序实现，可分类为：<ul>
 <li>FIFO：先进先出，队列。</li>
@@ -1905,6 +1927,7 @@
 <li><p>正则表达式元字符</p>
 </li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1985,7 +2008,7 @@
 <td style="text-align:left">叫作字符组</td>
 </tr>
 <tr>
-<td style="text-align:left">[^]</td>
+<td style="text-align:left"><sup><a href="#fn_" id="reffn_"></a></sup></td>
 <td style="text-align:left">不在方括号中的任意一字符</td>
 <td style="text-align:left">叫作排除字符组</td>
 </tr>
@@ -2010,6 +2033,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <div class="note success"><p> 工欲善其事，必先利其器。为更快速、准确上手正则，这些现成的、实用的表达式助你一臂之力。<br><a href="https://www.jianshu.com/p/e7bb97218946" target="_blank" rel="noopener">技匠. 知道这20个正则表达式能让你少写 1,000 行代码. 2016. jianshu.com</a>\(^{[2]}\) </p></div>
 <h3 id="数字和数学运算"><a href="#数字和数学运算" class="headerlink" title="数字和数学运算"></a>数字和数学运算</h3><h4 id="Java-表示整数类型的方式"><a href="#Java-表示整数类型的方式" class="headerlink" title="Java 表示整数类型的方式"></a>Java 表示整数类型的方式</h4><p>以 Java 的 Byte 类型为例，说明 Java 是如何表示整数的。Byte 类型的数字占8位，设定 Byte 类型数字的最高位用于表示正、负号。故有128个正数，128个负数。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> b = <span class="number">0b0000_0001</span>; <span class="comment">// 1</span></span><br><span class="line"><span class="keyword">byte</span> b = <span class="number">0b0111_1111</span>; <span class="comment">// 127</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 负数是以补码形式存储的，而正数，原码、反码、补码一致</span></span><br><span class="line"><span class="keyword">byte</span> b = <span class="number">0b1111_1111</span>; <span class="comment">// -1</span></span><br><span class="line"><span class="keyword">byte</span> b = <span class="number">0b1111_1111</span>; <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
@@ -2200,7 +2224,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2211,7 +2235,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2222,7 +2246,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
