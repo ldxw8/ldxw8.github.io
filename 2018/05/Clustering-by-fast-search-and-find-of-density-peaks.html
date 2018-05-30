@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-2.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-3.jpg">
-<meta property="og:updated_time" content="2018-05-28T16:17:09.725Z">
+<meta property="og:updated_time" content="2018-05-29T16:19:19.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 通过快速查找和发现密度峰值进行聚类">
 <meta name="twitter:description" content="原文：Clustering by fast search and find of density peaks作者：Alex Rodriguez and Alessandro Laio来源：Science 344.6191(2014), 1492-1496. 摘要聚类分析的目的在于根据元素的相似性将元素分类。而该论文基于这样一种观点的提出新的方法，即聚类中心的密度高于其邻居，而密度高的点相对较远。这">
@@ -302,8 +302,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-05-29T00:17:09+08:00" content="2018-05-29">
-                2018-05-29
+              <time itemprop="dateUpdated" datetime="2018-05-30T00:19:19+08:00" content="2018-05-30">
+                2018-05-30
               </time>
             </span>
           
@@ -341,7 +341,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html" itemprop="commentsCount"></span>
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -441,7 +441,6 @@
 <p><img src="/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-3.jpg" alt="图1-3引用文献中的测试用例结果"></p>
 <center>图 1-3 引用文献中的测试用例结果</center>
 
-
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] Huang Z. Clustering large data sets with mixed numeric and categorical values [C]. 1997: 21-34.<br>[2] Huang Z. Extensions to the k-means algorithm for clustering large data sets with categorical values [J]. Data mining and knowledge discovery, 1998, 2(3): 283-304.<br>[3] San O M, Huynh V N, Nakamori Y. A clustering algorithm for mixed numeric and categorical data [J]. Journal of Systems Science and Complexity, 2003, 16(4): 562-571.  </p>
 
       
@@ -536,12 +535,7 @@
 
   
     <div class="comments" id="comments">
-      
-        <div onclick="showGitment()" id="gitment-display-button">显示 Gitment 评论</div>
-        <div id="gitment-container" style="display:none"></div>
-      
     </div>
-
   
 
 
@@ -873,49 +867,30 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'ldxw8',
-            repo: 'Gitment-Comments',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: 'f238ab9658bf2363252fa4d2636c6998391939ce',
-            
-                client_id: 'd9afffe6287f2bf42db9'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      function showGitment(){
-        document.getElementById("gitment-display-button").style.display = "none";
-        document.getElementById("gitment-container").style.display = "block";
-        renderGitment();
-      }
-      
-      </script>
-    
 
 
 
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
