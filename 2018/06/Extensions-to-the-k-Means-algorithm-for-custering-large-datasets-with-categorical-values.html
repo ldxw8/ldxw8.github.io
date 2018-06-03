@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-03T16:37:23.428Z">
+<meta property="og:updated_time" content="2018-06-03T16:39:28.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
@@ -298,7 +298,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-06-04T00:37:23+08:00" content="2018-06-04">
+              <time itemprop="dateUpdated" datetime="2018-06-04T00:39:28+08:00" content="2018-06-04">
                 2018-06-04
               </time>
             </span>
@@ -404,6 +404,7 @@
 </ul>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在早期，大多数聚类工作主要集中在数值数据上，且它们主要是利用数值数据的固有几何特性，即数据点之间的 <code>距离函数</code> (<a href="#1-距离函数">见附录1</a>)。但是，数据挖掘应用程序通常涉及许多数据集，这些数据集是由混合数值属性和分类属性组成的，仅拥有数值数据的测量方法已无法满足混合数据类型的聚类工作。</p>
 <p>本论文基于经典的 K-Means 算法上，提出了两种聚类算法，分别应对 <code>分类域</code> 和 <code>混合数值与分类域</code> 属性值的聚类操作。首先介绍的是<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理分类对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值，进一步整合 <code>K-Means</code> 和 <code>K-Modes</code> 算法，以实现对混合数值与分类属性的对象进行聚类操作。</p>
+<a id="more"></a>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
 <p>闵氏距离是欧式距离和曼哈顿距离的推广，定义如下：</p>
 <script type="math/tex; mode=display">

@@ -299,7 +299,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-06-04T00:37:23+08:00" content="2018-06-04">
+              <time itemprop="dateUpdated" datetime="2018-06-04T00:39:28+08:00" content="2018-06-04">
                 2018-06-04
               </time>
             </span>
@@ -397,8 +397,7 @@
 
       
         
-          
-            <div class="note default"><p>原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values<br>作者：ZHEXUE HUANG.<br>来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.  </p></div>
+          <div class="note default"><p>原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values<br>作者：ZHEXUE HUANG.<br>来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.  </p></div>
 <ul>
 <li>更新进度：<ul>
 <li>2018.06.04: 整理原文，完成初稿；</li>
@@ -407,33 +406,13 @@
 </ul>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在早期，大多数聚类工作主要集中在数值数据上，且它们主要是利用数值数据的固有几何特性，即数据点之间的 <code>距离函数</code> (<a href="#1-距离函数">见附录1</a>)。但是，数据挖掘应用程序通常涉及许多数据集，这些数据集是由混合数值属性和分类属性组成的，仅拥有数值数据的测量方法已无法满足混合数据类型的聚类工作。</p>
 <p>本论文基于经典的 K-Means 算法上，提出了两种聚类算法，分别应对 <code>分类域</code> 和 <code>混合数值与分类域</code> 属性值的聚类操作。首先介绍的是<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理分类对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值，进一步整合 <code>K-Means</code> 和 <code>K-Modes</code> 算法，以实现对混合数值与分类属性的对象进行聚类操作。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
-<p>闵氏距离是欧式距离和曼哈顿距离的推广，定义如下：</p>
-<script type="math/tex; mode=display">
-d(i, j) = \sqrt[h](
-    \sum_{f=1}^h |x_{if}-x_{jf}|^{h}
-),h \geq 1
-\tag{1}</script><ul>
-<li>当 h = 1 时，它表示 <code>曼哈顿距离</code>，也称 <code>城市块</code> 距离 (城市两点之间的街区距离，如向南 2 个街区，横过 3 个街区，共计五个街区)，其定义如下：</li>
-</ul>
-<script type="math/tex; mode=display">
-d(i, j) = \sum_{f=1}^h |x_{if}-x_{jf}|,h \geq 1
-\tag{2}</script><ul>
-<li>当 h = 2 时，它表示 <code>欧式距离</code>，也称 <code>直线或乌鸦飞行</code> 距离，其定义如下：</li>
-</ul>
-<script type="math/tex; mode=display">
-d(i, j) = \sqrt(\sum_{f=1}^h (x_{if}-x_{jf})^2)
-,h \geq 1
-\tag{3}</script><ul>
-<li>当 h = $\infty$ 时，它表示 <code>上确界距离</code>，又称 <code>切比雪夫距离</code>，其定义如下L：</li>
-</ul>
-<script type="math/tex; mode=display">
-d(i, j) = \lim_{h \to \infty} (
-    \sum_{f=1}^h |x_{if}-x_{jf}|^h
-)^\frac{1}{h} = max_{f}^h |x_{if}-x_{jf}|
-\tag{4}</script><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Jiewei Han, Micheline Kamber and Jian Pei. 数据挖掘 (第三版) [M]. 机械工业出版社, 2018, 48-49.</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/Extensions-to-the-k-Means-algorithm-for-custering-large-datasets-with-categorical-values.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
