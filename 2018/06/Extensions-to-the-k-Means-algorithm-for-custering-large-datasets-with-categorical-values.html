@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-03T16:39:28.988Z">
+<meta property="og:updated_time" content="2018-06-04T17:24:06.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions To The K-Means Algorithm For Clustering Large Datasets With Categorical Values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-06-04T00:39:28+08:00" content="2018-06-04">
-                2018-06-04
+              <time itemprop="dateUpdated" datetime="2018-06-05T01:24:06+08:00" content="2018-06-05">
+                2018-06-05
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  598
+                  1,372
                 </span>
               
 
@@ -399,13 +399,38 @@
 <ul>
 <li>更新进度：<ul>
 <li>2018.06.04: 整理原文，完成初稿；</li>
+<li>2018.06.05: 更新第 2 / 6 章；</li>
 </ul>
 </li>
 </ul>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在早期，大多数聚类工作主要集中在数值数据上，且它们主要是利用数值数据的固有几何特性，即数据点之间的 <code>距离函数</code> (<a href="#1-距离函数">见附录1</a>)。但是，数据挖掘应用程序通常涉及许多数据集，这些数据集是由混合数值属性和分类属性组成的，仅拥有数值数据的测量方法已无法满足混合数据类型的聚类工作。</p>
-<p>本论文基于经典的 K-Means 算法上，提出了两种聚类算法，分别应对 <code>分类域</code> 和 <code>混合数值与分类域</code> 属性值的聚类操作。首先介绍的是<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理分类对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值，进一步整合 <code>K-Means</code> 和 <code>K-Modes</code> 算法，以实现对混合数值与分类属性的对象进行聚类操作。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在早期，大多数聚类工作主要集中在数值数据上，且它们主要是利用数值数据的固有几何特性，即数据点之间的 <code>距离函数</code> (<a href="#1-距离函数">见附录1</a>)。但是，数据挖掘应用程序通常涉及许多数据集，这些数据集是由混合数值属性和标称属性组成的，仅拥有数值数据的测量方法已无法满足混合数据类型的聚类工作。</p>
+<p>本论文基于经典的 K-Means 算法上，提出了两种聚类算法，分别应对 <code>标称域</code> 和 <code>混合数值与标称域</code> 属性值的聚类操作。首先介绍的是<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理标称对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值，进一步整合 <code>K-Means</code> 和 <code>K-Modes</code> 算法，以实现对混合数值与标称属性的对象进行聚类操作。</p>
 <a id="more"></a>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>将数据库中的一组对象划分为同构组或集群是数据挖掘中最基本的操作。而讨论划分操作，自然离不开聚类。聚类是把每一组对象划分为一个簇，且同一簇中对象之间相似，而不同簇之间的对象相异。</p>
+<p>数据挖掘最显著的特征是处理复杂的大型数据集。特别地，数据集包含数以百万计由不同类型属性或变量描述的对象，由此数据挖掘操作和算法应充分考虑可扩展性，以应付处理不同类型的属性。</p>
+<p>在本论文中，提出的两个新聚类算法，即利用 <code>K-Means 范式</code> 对拥有标称属性的数据进行聚类。<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理标称对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值 $s^r + \gamma s^c$，以实现对混合数值与标称属性的对象进行聚类操作。其中，$s^r$ 是由 <code>平方欧式距离</code> 定义的 <code>数值属性</code> 的相异性度量值，$s^c$ 是由 <code>两个对象间类别不匹配的数量</code> 定义的 <code>标称属性</code> 的相异性度量值，$\gamma$ 是平衡数值属性和标称属性两部分的的权值，以避免偏向于某一属性。若聚类的效果更青睐于数值属性，则可以设定一个较小的 $\gamma$ 值；反之，设定一较大的 $\gamma$ 值。</p>
+<h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><ul>
+<li>假设需要聚类的对象数据集储存在数据集 D 中。<ul>
+<li>集合的属性 $A_1, A_2, … , A_m$ 分别是值域 $D_1, D_2, … , D_m$ 的描述。</li>
+<li>在 D 中的每个对象由元组 t 表示，$t \in D_1 \times D_2 \times … \times D_m$。</li>
+</ul>
+</li>
+<li>针对本文讨论的聚类问题，仅考虑两种常见数据类型：数值类型和标称类型。<ul>
+<li>数值域的取值范围是实数域。</li>
+<li>在多维的密度空间中，每一个数值型的数据点都采用诸如欧式或马氏的距离度量方法。</li>
+<li>若值域 $D_i$ 被定义为有限、无序的标称域，则对象的比较操作只允许在 $D_i$ 中执行，即有 $a, b \in D_i$，either a = b or $a \neq b$。</li>
+</ul>
+</li>
+<li><p>对于数据集中的每一数据对象 $X$，也可由 <code>属性-属性值</code> 的键值对表示，</p>
+<script type="math/tex; mode=display">[A_1=x_1] \bigwedge [A_2=x_2] \bigwedge ... \bigwedge [A_m=x_m]</script></li>
+<li><p>即当 $x_i \in D_i$，for i = 1, 2, …, m。为简单起见，这里以 $X$ 表示元组：</p>
+<script type="math/tex; mode=display">[x_1^r, x_2^r, ...,x_p^r, x_{p+1}^c, ..., x_m^c] \in D_1 \times D_2 \times ... \times D_m</script><blockquote>
+<p>第一个元素 p 为数值对象，其余的都是标称对象。当然，若元组中仅有一种数据类型，可表示为 $[x_1, x_2, …, x_m]$。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
+<p>令 $i=(x_{i1},x_{i2},…,x_{ih})$ 和 $j=(x_{j1},x_{j2},…,x_{jh})$ 是两个被 h 个属性描述的对象。 </p>
 <p>闵氏距离是欧式距离和曼哈顿距离的推广，定义如下：</p>
 <script type="math/tex; mode=display">
 d(i, j) = \sqrt[h](
@@ -660,7 +685,7 @@ d(i, j) = \lim_{h \to \infty} (
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.2.</span> <span class="nav-text">符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
             
 
           </div>
