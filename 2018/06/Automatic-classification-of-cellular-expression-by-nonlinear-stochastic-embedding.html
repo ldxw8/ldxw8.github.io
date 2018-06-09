@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.来源：Proceedings of the National Acad">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-08T17:32:50.800Z">
+<meta property="og:updated_time" content="2018-06-09T17:20:25.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 通过非线性随机嵌入自动分类细胞表达">
 <meta name="twitter:description" content="原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.来源：Proceedings of the National Acad">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-06-09T01:32:50+08:00" content="2018-06-09">
-                2018-06-09
+              <time itemprop="dateUpdated" datetime="2018-06-10T01:20:25+08:00" content="2018-06-10">
+                2018-06-10
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,567
+                  2,046
                 </span>
               
 
@@ -397,17 +397,17 @@
       
         <div class="note default"><p>原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)<br>作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.<br>来源：Proceedings of the National Academy of Sciences (PNAS), 2014, 111(1): 202-207.  </p></div>
 <p>更新进度：<br>2018.06.06: 整理原文，完成初稿；<br>2018.06.09: 更新第 2 / 3 章；</p>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>质谱流式细胞技术 (Mass cytometry) 能够在单细胞水平上测试近 40 种不同的蛋白质，即提供前所未有的多维信息水平。由于不同细胞种群数据集的复杂性，要收集有用的生物学知识对计算工具也有新的需求。而基于细胞表征相似性的经典聚类方法已无法满足需求，例如单细胞分辨率的损失；经典聚类方法需要预知簇中的对象数量 (本文中指细胞亚群的规模数量)。</p>
-<p>则该论文引入 ACCENSE 高维单细胞数据分析工具：</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>质谱流式细胞技术 (Mass cytometry) 能够在单细胞水平上测试近 40 种不同的蛋白质，即提供前所未有的多维信息水平。由于不同细胞种群数据集的复杂性，要收集有用的生物学知识对计算工具也有新的要求。回顾之前的聚类方法，即对于不同功能的细胞识别是基于细胞表征相似性的实现区分的。当然，经典方法存在一定局限性，例如单细胞分辨率的损失；经典方法需要预知簇中的对象数量 (本文中指细胞亚群的规模数量)。</p>
+<a id="more"></a>
+<p>则该论文引入 <code>ACCENSE</code> 高维单细胞数据分析工具：</p>
 <ul>
 <li>基于密度划分的非线性降维方法，降维步骤采用 <code>t-Distributed Stochastic Neighbor Embedding (t-SNE)</code> 算法 $^{[1]}$。</li>
-<li>探索性数据分析，同时避免任何手动 <code>阀门(阈值)</code> 的需要。</li>
-<li>二维图上展示多元细胞的表型。</li>
+<li>探索性数据分析，同时避免任何手动 <code>阀门(阈值)</code> 的需要，即有别于基于距离的方法 (离群点判定)、基于密度的方法 (密度阈值)。</li>
+<li>化繁为简，在二维或三维图上展示多元细胞的表型。</li>
 </ul>
-<a id="more"></a>
-<p>再有，本论文将 ACCENSE 应用于 35 参数的质谱流式细胞技术，检测 CD8+ T 细胞的数量 (数据来自于特定的无病原和无菌小鼠)，并将细胞分层到表型亚群中。</p>
+<p>再有，本论文将 ACCENSE 应用于 35 参数的质谱流式细胞技术，检测 CD8+ T 细胞的数量 (数据来自于特定的无病原和无菌小鼠)，并将细胞分层到表型亚群中。即对于具体的聚类算法、降维算法中，特定的符号名称会以具体的对象名称替代。</p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h3><ul>
-<li><p>免疫系统包含了许多类型的细胞，它们在免疫应答过程中表现出多样化的功能和复杂的方式相互作用，即通过不同蛋白质的表达水平所定义，故个体细胞的功能与其细胞表型密切相关。</p>
+<li><p>免疫系统包含了许多类型的细胞，它们在免疫应答过程中表现出多样化的功能和复杂方式的相互作用，即通过不同蛋白质的表达水平所定义，故个体细胞的功能与其细胞表型密切相关。这里启示我们，对于不同功能的细胞可通过细胞表型相似性进行聚类区分。</p>
 </li>
 <li><p>传统流式细胞技术和质谱流式细胞技术</p>
 <ul>
@@ -416,7 +416,7 @@
 <p>由于有限的光谱和重叠的发射信号，每个细胞限制为 12-16 个参数。</p>
 </blockquote>
 </li>
-<li><p>质谱流式细胞技术 (Mass Cytometry) $^{[3]}$ ，使用 <code>金属螯合探针</code> 可以对多达 42 个参数的单个细胞进行量化。Mass cytometry 利用质谱原理对单细胞进行多参数检测的流式技术。它继承了传统流式细胞仪的高速分析的特点，又具有质谱检测的高分辨能力。</p>
+<li><p>质谱流式细胞技术 (Mass Cytometry) $^{[3]}$ ，使用 <code>金属螯合探针</code> 可以对多达 42 个参数的单个细胞进行量化。</p>
 <blockquote>
 <p>传统流式细胞技术和质谱流式细胞技术相比，主要有两点不同：<br>1) 标签系统的不同，前者主要使用各种荧光基团作为抗体的标签，后者则使用各种金属元素作为标签；<br>2) 检测系统的不同，前者使用激光器和光电倍增管，而后者使用 ICP 质谱技术。 </p>
 </blockquote>
@@ -431,28 +431,44 @@
 <li>二是对目标集群数量的需要预知。</li>
 </ul>
 </li>
-<li><code>PCA 算法</code>：Newell 等人将主成分分析 (Principal component analysis，PCA) 应用于 25 参数的质谱流式细胞技术，检测人的 CD8+ T 细胞的数量，且使用前三种主成分 (3D-PCA) 分离细胞亚群。3D-PCA 以三个汇总变量表示数据，每个汇总变量都是原始维度的线性组合，并去捕获投影后数据的方差，直至其取值为最大值。然而，PCA 能在数据中所有的可能线性组合中找到最优表达，但也存在限制条件：<ul>
-<li>线性投影可能太严格而不能产生精确的表示 $^{[6]}$ ( 引入 t-SNE 算法 )。</li>
 </ul>
-</li>
-<li><p><code>t-SNE 算法</code> $^{[7]}$：t-Distributed Stochastic Neighbor Embedding，数据降维与可视化的方法。</p>
+<h3 id="降维算法"><a href="#降维算法" class="headerlink" title="降维算法"></a>降维算法</h3><p>同样，降维算法以蛋白质表达相似性，把空间组织的细胞群在低维空间聚集成不同的细胞亚群。    </p>
 <ul>
-<li>让 $\{x^{(i)}\}$ 表示编码细胞 i (i=1, 2, …, M) 表型的归一化 N 维蛋白质表达向量 (载体)。</li>
-<li>若在 2D 平面图下，$\{y^{(i)}\}$ 向量表示高维 $\{x^{(i)}\}$ 对应于低维的映射，它使得具有相似表型的 T 细胞彼此靠近嵌入，表型部相似的则嵌入相对较远的距离。</li>
+<li><code>PCA 算法</code>：PCA降维的大致思想就是，挑选特征明显的、显得比较重要的信息保留下来。在本论文中，Newell 等人将主成分分析 (Principal component analysis，PCA) 应用于 25 参数的质谱流式细胞技术，检测人的 CD8+ T 细胞的数量，且使用前三种主成分 (3D-PCA) 分离细胞亚群。3D-PCA 以三个汇总变量表示数据，每个汇总变量都是原始维度的线性组合，并去捕获投影后数据的方差，直至其取值为最大值。然而，PCA 能在数据中所有的可能线性组合中找到最优表达，但也存在限制条件：线性投影可能太严格而不能产生精确的表示 $^{[6]}$ ( 引入 t-SNE 算法 )。</li>
+<li><p><code>t-SNE 算法</code> $^{[7]}$：t-Distributed Stochastic Neighbor Embedding，数据降维与可视化的方法，具体的算法细节如下：</p>
+<ul>
+<li>让 $\{x^{(i)}\}$ 表示归一化 n 维蛋白质表达向量编码的细胞 i 表型 (i=1, 2, …, M)。</li>
+<li>若在 2D 平面图下，$\{y^{(i)}\}$ 向量表示高维 $\{x^{(i)}\}$ 对应于低维的映射，它使得具有相似表型的 T 细胞彼此靠近嵌入，表型不相似的则嵌入相对较远的距离。</li>
 <li>采用细胞 i 和 j 之间的成对概率 $\{p_{i,j}\}$ 表示 $\{x^{(i)}\}$ 与 $\{x^{(j)}\}$ 之间的相似性。</li>
 <li>若在 2D 平面图下，成对概率 $\{q_{i,j}\}$ 表示 $\{y^{(i)}\}$ 与 $\{y^{(j)}\}$ 之间的相似性。</li>
-<li><p>通过最小化 $\{p_{i,j}\}$ 与 $\{q_{i,j}\}$ 的 KL 散度 (可理解为代价函数)，然后找出嵌入向量 $\{y^{(i)}\}$，即它让高维和低维的表示信息能最大程度被保存下来。</p>
+<li><p>通过最小化 $\{p_{i,j}\}$ 与 $\{q_{i,j}\}$ 的 KL 散度 (可理解为代价函数)，然后找出嵌入向量 $\{y^{(i)}\}$，即它让高维转低维的表示信息能最大程度被保存下来。</p>
 <blockquote>
-<p>KL 散度 (<a href="#">详细见附录 1</a>)，Kullback-Leibler Divergence，又称相对熵 (信息熵)，即描述两概率分布 P 和 Q 的差异。KL 散度公式 (1) 如下：</p>
+<p>KL 散度 (<a href="#">详细见附录 1</a>)，Kullback-Leibler Divergence，又称香农熵、相对熵、信息熵，即描述两概率分布 P 和 Q 的差异。KL 散度公式 (1) 如下：</p>
 </blockquote>
 <script type="math/tex; mode=display">D_{KL}(\{p_{i,j}\}|\{q_{i,j}\}) = \sum_{i,j} p_{i,j} log \frac{p_{i,j}}{q_{i,j}} \tag{1}</script></li>
 <li><p>$\{y^{(i)}\}$ 可以编码非线性关系，不像 PCA 中被约束为 $\{x^{(i)}\}$ 的线性组合。</p>
 </li>
-<li><code>最佳嵌入</code> 是通过一个数值梯度下降法来确定的，即所有数据点的 KL 散度总和减小到最小 (<a href="#">详细见附录 2</a>)。</li>
+<li><code>最佳嵌入</code> 是通过数值梯度下降法来确定的，即所有数据点的 KL 散度总和减小到最小 (<a href="#">详细见附录 2</a>)。</li>
 </ul>
 </li>
 </ul>
-<h3 id="识别细胞亚群"><a href="#识别细胞亚群" class="headerlink" title="识别细胞亚群"></a>识别细胞亚群</h3><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Maaten L, Hinton G. Visualizing data using t-SNE [J]. Journal of machine learning research, 2008, 9(Nov): 2579-2605.<br>[2] Cantor H, Simpson E, Sato V L, et al. And functional studies of peripheral t-cells binding different amounts of fluorescent anti-thy 1.2 (theta) Antibody using a fluorescence—activated cell sorter (FACS) [J]. 1975.<br>[3] Bendall S C, Nolan G P, Roederer M, et al. A deep profiler’s guide to cytometry [J]. Trends in immunology, 2012, 33(7): 323-332.<br>[4] Qiu P, Simonds E F, Bendall S C, et al. Extracting a cellular hierarchy from high-dimensional cytometry data with SPADE [J]. Nature biotechnology, 2011, 29(10): 886.<br>[5] Bendall S C, Simonds E F, Qiu P, et al. Single-cell mass cytometry of differential immune and drug responses across a human hematopoietic continuum [J]. Science, 2011, 332(6030): 687-696.<br>[6] Van Der Maaten L, Postma E, Van den Herik J. Dimensionality reduction: a comparative [J]. J Mach Learn Res, 2009, 10: 66-71.<br>[7] Maaten L, Hinton G. Visualizing data using t-SNE [J]. Journal of machine learning research, 2008, 9(Nov): 2579-2605.</p>
+<h3 id="识别细胞亚群"><a href="#识别细胞亚群" class="headerlink" title="识别细胞亚群"></a>识别细胞亚群</h3><ul>
+<li><p>使用一个内核密度变换计算出一个合成图像的概率密度 $K_\gamma(y)$：</p>
+<script type="math/tex; mode=display">K_\gamma(y) = exp(
+  -\frac{||y - y'||^{2}}{2\gamma^2}
+  -)\tag{2}</script></li>
+<li><p>在本论文中，$K_\gamma(y)$ 的 <code>局部最大值</code> 表示具有共同表型的 CD8+  T 细胞的亚群 (簇)，且使用了 matlab 的峰值检测算法识别这些局部最大值。</p>
+<blockquote>
+<p>当然，也可以在嵌入点上使用 K-Means 聚类算法来识别 T 细胞子集，但其要求事先指定簇的数量。</p>
+</blockquote>
+</li>
+<li><p>如何求得 <code>局部最大值</code>，关键是对于公式 (2) 中 $\gamma$ 的参数设定多少有关。即通过比较不同的核-宽带 $\gamma$ 产生的结果，则存在一个 $\gamma$ 值为表型空间中存在的局部和全局特征提供了准确的粗粒度表示。从图 1-2 中可得，即启示我们可以以数据驱动的方式，近似地识别 CD8+ T 细胞的亚群。</p>
+</li>
+</ul>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<li>关于核-宽带 $\gamma$ 参数设定问题：文中展示了参数的大小与识别细胞亚群能力的数量关系。然而，数据驱动方式实现自动聚类的效果，但缺乏对于 $\gamma$ 参数设定范围该如何控制，且为什么在 $\gamma=7$ 时为最佳参数设定，文中并没有具体阐述原因。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Maaten L, Hinton G. Visualizing data using t-SNE [J]. Journal of machine learning research, 2008, 9(Nov): 2579-2605.<br>[2] Cantor H, Simpson E, Sato V L, et al. And functional studies of peripheral t-cells binding different amounts of fluorescent anti-thy 1.2 (theta) Antibody using a fluorescence—activated cell sorter (FACS) [J]. 1975.<br>[3] Bendall S C, Nolan G P, Roederer M, et al. A deep profiler’s guide to cytometry [J]. Trends in immunology, 2012, 33(7): 323-332.<br>[4] Qiu P, Simonds E F, Bendall S C, et al. Extracting a cellular hierarchy from high-dimensional cytometry data with SPADE [J]. Nature biotechnology, 2011, 29(10): 886.<br>[5] Bendall S C, Simonds E F, Qiu P, et al. Single-cell mass cytometry of differential immune and drug responses across a human hematopoietic continuum [J]. Science, 2011, 332(6030): 687-696.<br>[6] Van Der Maaten L, Postma E, Van den Herik J. Dimensionality reduction: a comparative [J]. J Mach Learn Res, 2009, 10: 66-71.<br>[7] Maaten L, Hinton G. Visualizing data using t-SNE [J]. Journal of machine learning research, 2008, 9(Nov): 2579-2605.</p>
 
       
     </div>
@@ -685,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景介绍"><span class="nav-number">2.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类算法"><span class="nav-number">2.2.</span> <span class="nav-text">聚类算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#识别细胞亚群"><span class="nav-number">2.3.</span> <span class="nav-text">识别细胞亚群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#背景介绍"><span class="nav-number">2.1.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类算法"><span class="nav-number">2.2.</span> <span class="nav-text">聚类算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降维算法"><span class="nav-number">2.3.</span> <span class="nav-text">降维算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#识别细胞亚群"><span class="nav-number">2.4.</span> <span class="nav-text">识别细胞亚群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
