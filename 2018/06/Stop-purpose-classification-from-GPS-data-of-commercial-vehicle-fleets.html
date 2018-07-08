@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Stop purpose classification from GPS data of commercial vehicle fleets作者：Sarti L, Bravi L, Sambo F.来源：Data Mining Workshops, 2017 IEEE International Conference on. IEEE, 2017: 280-287.   摘要从原始 GPS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-08T05:14:22.511Z">
+<meta property="og:updated_time" content="2018-07-08T05:21:35.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 从商用车队的 GPS 数据中归类车辆停留意图信息">
 <meta name="twitter:description" content="原文：Stop purpose classification from GPS data of commercial vehicle fleets作者：Sarti L, Bravi L, Sambo F.来源：Data Mining Workshops, 2017 IEEE International Conference on. IEEE, 2017: 280-287.   摘要从原始 GPS">
@@ -298,7 +298,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-08T13:14:22+08:00" content="2018-07-08">
+              <time itemprop="dateUpdated" datetime="2018-07-08T13:21:35+08:00" content="2018-07-08">
                 2018-07-08
               </time>
             </span>
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,355
+                  3,353
                 </span>
               
 
@@ -397,8 +397,8 @@
       
         <div class="note default"><p>原文：Stop purpose classification from GPS data of commercial vehicle fleets<br>作者：Sarti L, Bravi L, Sambo F.<br>来源：Data Mining Workshops, 2017 IEEE International Conference on. IEEE, 2017: 280-287.  </p></div>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>从原始 GPS (全球定位系统) 数据中提取 <code>汽车停靠意图数据</code> 是大多数位置感知应用程序中的关键任务，且随着从移动设备收集 GPS 数据的不断增长，这项任务变得越来越有趣。近期很多研究都集中在行人 (手机) 数据上 (可理解为红海市场)，而商用车领域几乎没有探索 (蓝海市场)。</p>
-<p>在本论文中，针对车辆 GPS 数据的汽车停靠意图的 <code>识别</code> 和 <code>分类</code> 问题 (利用来自不同行业的商业车队的大型异构数据集)。按照意图分类，旨在把汽车停靠点分为：<code>工作相关</code> 和 <code>非工作相关</code>，挖掘相关商业价值。</p>
-<p>本论文中，还对每个汽车停靠点计算一组含 100 个不同特征的集合，特征可分为四个主要类别：<code>汽车停靠点特征</code>，<code>兴趣点特征</code>，<code>汽车停靠点集群特征</code> 和 <code>序列特征</code>。并通过随机森林分类模型，评估四组特征中每个特征对停靠点的相对重要性。</p>
+<p>在本论文中，针对车辆 GPS 数据的汽车停靠意图的 <code>识别</code> 和 <code>分类</code> 问题 (利用来自不同行业的商业车队的大型异构数据集)。按照意图分类，旨在把汽车停靠点分为：<code>工作相关</code> 和 <code>非工作相关</code>，以挖掘相关商业价值。</p>
+<p>且还对每个汽车停靠点计算一组含 100 个不同特征的集合，特征可分为四个主要类别：<code>汽车停靠点特征</code>，<code>兴趣点特征</code>，<code>汽车停靠点集群特征</code> 和 <code>序列特征</code>。并通过随机森林分类模型，评估四组特征中，每个特征对停靠点的相对重要性。</p>
 <p>实验结果表明，本论文的方法显着地超越了现有商业车辆背景下用于汽车停靠意图的分类模型。</p>
 <a id="more"></a>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在过去的十年中，GPS 设备的巨大推广，使得人们越发关注 <code>数据挖掘算法</code> 在 <code>时空数据</code> (GPS 产生的数据) 中的应用。而许多实际应用需要使用关于用户行为和地理位置的语义信息。例如，下述的两个实例：</p>
