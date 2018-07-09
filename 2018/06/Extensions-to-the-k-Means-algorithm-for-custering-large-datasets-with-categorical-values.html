@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-09T03:30:29.194Z">
+<meta property="og:updated_time" content="2018-07-09T17:05:36.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-09T11:30:29+08:00" content="2018-07-09">
-                2018-07-09
+              <time itemprop="dateUpdated" datetime="2018-07-10T01:05:36+08:00" content="2018-07-10">
+                2018-07-10
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,479
+                  3,506
                 </span>
               
 
@@ -425,7 +425,7 @@
 <script type="math/tex; mode=display">[A_1=x_1] \bigwedge [A_2=x_2] \bigwedge ... \bigwedge [A_m=x_m]</script></li>
 <li><p>即当 $x_i \in D_i$，for i = 1, 2, …, m。为简单起见，这里以 $X$ 表示元组：</p>
 <script type="math/tex; mode=display">[x_1^r, x_2^r, ...,x_p^r, x_{p+1}^c, ..., x_m^c] \in D_1 \times D_2 \times ... \times D_m</script><blockquote>
-<p>第一个元素 p 为数值对象，其余的都是标称对象。当然，若元组中仅有一种数据类型，可表示为 $[x_1, x_2, …, x_m]$。</p>
+<p>最后一个数值对象为元素 $p$ ，其余的都是标称对象。当然，若元组中仅有一种数据类型，可表示为 $[x_1, x_2, …, x_m]$。</p>
 </blockquote>
 </li>
 </ul>
@@ -433,7 +433,8 @@
 <li>K-Means，是一种划分或非分层的聚类算法，为进一步阐述细节，需给出如下设定：<ul>
 <li>一组含 $n$ 个数值数据的对象集 $D = \{X_1, X_2, …, X_n\}$；</li>
 <li>距离度量 $d$；</li>
-<li>自然数 $k (\leq n)$，并把 $D$ 划分 $k$ 个非空且相分离的簇群 $C_1, C_2, …, C_k, \, with \, C_i \bigcap C_j = \emptyset \, and \, \bigcup_{i=1}^k C_i = D$。</li>
+<li>自然数 $k (\leq n)$，并把 $D$ 划分 $k$ 个非空且相分离的簇群 $C_1, C_2, …, C_k, \, with \, C_i \bigcap C_j = \emptyset \, and \, \bigcup_{i=1}^k C_i = D$；</li>
+<li>$D$ 中随机选取 $k$ 个对象，每个对象代表一个簇的初始均值或中心。</li>
 </ul>
 </li>
 <li><p>如此一来，使得数据对象与其簇的中心之间的平方误差总和被最小化。然后，根据非线性优化问题，将该问题描述为:</p>
@@ -506,13 +507,13 @@ d(X,Y) = \sum_{j=1}^m \delta (x_j,y_j)
 <script type="math/tex; mode=display">
 Minimise \, D(X,Q) = \sum_{i=1}^n d(Xi,Q)
 \tag{7}</script><blockquote>
-<p> 注意，这里 $Q$ 并不一定是 $X$ 中包含元素 (有别于 K-Medoids 算法 $^{[4]}$，质心从它的样本点中选择 )。</p>
+<p> 注意，这里 $Q$ 并不一定是 $X$ 中包含元素 (有别于 K-Medoids 算法 $^{[4]}$，质心从它的样本点中选择 )。    </p>
 </blockquote>
 <h4 id="挑选众数"><a href="#挑选众数" class="headerlink" title="挑选众数"></a>挑选众数</h4><p>设 $n_{c_{k,j}}$ 为属性 $A_j$ 中包含第 k 个标称属性 $c_{k,j}$ 的对象数量，且定义 $f(A_j = c_{k,j} | X) = \frac{ n_{c_{k,j}} }{n}$ 为标称属性 $c_{k,j}$ 在 $X$ 中的出现频率。</p>
 <ul>
 <li><p><code>定理 1</code>：若满足下述条件 (8)，即 $D(X,Q)$ 已最小化 ( 证明见<a href="#2-定理证明">附录2</a> )。即定理定义了一种从给定的 $X$ 中找到 $Q$ 的方法，即它允许使用 K-Means 范式来聚类标称数据，且定理 1 暗示了数据集 $X$ 的众数不是唯一的。 </p>
 <script type="math/tex; mode=display">
-  f(A_j = q_j | X) \geq f(A_j = c_{k,j} | X) \, for \, q_j \neq     c_{k,j},j=1, 2, ..., m
+  f(A_j = q_j | X) \geq f(A_j = c_{k,j} | X) \, for \, q_j \neq c_{k,j},j=1, 2, ..., m
   \tag{8}</script></li>
 </ul>
 <h4 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h4><ul>
@@ -543,11 +544,11 @@ P(W,Q) = \sum_{l=1}^k \sum_{i=1}^n \sum_{j=1}^m w_{i,l} \delta(x_{i,j},q_{l,j})\
 <li>第一个方法是第一次从数据集中选择 $k$ 个不同的记录作为初始 $k$ 个众数值。</li>
 <li><p>第二个方法通过以下步骤实现：</p>
 <ul>
-<li><code>Step.01</code>：计算所有属性的所有标称值的频率，并按照频率的降序将它们存储在一个标称类型的数组中，如图 2-1 所示，展示了标称类型数组中，分别包含 4、2、5、3 个标称值的 4 个属性。这里 $c_{i,j}$ 表示属性 $j$ 的标称值 $i$，$f(c_{i,j})$ 为标称值的频率，且 $f(c_{i,j}) \geq f(c_{i+1,j})$。</li>
-<li><code>Step.02</code>：将频率最高的标称值作为 $k$ 个初始化的众数值。</li>
+<li><code>Step.01</code>：计算所有属性的所有标称值的频率，并按照频率的降序将它们存储在一个标称类型的数组中，如图 2-1 所示，展示了标称类型数组中，分别包含 4、2、5、3 个标称值的 4 个属性。这里 $c_{i,j}$ 表示属性 $i$ 的标称值 $j$，$f(c_{i,j})$ 为标称值的频率，且 $f(c_{i,j}) \geq f(c_{i+1,j})$。</li>
+<li><code>Step.02</code>：将频率最高的标称值作为 $k$ 个众数的初始值。</li>
 <li><p><code>Step.03</code>：从 $Q_1$ 开始，选择相似性最接近其的记录并替换它的初始众数。以此类推，直至 $Q_k$  的初始众数被替换完成。其中，$Q_l \neq Q_t \, for \, l \neq t$。</p>
 <blockquote>
-<p><code>Step.03</code> 的目的在于避免空簇群的情况，即使初始众数具有多样性，以获得更好的聚类结果。</p>
+<p><code>Step.03</code> 的目的在于避免空簇群的情况，致使初始众数具有多样性，以获得更好的聚类结果。</p>
 </blockquote>
 </li>
 </ul>
