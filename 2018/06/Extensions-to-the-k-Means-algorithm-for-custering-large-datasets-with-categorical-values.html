@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T17:00:13.982Z">
+<meta property="og:updated_time" content="2018-07-09T03:30:29.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-06-21T01:00:13+08:00" content="2018-06-21">
-                2018-06-21
+              <time itemprop="dateUpdated" datetime="2018-07-09T11:30:29+08:00" content="2018-07-09">
+                2018-07-09
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,058
+                  3,479
                 </span>
               
 
@@ -399,7 +399,7 @@
 <ul>
 <li>更新进度：<ul>
 <li>2018.06.04: 整理原文，完成初稿；</li>
-<li>2018.06.05: 更新第 3 / 6 章；</li>
+<li>2018.06.05: 更新第 5 / 6 章；</li>
 </ul>
 </li>
 </ul>
@@ -429,7 +429,7 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="K-Means-算法"><a href="#K-Means-算法" class="headerlink" title="K-Means 算法"></a>K-Means 算法</h3><ul>
+<h3 id="K-Means-均值-算法"><a href="#K-Means-均值-算法" class="headerlink" title="K-Means (均值) 算法"></a>K-Means (均值) 算法</h3><ul>
 <li>K-Means，是一种划分或非分层的聚类算法，为进一步阐述细节，需给出如下设定：<ul>
 <li>一组含 $n$ 个数值数据的对象集 $D = \{X_1, X_2, …, X_n\}$；</li>
 <li>距离度量 $d$；</li>
@@ -438,7 +438,7 @@
 </li>
 <li><p>如此一来，使得数据对象与其簇的中心之间的平方误差总和被最小化。然后，根据非线性优化问题，将该问题描述为:</p>
 <script type="math/tex; mode=display">
-  Minimise P(W,Q) = \sum_{l=1}^k \sum_{i=1}^n w_{i,l} d(X_i, Q_l)
+  Minimise \, P(W,Q) = \sum_{l=1}^k \sum_{i=1}^n w_{i,l} d(X_i, Q_l)
   \tag{1}</script><p>  且服从：</p>
 <script type="math/tex; mode=display">
   \begin{cases}
@@ -487,6 +487,83 @@ q_{l,j}^{(t+1)} = \frac {
 </ul>
 </li>
 </ul>
+<h3 id="K-Modes-众数-算法"><a href="#K-Modes-众数-算法" class="headerlink" title="K-Modes (众数) 算法"></a>K-Modes (众数) 算法</h3><p>原则上，K-Means 算法中问题 P 的公式对于分类和混合类型的对象也是有效的，之所以 K-Means 算法不能对标称属性对象进行聚类的原因是它的相异性度量方法和用于构造新的簇群中心的方法不适用，故通过对 K-Means 算法进行以下修改，可消除不适用问题：</p>
+<ul>
+<li>用于标称属性对象的相异性度量的方法；</li>
+<li>簇群的中心以 <code>众数</code> 替代 <code>均值</code>；</li>
+<li>使用基于频率的方法求的众数，以构造新的簇群中心。</li>
+</ul>
+<h4 id="相异性度量"><a href="#相异性度量" class="headerlink" title="相异性度量"></a>相异性度量</h4><p>相异性度量：设 $X,Y$ 是由 m 个标称属性描述的两个标称属性对象， $X,Y$ 的相异性度量可通过两个对象间相对应属性的不匹配总和来定义，即不匹配的次数越少，两个对象越相似。定义如下：</p>
+<script type="math/tex; mode=display">
+d(X,Y) = \sum_{j=1}^m \delta (x_j,y_j)
+\tag{5}</script><p> 且满足条件：</p>
+<script type="math/tex; mode=display">
+\delta (x_j,y_j) = \begin{cases}
+0 , \, (x_j = y_j) \\
+1 , \, (x_j \neq y_j)
+\end{cases}
+ \tag{6}</script><h4 id="众数集"><a href="#众数集" class="headerlink" title="众数集"></a>众数集</h4><p>设 $X$ 是由标称属性 $A_1, A_2, …, A_m$ 描述的标称属性对象集。$X= \{X_1, X_2, …, X_n\}$ 的众数由向量 $Q =\{q_1, q_2, …, q_m\}$ 表示，并最小化函数：</p>
+<script type="math/tex; mode=display">
+Minimise \, D(X,Q) = \sum_{i=1}^n d(Xi,Q)
+\tag{7}</script><blockquote>
+<p> 注意，这里 $Q$ 并不一定是 $X$ 中包含元素 (有别于 K-Medoids 算法 $^{[4]}$，质心从它的样本点中选择 )。</p>
+</blockquote>
+<h4 id="挑选众数"><a href="#挑选众数" class="headerlink" title="挑选众数"></a>挑选众数</h4><p>设 $n_{c_{k,j}}$ 为属性 $A_j$ 中包含第 k 个标称属性 $c_{k,j}$ 的对象数量，且定义 $f(A_j = c_{k,j} | X) = \frac{ n_{c_{k,j}} }{n}$ 为标称属性 $c_{k,j}$ 在 $X$ 中的出现频率。</p>
+<ul>
+<li><p><code>定理 1</code>：若满足下述条件 (8)，即 $D(X,Q)$ 已最小化 ( 证明见<a href="#2-定理证明">附录2</a> )。即定理定义了一种从给定的 $X$ 中找到 $Q$ 的方法，即它允许使用 K-Means 范式来聚类标称数据，且定理 1 暗示了数据集 $X$ 的众数不是唯一的。 </p>
+<script type="math/tex; mode=display">
+  f(A_j = q_j | X) \geq f(A_j = c_{k,j} | X) \, for \, q_j \neq     c_{k,j},j=1, 2, ..., m
+  \tag{8}</script></li>
+</ul>
+<h4 id="算法核心"><a href="#算法核心" class="headerlink" title="算法核心"></a>算法核心</h4><ul>
+<li>当公式 (5) 用作标称属性对象的相异性度量时，公式 (1) 的代价函数将推导为：</li>
+</ul>
+<script type="math/tex; mode=display">
+P(W,Q) = \sum_{l=1}^k \sum_{i=1}^n \sum_{j=1}^m w_{i,l} \delta(x_{i,j},q_{l,j})\\\ where \, w_{i,l}  \in W \, and \, Q_l = [q_{l,1}, q_{l,1}, ..., q_{l,m}] \in Q
+\tag{9}</script><ul>
+<li>为了最小化代价函数，则修改经典 K-Means 算法：<ul>
+<li>以相异性度量方法求解 $W$，即上述 <code>Step.02</code> 所描述的，以当前 $Q$ 为簇群中心，将每个对象分配到距离其最近的簇中心的簇当中去；</li>
+<li>用簇的众数代替均值，根据 <code>定理 1</code> 选择众数来求解  $Q$，即上述 <code>Step.03</code> 所描述的，求得新的簇群中心。</li>
+</ul>
+</li>
+<li><p>在经典算法中，我们需要在每次获得一个新的 $Q$ 或 $W$ 时，根据整个数据集计算总代价 P。为了提高计算效率，我们在实践中采用了下面的算法。</p>
+<ul>
+<li><code>Step.01</code>：初始化 k 个众数，且每个众数对应一个簇；</li>
+<li><code>Step.02</code>：根据公式 (5)，将距离众数最近的对象分配该簇当中。再根据 <code>定理 1</code>，在每次分配后更新簇群的众数。</li>
+<li><code>Step.03</code>：当所有对象分配到具体的簇群之后，重新测试对象与当前众数的相异性。如果找到一个对象，距离其最近的众数属于另一个簇群而不是当前的簇群，则将该对象重新分配给该簇群，并更新两个簇群的众数。</li>
+<li><p><code>Step.04</code>：重复执行 <code>Step.03</code>，直到对整个数据集进行完整的循环测试之后，没有对象更改簇群。</p>
+<blockquote>
+<p>目前，虽没有证明该算法的收敛性，但在实际使用过程中，它的表现总是收敛的。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>与 K-Means 算法一样，K-Modes 算法也是产生 <code>局部最优解</code>，且依赖于数据集中的 <code>初始的众数</code> 和 <code>对象的顺序</code>。考虑 <code>初始的众数</code> 和 <code>对象的顺序</code> 的因素影响，我们通过两种方法改进算法。</p>
+<ul>
+<li>第一个方法是第一次从数据集中选择 $k$ 个不同的记录作为初始 $k$ 个众数值。</li>
+<li><p>第二个方法通过以下步骤实现：</p>
+<ul>
+<li><code>Step.01</code>：计算所有属性的所有标称值的频率，并按照频率的降序将它们存储在一个标称类型的数组中，如图 2-1 所示，展示了标称类型数组中，分别包含 4、2、5、3 个标称值的 4 个属性。这里 $c_{i,j}$ 表示属性 $j$ 的标称值 $i$，$f(c_{i,j})$ 为标称值的频率，且 $f(c_{i,j}) \geq f(c_{i+1,j})$。</li>
+<li><code>Step.02</code>：将频率最高的标称值作为 $k$ 个初始化的众数值。</li>
+<li><p><code>Step.03</code>：从 $Q_1$ 开始，选择相似性最接近其的记录并替换它的初始众数。以此类推，直至 $Q_k$  的初始众数被替换完成。其中，$Q_l \neq Q_t \, for \, l \neq t$。</p>
+<blockquote>
+<p><code>Step.03</code> 的目的在于避免空簇群的情况，即使初始众数具有多样性，以获得更好的聚类结果。</p>
+</blockquote>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{Bmatrix} 
+c_{1,1} & c_{1,2} & c_{1,3} & c_{1,4} \\ 
+c_{2,1} & c_{2,2} & c_{2,3} & c_{2,4} \\ 
+c_{3,1} & \, & c_{3,3} & c_{3,4} \\ 
+c_{4,1} & \,  & c_{4,3} & \, \\ 
+\,  & \,  & c_{5,3} & \, \\ 
+\end{Bmatrix}</script><center>图 2-1 标称类型数组 ( 横向表示集合的属性 A，纵向表示簇中心点 Q )</center>
+
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
 <p>令 $i=(x_{i1},x_{i2},…,x_{ih})$ 和 $j=(x_{j1},x_{j2},…,x_{jh})$ 是两个被 h 个属性描述的对象。 </p>
 <p>闵氏距离是欧式距离和曼哈顿距离的推广，定义如下：</p>
@@ -512,7 +589,19 @@ d(i, j) = \sqrt(\sum_{f=1}^h (x_{if}-x_{jf})^2)
 d(i, j) = \lim_{h \to \infty} (
     \sum_{f=1}^h |x_{if}-x_{jf}|^h
 )^\frac{1}{h} = max_{f}^h |x_{if}-x_{jf}|
-\tag{4}</script><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Jiewei Han, Micheline Kamber and Jian Pei. 数据挖掘 (第三版) [M]. 机械工业出版社, 2018, 48-49.<br>[2] Bezdek J C. A convergence theorem for the fuzzy ISODATA clustering algorithms [J]. IEEE transactions on pattern analysis and machine intelligence, 1980 (1): 1-8.<br>[3] Ismail M A, Selim S Z. Fuzzy c-means: optimality of solutions and effective termination of the algorithm[J]. Pattern recognition, 1986, 19(6): 481-485.</p>
+\tag{4}</script><h3 id="2-定理证明"><a href="#2-定理证明" class="headerlink" title="2 定理证明"></a>2 定理证明</h3><p><code>定理 1</code> 的证明如下：</p>
+<ul>
+<li>让 $f_r (A_j = c_{k,j} | X) = \frac { n_{c_{k,j}} }{n}$ 为属性 $A_j$ 的第 $k$ 个标称属性 $c_{k,j}$ 的相对频率，$n$ 是 $X$ 中对象的总数，$n_{C_{k,j}}$ 是拥有标称属性 $c_{k,j}$ 的对象的计数。</li>
+<li>则有，相异性度量公式可推导为：</li>
+</ul>
+<script type="math/tex; mode=display">
+\sum_{i=1}^n d(X_i,Q) = \sum_{i=1}^n \sum_{j=1}^m \delta(x_{i,j},q_j)
+\\ = \sum_{i=1}^n ( \sum_{j=1}^m \delta(x_{i,j},q_j) )
+= \sum_{i=1}^m n(1-\frac{n_{q_j}}{n})
+= \sum n( 1-f_r(A_j = q_j | X) )</script><ul>
+<li>因为 $n( 1-f_r(A_j = q_j | X) ) \geq 0 \, , \, 1 \leq j \leq m$，若让 $\sum_{i=1}^n  d(X_i,Q)$ 最小化，则需让每一个 $n( 1-f_r(A_j = q_j | X) )$ 取最小值，即 $f_r(A_j = q_j | X)$ 必须取最大值。</li>
+</ul>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Jiewei Han, Micheline Kamber and Jian Pei. 数据挖掘 (第三版) [M]. 机械工业出版社, 2018, 48-49.<br>[2] Bezdek J C. A convergence theorem for the fuzzy ISODATA clustering algorithms [J]. IEEE transactions on pattern analysis and machine intelligence, 1980 (1): 1-8.<br>[3] Ismail M A, Selim S Z. Fuzzy c-means: optimality of solutions and effective termination of the algorithm[J]. Pattern recognition, 1986, 19(6): 481-485.<br>[4] Park H S, Jun C H. A simple and fast algorithm for K-medoids clustering[J]. Expert systems with applications, 2009, 36(2): 3336-3341.  </p>
 
       
     </div>
@@ -749,7 +838,7 @@ d(i, j) = \lim_{h \to \infty} (
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.2.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means-算法"><span class="nav-number">2.3.</span> <span class="nav-text">K-Means 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.2.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means-均值-算法"><span class="nav-number">2.3.</span> <span class="nav-text">K-Means (均值) 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Modes-众数-算法"><span class="nav-number">2.4.</span> <span class="nav-text">K-Modes (众数) 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相异性度量"><span class="nav-number">2.4.1.</span> <span class="nav-text">相异性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数集"><span class="nav-number">2.4.2.</span> <span class="nav-text">众数集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挑选众数"><span class="nav-number">2.4.3.</span> <span class="nav-text">挑选众数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法核心"><span class="nav-number">2.4.4.</span> <span class="nav-text">算法核心</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定理证明"><span class="nav-number">3.2.</span> <span class="nav-text">2 定理证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
