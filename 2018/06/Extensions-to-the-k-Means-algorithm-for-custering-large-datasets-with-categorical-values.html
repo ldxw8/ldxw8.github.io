@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
+<meta name="description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 <meta name="keywords" content="数据挖掘,聚类,机器学习,混合类型,K-Means">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta property="og:url" content="http://www.kofes.cn/2018/06/Extensions-to-the-k-Means-algorithm-for-custering-large-datasets-with-categorical-values.html">
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
-<meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
+<meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-09T17:42:16.912Z">
+<meta property="og:updated_time" content="2018-07-16T09:57:31.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
-<meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.    更新进度： 2018.06.04: 整理原文，完成初稿；">
+<meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 
 
 
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-10T01:42:16+08:00" content="2018-07-10">
-                2018-07-10
+              <time itemprop="dateUpdated" datetime="2018-07-16T17:57:31+08:00" content="2018-07-16">
+                2018-07-16
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,491
+                  3,724
                 </span>
               
 
@@ -396,13 +396,6 @@
 
       
         <div class="note default"><p>原文：Extensions to the k-means algorithm for clustering large datasets with categorical values<br>作者：ZHEXUE HUANG.<br>来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.  </p></div>
-<ul>
-<li>更新进度：<ul>
-<li>2018.06.04: 整理原文，完成初稿；</li>
-<li>2018.06.05: 更新第 5 / 6 章；</li>
-</ul>
-</li>
-</ul>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在早期，大多数聚类工作主要集中在数值数据上，且它们主要是利用数值数据的固有几何特性，即数据点之间的 <code>距离函数</code> (<a href="#1-距离函数">见附录1</a>)。但是，数据挖掘应用程序通常涉及许多数据集，这些数据集是由混合数值属性和标称属性组成的，仅拥有数值数据的测量方法已无法满足混合数据类型的聚类工作。</p>
 <p>本论文基于经典的 K-Means 算法上，提出了两种聚类算法，分别应对 <code>标称域</code> 和 <code>混合数值与标称域</code> 属性值的聚类操作。首先介绍的是<code>K-Modes (K-众数)</code> 聚类算法，他运作的方式与 K-Means 相仿，只是它利用的是相异性度量处理标称对象，聚类中心以众数替代均值，且众数以基于频率的方法去迭代更新，直至 <code>聚类代价函数</code> 的结果最小化停止迭代。其次，是 <code>K-Prototype</code> 聚类算法，它定义了一组合的相异性度量值，进一步整合 <code>K-Means</code> 和 <code>K-Modes</code> 算法，以实现对混合数值与标称属性的对象进行聚类操作。</p>
 <a id="more"></a>
@@ -433,7 +426,7 @@
 <li>K-Means，是一种划分或非分层的聚类算法，为进一步阐述细节，需给出如下设定：<ul>
 <li>一组含 $n$ 个数值数据的对象集 $D = \{X_1, X_2, …, X_n\}$；</li>
 <li>距离度量 $d$；</li>
-<li>自然数 $k (\leq n)$，并把 $D$ 划分 $k$ 个非空且相分离的簇群：  <script type="math/tex; mode=display">
+<li>自然数 $k (\leq n)$，并把 $D$ 划分 $k$ 个非空且相分离的簇群：<script type="math/tex; mode=display">
 C_1, C_2, ..., C_k, \, with \, C_i \bigcap C_j = \emptyset \, and \, \bigcup_{i=1}^k C_i = D</script></li>
 <li>$D$ 中随机选取 $k$ 个对象，每个对象代表一个簇的初始均值或中心。</li>
 </ul>
@@ -497,7 +490,7 @@ q_{l,j}^{(t+1)} = \frac {
 </ul>
 <h4 id="相异性度量"><a href="#相异性度量" class="headerlink" title="相异性度量"></a>相异性度量</h4><p>相异性度量：设 $X,Y$ 是由 m 个标称属性描述的两个标称属性对象， $X,Y$ 的相异性度量可通过两个对象间相对应属性的不匹配总和来定义，即不匹配的次数越少，两个对象越相似。定义如下：</p>
 <script type="math/tex; mode=display">
-d(X,Y) = \sum_{j=1}^m \delta (x_j,y_j)
+d_1(X,Y) = \sum_{j=1}^m \delta (x_j,y_j)
 \tag{5}</script><p> 且满足条件：</p>
 <script type="math/tex; mode=display">
 \delta (x_j,y_j) = \begin{cases}
@@ -506,7 +499,7 @@ d(X,Y) = \sum_{j=1}^m \delta (x_j,y_j)
 \end{cases}
  \tag{6}</script><h4 id="众数集"><a href="#众数集" class="headerlink" title="众数集"></a>众数集</h4><p>设 $X$ 是由标称属性 $A_1, A_2, …, A_m$ 描述的标称属性对象集。$X= \{X_1, X_2, …, X_n\}$ 的众数由向量 $Q =\{q_1, q_2, …, q_m\}$ 表示，并最小化函数：</p>
 <script type="math/tex; mode=display">
-Minimise \, D(X,Q) = \sum_{i=1}^n d(Xi,Q)
+Minimise \, D(X,Q) = \sum_{i=1}^n d_1(Xi,Q)
 \tag{7}</script><blockquote>
 <p> 注意，这里 $Q$ 并不一定是 $X$ 中包含元素 (有别于 K-Medoids 算法 $^{[4]}$，质心从它的样本点中选择 )。    </p>
 </blockquote>
@@ -563,6 +556,42 @@ c_{4,1} & \,  & c_{4,3} & \, \\
 \end{Bmatrix}</script><center>图 2-1 标称类型数组 ( 横向表示集合的属性 A，纵向表示簇中心点 Q )</center>
 
 </li>
+</ul>
+</li>
+</ul>
+<h3 id="K-Prototypes-算法"><a href="#K-Prototypes-算法" class="headerlink" title="K-Prototypes 算法"></a>K-Prototypes 算法</h3><ul>
+<li><p>将 K-Means 和 K-Modes 算法集成到 K-Prototypes 算法中是很容易的，这种算法用于混合类型对象的簇群聚类。</p>
+</li>
+<li><p>在混合对象 $X$ 和 $Y$ 间的相异性可由属性 $A_1^r, A_2^r, …, A_p^r, A_{p+1}^c, …, A_m^c$ 描述，并定义其相异性度量为：</p>
+<script type="math/tex; mode=display">
+  d_2(X,Y) = \sum_{j=1}^p (x_j - y_j)^2 + \gamma \sum_{j=p+1}^m \delta(x_j,y_j)
+  \tag{10}</script><blockquote>
+<p>其中，第一项是数值属性的平方欧氏距离度量，第二项是标称属性的相异性度量。权重 $\gamma$ 是用来避免偏袒任何类型的属性，即聚类结果更趋向于数值属性还是标称属性。</p>
+</blockquote>
+</li>
+<li><p>当公式 (10) 用作混合类型属性对象的相异性度量时，公式 (1) 的代价函数将推导为：</p>
+<script type="math/tex; mode=display">
+  P(W,Q) = \sum_{l=1}^k (
+      \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})
+      + \gamma \sum_{i=1}^n w_{i,l} \sum_{j=p+1}^m \delta(x_{i,j}-q_{l,j})
+  )
+  \tag{11}</script><blockquote>
+<p>$ \sum_{i=1}^n w_{i,l}$ 即公式 (2) 所描述的，每个簇对象只对应一个簇中心。</p>
+</blockquote>
+<ul>
+<li><p>为简化公式 (11)，让：</p>
+<script type="math/tex; mode=display">
+P_l^r = \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})
+\tag{12}</script><script type="math/tex; mode=display">
+P_l^c =  \gamma \sum_{i=1}^n w_{i,l} \sum_{j=p+1}^m \delta(x_{i,j}-q_{l,j})
+\tag{13}</script></li>
+<li><p>重写公式 (11)：</p>
+<script type="math/tex; mode=display">
+P(W,Q) = \sum_{l=1}^k (P_l^r + P_l^c)
+\tag{14}</script></li>
+</ul>
+<ul>
+<li>$P_l^r$ 和 $P_l^c$ 都是非负的，最小化 $P(W,Q)$ 等同于最小化 $P_l^r$ 和 $P_l^c$，$1 \leq l \leq k$。</li>
 </ul>
 </li>
 </ul>
@@ -840,7 +869,7 @@ d(i, j) = \lim_{h \to \infty} (
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.2.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means-均值-算法"><span class="nav-number">2.3.</span> <span class="nav-text">K-Means (均值) 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Modes-众数-算法"><span class="nav-number">2.4.</span> <span class="nav-text">K-Modes (众数) 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相异性度量"><span class="nav-number">2.4.1.</span> <span class="nav-text">相异性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数集"><span class="nav-number">2.4.2.</span> <span class="nav-text">众数集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挑选众数"><span class="nav-number">2.4.3.</span> <span class="nav-text">挑选众数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法核心"><span class="nav-number">2.4.4.</span> <span class="nav-text">算法核心</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定理证明"><span class="nav-number">3.2.</span> <span class="nav-text">2 定理证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号"><span class="nav-number">2.2.</span> <span class="nav-text">符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Means-均值-算法"><span class="nav-number">2.3.</span> <span class="nav-text">K-Means (均值) 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Modes-众数-算法"><span class="nav-number">2.4.</span> <span class="nav-text">K-Modes (众数) 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相异性度量"><span class="nav-number">2.4.1.</span> <span class="nav-text">相异性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数集"><span class="nav-number">2.4.2.</span> <span class="nav-text">众数集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挑选众数"><span class="nav-number">2.4.3.</span> <span class="nav-text">挑选众数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法核心"><span class="nav-number">2.4.4.</span> <span class="nav-text">算法核心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-Prototypes-算法"><span class="nav-number">2.5.</span> <span class="nav-text">K-Prototypes 算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-距离函数"><span class="nav-number">3.1.</span> <span class="nav-text">1 距离函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定理证明"><span class="nav-number">3.2.</span> <span class="nav-text">2 定理证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
