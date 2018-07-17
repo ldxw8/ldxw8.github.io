@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="KOFE&#39;S BLOG">
 <meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-16T09:57:31.311Z">
+<meta property="og:updated_time" content="2018-07-17T01:07:36.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-16T17:57:31+08:00" content="2018-07-16">
-                2018-07-16
+              <time itemprop="dateUpdated" datetime="2018-07-17T09:07:36+08:00" content="2018-07-17">
+                2018-07-17
               </time>
             </span>
           
@@ -572,7 +572,7 @@ c_{4,1} & \,  & c_{4,3} & \, \\
 <li><p>当公式 (10) 用作混合类型属性对象的相异性度量时，公式 (1) 的代价函数将推导为：</p>
 <script type="math/tex; mode=display">
   P(W,Q) = \sum_{l=1}^k (
-      \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})
+      \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})^2
       + \gamma \sum_{i=1}^n w_{i,l} \sum_{j=p+1}^m \delta(x_{i,j}-q_{l,j})
   )
   \tag{11}</script><blockquote>
@@ -581,7 +581,7 @@ c_{4,1} & \,  & c_{4,3} & \, \\
 <ul>
 <li><p>为简化公式 (11)，让：</p>
 <script type="math/tex; mode=display">
-P_l^r = \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})
+P_l^r = \sum_{i=1}^n w_{i,l} \sum_{j=1}^p(x_{i,j}-q_{l,j})^2
 \tag{12}</script><script type="math/tex; mode=display">
 P_l^c =  \gamma \sum_{i=1}^n w_{i,l} \sum_{j=p+1}^m \delta(x_{i,j}-q_{l,j})
 \tag{13}</script></li>
