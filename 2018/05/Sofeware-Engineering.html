@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Kofe's Bocca" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 - 高级软件工程 &amp; 导论">
 <meta property="og:url" content="http://www.kofes.cn/2018/05/Sofeware-Engineering.html">
-<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:site_name" content="Kofe&#39;s Bocca">
 <meta property="og:description" content="序言在软工系列课程上，老师常提及的一条等式  软件 = 程序 + 软件工程 ( 或 软件 = 程序 + 文档)，即一般情况讨论，一款软件产品的诞生之际总是伴随着一系列的软件过程。 那么如何充分理解软件工程 (过程)？从本书作者理念出发，我所理解的即应该时刻对软件产品持有 生命周期 的思维模式，将 需求、建模、设计、实现、测试、维护 等工程阶段联系起来，以自身代入案例环境中，去模拟开展软件过程的一系">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/05/Sofeware-Engineering_1-1.png">
@@ -156,7 +156,7 @@
 
 
 
-  <title>笔记 - 高级软件工程 & 导论 | KOFE'S BLOG</title>
+  <title>笔记 - 高级软件工程 & 导论 | Kofe's Bocca</title>
   
 
 
@@ -196,12 +196,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KOFE'S BLOG</span>
+        <span class="site-title">Kofe's Bocca</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Reading / Project / Research</p>
+        <p class="site-subtitle">Reading / Project / Paper</p>
       
   </div>
 
@@ -326,7 +326,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOFE'S BLOG">
+      <meta itemprop="name" content="Kofe's Bocca">
     </span>
 
     
@@ -1770,7 +1770,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1972,7 +1972,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('20');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

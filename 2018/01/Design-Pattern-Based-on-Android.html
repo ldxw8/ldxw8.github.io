@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Kofe's Bocca" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 - 设计模式之 Android 实践与案例 ( 速记手册 )">
 <meta property="og:url" content="http://www.kofes.cn/2018/01/Design-Pattern-Based-on-Android.html">
-<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:site_name" content="Kofe&#39;s Bocca">
 <meta property="og:description" content="序言在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png">
@@ -181,7 +181,7 @@
 
 
 
-  <title>笔记 - 设计模式之 Android 实践与案例 ( 速记手册 ) | KOFE'S BLOG</title>
+  <title>笔记 - 设计模式之 Android 实践与案例 ( 速记手册 ) | Kofe's Bocca</title>
   
 
 
@@ -221,12 +221,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KOFE'S BLOG</span>
+        <span class="site-title">Kofe's Bocca</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Reading / Project / Research</p>
+        <p class="site-subtitle">Reading / Project / Paper</p>
       
   </div>
 
@@ -351,7 +351,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOFE'S BLOG">
+      <meta itemprop="name" content="Kofe's Bocca">
     </span>
 
     
@@ -2085,7 +2085,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -2287,7 +2287,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('20');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

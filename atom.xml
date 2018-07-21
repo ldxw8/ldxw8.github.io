@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>KOFE&#39;S BLOG</title>
+  <title>Kofe&#39;s Bocca</title>
   
-  <subtitle>Reading / Project / Research</subtitle>
+  <subtitle>Reading / Project / Paper</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.kofes.cn/"/>

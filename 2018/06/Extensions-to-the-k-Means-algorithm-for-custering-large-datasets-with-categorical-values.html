@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Kofe's Bocca" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta property="og:url" content="http://www.kofes.cn/2018/06/Extensions-to-the-k-Means-algorithm-for-custering-large-datasets-with-categorical-values.html">
-<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:site_name" content="Kofe&#39;s Bocca">
 <meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-07-17T01:07:36.604Z">
@@ -128,7 +128,7 @@
 
 
 
-  <title>论文 - 扩展 K-Means 算法：混合数据类型的聚类方法 | KOFE'S BLOG</title>
+  <title>论文 - 扩展 K-Means 算法：混合数据类型的聚类方法 | Kofe's Bocca</title>
   
 
 
@@ -168,12 +168,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KOFE'S BLOG</span>
+        <span class="site-title">Kofe's Bocca</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Reading / Project / Research</p>
+        <p class="site-subtitle">Reading / Project / Paper</p>
       
   </div>
 
@@ -298,7 +298,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOFE'S BLOG">
+      <meta itemprop="name" content="Kofe's Bocca">
     </span>
 
     
@@ -1132,7 +1132,7 @@ d(i, j) = \lim_{h \to \infty} (
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1334,7 +1334,7 @@ d(i, j) = \lim_{h \to \infty} (
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('20');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

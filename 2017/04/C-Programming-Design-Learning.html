@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Kofe's Bocca" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 - C语言复习框架 ( 应试篇 )">
 <meta property="og:url" content="http://www.kofes.cn/2017/04/C-Programming-Design-Learning.html">
-<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:site_name" content="Kofe&#39;s Bocca">
 <meta property="og:description" content="序言从标题中透漏的信息可知，本系列文章是围绕 “C语言” 展开学习的笔记总结，且目的很明确，笔记内容偏应试，适用于计算机等级考试、考研专业课(C语言)等的复习使用。文章推崇总结性、比对性的学习方法，对于模糊的知识模块需自行查阅参考书目，深化理解或可达到理想的效果。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-08T17:36:28.000Z">
@@ -128,7 +128,7 @@
 
 
 
-  <title>笔记 - C语言复习框架 ( 应试篇 ) | KOFE'S BLOG</title>
+  <title>笔记 - C语言复习框架 ( 应试篇 ) | Kofe's Bocca</title>
   
 
 
@@ -168,12 +168,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KOFE'S BLOG</span>
+        <span class="site-title">Kofe's Bocca</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Reading / Project / Research</p>
+        <p class="site-subtitle">Reading / Project / Paper</p>
       
   </div>
 
@@ -298,7 +298,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOFE'S BLOG">
+      <meta itemprop="name" content="Kofe's Bocca">
     </span>
 
     
@@ -1763,7 +1763,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1965,7 +1965,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('20');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }

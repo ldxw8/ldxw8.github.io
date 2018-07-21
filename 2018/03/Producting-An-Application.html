@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="KOFE'S BLOG" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Kofe's Bocca" type="application/atom+xml" />
 
 
 
@@ -86,7 +86,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 - 一个 APP 的诞生 ( 方法论 )">
 <meta property="og:url" content="http://www.kofes.cn/2018/03/Producting-An-Application.html">
-<meta property="og:site_name" content="KOFE&#39;S BLOG">
+<meta property="og:site_name" content="Kofe&#39;s Bocca">
 <meta property="og:description" content="序言《 一个 APP 的诞生 》被定义是一本教科书、工具书，适合想通过 APP 实现自己的产品梦的受众通读，即通过本书可让你快速了解 APP 产品的整个流程，从零到一，创造 APP 产品。 而通读本书籍后，或许你、我有同样的感受，即大部分内容是以设计师的角度看待问题的。这样，若你就是设计师，或许这将助你更加透彻理解 APP 的产出过程；若你是软件工程师，也可看待成是从另一角度理解软件过程。当然，这">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/03/Producting_An_Application_1-1.png">
@@ -145,7 +145,7 @@
 
 
 
-  <title>笔记 - 一个 APP 的诞生 ( 方法论 ) | KOFE'S BLOG</title>
+  <title>笔记 - 一个 APP 的诞生 ( 方法论 ) | Kofe's Bocca</title>
   
 
 
@@ -185,12 +185,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">KOFE'S BLOG</span>
+        <span class="site-title">Kofe's Bocca</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Reading / Project / Research</p>
+        <p class="site-subtitle">Reading / Project / Paper</p>
       
   </div>
 
@@ -315,7 +315,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="KOFE'S BLOG">
+      <meta itemprop="name" content="Kofe's Bocca">
     </span>
 
     
@@ -1982,7 +1982,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "search.json";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -2184,7 +2184,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('20');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
