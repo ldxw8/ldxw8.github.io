@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MAC,OpenWrt,Vmware,mysql,python,路由器," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="固件信息 OpenWrt：官方网站 版本信息：openwrt-15.05.1-x86-generic-combined-squashfs  虚拟机上运行的，我们选择 x86 架构的即可。   固件选择：当然，你需要对路由器刷固件，固件版本要配对你的设备 ( 设备支持信息表单 )  例如：网件 WNDR 4300，找到的固件为：lede-17.01.4-ar71xx-nand-wndr4300-ub">
+<meta name="keywords" content="MAC,OpenWrt,Vmware,mysql,python,路由器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
+<meta property="og:url" content="http://www.kofes.cn/2018/07/Vmware-OpenWrt.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="固件信息 OpenWrt：官方网站 版本信息：openwrt-15.05.1-x86-generic-combined-squashfs  虚拟机上运行的，我们选择 x86 架构的即可。   固件选择：当然，你需要对路由器刷固件，固件版本要配对你的设备 ( 设备支持信息表单 )  例如：网件 WNDR 4300，找到的固件为：lede-17.01.4-ar71xx-nand-wndr4300-ub">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-26T12:51:28.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
+<meta name="twitter:description" content="固件信息 OpenWrt：官方网站 版本信息：openwrt-15.05.1-x86-generic-combined-squashfs  虚拟机上运行的，我们选择 x86 架构的即可。   固件选择：当然，你需要对路由器刷固件，固件版本要配对你的设备 ( 设备支持信息表单 )  例如：网件 WNDR 4300，找到的固件为：lede-17.01.4-ar71xx-nand-wndr4300-ub">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/07/Vmware-OpenWrt.html"/>
+
+
+
+
+
+  <title>彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 ) | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/07/Vmware-OpenWrt.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-26T14:52:45+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-07-26T20:51:28+08:00" content="2018-07-26">
+                2018-07-26
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technique/" itemprop="url" rel="index">
+                    <span itemprop="name">Technique</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/Vmware-OpenWrt.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/Vmware-OpenWrt.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/07/Vmware-OpenWrt.html" class="leancloud_visitors" data-flag-title="彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,650
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="固件信息"><a href="#固件信息" class="headerlink" title="固件信息"></a>固件信息</h2><ul>
+<li>OpenWrt：<a href="https://openwrt.org/" target="_blank" rel="noopener">官方网站</a></li>
+<li><p>版本信息：openwrt-15.05.1-x86-generic-combined-squashfs</p>
+<blockquote>
+<p>虚拟机上运行的，我们选择 x86 架构的即可。</p>
+</blockquote>
+</li>
+<li><p>固件选择：当然，你需要对路由器刷固件，固件版本要配对你的设备 ( <a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">设备支持信息表单</a> )</p>
+<blockquote>
+<p>例如：网件 WNDR 4300，找到的固件为：<a href="http://downloads.lede-project.org/releases/17.01.4/targets/ar71xx/nand/lede-17.01.4-ar71xx-nand-wndr4300-ubi-factory.img" target="_blank" rel="noopener">lede-17.01.4-ar71xx-nand-wndr4300-ubi-factory.img</a></p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.07.25：完成初稿；</li>
+<li>2018.07.26：安装 OpenWrt 系统，配置 MySQL、FTP 插件，并形成文档；</li>
+</ul>
+<h2 id="路由信息"><a href="#路由信息" class="headerlink" title="路由信息"></a>路由信息</h2><ul>
+<li><p>本机 VMware 配置了两张虚拟网卡，暂且命名为：</p>
+<ul>
+<li>网络适配器 1 (MAC 地址)：<code>00:50:56:28:EF</code></li>
+<li><p>网络适配器 2 (MAC 地址)：<code>00:50:56:3B:0E:CD</code></p>
+<blockquote>
+<p>MAC 地址可让我们判断 OpenWrt 中外网接口 <code>WAN</code> 和内网接口 <code>LAN</code> 口的映射情况。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>在 OpenWrt 默认配置中，外网接口 WAN 对应于 Eth1，内网接口 LAN 对应于 Eth0，即：</p>
+<ul>
+<li>外网接口 WAN：<code>Eth1</code></li>
+<li><p>内网接口 LAN：<code>Eth0</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 如何查看虚拟主机的网卡与外网、内外接口的关系：</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> OpenWrt 下执行下述代码：</span><br><span class="line"><span class="meta">#</span> 查看网卡的具体信息，即可以查到虚拟机网卡 MAC 地址</span><br><span class="line">ifconfig | more</span><br><span class="line"><span class="meta">#</span> 查看网络配置信息，即可查看外网、内外接口 (Ethx) 与虚拟主机的网卡的绑定情况</span><br><span class="line">cat /etc/config/network</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在 OpenWrt 中，配置外网、内外接口 (Ethx) 信息：</p>
+<blockquote>
+<p>提示：使用 WAN 口的网卡桥接到宿主机的网卡即可访问外网。</p>
+</blockquote>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 环路地址，不用配置</span><br><span class="line">config interface 'loopback'</span><br><span class="line">   option ifname 'lo'</span><br><span class="line">	option ipaddr '127.0.0.1'</span><br><span class="line">	option netmask '255.255.255.0'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 内网接口</span><br><span class="line">config interface 'lan'</span><br><span class="line">	option ifname 'eth0'</span><br><span class="line">	option type 'bridge'</span><br><span class="line">	option proto 'static'</span><br><span class="line">	option ipaddr '192.168.1.1'</span><br><span class="line">	option netmask '255.255.255.0'</span><br><span class="line">	option ip6assign '60'</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> 外网接口</span><br><span class="line">config interface 'wan'</span><br><span class="line">	option ifname 'eth1'</span><br><span class="line">	option proto 'dhcp'</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> 其他配置默认，不作修改</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>关于配置中的一些批注：</p>
+</blockquote>
+<ul>
+<li>Note.01：配置完成后，记得重启下网络服务 <code>./etc/init.d/network restart</code> 。</li>
+<li><p>Note.02：若需要让宿主机访问本 OpenWrt 系统，你可以配置 (关闭) 防火墙。</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 让防火墙开机不自启</span><br><span class="line">./etc/init.d/firewall disable</span><br><span class="line"><span class="meta">#</span> 关闭防火墙服务</span><br><span class="line">./etc/init.d/firewall stop</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>本机 OpenWrt 信息：<ul>
+<li>IP：<code>192.168.0.x (192.168.0.161)</code> — 与宿主机在同一局域网就对了</li>
+<li>Route.User：<code>root</code></li>
+<li>Route.Password：<code>123321</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="拓展功能"><a href="#拓展功能" class="headerlink" title="拓展功能"></a>拓展功能</h2><ul>
+<li>关于插件的批注：<ul>
+<li>默认情况，插件会安装在：<code>/etc/init.d/</code> 目录下；</li>
+<li>其相应的配置文件放置在： <code>/etc/config/</code> 目录下。</li>
+</ul>
+</li>
+</ul>
+<h3 id="安装-FTP-服务"><a href="#安装-FTP-服务" class="headerlink" title="安装 FTP 服务"></a>安装 FTP 服务</h3><ul>
+<li><p>快速引导：<a href="https://wiki.openwrt.org/doc/howto/ftp.overview" target="_blank" rel="noopener">官方指南</a></p>
+<ul>
+<li>可通过 Web 交互界面安装或者命令行安装 <code>VSFTPD</code>。</li>
+<li>安装完成后，即可使用；<code>ftp://Your route IP adress</code>。</li>
+<li><p>配置文件位于 <code>/etc/vsftpd.conf</code>，配置可参考：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">chown_uploads=YES       # 上传后更改文件所属权</span><br><span class="line">chown_username=root     # 上传后更改文件所属权</span><br><span class="line">ftp_username=nobody     # 定义匿名用户名</span><br><span class="line">anonymous_enable=YES            # 允许匿名用户访问</span><br><span class="line">anon_upload_enable=YES          # 允许匿名上传</span><br><span class="line">anon_mkdir_write_enable=YES     # 允许匿名创建目录</span><br><span class="line">anon_root=/mnt/anymous          # 匿名用户根目录</span><br><span class="line">anon_max_rate=512000            # 匿名用户限速</span><br><span class="line">local_enable=YES    # 允许本地用户登录 (必须)</span><br><span class="line">local_root=/mnt/ftp # 本地用户的默认访问路径 (必须)</span><br><span class="line">write_enable=YES    # 允许上传</span><br><span class="line">local_umask=022     # 允许上传</span><br><span class="line">check_shell=NO</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>命令操作细节如下：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 第一次使用 opkg 需更新资源</span><br><span class="line">opkg update</span><br><span class="line">opkg install vsftpd</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> FTP 服务操作</span><br><span class="line">/etc/init.d/vsftpd start        # Start the service</span><br><span class="line">/etc/init.d/vsftpd stop         # Stop the service</span><br><span class="line">/etc/init.d/vsftpd restart      # Restart the service</span><br><span class="line">/etc/init.d/vsftpd reload       # Reload configuration files or restart if that fails</span><br><span class="line">/etc/init.d/vsftpd enable       # Enable service autostart)</span><br><span class="line">/etc/init.d/vsftpd disable      # Disable service autostart)</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span> 附：修改文件权限</span><br><span class="line">chown root /mnt/ftp</span><br><span class="line">chmod 666 /mnt/ftp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>当然，除了 FTP 服务外，还有 Samba 服务，具体配置可参考 [4] 。</li>
+</ul>
+<h3 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h3><ul>
+<li><p>通过命令行安装：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 第一次使用 opkg 需更新资源</span><br><span class="line">opkg update</span><br><span class="line">opkg install mysql-server</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>设置数据库数据存储目录：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 配置 Mysql 数据库的存储目录</span><br><span class="line">cd /mnt</span><br><span class="line">mkdir -p /mysql/data /mysql/tmp	</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 当然也可把数据放到 U 盘或 SD 卡上</span><br><span class="line"><span class="meta">#</span> 详细教程可查看 USB 挂载相关教程，参考 [6]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>配置 MySql：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br><span class="line"><span class="meta">#</span> 找到 datadir 和 tmpdir 字段，并修改其值</span><br><span class="line">datadir = /mnt/mysql/data</span><br><span class="line">tmpdir = /mnt/mysql/tmp</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 找到 bind-address，修改为 0.0.0.0，以允许远程访问</span><br><span class="line">bind-address = 0.0.0.0</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span>  记得保存再退出</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 初始化建库 ( Database )</span><br><span class="line">/usr/bin/mysql_install_db --force</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>启动 MySQL 数据库：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动 mysql 守护进程</span><br><span class="line">/etc/init.d/mysqld enable		# 开启自启动</span><br><span class="line">/etc/init.d/mysqld start		# 启动 MySQL 服务</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 当重新修改配置时，需要重启 Mysql 服务，可这样处理</span><br><span class="line"><span class="meta">#</span> killall mysqld</span><br><span class="line"><span class="meta">#</span> /etc/init.d/mysqld start</span><br><span class="line"><span class="meta">#</span> 或者重新加载配置信息</span><br><span class="line"><span class="meta">#</span> /etc/init.d/mysqld reload</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>使用 MySQL 数据库和修改账户密码：</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 提示输入密码，进入即可数据库操作</span><br><span class="line">mysql -u root -p</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 当然，刚配置的 MySQL 用户名账号密码不是还没有配置么？</span><br><span class="line"><span class="meta">#</span> 故我们需要以非授权的方式进入 MySQL 进行权限设置</span><br><span class="line">/etc/init.d/mysqld --skip-grant &amp;</span><br><span class="line">mysql -u root</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 注意：命名行里面的形式已经变成【mysql&gt;】提示符，即可继续下步操作</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 显示数据库，选择 mysql 数据库</span><br><span class="line">SHOW databases;		</span><br><span class="line">USE mysql;</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 修改账户连接权限：</span><br><span class="line">UPDATE user </span><br><span class="line">SET host = '%', password = PASSWORD("Your Password")</span><br><span class="line">WHERE user = 'root';</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> (非必要操作) 当你的数据库需要远程访问时，你还需要建立一个新用户</span><br><span class="line"><span class="meta">#</span> grant all privileges on *.* to  kofe@"%"</span><br><span class="line"><span class="meta">#</span> identified by "pwd123"</span><br><span class="line"><span class="meta">#</span> with grant option;</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> Grant 是授权命令</span><br><span class="line"><span class="meta">#</span> 其中 kofe 是我们连接用的用户名、pwd123 是连接密码</span><br><span class="line"><span class="meta">#</span> @ 后接的 “%” 通用符表示允许各 host 操作</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 清理数据库缓存</span><br><span class="line">flush privileges;</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 退出 mysql</span><br><span class="line">quit;</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 重启 Mysql 服务</span><br><span class="line">/etc/init.d/mysqld restart</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span> 此时重新执行 mysql -u root -p</span><br><span class="line"><span class="meta">#</span> 输入你修改过后的密码能进入 【mysql&gt;】模式即成功。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MySQL 数据库管理软件推荐： <a href="http://www.sequelpro.com/" target="_blank" rel="noopener">Sequel Pro</a> 或者 <a href="https://dbeaver.io/download/" target="_blank" rel="noopener">Dbeaver</a>。</p>
+</li>
+</ul>
+<h3 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://www.cnblogs.com/codeinsight/p/openwrt_vmware.html" target="_blank" rel="noopener">Code Insight. HowTo 虚拟机上尝试 OpenWrt 开源路由. cnblogs.com</a></li>
+<li>[2] <a href="https://github.com/luoqeng/OpenWrt-on-VMware" target="_blank" rel="noopener">luoqeng. OpenWrt-on-VMware. github.com</a></li>
+<li>[3] <a href="https://blog.csdn.net/whatday/article/details/78920494" target="_blank" rel="noopener">whatday. 路由、交换机等嵌入设备软件包管理 OPKG. csdn.net</a></li>
+<li>[4] <a href="http://www.cnblogs.com/double-win/p/3848797.html" target="_blank" rel="noopener">Double WIn. Samba 服务 &amp; vsFTP 服务. cnblogs.com</a></li>
+<li>[5] <a href="http://www.cnblogs.com/double-win/p/3866189.html" target="_blank" rel="noopener">Double Win. MySQL配置. cnblogs.com</a></li>
+<li>[6] <a href="http://www.cnblogs.com/double-win/p/3841801.html" target="_blank" rel="noopener">Double Win. USB挂载 &amp; U盘启动. cnblogs.com</a></li>
+<li>[100] <a href="http://www.cnblogs.com/double-win/p/3888399.html" target="_blank" rel="noopener">Double Win. Openwrt 项目开发笔记. cnblogs.com</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/07/Vmware-OpenWrt.html" title="彩蛋 -  MACOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">http://www.kofes.cn/2018/07/Vmware-OpenWrt.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MAC/" rel="tag"># MAC</a>
+          
+            <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
+          
+            <a href="/tags/Vmware/" rel="tag"># Vmware</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/路由器/" rel="tag"># 路由器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/J2EE-SSH-SSI-1.html" rel="next" title="框架 - Java EE 之 SSH 框架配置与使用">
+                <i class="fa fa-chevron-left"></i> 框架 - Java EE 之 SSH 框架配置与使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#固件信息"><span class="nav-number">1.</span> <span class="nav-text">固件信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由信息"><span class="nav-number">3.</span> <span class="nav-text">路由信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展功能"><span class="nav-number">4.</span> <span class="nav-text">拓展功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-FTP-服务"><span class="nav-number">4.1.</span> <span class="nav-text">安装 FTP 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-MySQL"><span class="nav-number">4.2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Python"><span class="nav-number">4.3.</span> <span class="nav-text">安装 Python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
