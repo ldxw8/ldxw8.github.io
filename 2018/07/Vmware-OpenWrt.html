@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="配置一台 VMware 上运作的路由系统，启发式从软路由到硬路由的进阶之旅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-28T14:50:26.590Z">
+<meta property="og:updated_time" content="2018-07-29T06:19:16.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="彩蛋 -  MacOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
 <meta name="twitter:description" content="配置一台 VMware 上运作的路由系统，启发式从软路由到硬路由的进阶之旅。">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-28T22:50:26+08:00" content="2018-07-28">
-                2018-07-28
+              <time itemprop="dateUpdated" datetime="2018-07-29T14:19:16+08:00" content="2018-07-29">
+                2018-07-29
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,051
+                  2,364
                 </span>
               
 
@@ -397,17 +397,40 @@
       
         <p>配置一台 VMware 上运作的路由系统，启发式从软路由到硬路由的进阶之旅。</p>
 <a id="more"></a>
-<h2 id="固件信息"><a href="#固件信息" class="headerlink" title="固件信息"></a>固件信息</h2><ul>
-<li>OpenWrt：<a href="https://openwrt.org/" target="_blank" rel="noopener">官方使用指南</a></li>
-<li>Padavan：<a href="http://p4davan.80x86.io/" target="_blank" rel="noopener">荒野无灯.Padavan</a> | <a href="https://bitbucket.org/padavan/rt-n56u/overview" target="_blank" rel="noopener">Bitbucket</a></li>
-<li>固件类型：为满足不同方式刷固件 ( 路由硬件环境等 )，每个型号的路由一般会提供多种版本的固件。<ul>
-<li><code>XXX-kernel.bin</code>：对应于只烧写内核固件，使用 <code>Web</code> 或 <code>TFTP</code> 方式刷固件。</li>
-<li><code>XXX-squashfs.bin</code>：对应于文件系统固件。</li>
-<li><code>XXX-squashfs-sysupgrade.bin</code>：对应于完整的固件，使用 <code>Breed</code> 或 <code>Uboot</code> 方式刷固件。</li>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.07.25：完成初稿；</li>
+<li>2018.07.26：安装 OpenWrt 系统，配置 MySQL、FTP 插件，并形成文档；</li>
+<li>2018.07.27：购置路由开发板，了解系统版本支持信息；</li>
+<li>2018.07.29：鉴于之前的理解有偏差，修正固件系统章节的内容；</li>
+</ul>
+<h2 id="固件信息"><a href="#固件信息" class="headerlink" title="固件信息"></a>固件信息</h2><h3 id="固件系统"><a href="#固件系统" class="headerlink" title="固件系统"></a>固件系统</h3><h4 id="OpenWrt"><a href="#OpenWrt" class="headerlink" title="OpenWrt"></a>OpenWrt</h4><ul>
+<li><p>OpenWrt：<a href="https://openwrt.org/" target="_blank" rel="noopener">官方使用指南 (英文)</a> | <a href="https://openwrt.org/zh/start" target="_blank" rel="noopener">官方使用指南 (中文)</a> | <a href="https://openwrt.org/faq/start" target="_blank" rel="noopener">常见问题 DAQ</a></p>
+</li>
+<li><p>固件版本：每个型号的路由一般会提供多种版本的固件 $^{[8]}$。</p>
+<ul>
+<li><code>XXX-factory</code> / <code>XXX-kernel</code>：对应于内核的固件，必须把它刷入一个OEM (原厂) 固件。</li>
+<li><code>XXX-jffs2</code> / <code>XXX-squashfs</code>：对应于文件系统的固件。这两种不同格式的固件区别在于 $^{[9]}$：<ul>
+<li><code>Squashfs</code>：安装后占用一定空间来存放系统的一些必要文件，这些文件都只是可读的，其作用是帮助恢复系统；</li>
+<li><code>Jffs2</code>：而 Jffs2 则不会存储这些文件，好处在于节省了空间。一般推荐使用 Squashfs 格式的固件，以方便恢复系统到初始状态。</li>
+</ul>
+</li>
+<li><p><code>XXX-sysupgrade</code>：对应于完整的固件，用于固件升级，要求您的设备必须已安装较旧的 LEDE 或 OpenWrt 固件。</p>
+<blockquote>
+<p>固件的后缀名也有很多种，例如 <code>xxx.bin</code>、<code>xxx.trx</code> 等，虽然整体内容是相同的，但它们的文件头的信息有差异 $^{[10]}$。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>烧写方式：根据不同的路由硬件环境，选择不同的方式将固件烧写进路由。</p>
+<ul>
+<li><a href="https://openwrt.org/docs/guide-quick-start/sysupgrade.luci" target="_blank" rel="noopener">LUCI ( Web 管理界面 )</a>：升级现有的 OpenWrt / LEDE 设备。</li>
 </ul>
 </li>
 </ul>
-<h3 id="软路由"><a href="#软路由" class="headerlink" title="软路由"></a>软路由</h3><ul>
+<h4 id="Padavan"><a href="#Padavan" class="headerlink" title="Padavan"></a>Padavan</h4><ul>
+<li>Padavan：<a href="http://p4davan.80x86.io/" target="_blank" rel="noopener">荒野无灯.Padavan</a> | <a href="https://bitbucket.org/padavan/rt-n56u/overview" target="_blank" rel="noopener">Bitbucket.Padavan</a></li>
+</ul>
+<h2 id="软路由"><a href="#软路由" class="headerlink" title="软路由"></a>软路由</h2><ul>
 <li><p>系统版本：<a href="http://archive.openwrt.org/chaos_calmer/15.05.1/x86/" target="_blank" rel="noopener">OpenWrt-15.05.1-x86</a></p>
 <blockquote>
 <p>虚拟机上运行的，我们选择 x86 架构的即可。</p>
@@ -416,27 +439,7 @@
 <li><p>固件版本：<a href="http://archive.openwrt.org/chaos_calmer/15.05.1/x86/generic/openwrt-15.05.1-x86-generic-combined-squashfs.img" target="_blank" rel="noopener">openwrt-15.05.1-x86-generic-combined-squashfs</a></p>
 </li>
 </ul>
-<h3 id="硬路由"><a href="#硬路由" class="headerlink" title="硬路由"></a>硬路由</h3><p>路由开发板：基于 Newifi D1 板件定制 ( 芯片：MT7621A )</p>
-<blockquote>
-<p>折腾太久，很多产品不太满意 ( 价格贵 )，最后选择了定制的产品。</p>
-</blockquote>
-<ul>
-<li>系统版本：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/" target="_blank" rel="noopener">LEDE 17.01.5 Ramips MT7621</a></li>
-<li>固件版本 ( 引导方式不一样 )：<ul>
-<li>基于 Breed / Uboot 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-squashfs-sysupgrade.bin" target="_blank" rel="noopener">newifi-d1-squashfs-sysupgrade.bin</a></li>
-<li>基于 Web / TFTP 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-initramfs-kernel.bin" target="_blank" rel="noopener">newifi-d1-initramfs-kernel.bin</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>当然，你需要对路由器刷固件，固件版本要配对你的设备 ( <a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">设备支持信息表单</a> )</p>
-</blockquote>
-<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
-<li>2018.07.25：完成初稿；</li>
-<li>2018.07.26：安装 OpenWrt 系统，配置 MySQL、FTP 插件，并形成文档；</li>
-<li>2018.07.27：购置路由开发板，了解系统版本支持信息；</li>
-</ul>
-<h2 id="软路由安装"><a href="#软路由安装" class="headerlink" title="软路由安装"></a>软路由安装</h2><p>此章节是基于 MacOS 的 VMware 展开实践的，WIndows 版本可自行百度、谷歌，或者参考下述文章 $^{[1,2]}$。</p>
+<h3 id="软路由安装"><a href="#软路由安装" class="headerlink" title="软路由安装"></a>软路由安装</h3><p>此章节是基于 MacOS 的 VMware 展开实践的，WIndows 版本可自行百度、谷歌，或者参考下述文章 $^{[1,2]}$。</p>
 <p>当然，OpenWrt 安装步骤参考引用文章 $^{[1,2,7]}$，这里不详细阐述，仅对核心的配置部分进行说明。 </p>
 <ul>
 <li><p>本机 VMware 得配置两张虚拟网卡，暂且命名为：</p>
@@ -482,11 +485,26 @@
 </ul>
 </li>
 </ul>
-<h2 id="硬路由安装"><a href="#硬路由安装" class="headerlink" title="硬路由安装"></a>硬路由安装</h2><p>此章节是基于 <code>Newifi D1 (MT7621A)</code>  板件定制的路由开发板展开实践的，采用 Breed 形式进行刷固件。</p>
+<h2 id="硬路由"><a href="#硬路由" class="headerlink" title="硬路由"></a>硬路由</h2><p>选择一款合适的路由器很重要，折腾太久，很多产品不太满意 ( 价格贵 )，最后选择了定制的产品。路由开发板：基于 Newifi D1 板件定制 ( 芯片：MT7621A )</p>
+<blockquote>
+<p>当然，你需要对路由器刷固件，固件版本要配对你的设备 ( <a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">设备支持信息表单</a> )</p>
+</blockquote>
+<ul>
+<li>系统版本：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/" target="_blank" rel="noopener">LEDE 17.01.5 Ramips MT7621</a></li>
+<li>固件版本：<ul>
+<li>基于 Breed / Uboot 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-squashfs-sysupgrade.bin" target="_blank" rel="noopener">newifi-d1-squashfs-sysupgrade.bin</a></li>
+<li>基于 Web / TFTP 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-initramfs-kernel.bin" target="_blank" rel="noopener">newifi-d1-initramfs-kernel.bin</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="硬路由安装"><a href="#硬路由安装" class="headerlink" title="硬路由安装"></a>硬路由安装</h3><p>此章节是基于 <code>Newifi D1 (MT7621A)</code>  板件定制的路由开发板展开实践的，采用 Breed 形式进行刷固件。</p>
 <h2 id="拓展功能"><a href="#拓展功能" class="headerlink" title="拓展功能"></a>拓展功能</h2><ul>
-<li>关于插件的批注：<ul>
+<li><p>关于插件的批注：</p>
+<ul>
 <li>默认情况，插件会安装在：<code>/etc/init.d/</code> 目录下；</li>
-<li>其相应的配置文件放置在： <code>/etc/config/</code> 目录下。</li>
+<li><p>其相应的配置文件放置在： <code>/etc/config/</code> 目录下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">etc</span><br><span class="line">├── config	# 配置目录</span><br><span class="line">└── init.d	# 插件目录</span><br><span class="line">└── xxx.cnf	# 有些插件的配置文件在根目录下</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
@@ -547,6 +565,9 @@
 <li>[5] <a href="http://www.cnblogs.com/double-win/p/3866189.html" target="_blank" rel="noopener">Double Win. MySQL配置. cnblogs.com</a></li>
 <li>[6] <a href="http://www.cnblogs.com/double-win/p/3841801.html" target="_blank" rel="noopener">Double Win. USB挂载 &amp; U盘启动. cnblogs.com</a></li>
 <li>[7] <a href="http://www.cnblogs.com/double-win/p/3888399.html" target="_blank" rel="noopener">Double Win. Openwrt 项目开发笔记. cnblogs.com</a></li>
+<li>[8] <a href="https://openwrt.org/zh-cn/doc/howto/obtain.firmware.download" target="_blank" rel="noopener">OpenWrt. Howtos 下载固件中文说册. openwrt.org</a></li>
+<li>[9] <a href="https://blog.csdn.net/qinpeng_zbdx/article/details/8570488" target="_blank" rel="noopener">Keep Silence. TP-LINK WR703N 刷 OpenWrt 及配置、安装插件. csdn.net</a></li>
+<li>[10] <a href="https://openwrt.org/start?id=docs/techref/header" target="_blank" rel="noopener">OpenWrt. TRX vs. TRX2 vs. BIN. openwrt.org</a></li>
 </ul>
 
       
@@ -782,7 +803,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#固件信息"><span class="nav-number">1.</span> <span class="nav-text">固件信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软路由"><span class="nav-number">1.1.</span> <span class="nav-text">软路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#硬路由"><span class="nav-number">1.2.</span> <span class="nav-text">硬路由</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软路由安装"><span class="nav-number">3.</span> <span class="nav-text">软路由安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬路由安装"><span class="nav-number">4.</span> <span class="nav-text">硬路由安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展功能"><span class="nav-number">5.</span> <span class="nav-text">拓展功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-FTP-服务"><span class="nav-number">5.1.</span> <span class="nav-text">安装 FTP 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Samba-服务"><span class="nav-number">5.2.</span> <span class="nav-text">安装 Samba 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Shadowsocks"><span class="nav-number">5.3.</span> <span class="nav-text">安装 Shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-MySQL"><span class="nav-number">5.4.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Python"><span class="nav-number">5.5.</span> <span class="nav-text">安装 Python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固件信息"><span class="nav-number">2.</span> <span class="nav-text">固件信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#固件系统"><span class="nav-number">2.1.</span> <span class="nav-text">固件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OpenWrt"><span class="nav-number">2.1.1.</span> <span class="nav-text">OpenWrt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Padavan"><span class="nav-number">2.1.2.</span> <span class="nav-text">Padavan</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软路由"><span class="nav-number">3.</span> <span class="nav-text">软路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软路由安装"><span class="nav-number">3.1.</span> <span class="nav-text">软路由安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬路由"><span class="nav-number">4.</span> <span class="nav-text">硬路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#硬路由安装"><span class="nav-number">4.1.</span> <span class="nav-text">硬路由安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展功能"><span class="nav-number">5.</span> <span class="nav-text">拓展功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-FTP-服务"><span class="nav-number">5.1.</span> <span class="nav-text">安装 FTP 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Samba-服务"><span class="nav-number">5.2.</span> <span class="nav-text">安装 Samba 服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Shadowsocks"><span class="nav-number">5.3.</span> <span class="nav-text">安装 Shadowsocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-MySQL"><span class="nav-number">5.4.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Python"><span class="nav-number">5.5.</span> <span class="nav-text">安装 Python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
