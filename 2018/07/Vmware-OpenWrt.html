@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="配置一台 VMware 上运作的路由系统，启发式从软路由到硬路由的进阶之旅。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-29T07:42:23.718Z">
+<meta property="og:updated_time" content="2018-07-30T01:45:00.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="彩蛋 -  MacOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
 <meta name="twitter:description" content="配置一台 VMware 上运作的路由系统，启发式从软路由到硬路由的进阶之旅。">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-29T15:42:23+08:00" content="2018-07-29">
-                2018-07-29
+              <time itemprop="dateUpdated" datetime="2018-07-30T09:45:00+08:00" content="2018-07-30">
+                2018-07-30
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,533
+                  2,749
                 </span>
               
 
@@ -405,10 +405,15 @@
 </ul>
 <h2 id="固件系统"><a href="#固件系统" class="headerlink" title="固件系统"></a>固件系统</h2><h3 id="OpenWrt"><a href="#OpenWrt" class="headerlink" title="OpenWrt"></a>OpenWrt</h3><h4 id="支持文档"><a href="#支持文档" class="headerlink" title="支持文档"></a>支持文档</h4><ul>
 <li><a href="https://openwrt.org/" target="_blank" rel="noopener">官方使用指南 (英文)</a> | <a href="https://openwrt.org/zh/start" target="_blank" rel="noopener">官方使用指南 (中文)</a></li>
-<li><a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">硬件支持表格</a>：查阅硬件支持表格，若您的硬件已被支持，可参考官方的 OpenWrt <a href="https://openwrt.org/docs/guide-quick-start/begin_here" target="_blank" rel="noopener">安装教程</a>，开始安装。 </li>
-<li><a href="https://openwrt.org/faq/start" target="_blank" rel="noopener">常见问题解答</a>：包含常见问题，安装前、安装后问题，无线网络问题等。</li>
+<li><p><a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">硬件支持表格</a>：查阅硬件支持表格，若您的硬件已被支持，可参考官方的 OpenWrt <a href="https://openwrt.org/docs/guide-quick-start/begin_here" target="_blank" rel="noopener">安装教程</a>，开始安装。 </p>
+<blockquote>
+<p>在表格顶部的白色区域可以输入筛选标准进行条件筛选。若找到目标型号后， <code>Firmware OpenWrt Install URL</code> 列中存放的是固件的最新版本下载地址。</p>
+</blockquote>
+</li>
+<li><p><a href="https://openwrt.org/faq/start" target="_blank" rel="noopener">常见问题解答</a>：包含常见问题，安装前、安装后问题，无线网络问题等。</p>
+</li>
 </ul>
-<h4 id="固件版本"><a href="#固件版本" class="headerlink" title="固件版本"></a>固件版本</h4><p>固件版本：每个型号的路由一般会提供多种版本的固件 $^{[8]}$。</p>
+<h4 id="固件版本"><a href="#固件版本" class="headerlink" title="固件版本"></a>固件版本</h4><p>固件版本：每种型号的路由一般会提供多种版本的固件 $^{[8]}$。</p>
 <ul>
 <li><code>XXX-factory</code> / <code>XXX-kernel</code>：对应于内核的固件，必须把它刷入一个OEM (原厂) 固件。</li>
 <li><code>XXX-jffs2</code> / <code>XXX-squashfs</code>：对应于文件系统的固件。这两种不同格式的固件区别在于 $^{[9]}$：<ul>
@@ -419,28 +424,30 @@
 <li><code>XXX-sysupgrade</code>：对应于完整的固件，用于固件升级，要求您的设备必须已安装较旧的 LEDE 或 OpenWrt 固件。</li>
 </ul>
 <blockquote>
-<p>固件的后缀名也有很多种，例如 <code>xxx.bin</code>、<code>xxx.trx</code> 等，虽然整体内容是相同的，但它们的文件头的信息有差异 $^{[10]}$。</p>
+<p>固件的后缀名也有很多种，例如 <code>xxx.img</code>、<code>xxx.bin</code>、<code>xxx.trx</code> 等，虽然整体内容是相同的，但它们的文件头的信息是有差异的 $^{[10]}$。</p>
 </blockquote>
 <h4 id="烧写方式"><a href="#烧写方式" class="headerlink" title="烧写方式"></a>烧写方式</h4><p>烧写方式：根据不同的路由硬件环境，选择不同的方式将固件烧写进路由。</p>
 <ul>
-<li><a href="https://openwrt.org/docs/guide-quick-start/sysupgrade.luci" target="_blank" rel="noopener">LUCI ( Web 管理界面 )</a>：升级现有的 OpenWrt / LEDE 设备。</li>
+<li>OEM (原厂) 管理界面：完整安装 OpenWrt / LEDE / Padavan 设备。</li>
+<li><a href="https://openwrt.org/docs/guide-quick-start/sysupgrade.luci" target="_blank" rel="noopener">LUCI ( Web 管理界面 )</a>：升级现有的 OpenWrt / LEDE 设备。(Pavadan 有自己的 Web 管理界面)</li>
+<li>Bootloader 引导加载器：路由系统里常见有 Breed、U-Boot。即开机初始化时加载的最小系统，用于识别基础硬件和设置环境信息，以引导方式烧写固件 ( 集成 HTTP、TFTP 协议 )。</li>
 </ul>
 <h3 id="Padavan"><a href="#Padavan" class="headerlink" title="Padavan"></a>Padavan</h3><h4 id="支持文档-1"><a href="#支持文档-1" class="headerlink" title="支持文档"></a>支持文档</h4><ul>
 <li>Padavan：<a href="http://p4davan.80x86.io/" target="_blank" rel="noopener">荒野无灯.Padavan</a> | <a href="https://bitbucket.org/padavan/rt-n56u/overview" target="_blank" rel="noopener">Bitbucket.Padavan</a></li>
 </ul>
-<h2 id="软路由篇"><a href="#软路由篇" class="headerlink" title="软路由篇"></a>软路由篇</h2><p>了解了相关路由系统的事宜后，找准定位，你是配置用来开发 (推荐 OpenWrt) 的，还是家用 (推荐 Pavadan) 等，即选择一款迎合需求的路由开始你的 “改造旅程“。</p>
-<p>软路篇即以 VMware 为例展开实践，而本文主要是记录实践过程中的基本过程和要求。</p>
+<h2 id="软路由篇"><a href="#软路由篇" class="headerlink" title="软路由篇"></a>软路由篇</h2><p>了解了相关路由系统的事宜后，找准定位，你是配置用来开发 ( 推荐 OpenWrt ) 的，还是家用 ( 推荐 Pavadan ) 等，即选择一款迎合需求的路由开始你的 “改造旅程”。</p>
+<p>软路篇即以 VMware 为例展开实践，而本文主要是记录实践过程中的基本过程和要点。</p>
 <h3 id="固件信息"><a href="#固件信息" class="headerlink" title="固件信息"></a>固件信息</h3><ul>
 <li><p>系统版本：<a href="http://archive.openwrt.org/chaos_calmer/15.05.1/x86/" target="_blank" rel="noopener">OpenWrt-15.05.1-x86</a></p>
 <blockquote>
-<p>虚拟机上运行的，我们选择 x86 架构的即可。</p>
+<p>虚拟机上运行的，我们选择 x86 架构的即可 ( x64 架构也是可以的 )。</p>
 </blockquote>
 </li>
 <li><p>固件版本：<a href="http://archive.openwrt.org/chaos_calmer/15.05.1/x86/generic/openwrt-15.05.1-x86-generic-combined-squashfs.img" target="_blank" rel="noopener">openwrt-15.05.1-x86-generic-combined-squashfs</a></p>
 </li>
 </ul>
 <h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p>此章节是基于 MacOS 的 VMware 展开实践的，WIndows 版本可自行百度、谷歌，或者参考下述文章 $^{[1,2]}$。</p>
-<p>当然，OpenWrt 安装步骤参考引用文章 $^{[1,2,7]}$，这里不详细阐述，仅对核心的配置部分进行说明。 </p>
+<p>当然，OpenWrt 安装步骤可参考引用文章 $^{[1,2,7]}$，这里不详细阐述，仅对核心的配置部分进行说明。 </p>
 <ul>
 <li><p>本机 VMware 得配置两张虚拟网卡，暂且命名为：</p>
 <ul>
@@ -485,13 +492,19 @@
 </ul>
 </li>
 </ul>
-<h2 id="硬路由篇"><a href="#硬路由篇" class="headerlink" title="硬路由篇"></a>硬路由篇</h2><p>选择一款合适的路由器很重要，折腾太久，很多产品不太满意 ( 价格贵 )，最后选择了定制的产品。路由开发板：基于 Newifi D1 板件定制 ( 芯片：MT7621A )</p>
-<p>当然，你需要对路由器刷固件，固件版本要配对你的设备 ( <a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">设备支持信息表单</a> )</p>
+<h2 id="硬路由篇"><a href="#硬路由篇" class="headerlink" title="硬路由篇"></a>硬路由篇</h2><p>选择一款合适的路由器很重要。这里瞎折腾太久，很多产品不太满意 ( 价格贵 )，最后选择了定制的产品。路由开发板：基于 Newifi D1 板件定制 ( 芯片：MT7621A / 闪存：32M / 内存：256MB )。</p>
+<p>当然，你对路由器刷固件，固件版本一定要配对你的设备，具体细节请查阅：<a href="https://openwrt.org/toh/views/toh_fwdownload" target="_blank" rel="noopener">设备支持信息表单</a></p>
+<blockquote>
+<p>值得注意的是，你需要对下载的固件文件进行 <a href="https://openwrt.org/docs/guide-quick-start/verify_firmware_checksum" target="_blank" rel="noopener">MD5/SHA256 验证</a>，以防止文件破损或其他原因，使得你的路由器 <code>变砖</code> ！</p>
+</blockquote>
 <h3 id="固件信息-1"><a href="#固件信息-1" class="headerlink" title="固件信息"></a>固件信息</h3><ul>
+<li>OpenWrt<ul>
 <li>系统版本：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/" target="_blank" rel="noopener">LEDE 17.01.5 Ramips MT7621</a></li>
-<li>固件版本：<ul>
-<li>基于 Breed / Uboot 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-squashfs-sysupgrade.bin" target="_blank" rel="noopener">newifi-d1-squashfs-sysupgrade.bin</a></li>
-<li>基于 Web / TFTP 刷固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-initramfs-kernel.bin" target="_blank" rel="noopener">newifi-d1-initramfs-kernel.bin</a></li>
+<li>固件版本：基于 Breed / Uboot 刷完整固件：<a href="http://downloads.openwrt.org/releases/17.01.5/targets/ramips/mt7621/lede-17.01.5-ramips-mt7621-newifi-d1-initramfs-kernel.bin" target="_blank" rel="noopener">newifi-d1-initramfs-kernel.bin</a></li>
+</ul>
+</li>
+<li>Padavan<ul>
+<li>固件版本：<a href="http://p4davan.80x86.io/download/" target="_blank" rel="noopener">荒野无灯.Padavan.NEWIFI-D1</a></li>
 </ul>
 </li>
 </ul>
