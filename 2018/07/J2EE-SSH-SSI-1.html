@@ -89,10 +89,12 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="序言本文章主要围绕 J2EE 中 SSH ( Spring、Struts、Hibernate ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.07.17：完成初稿，IDE 搭建、框架初识章节； 2018.07.18：完成 SSH 框架 Hibernate 部分的初稿； 20">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-04T03:45:54.538Z">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/J2EE-SSH-SSI-1_6-1.png">
+<meta property="og:updated_time" content="2018-08-04T08:33:51.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="框架 - Java EE 之 SSH 框架配置与使用">
 <meta name="twitter:description" content="序言本文章主要围绕 J2EE 中 SSH ( Spring、Struts、Hibernate ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.07.17：完成初稿，IDE 搭建、框架初识章节； 2018.07.18：完成 SSH 框架 Hibernate 部分的初稿； 20">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/J2EE-SSH-SSI-1_6-1.png">
 
 
 
@@ -298,7 +300,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-08-04T11:45:54+08:00" content="2018-08-04">
+              <time itemprop="dateUpdated" datetime="2018-08-04T16:33:51+08:00" content="2018-08-04">
                 2018-08-04
               </time>
             </span>
@@ -370,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  13,101
+                  13,478
                 </span>
               
 
@@ -402,6 +404,7 @@
 <li>2018.07.20：更新 SSH 框架 Hibernate 部分内容；</li>
 <li>2018.07.28：完成 SSH 框架 Spring 部分的初稿；</li>
 <li>2018.07.31：更新 SSH 框架 Spring 部分内容；</li>
+<li>2018.08.03：整合 SSH 框架；</li>
 </ul>
 <h2 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h2><ul>
 <li><a href="https://www.bilibili.com/video/av14839030" target="_blank" rel="noopener">黑马程序员. J2EE 进阶. 60 集精通 Spring 框架. 2017. bilibili.com</a></li>
@@ -420,18 +423,18 @@
 <li><p>Step.04：配置 MySQL / SQL Server 数据库；</p>
 <ul>
 <li>命名规范：数据库 <code>db_dbname</code>；数据表 <code>t_tablename</code>；属性 <code>attribute</code></li>
-<li><p>访问外网：若在虚拟机或者本机测试，允许外网访问，注意得关闭防火墙或允许某端口的访问权限。</p>
+<li><p>访问外网：若在虚拟机或者本机测试，让数据库允许外网访问，注意得关闭防火墙或添加规则允许某端口的访问权限。</p>
 <blockquote>
-<p>Case.01：本机和服务器端互相 <code>Ping</code> 对方 IP，以检验网络是否畅通、是否拒绝访问。<br>Step.02：若网络畅通、没有拒绝访问，还要留意对应端口是否有权限访问，通过 <code>nc -vz IP 端口</code>  检验，返回 <code>Succeeded</code> 即成功。  </p>
+<p>Case.01：本机和服务器端互相 <code>Ping</code> 对方 IP，以检验网络是否畅通、是否拒绝访问。<br>Case.02：若网络畅通、没有拒绝访问，还要留意对应端口是否有权限访问，通过 <code>nc -vz IP 端口</code>  检验，返回 <code>Succeeded</code> 即成功。  </p>
 </blockquote>
 </li>
-<li><p>数据库权限：若 MySQL 通过命令安装，需特别注意的权限问题，即账号和密码是默认配置的，具体修改细节见参考 [6] - [8] 中的方法。</p>
+<li><p>数据库权限：若 MySQL 通过命令安装，需特别注意的权限问题，即账号和密码是默认配置的，用户可自行修改，具体修改细节见参考 [6] - [8] 中的方法。</p>
 </li>
 </ul>
 </li>
 <li><p>Step.05：以 IntelliJ Idea IDE 为参考搭建框架，参考 [1] - [3] 中的方法；</p>
 <ul>
-<li>[1] - [3] 的搭建方法都是 <code>导 Jar 包形式</code>，但千万要注意相对应的 Jar 包已经下载到本地。</li>
+<li>[1] - [3] 的搭建方法都是 <code>导 Jar 包形式</code>，但千万要注意相对应的 Jar 包是否已经下载到本地。</li>
 <li>当然，推荐 <code>Maven</code> 管理项目，即它是添加依赖库的方式配置环境的，下述的内容也是基于 Maven 构建框架。</li>
 </ul>
 </li>
@@ -734,8 +737,8 @@
 <ul>
 <li><p>XML 配置文件和注解混合使用</p>
 <ul>
-<li>创建对象操作使用配置文件方式实现</li>
-<li><p>注入属性的操作使用注解方式实现</p>
+<li>创建对象操作使用 XML 配置文件方式实现；</li>
+<li><p>注入属性的操作使用注解方式实现.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Start：applicationContext.xml */</span></span><br><span class="line"></span><br><span class="line">&lt;bean id=<span class="string">"user"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn.kofes.entity.User"</span> /&gt;</span><br><span class="line">&lt;bean id=<span class="string">"customer"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn.kofes.entity.Customer"</span> /&gt;</span><br><span class="line">&lt;bean id=<span class="string">"firm"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"cn.kofes.entity.Firm"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* End：applicationContext.xml */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserOperatorAnn</span> </span>&#123;	</span><br><span class="line">    <span class="comment">// 注解方式注入属性</span></span><br><span class="line">    <span class="meta">@Resource</span>(name = <span class="string">"user"</span>) </span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line">    <span class="meta">@Resource</span>(name = <span class="string">"customer"</span>) </span><br><span class="line">    <span class="keyword">private</span> Customer customer;</span><br><span class="line">    <span class="meta">@Resource</span>(name = <span class="string">"firm"</span>) </span><br><span class="line">    <span class="keyword">private</span> Firm firm;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operatorTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ApplicationContext context = </span><br><span class="line">        	<span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">        System.out.println(user);	</span><br><span class="line">        System.out.println(customer);	</span><br><span class="line">        System.out.println(firm);	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -1152,30 +1155,97 @@
 </li>
 </ul>
 <hr>
-<h4 id="SSH-框架整合"><a href="#SSH-框架整合" class="headerlink" title="SSH 框架整合"></a>SSH 框架整合</h4><h5 id="Hibernate-1"><a href="#Hibernate-1" class="headerlink" title="Hibernate"></a>Hibernate</h5><ul>
-<li>ORM 思想：对象关系映射；</li>
-<li>数据库信息配置；</li>
-<li>Hibernate 信息配置；</li>
-<li>映射关系配置；</li>
-<li>Hibernate 核心配置文件：Hibernate 和 Spring 整合时，配置文件的名称和位置是没有固定要求的。</li>
-<li>Hibernate 映射配置文件：实体类和数据表映射关系 - 使用 ORM 思想</li>
-<li>Hibernate 操作步骤：Spring 框架对 Hibernate 框架也有封装，即 <code>HibernateTemplate</code> 类。</li>
-</ul>
-<h5 id="Spring-1"><a href="#Spring-1" class="headerlink" title="Spring"></a>Spring</h5><h5 id="Struts2"><a href="#Struts2" class="headerlink" title="Struts2"></a>Struts2</h5><ul>
+<h4 id="SSH-框架总结"><a href="#SSH-框架总结" class="headerlink" title="SSH 框架总结"></a>SSH 框架总结</h4><h5 id="Struts-1"><a href="#Struts-1" class="headerlink" title="Struts"></a>Struts</h5><ul>
 <li>Action 操作<ul>
-<li>Action 创建的三种方式：继承 ActionSupport。</li>
-<li>配置 Action 访问路径：创建 struts.xml 配置文件，文件名称和为位置 ( Src 目录 ) 固定。</li>
-<li>配置访问 Action 的多个方法：使用通配符方式配置。</li>
-<li>在 Action 获取表单提交数据：<ul>
-<li>获取 request 对象；</li>
+<li>Action 创建 (三种方式)：继承 <code>ActionSupport</code> 类。</li>
+<li>Action 访问路径：创建 <code>struts.xml</code> 配置文件，文件名称和位置 ( Src 目录 ) 固定。</li>
+<li>访问 Action 的多个方法：使用 <code>通配符方式</code> 配置。</li>
+<li>Action 获取表单提交数据：<ul>
+<li>获取 Request 对象 ( 使用 <code>ServletAction</code> 类 )；</li>
 <li>属性封装；</li>
 <li>模型驱动；</li>
 </ul>
 </li>
+<li>Action 操作域对象：使用 <code>ServletAction</code> 类。</li>
+<li>配置 Struts2 过滤器。</li>
 </ul>
 </li>
-<li>栈</li>
-<li>拦截器</li>
+<li>值栈<ul>
+<li>向值栈放数据：<ul>
+<li>Set 方法；</li>
+<li>Push 方法；</li>
+<li>定义变量，生成 Get 方法.</li>
+</ul>
+</li>
+<li>从值栈获取数据：在 JSP 中使用 Struts2 标签 + Ognl 获取<ul>
+<li><code>&lt;s:property /&gt;</code></li>
+<li><code>&lt;s:iterator /&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拦截器<ul>
+<li>AOP 和责任链模式；</li>
+<li>自定义拦截器：<ul>
+<li>继承 <code>MethodFilterInterceptor</code> 类，并重写类方法；</li>
+<li>配置拦截器和 Action 关联.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="Spring-1"><a href="#Spring-1" class="headerlink" title="Spring"></a>Spring</h5><ul>
+<li>Spring 核心配置文件：<ul>
+<li>名称和位置没有固定要求；</li>
+<li>在 Spring 核心配置文件中引入 Schema 约束.</li>
+</ul>
+</li>
+<li>创建对象：<ul>
+<li>XML 配置方式：<code>&lt;bean id=&quot;&quot; class=&quot;&quot; /&gt;</code>；</li>
+<li>注解方式：<code>@Component</code> 或 <code>@Controller</code> (Web层)、<code>@Service</code> (业务层)、<code>@Repository</code> (持久层).</li>
+</ul>
+</li>
+<li>注入属性:<ul>
+<li>XML 配置方式：<code>&lt;bean id=&quot;&quot; class=&quot;&quot;&gt;&lt;property name=&quot;&quot; ref=&quot;&quot; /&gt;&lt;/bean&gt;</code>；</li>
+<li>注解方式：<code>@autowired</code>、<code>@Resource(name=&quot;value&quot;)</code>.</li>
+</ul>
+</li>
+<li>使用 ServletContext 对象和监听器实现<ul>
+<li>在服务器启动时，加载 Spring 配置文件，创建对象；</li>
+<li>配置 Spring 的监听器；</li>
+<li>指定 Spring 配置文件位置.</li>
+</ul>
+</li>
+<li>Spring JdbcTemplate </li>
+<li>Spring 事务配置：<ul>
+<li>XML 配置方式；</li>
+<li>注解方式：<code>@Transational</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="Hibernate-1"><a href="#Hibernate-1" class="headerlink" title="Hibernate"></a>Hibernate</h5><ul>
+<li>ORM 思想：<code>对象关系映射</code>，参考 <a href="#ORM-框架">ORM 框架</a>；</li>
+<li>数据库信息配置：MySQL / SQL Server 2008 R2；</li>
+<li><p>Hibernate 信息配置：即配置 Hibernate 核心配置文件 ( <code>hibernate.cfg.xml</code> )。</p>
+<blockquote>
+<p>Hibernate 和 Spring 整合时，配置文件的名称和位置是没有固定要求的。</p>
+</blockquote>
+</li>
+<li><p>映射关系配置：即配置 Hibernate 映射配置文件 ( <code>xxx.hbm.xml</code> )，实体类和数据表映射关系 ( 使用 ORM 思想 )。</p>
+</li>
+<li>Hibernate 操作步骤：Spring 框架对 Hibernate 框架也有封装，即 <code>HibernateTemplate</code> 类。</li>
+</ul>
+<h4 id="SSH-框架整合"><a href="#SSH-框架整合" class="headerlink" title="SSH 框架整合"></a>SSH 框架整合</h4><p><img src="/images/illustration/Project/2018/08/J2EE-SSH-SSI-1_6-1.png" alt="SSH框架整合思想"></p>
+<center>图 6-1 SSH 框架整合思想</center>
+
+<ul>
+<li><p>Spring 与 Struts 2 框架的整合</p>
+<p>  把 Struts 2 的 Action 对象创建交给 Spring 进行管理。</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">scope</span>=<span class="string">"prototype"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Spring 与 Hibernate 框架的整合</p>
+<p>  把 Hibernate 的核心配置文件里的数据库配置，直接写在 Spring 配置文件中。且把 SessionFactory 对象创建交给 Spring 管理。</p>
+</li>
 </ul>
 <h3 id="SSM-框架"><a href="#SSM-框架" class="headerlink" title="SSM 框架"></a>SSM 框架</h3><blockquote>
 <p>当然，随着框架技术的迭代更新，更加科学、合理的新框架也逐渐在项目中使用起来，如 SSM 框架。具体细节可参考：<a href="#">Java EE 之 SSM 框架配置与使用</a></p>
@@ -1441,7 +1511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学视频"><span class="nav-number">3.</span> <span class="nav-text">教学视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-搭建"><span class="nav-number">4.</span> <span class="nav-text">IDE 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本信息"><span class="nav-number">5.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架初识"><span class="nav-number">6.</span> <span class="nav-text">框架初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM-框架"><span class="nav-number">6.1.</span> <span class="nav-text">ORM 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-框架"><span class="nav-number">6.2.</span> <span class="nav-text">SSH 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Struts"><span class="nav-number">6.2.1.</span> <span class="nav-text">Struts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring"><span class="nav-number">6.2.2.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-概念"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">Spring 概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-ioC"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">Spring ioC</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ioC-底层原理"><span class="nav-number">6.2.2.2.1.</span> <span class="nav-text">ioC 底层原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ioC-入门案例"><span class="nav-number">6.2.2.2.2.</span> <span class="nav-text">ioC 入门案例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-管理-XML"><span class="nav-number">6.2.2.3.</span> <span class="nav-text">Spring Bean 管理 (XML)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Bean-标签常用属性"><span class="nav-number">6.2.2.3.1.</span> <span class="nav-text">Bean 标签常用属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Bean-实例化的方式"><span class="nav-number">6.2.2.3.2.</span> <span class="nav-text">Bean 实例化的方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#属性注入方式"><span class="nav-number">6.2.2.3.3.</span> <span class="nav-text">属性注入方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Spring-DI"><span class="nav-number">6.2.2.3.4.</span> <span class="nav-text">Spring DI</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-管理-注解"><span class="nav-number">6.2.2.4.</span> <span class="nav-text">Spring Bean 管理 (注解)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本内容"><span class="nav-number">6.2.2.4.1.</span> <span class="nav-text">基本内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#小试牛刀"><span class="nav-number">6.2.2.4.2.</span> <span class="nav-text">小试牛刀</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-AOP"><span class="nav-number">6.2.2.5.</span> <span class="nav-text">Spring AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AOP-概述"><span class="nav-number">6.2.2.5.1.</span> <span class="nav-text">AOP 概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#AOP-相关术语"><span class="nav-number">6.2.2.5.2.</span> <span class="nav-text">AOP 相关术语</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Spring-AOP-操作"><span class="nav-number">6.2.2.5.3.</span> <span class="nav-text">Spring AOP 操作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-整合-Web-项目"><span class="nav-number">6.2.2.6.</span> <span class="nav-text">Spring 整合 Web 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问题引入"><span class="nav-number">6.2.2.6.1.</span> <span class="nav-text">问题引入</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#实现原理"><span class="nav-number">6.2.2.6.2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#操作简叙"><span class="nav-number">6.2.2.6.3.</span> <span class="nav-text">操作简叙</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#具体实现"><span class="nav-number">6.2.2.6.4.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-JdbcTemplate-操作"><span class="nav-number">6.2.2.7.</span> <span class="nav-text">Spring JdbcTemplate 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JdbcTemplate-增删改查"><span class="nav-number">6.2.2.7.1.</span> <span class="nav-text">JdbcTemplate 增删改查</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-配置连接池"><span class="nav-number">6.2.2.8.</span> <span class="nav-text">Spring 配置连接池</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-事务管理"><span class="nav-number">6.2.2.9.</span> <span class="nav-text">Spring 事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#编程式事务管理"><span class="nav-number">6.2.2.9.1.</span> <span class="nav-text">编程式事务管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#声明式事务管理"><span class="nav-number">6.2.2.9.2.</span> <span class="nav-text">声明式事务管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate"><span class="nav-number">6.2.3.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-配置"><span class="nav-number">6.2.3.1.</span> <span class="nav-text">Hibernate 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-使用"><span class="nav-number">6.2.3.2.</span> <span class="nav-text">Hibernate 使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-优化"><span class="nav-number">6.2.3.3.</span> <span class="nav-text">Hibernate 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Hibernate-缓存机制"><span class="nav-number">6.2.3.3.1.</span> <span class="nav-text">Hibernate 缓存机制</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-查询"><span class="nav-number">6.2.3.4.</span> <span class="nav-text">Hibernate 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Query-对象"><span class="nav-number">6.2.3.4.1.</span> <span class="nav-text">Query 对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Criteria-对象"><span class="nav-number">6.2.3.4.2.</span> <span class="nav-text">Criteria 对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SQLQuery-对象"><span class="nav-number">6.2.3.4.3.</span> <span class="nav-text">SQLQuery 对象</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-多表操作"><span class="nav-number">6.2.3.5.</span> <span class="nav-text">Hibernate 多表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一对多操作"><span class="nav-number">6.2.3.5.1.</span> <span class="nav-text">一对多操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多对多操作"><span class="nav-number">6.2.3.5.2.</span> <span class="nav-text">多对多操作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-HQL-查询详解"><span class="nav-number">6.2.3.6.</span> <span class="nav-text">Hibernate HQL 查询详解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HQL-查询"><span class="nav-number">6.2.3.6.1.</span> <span class="nav-text">HQL 查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HQL-多表查询"><span class="nav-number">6.2.3.6.2.</span> <span class="nav-text">HQL 多表查询</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-检索策略"><span class="nav-number">6.2.3.7.</span> <span class="nav-text">Hibernate 检索策略</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#立即查询"><span class="nav-number">6.2.3.7.1.</span> <span class="nav-text">立即查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#延迟查询"><span class="nav-number">6.2.3.7.2.</span> <span class="nav-text">延迟查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#批量抓取"><span class="nav-number">6.2.3.7.3.</span> <span class="nav-text">批量抓取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-框架整合"><span class="nav-number">6.2.4.</span> <span class="nav-text">SSH 框架整合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-1"><span class="nav-number">6.2.4.1.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-1"><span class="nav-number">6.2.4.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Struts2"><span class="nav-number">6.2.4.3.</span> <span class="nav-text">Struts2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSM-框架"><span class="nav-number">6.3.</span> <span class="nav-text">SSM 框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学视频"><span class="nav-number">3.</span> <span class="nav-text">教学视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-搭建"><span class="nav-number">4.</span> <span class="nav-text">IDE 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本信息"><span class="nav-number">5.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架初识"><span class="nav-number">6.</span> <span class="nav-text">框架初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM-框架"><span class="nav-number">6.1.</span> <span class="nav-text">ORM 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-框架"><span class="nav-number">6.2.</span> <span class="nav-text">SSH 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Struts"><span class="nav-number">6.2.1.</span> <span class="nav-text">Struts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring"><span class="nav-number">6.2.2.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-概念"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">Spring 概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-ioC"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">Spring ioC</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#ioC-底层原理"><span class="nav-number">6.2.2.2.1.</span> <span class="nav-text">ioC 底层原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ioC-入门案例"><span class="nav-number">6.2.2.2.2.</span> <span class="nav-text">ioC 入门案例</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-管理-XML"><span class="nav-number">6.2.2.3.</span> <span class="nav-text">Spring Bean 管理 (XML)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Bean-标签常用属性"><span class="nav-number">6.2.2.3.1.</span> <span class="nav-text">Bean 标签常用属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Bean-实例化的方式"><span class="nav-number">6.2.2.3.2.</span> <span class="nav-text">Bean 实例化的方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#属性注入方式"><span class="nav-number">6.2.2.3.3.</span> <span class="nav-text">属性注入方式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Spring-DI"><span class="nav-number">6.2.2.3.4.</span> <span class="nav-text">Spring DI</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-Bean-管理-注解"><span class="nav-number">6.2.2.4.</span> <span class="nav-text">Spring Bean 管理 (注解)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本内容"><span class="nav-number">6.2.2.4.1.</span> <span class="nav-text">基本内容</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#小试牛刀"><span class="nav-number">6.2.2.4.2.</span> <span class="nav-text">小试牛刀</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-AOP"><span class="nav-number">6.2.2.5.</span> <span class="nav-text">Spring AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AOP-概述"><span class="nav-number">6.2.2.5.1.</span> <span class="nav-text">AOP 概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#AOP-相关术语"><span class="nav-number">6.2.2.5.2.</span> <span class="nav-text">AOP 相关术语</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Spring-AOP-操作"><span class="nav-number">6.2.2.5.3.</span> <span class="nav-text">Spring AOP 操作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-整合-Web-项目"><span class="nav-number">6.2.2.6.</span> <span class="nav-text">Spring 整合 Web 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#问题引入"><span class="nav-number">6.2.2.6.1.</span> <span class="nav-text">问题引入</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#实现原理"><span class="nav-number">6.2.2.6.2.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#操作简叙"><span class="nav-number">6.2.2.6.3.</span> <span class="nav-text">操作简叙</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#具体实现"><span class="nav-number">6.2.2.6.4.</span> <span class="nav-text">具体实现</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-JdbcTemplate-操作"><span class="nav-number">6.2.2.7.</span> <span class="nav-text">Spring JdbcTemplate 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#JdbcTemplate-增删改查"><span class="nav-number">6.2.2.7.1.</span> <span class="nav-text">JdbcTemplate 增删改查</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-配置连接池"><span class="nav-number">6.2.2.8.</span> <span class="nav-text">Spring 配置连接池</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-事务管理"><span class="nav-number">6.2.2.9.</span> <span class="nav-text">Spring 事务管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#编程式事务管理"><span class="nav-number">6.2.2.9.1.</span> <span class="nav-text">编程式事务管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#声明式事务管理"><span class="nav-number">6.2.2.9.2.</span> <span class="nav-text">声明式事务管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hibernate"><span class="nav-number">6.2.3.</span> <span class="nav-text">Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-配置"><span class="nav-number">6.2.3.1.</span> <span class="nav-text">Hibernate 配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-使用"><span class="nav-number">6.2.3.2.</span> <span class="nav-text">Hibernate 使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-优化"><span class="nav-number">6.2.3.3.</span> <span class="nav-text">Hibernate 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Hibernate-缓存机制"><span class="nav-number">6.2.3.3.1.</span> <span class="nav-text">Hibernate 缓存机制</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-查询"><span class="nav-number">6.2.3.4.</span> <span class="nav-text">Hibernate 查询</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Query-对象"><span class="nav-number">6.2.3.4.1.</span> <span class="nav-text">Query 对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Criteria-对象"><span class="nav-number">6.2.3.4.2.</span> <span class="nav-text">Criteria 对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SQLQuery-对象"><span class="nav-number">6.2.3.4.3.</span> <span class="nav-text">SQLQuery 对象</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-多表操作"><span class="nav-number">6.2.3.5.</span> <span class="nav-text">Hibernate 多表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一对多操作"><span class="nav-number">6.2.3.5.1.</span> <span class="nav-text">一对多操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多对多操作"><span class="nav-number">6.2.3.5.2.</span> <span class="nav-text">多对多操作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-HQL-查询详解"><span class="nav-number">6.2.3.6.</span> <span class="nav-text">Hibernate HQL 查询详解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HQL-查询"><span class="nav-number">6.2.3.6.1.</span> <span class="nav-text">HQL 查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HQL-多表查询"><span class="nav-number">6.2.3.6.2.</span> <span class="nav-text">HQL 多表查询</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-检索策略"><span class="nav-number">6.2.3.7.</span> <span class="nav-text">Hibernate 检索策略</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#立即查询"><span class="nav-number">6.2.3.7.1.</span> <span class="nav-text">立即查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#延迟查询"><span class="nav-number">6.2.3.7.2.</span> <span class="nav-text">延迟查询</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#批量抓取"><span class="nav-number">6.2.3.7.3.</span> <span class="nav-text">批量抓取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-框架总结"><span class="nav-number">6.2.4.</span> <span class="nav-text">SSH 框架总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Struts-1"><span class="nav-number">6.2.4.1.</span> <span class="nav-text">Struts</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Spring-1"><span class="nav-number">6.2.4.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate-1"><span class="nav-number">6.2.4.3.</span> <span class="nav-text">Hibernate</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-框架整合"><span class="nav-number">6.2.5.</span> <span class="nav-text">SSH 框架整合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSM-框架"><span class="nav-number">6.3.</span> <span class="nav-text">SSM 框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
