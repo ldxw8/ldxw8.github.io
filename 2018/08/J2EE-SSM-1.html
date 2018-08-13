@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据挖掘,聚类,机器学习," />
+  <meta name="keywords" content="J2EE,JSP,Spring,SSM,MyBatis,Spring MVC," />
 
 
 
@@ -81,22 +81,18 @@
 
 
 
-<meta name="description" content="原文：Clustering by fast search and find of density peaks作者：Alex Rodriguez and Alessandro Laio来源：Science 344.6191(2014), 1492-1496. 摘要聚类分析的目的在于根据元素的相似性将元素分类。而该论文基于这样一种观点的提出新的方法，即聚类中心的密度高于其邻居，而密度高的点相对较远。这">
-<meta name="keywords" content="数据挖掘,聚类,机器学习">
+<meta name="description" content="序言本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.08.13：完成初稿，SSM 框架初识章节；  教学视频 黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 201">
+<meta name="keywords" content="J2EE,JSP,Spring,SSM,MyBatis,Spring MVC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文 - 通过快速查找和发现密度峰值进行聚类">
-<meta property="og:url" content="http://www.kofes.cn/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html">
+<meta property="og:title" content="框架 - Java EE 之 SSM 框架配置与使用">
+<meta property="og:url" content="http://www.kofes.cn/2018/08/J2EE-SSM-1.html">
 <meta property="og:site_name" content="Kofe">
-<meta property="og:description" content="原文：Clustering by fast search and find of density peaks作者：Alex Rodriguez and Alessandro Laio来源：Science 344.6191(2014), 1492-1496. 摘要聚类分析的目的在于根据元素的相似性将元素分类。而该论文基于这样一种观点的提出新的方法，即聚类中心的密度高于其邻居，而密度高的点相对较远。这">
+<meta property="og:description" content="序言本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.08.13：完成初稿，SSM 框架初识章节；  教学视频 黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 201">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-1.jpg">
-<meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-2.jpg">
-<meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-3.jpg">
-<meta property="og:updated_time" content="2018-07-22T06:01:41.748Z">
+<meta property="og:updated_time" content="2018-08-13T06:42:41.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文 - 通过快速查找和发现密度峰值进行聚类">
-<meta name="twitter:description" content="原文：Clustering by fast search and find of density peaks作者：Alex Rodriguez and Alessandro Laio来源：Science 344.6191(2014), 1492-1496. 摘要聚类分析的目的在于根据元素的相似性将元素分类。而该论文基于这样一种观点的提出新的方法，即聚类中心的密度高于其邻居，而密度高的点相对较远。这">
-<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-1.jpg">
+<meta name="twitter:title" content="框架 - Java EE 之 SSM 框架配置与使用">
+<meta name="twitter:description" content="序言本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.08.13：完成初稿，SSM 框架初识章节；  教学视频 黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 201">
 
 
 
@@ -126,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://www.kofes.cn/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html"/>
+  <link rel="canonical" href="http://www.kofes.cn/2018/08/J2EE-SSM-1.html"/>
 
 
 
 
 
-  <title>论文 - 通过快速查找和发现密度峰值进行聚类 | Kofe</title>
+  <title>框架 - Java EE 之 SSM 框架配置与使用 | Kofe</title>
   
 
 
@@ -259,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/08/J2EE-SSM-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kofe">
@@ -276,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文 - 通过快速查找和发现密度峰值进行聚类</h1>
+          <h1 class="post-title" itemprop="name headline">框架 - Java EE 之 SSM 框架配置与使用</h1>
         
 
         <div class="post-meta">
@@ -288,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-27T09:43:41+08:00">
-                2018-05-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-13T10:16:05+08:00">
+                2018-08-13
               </time>
             
 
@@ -302,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-07-22T14:01:41+08:00" content="2018-07-22">
-                2018-07-22
+              <time itemprop="dateUpdated" datetime="2018-08-13T14:42:41+08:00" content="2018-08-13">
+                2018-08-13
               </time>
             </span>
           
@@ -322,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Paper/" itemprop="url" rel="index">
-                    <span itemprop="name">Paper</span>
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
                   </a>
                 </span>
 
@@ -340,8 +336,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html" itemprop="commentCount"></span>
+                <a href="/2018/08/J2EE-SSM-1.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/J2EE-SSM-1.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -349,7 +345,7 @@
 
           
           
-             <span id="/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html" class="leancloud_visitors" data-flag-title="论文 - 通过快速查找和发现密度峰值进行聚类">
+             <span id="/2018/08/J2EE-SSM-1.html" class="leancloud_visitors" data-flag-title="框架 - Java EE 之 SSM 框架配置与使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -374,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,870
+                  994
                 </span>
               
 
@@ -399,54 +395,66 @@
       
 
       
-        <div class="note default"><p>原文：Clustering by fast search and find of density peaks<br>作者：Alex Rodriguez and Alessandro Laio<br>来源：Science 344.6191(2014), 1492-1496.</p></div>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>聚类分析的目的在于根据元素的相似性将元素分类。而该论文基于这样一种观点的提出新的方法，即聚类中心的密度高于其邻居，而密度高的点相对较远。这个想法构成了聚类过程的基础，其中簇的数量直观地产生，异常值被自动地发现并从分析中排除，并且聚类被识别，而不管它们的形状和嵌入它们的空间的维度如何。</p>
-<a id="more"></a>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="不同的聚类策略"><a href="#不同的聚类策略" class="headerlink" title="不同的聚类策略"></a>不同的聚类策略</h3><h4 id="基于距离的方法"><a href="#基于距离的方法" class="headerlink" title="基于距离的方法"></a>基于距离的方法</h4><p>在 <code>K-means</code> 和 <code>K-medoids</code>，聚类是以距离聚类中心很小的距离为特征的数据集合。</p>
-<p>然而，因为数据点总是被分配到最近的中心，所以该类算法只能发现球形的簇，而在发现任意形状的簇时会遇到困难。</p>
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。</p>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.08.13：完成初稿，SSM 框架初识章节；</li>
+</ul>
+<h2 id="教学视频"><a href="#教学视频" class="headerlink" title="教学视频"></a>教学视频</h2><ul>
+<li><p><a href="https://www.bilibili.com/video/av20394903" target="_blank" rel="noopener">黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 2017. bilibili.com</a></p>
 <blockquote>
-<p>提示：<code>K-均值 (K-Means)</code> 的方法仅当簇中均值有定义时才有意义，而当涉及具有标称属性的数据时，K-均值的方法失效。而这里可采用 <code>K-众数 (K-Modes)</code> 的变体，即采用 <code>基于频率</code> 的方法来更新簇的众数，对具有标称属性的数据进行聚类。当然，还有 <code>K-Prototype</code> $^{[1,2]}$、<code>K-Means++</code> $^{[3]}$ 等优化版本的算法。</p>
-</blockquote>
-<h4 id="基于密度的方法"><a href="#基于密度的方法" class="headerlink" title="基于密度的方法"></a>基于密度的方法</h4><p>通过基于数据点局部密度的方法很容易检测具有任意形状的簇。其主要思想是：在某领域 (对象或数据点的数目) 内，给定密度阈值，将密度低于该阈值的数据点视为噪声丢弃，并将其分配给不连续的高密度领域的其他簇。这样的方法可用来过滤噪声或离群点，发现任意形状的簇。</p>
-<p><code>DBSCAN</code> (Density-Based Spatial Clustering of Applications with Noise) 是一个基于密度的聚类算法，它将簇定义为密度相连的点的最大集合，能够把具有足够高密度的领域划分为簇。在噪声的空间数据库中可发现任意形状的聚类。</p>
-<p>然而，从上述当中可知，除了要选择合适的阈值，且它缺少均值漂移的聚类方法。虽然这种方法允许发现非球形簇，但仅适用于由一组坐标定义的数据。</p>
-<h4 id="本文改进的方法"><a href="#本文改进的方法" class="headerlink" title="本文改进的方法"></a>本文改进的方法</h4><p>首先，该算法提出假设：类簇中心被具有较低局部密度的 <code>邻居点</code> 包围，且与具有较高密度的 <code>任何点</code> 有相对较大的距离。对于每一个数据点 i，要计算 <code>两个量</code>：点的局部密度 $\rho_i$ 和该点到具有更高局部密度的点的距离 $\delta_i$。而这两个值都取决于数据点间的距离 ${d}_{ij}$ (欧几里得距离，也称 <code>欧式距离</code>)。数据点的局部密度定义为：</p>
-<script type="math/tex; mode=display">\rho_i = \sum_j \chi(d_{ij} - d_c)</script><p>其中 $\chi(x)$ 为 0-1 函数，如果 x &lt; 0，那么 $\chi(x) = 1$；否则 $\chi(x) = 0$，$d_{c}$ 是一个 <code>截断距离</code>。基本上，$\rho_i$ 等于与点 i 的距离小于 $d_{c}$ 的点的个数。算法只对不同点 $\rho_i$ 的相对大小敏感，这意味着对于大数据集，分析结果在 $d_{c}$ 的选择方面具有很好 <code>鲁棒性</code>。</p>
-<ul>
-<li><p>$\delta_i$ 是通过计算点之间的 <code>最小距离</code> 来测量的，即数据点 i 与距离它最近的、密度更高的点 j 的距离最小值式：</p>
-<blockquote>
-<p>提示：在图 1-1.(A) 中可知，数据点是按照密度降序排列。</p>
+<p>本框架的学习笔记是基于此系列教学视频所得的。</p>
 </blockquote>
 </li>
 </ul>
-<script type="math/tex; mode=display">\delta_i = min_{j:\rho_j>\rho_i}(d_{ij})</script><ul>
-<li>若数据点 i 是密度最大的点，$\delta_i$ 为所有节点中到数据点 i 的最大距离：</li>
-</ul>
-<script type="math/tex; mode=display">\delta_i = max_j(d_{ij})</script><p>如图 1-1 所示，其展示了算法的核心思想。图 1-1.(A) 展示了二维空间中的 28 个点，<code>且 A 中数据点是按照密度降序排列</code>。图 1-1.(B) 中以 $\rho_i$ 作为横坐标，$\delta_i$ 作为纵坐标，画二维图，并称其为决策图。可以发现点 1 和点 10 的  $\rho_i$ 和 $\delta_i$ 最大，故将其作为类簇中心。</p>
+<a id="more"></a>
+<h2 id="IDE-搭建"><a href="#IDE-搭建" class="headerlink" title="IDE 搭建"></a>IDE 搭建</h2><p>IDE 搭建以 <a href="https://www.kofes.cn/2018/07/J2EE-SSH-SSI-1.html#IDE-搭建">Java EE 之 SSH 框架配置与使用</a> 为参考。</p>
+<h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><h2 id="框架初识"><a href="#框架初识" class="headerlink" title="框架初识"></a>框架初识</h2><ul>
+<li><p>SSM 框架集由 Spring、SpringMVC、MyBatis 三个开源框架整合而成，是继 SSH (Spring、Struts2、Hibernate ) 之后，目前比较主流的 Java EE 企业级框架，适用于搭建各种大型的企业级应用系统。 </p>
 <blockquote>
-<p>点 9 和点 10 的 $\rho_i$ 相似，但 $\delta_i$ 值却有很大差别：点 9 属于点 1 的类簇，且有其它几个更高 $\rho_i$ 的点距其很近，然而点 10 拥有更高密度的最近邻属于其它的类簇。  </p>
-<p>所以，正如预期的那样，只有具有高 $\delta_i$ 和相对较高 $\rho_i$ 的的点才是 <code>类簇中心</code>。因为点 26、27、28 是孤立的，所以有相对较高的 $\delta_i$ 值和低 $\rho_i$ 值，它们可以被看作是由单个点做成的类簇，也就是 <code>异常点</code>。</p>
+<p>SSM 与 SSH 都有各自的优缺点，而根据你的项目特点而选择合适的框架即可。关于 SSH 框架的配置与使用，感兴趣的可参考本博客的文章：<a href="https://www.kofes.cn/2018/07/J2EE-SSH-SSI-1.html">Java EE 之 SSH 框架配置与使用</a></p>
 </blockquote>
-<p><img src="/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-1.jpg" alt="图1-1算法在二维空间的展示"></p>
-<center>图 1-1 算法在二维空间的展示</center>
-
-<p>类簇中心找到后，剩余的每个点被归属到它的有更高密度的最近邻所属类簇。类簇分配只需 <code>一步即可完成</code>，不像其它算法要对目标函数进行 <code>迭代优化</code>。</p>
-<p>在聚类分析中，定量的衡量分配的可信度是很重要的。在该算法中，首先为每个类簇定义一个 <code>边界区域</code> (即分配到该类簇的点集合，且与其它类簇的点的距离小于 $d_c$)，然后为每个类簇的找到其边界区域中密度最高的点 $\rho_b$，并以来表示该点的密度。若类簇中局部密度值比 $\rho_b$ 大的点被看作是类簇的核心部分 (即分配到该类簇的可靠性较高)，其他点 (类簇中局部密度值比 $\rho_b$ 小的点) 被看作是类簇的 <code>光晕部分</code> (亦可被看作是噪声)。</p>
-<p><img src="/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-2.jpg" alt="图1-2合成点分布的结果"></p>
-<center>图 1-2 合成点分布的结果</center>
-
-<p>(A) 为绘制点分布的概率分布。(B和C) 分分别为 4000 和 1000 样本点的点分布。且每个点以其颜色表示所属类簇，黑色点属于光晕类簇 (噪声点)。(D和E) 为 (B和C) 相应的决策图，其中心由相应簇来着色。(F) 作为样本维度的函数，分配给不正确聚类的点的分数。误差线表示平均值的标准误差。</p>
-<p>从图 1-2.(F) 中可以看到，错分点的比例即使在只有 1000 个点的小样本中仍保持在 1% 以下，说明算法有很好的鲁棒性。</p>
-<p>从图 1-3 中可以看到，该算法对于各种数据级都能达到很好的聚类效果 (图中为引用文献中的测试用例结果)。</p>
-<p><img src="/images/illustration/Paper/2018/05/Clustering-by-fast-search-and-find-of-density-peaks_1-3.jpg" alt="图1-3引用文献中的测试用例结果"></p>
-<center>图 1-3 引用文献中的测试用例结果</center>
-
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ol>
-<li>摘要部分提到的，异常点能 <code>自动地</code> 被分析出来，但从它的 Matlab 源码可知，还是需要人为判断异常点 (与问题三结合思考)？</li>
-<li>文中提到的截断距离 $d_c$，该设定多少才算较合理？</li>
-<li>文中判断簇中心的两个参数量 $\delta_i$ 和 $\rho_i$，即同时具有相对较高的距离和局部密度可选为簇中心，那么如何定义相对较高的具体值？</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Huang Z. Clustering large data sets with mixed numeric and categorical values [C]. 1997: 21-34.<br>[2] Huang Z. Extensions to the k-means algorithm for clustering large data sets with categorical values [J]. Data mining and knowledge discovery, 1998, 2(3): 283-304.<br>[3] San O M, Huynh V N, Nakamori Y. A clustering algorithm for mixed numeric and categorical data [J]. Journal of Systems Science and Complexity, 2003, 16(4): 562-571.  </p>
+</li>
+</ul>
+<h3 id="ORM-框架"><a href="#ORM-框架" class="headerlink" title="ORM 框架"></a>ORM 框架</h3><ul>
+<li>对象关系映射（Object Relational Mapping，O/R Mapping，ORM）是通过使用描述对象和数据库之间映射的 <code>元数据</code>，将面向对象语言程序中的 <code>对象</code> 自动 <code>持久化</code> 到 <code>关系数据库</code> 中。本质上就是将数据从一种形式转换到另外一种形式。 </li>
+<li>让 <code>实体类</code> 和 <code>数据库表</code> 进行一一对应关系 (映射关系)，<code>实体类属性</code> 和 <code>表里面的字段</code> 对应。操作表对应实体类对象，而不需操作数据库表。</li>
+</ul>
+<h3 id="SSM-框架"><a href="#SSM-框架" class="headerlink" title="SSM 框架"></a>SSM 框架</h3><h4 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h4><ul>
+<li><p>MyBatis 前身是 Apache 的开源项目 <code>iBatis</code>，<code>iBatis</code> 一词源于 internet 和 abatis 的组合，是一个基于 Java 的持久层框架。</p>
+</li>
+<li><p>MyBatis 是一款持久层框架，它支持定制化 SQL (不屏蔽 SQL)、存储过程以及高级映射。</p>
+</li>
+<li>MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。</li>
+<li><p>MyBatis 可使用 XML配置文件形式或注解形式来配置和映射原生信息，将接口和 POJOs ( Plain Ordinary Java Object，普通 Java 对象 / 实体类 ) 映射成数据库中的记录。</p>
+<blockquote>
+<p>我们把 POJO 对象和数据库表相互映射的框架称为对象关系映射框架 ( Object Relational )。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h4><ul>
+<li>Spring 框架是 Java 应用最广的框架，其成功源于它的理念，即 <code>控制反转</code> ( Inversion of Control，IoC ) 和 <code>面向切面编程</code> ( Aspect Oriented Programming，AOP )。</li>
+<li>Spring 框架也可理解为一个轻量级的 IoC 和 AOP 的容器框架。</li>
+<li><p>Spring 框架在 <a href="https://www.kofes.cn/2018/07/J2EE-SSH-SSI-1.html#Spring">SSH 部分</a> 有阐述，在本章节就不具体展开探讨，笔记以补充和整合部分内容为主。</p>
+<blockquote>
+<p>在 SSH Spring 章节中，要求导入相关 Jar 包，而本文的 SSM 框架要求导入的 Jar 包 ( 或者 Maven 依赖 ) 以 <code>版本信息</code> 的为标准。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h4 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h4><ul>
+<li>MVC ( Model-View-Controller ) 模式把应用程序 ( 输入逻辑、业务逻辑和 UI 逻辑 ）分成不同的方面，同时提供这些元素间的松耦合。<ul>
+<li>Model：模型，封装了应用程序的 <code>数据</code> 和由它们组成的 <code>POJO</code>。</li>
+<li>View：视图，负责把模型数据 <code>渲染到视图</code> 上，将数据以一定形式展现给用户。</li>
+<li>Controller：负责 <code>处理用户请求</code>，并建立适当的模型把它传递给视图渲染。</li>
+</ul>
+</li>
+<li>Spring MVC 把 <code>模型</code>、<code>视图</code> 和 <code>控制器</code> 分层，组合成一个有机灵活的系统。</li>
+<li>Spring MVC 中可定义逻辑视图，通过其提供的解析器找到对应的视图渲染；或在 Controller 的方法内加入注解 ( <code>@ResponseBody</code> )，通过消息转换系统将数据转换为 JSON，提供给前端 Ajax 请求使用。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://book.douban.com/subject/27090950/" target="_blank" rel="noopener"> 杨开振. Java EE 互联网轻量级框架整合开发 [M]. 电子工业出版社. 2017</a></li>
+</ul>
 
       
     </div>
@@ -467,7 +475,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.kofes.cn/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html" title="论文 - 通过快速查找和发现密度峰值进行聚类">http://www.kofes.cn/2018/05/Clustering-by-fast-search-and-find-of-density-peaks.html</a>
+    <a href="http://www.kofes.cn/2018/08/J2EE-SSM-1.html" title="框架 - Java EE 之 SSM 框架配置与使用">http://www.kofes.cn/2018/08/J2EE-SSM-1.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -482,11 +490,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+            <a href="/tags/J2EE/" rel="tag"># J2EE</a>
           
-            <a href="/tags/聚类/" rel="tag"># 聚类</a>
+            <a href="/tags/JSP/" rel="tag"># JSP</a>
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+            <a href="/tags/SSM/" rel="tag"># SSM</a>
+          
+            <a href="/tags/MyBatis/" rel="tag"># MyBatis</a>
+          
+            <a href="/tags/Spring-MVC/" rel="tag"># Spring MVC</a>
           
         </div>
       
@@ -499,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/Sofeware-Engineering.html" rel="next" title="笔记 - 高级软件工程 & 导论">
-                <i class="fa fa-chevron-left"></i> 笔记 - 高级软件工程 & 导论
+              <a href="/2018/07/Vmware-OpenWrt.html" rel="next" title="彩蛋 -  MacOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )">
+                <i class="fa fa-chevron-left"></i> 彩蛋 -  MacOS VMware 安装 OpenWrt ( 从软路由到硬路由的过渡 )
               </a>
             
           </div>
@@ -508,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/Extensions-to-the-k-Means-algorithm-for-custering-large-datasets-with-categorical-values.html" rel="prev" title="论文 - 扩展 K-Means 算法：混合数据类型的聚类方法">
-                论文 - 扩展 K-Means 算法：混合数据类型的聚类方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不同的聚类策略"><span class="nav-number">2.1.</span> <span class="nav-text">不同的聚类策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于距离的方法"><span class="nav-number">2.1.1.</span> <span class="nav-text">基于距离的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于密度的方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">基于密度的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本文改进的方法"><span class="nav-number">2.1.3.</span> <span class="nav-text">本文改进的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">3.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学视频"><span class="nav-number">3.</span> <span class="nav-text">教学视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-搭建"><span class="nav-number">4.</span> <span class="nav-text">IDE 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本信息"><span class="nav-number">5.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架初识"><span class="nav-number">6.</span> <span class="nav-text">框架初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM-框架"><span class="nav-number">6.1.</span> <span class="nav-text">ORM 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSM-框架"><span class="nav-number">6.2.</span> <span class="nav-text">SSM 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis"><span class="nav-number">6.2.1.</span> <span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring"><span class="nav-number">6.2.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">6.2.3.</span> <span class="nav-text">Spring MVC</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
