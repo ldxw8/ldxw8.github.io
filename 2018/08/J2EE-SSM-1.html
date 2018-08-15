@@ -89,10 +89,12 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="序言本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.08.13：完成初稿，SSM 框架初识章节；  教学视频 黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 201">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T06:42:41.910Z">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/J2EE-SSM-1_6-1.png">
+<meta property="og:updated_time" content="2018-08-15T08:50:29.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="框架 - Java EE 之 SSM 框架配置与使用">
 <meta name="twitter:description" content="序言本文章主要围绕 J2EE 中 SSM ( Spring、Spring MVC、MyBatis ) 框架的配置以及使用问题展开学习的，最终目的是输出可复用的版本，以供后续的项目复用。当然，学习和配置的过程难免有不恰当或错误之处，还望朋友指出、斧正。 更新进度 2018.08.13：完成初稿，SSM 框架初识章节；  教学视频 黑马程序员. J2EE 进阶. MyBatis 框架由浅入深. 201">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/J2EE-SSM-1_6-1.png">
 
 
 
@@ -298,8 +300,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-08-13T14:42:41+08:00" content="2018-08-13">
-                2018-08-13
+              <time itemprop="dateUpdated" datetime="2018-08-15T16:50:29+08:00" content="2018-08-15">
+                2018-08-15
               </time>
             </span>
           
@@ -370,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  994
+                  3,482
                 </span>
               
 
@@ -408,7 +410,135 @@
 </ul>
 <a id="more"></a>
 <h2 id="IDE-搭建"><a href="#IDE-搭建" class="headerlink" title="IDE 搭建"></a>IDE 搭建</h2><p>IDE 搭建以 <a href="https://www.kofes.cn/2018/07/J2EE-SSH-SSI-1.html#IDE-搭建">Java EE 之 SSH 框架配置与使用</a> 为参考。</p>
-<h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><h2 id="框架初识"><a href="#框架初识" class="headerlink" title="框架初识"></a>框架初识</h2><ul>
+<h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><ul>
+<li>框架版本：<ul>
+<li>Spring MVC：4.3.x</li>
+<li>Spring：4.3.x</li>
+<li>MyBatis：3.4.x</li>
+</ul>
+</li>
+<li>其他组件：<ul>
+<li>MySQL：5.7.x / SQL Server：2008 R2</li>
+<li>Tomcat：9.0.x</li>
+<li>Maven：3.3.9</li>
+<li>JDK：1.8</li>
+</ul>
+</li>
+<li>构建框架，还需要相关依赖库 ( Jar 包 )，为便于你下载 Jar 包或校对依赖是否齐全，具体地，以下列举了 SSM 框架所需要的依赖库。</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Spring</th>
+<th style="text-align:left">MyBatis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">spring-core</td>
+<td style="text-align:left">mybatis</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-beans</td>
+<td style="text-align:left">mybatis-spring ( Spring 整合 Mybatis )</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-context</td>
+<td style="text-align:left">cglib ( 动态代理 )</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-webmvc</td>
+<td style="text-align:left">pagehelper ( 分页助手 )</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-web</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-aop ( 整合 Aop )</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">aopalliance ( 整合 Aop )</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-aspect ( 整合 Aop )</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">aspectjweaver ( 整合 Aop )</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-tx ( 整合事务 )</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td style="text-align:left">spring-jdbc</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">其他依赖库 ( Jar 包 )</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">log4j</td>
+<td style="text-align:left">日志支持</td>
+</tr>
+<tr>
+<td style="text-align:left">log4j-core、log4j-api</td>
+<td style="text-align:left">日志支持</td>
+</tr>
+<tr>
+<td style="text-align:left">slf4j-api、slf4j-log4j12</td>
+<td style="text-align:left">日志支持</td>
+</tr>
+<tr>
+<td style="text-align:left">junit</td>
+<td style="text-align:left">Junit 单元测试</td>
+</tr>
+<tr>
+<td style="text-align:left">c3p0</td>
+<td style="text-align:left">c3p0 数据库连接池</td>
+</tr>
+<tr>
+<td style="text-align:left">mysql-connector-java</td>
+<td style="text-align:left">添加 MySQL 数据库支持</td>
+</tr>
+<tr>
+<td style="text-align:left">jackson-databind</td>
+<td style="text-align:left">Json 数据转化为类对象</td>
+</tr>
+<tr>
+<td style="text-align:left">jsp-api</td>
+<td style="text-align:left">JSP</td>
+</tr>
+<tr>
+<td style="text-align:left">javax.servlet-api</td>
+<td style="text-align:left">Servlet</td>
+</tr>
+<tr>
+<td style="text-align:left">jstl</td>
+<td style="text-align:left">JSTL 标签库</td>
+</tr>
+<tr>
+<td style="text-align:left">taglibs-standard-impl</td>
+<td style="text-align:left">JSP 标准标签库</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="框架初识"><a href="#框架初识" class="headerlink" title="框架初识"></a>框架初识</h2><ul>
 <li><p>SSM 框架集由 Spring、SpringMVC、MyBatis 三个开源框架整合而成，是继 SSH (Spring、Struts2、Hibernate ) 之后，目前比较主流的 Java EE 企业级框架，适用于搭建各种大型的企业级应用系统。 </p>
 <blockquote>
 <p>SSM 与 SSH 都有各自的优缺点，而根据你的项目特点而选择合适的框架即可。关于 SSH 框架的配置与使用，感兴趣的可参考本博客的文章：<a href="https://www.kofes.cn/2018/07/J2EE-SSH-SSI-1.html">Java EE 之 SSH 框架配置与使用</a></p>
@@ -419,7 +549,29 @@
 <li>对象关系映射（Object Relational Mapping，O/R Mapping，ORM）是通过使用描述对象和数据库之间映射的 <code>元数据</code>，将面向对象语言程序中的 <code>对象</code> 自动 <code>持久化</code> 到 <code>关系数据库</code> 中。本质上就是将数据从一种形式转换到另外一种形式。 </li>
 <li>让 <code>实体类</code> 和 <code>数据库表</code> 进行一一对应关系 (映射关系)，<code>实体类属性</code> 和 <code>表里面的字段</code> 对应。操作表对应实体类对象，而不需操作数据库表。</li>
 </ul>
-<h3 id="SSM-框架"><a href="#SSM-框架" class="headerlink" title="SSM 框架"></a>SSM 框架</h3><h4 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h4><ul>
+<h3 id="SSM-框架"><a href="#SSM-框架" class="headerlink" title="SSM 框架"></a>SSM 框架</h3><h4 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h4><h5 id="原生-Jdbc-操作数据库"><a href="#原生-Jdbc-操作数据库" class="headerlink" title="原生 Jdbc 操作数据库"></a>原生 Jdbc 操作数据库</h5><p>在引入 MyBatis ( 或 Hibernate ) 前，一般通过原生 Jdbc 来操作数据库，而这种方式存在很多问题 $^{[2]}$：</p>
+<ul>
+<li><p>程序创建数据库连接，即需求时创建，用完后关闭。若频繁的创建、关闭数据库连接，显然存在问题。 ( 可以通过数据库连接池来处理这个问题 )</p>
+</li>
+<li><p>硬编码的地方太多了。例如，数据库连接相关信息，SQL相关信息等。( 可通过使用 XML 配置文件，来避免这个问题 )</p>
+</li>
+<li><p>实质上，我们编写JDBC是有步骤可循的，即先得到数据库连接对象，传入SQL、输入参数、设置参数，再去执行SQL，然后遍历结果集将数据库 SQL 执行的结果对象转化为 JAVA 对象，然后再去业务处理，最后释放资源。</p>
+<p>  那么这个过程，实际上是个 <code>模板方法</code>，能不能抽离出来，更好的去完成这个过程呢？</p>
+</li>
+</ul>
+<h5 id="框架比较"><a href="#框架比较" class="headerlink" title="框架比较"></a>框架比较</h5><ul>
+<li>Hibernate<ul>
+<li>优点：<br>1) Hibernate 这个纯粹的 ORM 框架，以面向对象的方式来完成数据库的操作。<br>2) Hibernate 不需要编写 SQL 即可完全映射，且可通过 HQL (Hibernate Query Language) 语言对 POJO 操作。<br>3) Hibernate 提供了日志、缓存、级联等特性。  </li>
+<li>缺点：<br>1) Hibernate 可自由编写 SQL，但非常繁琐，则优化 SQL 实现高性能数据库操作有限制，在互联网项目快速迭代开发中显得过于笨重。<br>2) Hibernate 的 <code>级联会造成太多性能的丢失</code>。<br>3) Hibernate 不支持存储过程。</li>
+</ul>
+</li>
+<li>MyBatis<ul>
+<li>优点：自由书写 SQL、支持动态 SQL、处理列表、动态生成表名、支持存储过程。</li>
+<li>缺点：需要编写 SQL 和映射规则，工作量相对较大。</li>
+</ul>
+</li>
+</ul>
+<h5 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h5><ul>
 <li><p>MyBatis 前身是 Apache 的开源项目 <code>iBatis</code>，<code>iBatis</code> 一词源于 internet 和 abatis 的组合，是一个基于 Java 的持久层框架。</p>
 </li>
 <li><p>MyBatis 是一款持久层框架，它支持定制化 SQL (不屏蔽 SQL)、存储过程以及高级映射。</p>
@@ -431,7 +583,75 @@
 </blockquote>
 </li>
 </ul>
-<hr>
+<h5 id="架构原理"><a href="#架构原理" class="headerlink" title="架构原理"></a>架构原理</h5><p><img src="/images/illustration/Project/2018/08/J2EE-SSM-1_6-1.png" alt="图6-1SSM架构原理图"></p>
+<center>图 6-1 SSM架构原理图</center>
+
+<ul>
+<li><p><code>SqlMapConfig.xml</code>：MyBatis 全局配置文件，配置数据源、事务等运行环境相关信息；SQL文件即是 <code>Mapper.xml</code>。</p>
+</li>
+<li><p><code>SqlSessionFactory</code>：会话工厂，用于创建 SqlSession。</p>
+</li>
+<li><p><code>SqlSession</code>：即操作数据库的接口，其内部借助 <code>Executor</code> 执行器完成对数据库的操作。</p>
+</li>
+<li><p><code>MappedStatement</code>：底层封装对象，对操作数据库储存封装，其中包括 SQL 语句 ( Mapper.xml )、输入对象和输出结果类型。</p>
+</li>
+</ul>
+<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><ul>
+<li><p>全局配置文件：在 Src 根目录下建立并配置 <code>SqlMapConfig.xml</code>  </p>
+<p>  与 Spring 整合 Hibernate 一样，后期 Spring 整合 MyBatis 后此配置文件可省略。当然，学习阶段代码还是得提供。</p>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE configuration</span></span><br><span class="line"><span class="meta">    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="meta">    "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 加载 Java 的配置文件或者声明属性信息 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">"c3p0.properties"</span>&gt;</span><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- &lt;settings&gt;&lt;/settings&gt; --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 自定义别名 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">typeAliases</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">         | 单个别名定义：</span></span><br><span class="line"><span class="comment">         | &lt;typeAlias type="cn.kofes.pojo.Sample" alias="Sample"/&gt;</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">         | 批量别名定义 ( 推荐 )：</span></span><br><span class="line"><span class="comment">         | package：指定包名称来为该包下的 pojo 类声明别名，默认的别名就是类名 ( 首字母大小写都可 )</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"cn.kofes.pojo"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">typeAliases</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置 MyBatis 的环境信息，与 Spring 整合，该信息由spring来管理 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">"development"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 配置 Jdbc 事务控制，由 MyBatis 进行管理 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">"JDBC"</span>&gt;</span><span class="tag">&lt;/<span class="name">transactionManager</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 配置数据源，采用 MyBatis 连接池 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">"POOLED"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driver"</span> <span class="attr">value</span>=<span class="string">"$&#123;datasource.driverClass&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;datasource.jdbcUrl&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;datasource.user&#125;"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;datasource.password&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 加载映射文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 单个映射文件添加 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">"mapper/SampleMapper.xml"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 批量加载映射文件</span></span><br><span class="line"><span class="comment">         | &lt;package name="mapper"/&gt;</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>Mapper 映射文件：例如 <code>SampleMapper.xml</code></p>
+<ul>
+<li><p>创建实体类对象 ( POJOs )：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cn.kofes.pojo.Sample.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sample</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123; <span class="keyword">this</span>.id = id; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在映射文件中配置 SQL 语句，如建立 <code>SampleMapper.xml</code> ( 便于管理，把映射文件统一放置 mapper 文件夹下 )：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- mapper/SampleMapper.xml --&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="meta">    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" &gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- namespece 用于 Mapper 代理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"cn.kofes.mapper.SampleMapper"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">     | 配置 SQL 语句：例如查找某一元组</span></span><br><span class="line"><span class="comment">     | - id 属性：唯一标识映射文件中的 SQL</span></span><br><span class="line"><span class="comment">     | - parameterType 属性：指定输入参数的类型</span></span><br><span class="line"><span class="comment">     | - resultType 属性：指定输出参数的类型</span></span><br><span class="line"><span class="comment">     |   SQL 语句会封装到 MappedStatement 对象中，故 ID 又称为 Statement 的 ID</span></span><br><span class="line"><span class="comment">     | - #&#123;&#125;：表示一个占位符号</span></span><br><span class="line"><span class="comment">     | - #&#123;id&#125;：id 表示接收输入的参数，参数名称就是 id</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"findCertianTupleById"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">resultType</span>=<span class="string">"cn.kofes.bean.Sample"</span>&gt;</span></span><br><span class="line">        SELECT * FROM t_sample WHERE id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 插入元组 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertOneTuple"</span> <span class="attr">parameterType</span>=<span class="string">"cn.kofes.pojo.Sample"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 用于自增 ID 的情况，在完成插入后将 ID 返回 user 对象中</span></span><br><span class="line"><span class="comment">        &lt;selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer"&gt;</span></span><br><span class="line"><span class="comment">            SELECT LAST_INSERT_ID()</span></span><br><span class="line"><span class="comment">        &lt;/selectKey&gt;</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 用于非自增 ID 的情况，先产生 ID 放入 user 对象中，再执行保存</span></span><br><span class="line"><span class="comment">        &lt;selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String"&gt;</span></span><br><span class="line"><span class="comment">            SELECT UUID()</span></span><br><span class="line"><span class="comment">        &lt;/selectKey&gt;</span></span><br><span class="line"><span class="comment">        INSERT INTO t_sample (id, name) VALUES (#&#123;id&#125;, #&#123;name&#125;)</span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        INSERT TO t_sample(id, name) value(#&#123;id&#125;, #&#123;name&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 删除一条元组 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">"deleteOneTupleById"</span> <span class="attr">parameterType</span>=<span class="string">"java.lang.Integer"</span>&gt;</span></span><br><span class="line">        DELETE FROM t_sample WHERE id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 更新一条元组 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"updateOneTupleById"</span> <span class="attr">parameterType</span>=<span class="string">"cn.kofes.pojo.Sample"</span>&gt;</span></span><br><span class="line">        UPDATE t_sample SET id = #&#123;id&#125;, name = #&#123;name&#125;</span><br><span class="line">        WHERE id = #&#123;id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="案例演示"><a href="#案例演示" class="headerlink" title="案例演示"></a>案例演示</h5><ul>
+<li><p>单独使用 MyBatis 框架，根据 id 查询指定用户：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 便于检验效果，这里以单元测试类实现</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DBOperatorTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDoSomethingInDB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 加载 MyBatis 配置文件</span></span><br><span class="line">        String resource  = <span class="string">"SqlMapConfig.xml"</span>;</span><br><span class="line">        <span class="comment">// 得到配置文件流</span></span><br><span class="line">        InputStrem inputStream = Resource.getResourceAsStream(resource);</span><br><span class="line">        <span class="comment">// 创建会话工厂</span></span><br><span class="line">        SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder()</span><br><span class="line">            .build(inputStream);</span><br><span class="line">            </span><br><span class="line">        <span class="comment">// 通过会话工厂，得到 SqlSession 对象</span></span><br><span class="line">        SqlSession sqlSession = sqlSessionFactory.openSession();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 通过 SqlSession 操作数据库</span></span><br><span class="line">        <span class="comment">// 第一个参数：namespace + statement id</span></span><br><span class="line">        <span class="comment">// 第二个参数：指定和映射文件中所匹配的 parameterType 相同属性类型的参数</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">/* 根据 ID 查询元组</span></span><br><span class="line"><span class="comment">        Sample sample = sqlSession.selectOne(</span></span><br><span class="line"><span class="comment">            "cn.kofes.mapper.SampleMapper.findCertainTupleById", 1);</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 插入一条元组</span></span><br><span class="line"><span class="comment">        Sample sample = new Sample();</span></span><br><span class="line"><span class="comment">        sample.setName("邯郸");</span></span><br><span class="line"><span class="comment">        sqlSession.insert(</span></span><br><span class="line"><span class="comment">            "cn.kofes.mapper.SampleMapper.insertOneTuple", sample);</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        <span class="comment">/* 根据 ID 修改元组</span></span><br><span class="line"><span class="comment">        Sample sample = new Sample();</span></span><br><span class="line"><span class="comment">        sample.setId(14);</span></span><br><span class="line"><span class="comment">        sample.setName("阿斗");</span></span><br><span class="line"><span class="comment">        sqlSession.update(</span></span><br><span class="line"><span class="comment">            "cn.kofes.mapper.SampleMapper.updateOneTupleById", sample);</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        </span><br><span class="line">        sqlSession.commit();</span><br><span class="line">        sqlSession.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>案例总结：</p>
+<ul>
+<li><code>namespace</code>：命名空间，作用是隔离 SQL。在 MyBatis 和 Spring 结合使用时具有特殊的意义，这里暂且使用全限定类名。</li>
+<li><code>&lt;select&gt;</code> 等 SQL Command 标签需要一个 ID，还需要输入参数 parameterType，输出参数映射 resultType 等。在 MyBatis 底层封装成了一个 MappedStatement 对象，使用时以 <code>namespace.id</code> 的方式引用即可。</li>
+<li><code>#{}</code> 和 <code>${}</code>：<ul>
+<li><code>#{}</code>：表示一个占位符号，用于接收输入参数，类型可以是简单类型，也可是 POJO、HashMap 等。( 通过 <code>OGNL 表达式</code> 读取对象的属性值 )</li>
+<li><code>${}</code>：表示一个拼接符号，会引入 <code>SQL注入</code>，故不建议使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>思考问题：</p>
+<ul>
+<li>我们重点关注的是 SqlSession，它其实是一个 interface，定义了很多操作数据库的接口，且实现了 Closeable 接口，很明确是需要 <code>close()</code> 的。  </li>
+<li>它的实现类 DefaultSqlSession 中有一些数据域，比如说 autoCommit，在默认情况下是不开启自动提交的；且方法也并不是 Synchronized ，这说明 SqlSession 并不是线程安全的，因此我们应该是局部使用 SqlSession，使用完毕后请 <code>close()</code>。</li>
+</ul>
+</li>
+</ul>
+<h5 id="MyBatis-实现-DAO-层的方法"><a href="#MyBatis-实现-DAO-层的方法" class="headerlink" title="MyBatis 实现 DAO 层的方法"></a><del>MyBatis 实现 DAO 层的方法</del></h5><blockquote>
+<p>这种方式，重复的代码太多，现阶段基本弃用，目前使用最多的就是 Mapper 代理开发。</p>
+</blockquote>
+<ul>
+<li>在开始 Mapper 代理开发前，可了解一种原始 Dao 开发的方式：<ul>
+<li>Step.01.提供 Dao 接口，有增、删、改、查的方法。</li>
+<li>Step.02.提供 Dao 的实现类，在实现类中利用 Spring 注入 SqlSessionFactory，然后在各个方法中得到 SqlSession，进行操作后，关闭 SqlSession 即可。</li>
+</ul>
+</li>
+<li><p>便于理解，放上实现代码：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DAO 层接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseDao</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertOneTuple</span><span class="params">(User user)</span> throw Exception</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteOneTupleById</span><span class="params">(<span class="keyword">int</span> id)</span>  throw Exception</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateOneTupleById</span><span class="params">(User user)</span>  throw Exception</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findCertainById</span><span class="params">(<span class="keyword">int</span> id)</span> throw Exception</span>;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// DAO 层实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleDaoImpl</span> <span class="keyword">implements</span> <span class="title">BaseDao</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SampleDaoImpl</span><span class="params">(SqlSessionFactory sqlSessionFactory)</span> </span></span><br><span class="line"><span class="function">        throw Exception </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sqlSessionFactory = sqlSessionFactory;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findCertainById</span><span class="params">(<span class="keyword">int</span> id)</span> throw Exception </span>&#123; </span><br><span class="line">        <span class="comment">// 省略实现逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteOneTupleById</span><span class="params">(<span class="keyword">int</span> id)</span>  throw Exception </span>&#123; </span><br><span class="line">        <span class="comment">// 省略实现逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateOneTupleById</span><span class="params">(User user)</span>  throw Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 省略实现逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">findCertainById</span><span class="params">(<span class="keyword">int</span> id)</span> throw Exception </span>&#123;</span><br><span class="line">        <span class="comment">// 省略实现逻辑...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单元测试类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleDaoTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> SqlSessionFactory sqlSessionFactory;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        InputStrem inputStream = </span><br><span class="line">            Resource.getResourceAsStream(<span class="string">"SqlMapConfig.xml"</span>);</span><br><span class="line">        SqlSessionFactory sqlSessionFactory = </span><br><span class="line">            <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br><span class="line">        <span class="comment">// SqlSession sqlSession = sqlSessionFactory.openSession();</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFindCertainById</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        BaseDao sampleDao = <span class="keyword">new</span> SampleDaoImpl(sqlSessionFactory);</span><br><span class="line">        User user = sampleDao.findCertainById(<span class="number">5</span>);</span><br><span class="line">        System.out.println( user.toString() );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Mapper-代理开发"><a href="#Mapper-代理开发" class="headerlink" title="Mapper 代理开发"></a>Mapper 代理开发</h5><hr>
 <h4 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h4><ul>
 <li>Spring 框架是 Java 应用最广的框架，其成功源于它的理念，即 <code>控制反转</code> ( Inversion of Control，IoC ) 和 <code>面向切面编程</code> ( Aspect Oriented Programming，AOP )。</li>
 <li>Spring 框架也可理解为一个轻量级的 IoC 和 AOP 的容器框架。</li>
@@ -454,6 +674,8 @@
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li>[1] <a href="https://book.douban.com/subject/27090950/" target="_blank" rel="noopener"> 杨开振. Java EE 互联网轻量级框架整合开发 [M]. 电子工业出版社. 2017</a></li>
+<li>[2] <a href="https://www.jianshu.com/p/91a32e3d4b26" target="_blank" rel="noopener">张丰哲. MyBatis + Spring MVC 开发指南 (一). 简书. 2017</a></li>
+<li>[3] <a href="https://www.jianshu.com/p/48b78ee24fa3" target="_blank" rel="noopener">张丰哲. MyBatis + Spring MVC 开发指南 (二). 简书. 2017</a></li>
 </ul>
 
       
@@ -689,7 +911,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学视频"><span class="nav-number">3.</span> <span class="nav-text">教学视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-搭建"><span class="nav-number">4.</span> <span class="nav-text">IDE 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本信息"><span class="nav-number">5.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架初识"><span class="nav-number">6.</span> <span class="nav-text">框架初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM-框架"><span class="nav-number">6.1.</span> <span class="nav-text">ORM 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSM-框架"><span class="nav-number">6.2.</span> <span class="nav-text">SSM 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis"><span class="nav-number">6.2.1.</span> <span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring"><span class="nav-number">6.2.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">6.2.3.</span> <span class="nav-text">Spring MVC</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学视频"><span class="nav-number">3.</span> <span class="nav-text">教学视频</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE-搭建"><span class="nav-number">4.</span> <span class="nav-text">IDE 搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本信息"><span class="nav-number">5.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架初识"><span class="nav-number">6.</span> <span class="nav-text">框架初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ORM-框架"><span class="nav-number">6.1.</span> <span class="nav-text">ORM 框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSM-框架"><span class="nav-number">6.2.</span> <span class="nav-text">SSM 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MyBatis"><span class="nav-number">6.2.1.</span> <span class="nav-text">MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#原生-Jdbc-操作数据库"><span class="nav-number">6.2.1.1.</span> <span class="nav-text">原生 Jdbc 操作数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#框架比较"><span class="nav-number">6.2.1.2.</span> <span class="nav-text">框架比较</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本介绍"><span class="nav-number">6.2.1.3.</span> <span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#架构原理"><span class="nav-number">6.2.1.4.</span> <span class="nav-text">架构原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置文件"><span class="nav-number">6.2.1.5.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例演示"><span class="nav-number">6.2.1.6.</span> <span class="nav-text">案例演示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MyBatis-实现-DAO-层的方法"><span class="nav-number">6.2.1.7.</span> <span class="nav-text">MyBatis 实现 DAO 层的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mapper-代理开发"><span class="nav-number">6.2.1.8.</span> <span class="nav-text">Mapper 代理开发</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring"><span class="nav-number">6.2.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">6.2.3.</span> <span class="nav-text">Spring MVC</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
