@@ -90,7 +90,7 @@
 <meta property="og:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 源代码的版本控制 的重要性。为了深刻理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN。 当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/building-a-svn-server_3-1.png">
-<meta property="og:updated_time" content="2018-08-30T01:12:53.198Z">
+<meta property="og:updated_time" content="2018-09-03T08:13:53.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目 - SVN 环境搭建与使用">
 <meta name="twitter:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 源代码的版本控制 的重要性。为了深刻理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN。 当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。">
@@ -300,8 +300,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-08-30T09:12:53+08:00" content="2018-08-30">
-                2018-08-30
+              <time itemprop="dateUpdated" datetime="2018-09-03T16:13:53+08:00" content="2018-09-03">
+                2018-09-03
               </time>
             </span>
           
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,320
+                  2,324
                 </span>
               
 
@@ -411,10 +411,10 @@
 </ul>
 </li>
 <li>常见问题：<ul>
+<li><strong>代码冲突</strong>：多人操作同一个文件 ( 团队开发中的常见问题 )；</li>
 <li>无法后悔：做错了一个操作后，没有后悔药可以吃；</li>
-<li>版本备份：费空间、费时间；</li>
+<li>版本备份：费空间；</li>
 <li>版本混乱：因版本备份过多造成混乱，难于找回正确的想要的版本；</li>
-<li>代码冲突：多人操作同一个文件 ( 团队开发中的常见问题 )；</li>
 <li>权限控制：无法对源代码进行精确的权限控制；</li>
 <li>追究责任：出现了严重的 BUG，无法得知是谁干的，容易耍赖.</li>
 </ul>
@@ -446,22 +446,22 @@
 <p>Tips.01. 安装过程中，其中 SVN 服务器端口配置推荐使用HTTPS 的 <code>8443</code> 端口，因为 HTTPS 安全性比較高，尽管 <code>443</code> 是标准 HTTPSport。<br>Tips.02. 还有就是用于验证的身份配置：Windows 验证和 Subversion 身份验证，默认是 Subversion 身份验证。</p>
 </blockquote>
 </li>
-<li><p>安装 SVN Server For MacOS：自带了 SVN 的服务器端和客户端功能。参考引用文章完成配置即可 $^{[3,4]}$。</p>
+<li><p>安装 SVN Server For MacOS：MacOS 自带了 SVN 的服务器端和客户端功能。参考引用文章完成配置即可使用 $^{[3,4]}$。</p>
 </li>
 </ul>
 <h3 id="SVN-客户端"><a href="#SVN-客户端" class="headerlink" title="SVN 客户端"></a>SVN 客户端</h3><ul>
 <li>Windows Client：<a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">TortoiseSVN</a></li>
 <li><p>MacOS Client：<a href="https://cornerstone.assembla.com/" target="_blank" rel="noopener">Cornerstone</a></p>
 <blockquote>
-<p>在 Mac 上可利用 SVN 图形界面工具来管理源代码，可以大大减小使用命令行的痛苦 $^{[5]}$。</p>
+<p>在 MacOS 上可利用 SVN 图形界面工具来管理源代码，可以大大减小使用命令行的痛苦 $^{[5]}$。</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="SVN-配置与使用"><a href="#SVN-配置与使用" class="headerlink" title="SVN 配置与使用"></a>SVN 配置与使用</h3><p>Windows 端配置和使用 SVN 可通过图形界面工具即可完成操作，详细的步骤在 [1]、[2] 中也有提及。<br>故在本章节主要讲述 Mac 环境下搭建和配置 SVN。</p>
+<h3 id="SVN-配置与使用"><a href="#SVN-配置与使用" class="headerlink" title="SVN 配置与使用"></a>SVN 配置与使用</h3><p>Windows 端配置和使用 SVN 可通过图形界面工具即可完成操作，详细的步骤在引用文章 [1]、[2] 中也有提及。<br>故在本章节主要讲述 Mac 环境下搭建和配置 SVN。</p>
 <h4 id="创建代码仓库"><a href="#创建代码仓库" class="headerlink" title="创建代码仓库"></a>创建代码仓库</h4><ul>
 <li>Step.01. 新建一个 <code>svn</code> 目录，例如 <code>/Users/kofe/svn</code>，以后可在 <code>svn</code> 目录下创建多个仓库目录。</li>
 <li><p>Step.02. 打开终端，创建一个名为 <code>idea</code> 仓库，输入指令：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指令执行成功后，会发现硬盘上多了个 /Users/kofe/svn/idea 目录</span></span><br><span class="line">svnadmin create /Users/apple/svn/idea</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指令执行成功后，会发现硬盘上多了个 /Users/kofe/svn/idea 目录</span></span><br><span class="line">svnadmin create /Users/kofe/svn/idea</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="配置用户权限"><a href="#配置用户权限" class="headerlink" title="配置用户权限"></a>配置用户权限</h4><p>主要是修改 <code>/svn/idea/conf</code> 目录下的三个文件：<code>svnserve.conf</code>、<code>Passwd</code> 文件和 <code>Authz</code> 文件。</p>
