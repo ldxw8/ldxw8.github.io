@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,linux,爬虫,数据分析," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="序言本文章主要以黑马程序员的「 Python 从入门到精通教程 」的视频为主线，综合「 廖雪峰的 Python 教程 」输出学习笔记，目的是检验自己的学习效果和日常复习之需。 当然，本文章也可作为入门 Python 的参考资料，除了视频的基础内容外，文章会补充视频中讲解不详细或遗漏的必要知识点。文章的内容与视频内容，大体保持一致，即分模块讲解：Linux 基础、Python 基础、Python 面">
+<meta name="keywords" content="python,linux,爬虫,数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 | Python 3 入门系列教程">
+<meta property="og:url" content="http://www.kofes.cn/2018/09/life-is-short-we-need-python.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="序言本文章主要以黑马程序员的「 Python 从入门到精通教程 」的视频为主线，综合「 廖雪峰的 Python 教程 」输出学习笔记，目的是检验自己的学习效果和日常复习之需。 当然，本文章也可作为入门 Python 的参考资料，除了视频的基础内容外，文章会补充视频中讲解不详细或遗漏的必要知识点。文章的内容与视频内容，大体保持一致，即分模块讲解：Linux 基础、Python 基础、Python 面">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_4-1.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_4-2.png">
+<meta property="og:updated_time" content="2018-09-05T02:00:05.767Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记 | Python 3 入门系列教程">
+<meta name="twitter:description" content="序言本文章主要以黑马程序员的「 Python 从入门到精通教程 」的视频为主线，综合「 廖雪峰的 Python 教程 」输出学习笔记，目的是检验自己的学习效果和日常复习之需。 当然，本文章也可作为入门 Python 的参考资料，除了视频的基础内容外，文章会补充视频中讲解不详细或遗漏的必要知识点。文章的内容与视频内容，大体保持一致，即分模块讲解：Linux 基础、Python 基础、Python 面">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_4-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/09/life-is-short-we-need-python.html"/>
+
+
+
+
+
+  <title>笔记 | Python 3 入门系列教程 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/09/life-is-short-we-need-python.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记 | Python 3 入门系列教程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T16:47:14+08:00">
+                2018-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-09-05T10:00:05+08:00" content="2018-09-05">
+                2018-09-05
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programme/" itemprop="url" rel="index">
+                    <span itemprop="name">Programme</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/life-is-short-we-need-python.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/life-is-short-we-need-python.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/life-is-short-we-need-python.html" class="leancloud_visitors" data-flag-title="笔记 | Python 3 入门系列教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,509
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>本文章主要以黑马程序员的「 <a href="https://www.bilibili.com/video/av14184325" target="_blank" rel="noopener">Python 从入门到精通教程</a> 」的视频为主线，综合「 <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰的 Python 教程</a> 」输出学习笔记，目的是检验自己的学习效果和日常复习之需。</p>
+<p>当然，本文章也可作为入门 Python 的参考资料，除了视频的基础内容外，文章会补充视频中讲解不详细或遗漏的必要知识点。文章的内容与视频内容，大体保持一致，即分模块讲解：<code>Linux 基础</code>、<code>Python 基础</code>、<code>Python 面向对象</code>、<code>项目实战</code> ( 实战部分与原教学视频有出入，即本文章以爬虫、数据分析为主的项目实战 )。</p>
+<p>人生苦短，我用 Python，期待您早日加入 Python 队伍中来。</p>
+<a id="more"></a>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><p>2018.09.03：完成初稿，且完成 Linux 基础部分的内容；</p>
+<h2 id="教学资源"><a href="#教学资源" class="headerlink" title="教学资源"></a>教学资源</h2><ul>
+<li>文章 | <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰. Python 3.6 教程. liaoxuefeng.com</a></li>
+<li>视频 | <a href="https://www.bilibili.com/video/av14184325" target="_blank" rel="noopener">黑马程序员. Python 从入门到精通教程. 2017. bilibili.com</a></li>
+<li><p>视频 | <a href="https://www.bilibili.com/video/av17118368" target="_blank" rel="noopener">老男孩教育. Python 3.5 全栈开发. 2017. bilibili.com</a></p>
+<blockquote>
+<p>本框架的学习笔记是基于此系列教学视频所得的。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Linux-基础"><a href="#Linux-基础" class="headerlink" title="Linux 基础"></a>Linux 基础</h2><h3 id="Linux-常用终端命令"><a href="#Linux-常用终端命令" class="headerlink" title="Linux 常用终端命令"></a>Linux 常用终端命令</h3><blockquote>
+<p>仅列举一些项目中常用的命令。</p>
+</blockquote>
+<ul>
+<li><p>LS 命令与通配符</p>
+<ul>
+<li><code>*</code>：代表任意个数个字符。</li>
+<li><code>?</code>：代表任意一个字符。</li>
+<li><code>[]</code>：表示可匹配字符组中任意一个。</li>
+<li><code>[abc]</code>：匹配 a、b、c 中的任意一个字符。</li>
+<li><p><code>[a-f]</code>：匹配从 a 到 f 范围内的任意一个字符。</p>
+<blockquote>
+<p>常使用 <code>ls -al</code> 显示当前文件目录所有文件的详细信息。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>CD 命令与切换目录</p>
+<ul>
+<li>相对路径：最前面不是 <code>/</code> 或 <code>~</code>，表示相对 <code>当前目录</code> 所在的目录位置。</li>
+<li><p>绝对路径：最前面是 <code>/</code> 或 <code>~</code>，表示从 <code>根目录 / Home 目录</code> 开始的具体目录位置。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 相对路径：返回上两级目录</span></span><br><span class="line"><span class="built_in">cd</span> ../../ </span><br><span class="line"></span><br><span class="line"><span class="comment"># 绝对路径：相当于 cd /Users/your username/</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Tree 命令：以树状结构显示文件目录结构，若 <code>tree -d</code> 则显示目录，不显示文件。</p>
+</li>
+<li><p>查看文件内容</p>
+<ul>
+<li><code>cat 文件名</code>：查看文件内容、创建文件、文件合并、追加文件内容等功能。</li>
+<li><code>more 文件名</code>：分屏显示文件内容。</li>
+<li><code>grep 搜索文本的文件名</code>：搜索文件文件内容。<ul>
+<li>例如搜索包含单词 “hello” 的文本，即 <code>grep &quot;hello&quot; sample.txt</code>。</li>
+<li>选项参数：<code>-n</code> 显示匹配行号；<code>-v</code> 显示不包含匹配文本的所有行；<code>-i</code> 忽略大小写。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Echo 命令与重定向</p>
+<ul>
+<li><code>echo</code> 命令：在终端中显示参数指定的文字。</li>
+<li>重定向 <code>&gt;</code> 和 <code>&gt;&gt;</code>：<ul>
+<li><code>&gt;</code> 表示输出，会覆盖文件原有内容。</li>
+<li><code>&gt;&gt;</code> 表示追加，会将内容追加到已有文件的末尾。</li>
+</ul>
+</li>
+<li><p><code>echo</code> 命令常结合 <code>重定向</code> 使用：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将字符串 "Hello World" 追加到</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World"</span> &gt;&gt; sample.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>管道符 <code>|</code></p>
+<ul>
+<li>Linux 允许将一个命令的输出通过管道作为另一个命令的输入。</li>
+<li><p>ls 命令与 grep 命令的结合使用，如从 Home 目录下搜索包含 “python” 关键字的文件或者文件夹：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从 Home 目录下搜索包含 "python" 关键字的文件或者文件夹</span></span><br><span class="line">ls -al ~ | grep python</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Ifconfig 命令与 Ping 命令</p>
+<ul>
+<li><code>ifconfig</code> 命令可查看/配置计算机当前的网卡配置。</li>
+<li><p><code>ping</code> 命令一般用于检测当前计算机到目标计算机之间的网络是否畅通。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 快速查看网卡对应的 IP 地址</span></span><br><span class="line">ifconfig | grep inet</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="远程登录和复制文件"><a href="#远程登录和复制文件" class="headerlink" title="远程登录和复制文件"></a>远程登录和复制文件</h3><h4 id="远程登录"><a href="#远程登录" class="headerlink" title="远程登录"></a>远程登录</h4><ul>
+<li>远程登录即通过 <code>SSH 客户端</code> 链接运行了 <code>SSH 服务器</code> 的远程机器上。</li>
+<li>SSH 是目前较可靠，专为 <code>远程登录会话</code> 和 <code>其他网络服务</code> 提供安全性协议。<ul>
+<li>有效防止远程管理过程中的信息泄露。</li>
+<li>对所有传输的数据进行加密，也能防止 DNS 欺骗和 IP 欺骗。</li>
+</ul>
+</li>
+<li>SSH 客户端是一种使用 <code>Secure Shell</code> 协议连接到远程计算机的软件程序。</li>
+<li>SSH 客户端简单使用访问服务器：<code>ssh [-p port] user@remote</code><ul>
+<li><code>user</code> 是远程机器上的用户名。</li>
+<li><code>remote</code> 是远程机器地址，可为 IP、域名或别名。</li>
+<li><code>port</code> 是 SSH 服务器监听的端口，若不指定端口默认为 22。</li>
+</ul>
+</li>
+</ul>
+<h4 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h4><ul>
+<li><p>SCP 即 <code>Secure Copy</code>，是一个在 Linux 下用来进行 <code>远程拷贝文件</code> 的命令。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从本地复制文件到远程机器桌面上</span></span><br><span class="line">scp -P sample.py user@remote:Desktop/sample.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从远程机器桌面上复制文件夹到本地上</span></span><br><span class="line">scp -P port -r user@remote:Desktop/sample ~/Desktop/sample</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="SSH-高级用法"><a href="#SSH-高级用法" class="headerlink" title="SSH 高级用法"></a>SSH 高级用法</h4><h5 id="免密码登录"><a href="#免密码登录" class="headerlink" title="免密码登录"></a>免密码登录</h5><p>免密码登录：即客户端访问服务端时，需要密码验证身份登录。</p>
+<ul>
+<li>Step.01. 配置公钥：执行 <code>ssh-keygen</code> 即生成 SSH 密钥。</li>
+<li><p>Step.02. 上次共钥到服务器：执行 <code>ssh-copy-id -p port user@remote</code>，让远程服务器记住我们的 <code>公钥</code>。</p>
+<blockquote>
+<p>1) 有关 SSH 配置信息都保存在 <code>/Home/yousr username/.ssh</code> 目录下。<br>2) 免密登录使用的是非对称加密算法 ( RSA )，即使用公钥加密的数据，需要使用私钥解密；使用私钥加密的数据，需要使用公钥解密。若有兴趣了解 RSA 算法的原理及计算，可参考引用文章 [1]、[2]。</p>
+</blockquote>
+<p>  <img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_4-1.png" alt="图4-1免密码登录实现原理图"></p>
+  <center>图 4-1 免密码登录实现原理图</center>
+
+</li>
+</ul>
+<h5 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h5><p>配置别名：每次输入 <code>ssh -p port user@remote</code> 是非常繁琐重复的工作，配置别名的方式以替代上述这么一串命令代码。</p>
+<ul>
+<li><p>在 <code>/.ssh/config</code> 文件下追加以下内容 ( 需建立 Config 文件 )：</p>
+  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host mac</span><br><span class="line">HostName <span class="number">192.168</span>.<span class="number">10.1</span></span><br><span class="line">User user</span><br><span class="line">Port <span class="number">22</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>命令输入 <code>ssh mac</code> 即可实现远程登录操作 ( SCP 同样原理 )。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -P 22 -r ~/Desktop/Sample mac:Desktop/Sample</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="用户和权限"><a href="#用户和权限" class="headerlink" title="用户和权限"></a>用户和权限</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li>在 Linux 中，可指定每一用户针对不同的文件或者目录的不同权限。</li>
+<li>对文件 / 目录包含的权限有：</li>
+</ul>
+<center>表 4-1 文件/目录权限属性说明</center>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">权限</th>
+<th style="text-align:center">英文</th>
+<th style="text-align:center">缩写</th>
+<th style="text-align:center">数字代号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">读</td>
+<td style="text-align:center">read</td>
+<td style="text-align:center">r</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">写</td>
+<td style="text-align:center">write</td>
+<td style="text-align:center">w</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">执行</td>
+<td style="text-align:center">excute</td>
+<td style="text-align:center">x</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="组"><a href="#组" class="headerlink" title="组"></a>组</h4><ul>
+<li>为方便用户管理，提出组的概念。在实际开发中，可预先针对组设置好权限，然后将不同的用户添加到对应组中，从而不用依次为每个用户设置权限。</li>
+</ul>
+<h4 id="LL-命令"><a href="#LL-命令" class="headerlink" title="LL 命令"></a>LL 命令</h4><ul>
+<li>LL 命令即 LS 命令的扩展用法 <code>ls -al</code>。</li>
+<li>LL 命令可查看文件夹下文件的详细信息，从左往右依次是：<ul>
+<li>权限：第一个字符是 <code>d</code>，表示目录；<code>-</code> 表示文件；</li>
+<li>硬链接数：通俗理解即有多少种方式可访问到当前目录 / 文件；</li>
+<li>拥有者：当前用户；</li>
+<li>组：当前用户所属的组；</li>
+<li>文件大小，修改时间，文件 / 目录名称.</li>
+</ul>
+</li>
+</ul>
+<center>表 4-2 "ls -al" 查看文件的权限信息说明</center>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">目录</th>
+<th style="text-align:center">拥有者权限</th>
+<th style="text-align:center">组权限</th>
+<th style="text-align:center">其他用户权限</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">r w -</td>
+<td style="text-align:center">r w -</td>
+<td style="text-align:center">r - -</td>
+<td style="text-align:center">文件权限示例</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:center">r w x</td>
+<td style="text-align:center">r w x</td>
+<td style="text-align:center">r - x</td>
+<td style="text-align:center">目录权限示例</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Chmod-命令"><a href="#Chmod-命令" class="headerlink" title="Chmod 命令"></a>Chmod 命令</h4><ul>
+<li><p>Chmod 命令：可修改 <code>用户/组</code> 对 <code>文件/目录</code> 的权限。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一次性修改拥有者/组的权限</span></span><br><span class="line">chmod +/-rwx 文件名/目录名</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Sudo-命令"><a href="#Sudo-命令" class="headerlink" title="Sudo 命令"></a>Sudo 命令</h4><ul>
+<li><p>Sudo 命令：使用预设 ( root, 系统管理员 ) 的身份来执行命令。</p>
+<blockquote>
+<p>Linux 系统中，通常使用标准用户登录及使用系统，通常 <code>sudo</code> 命令临时获得权限用于系统的维护与和管理。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="系统信息相关命令"><a href="#系统信息相关命令" class="headerlink" title="系统信息相关命令"></a>系统信息相关命令</h3><ul>
+<li>查询时间和日期<ul>
+<li><code>date</code>：查看系统时间。</li>
+<li><code>cal</code>：查看当月日历，<code>cal -y</code> 查看当年的日历。</li>
+</ul>
+</li>
+<li>磁盘和目录空间<ul>
+<li>df：<code>df -h</code>，Disk Free 显示磁盘剩余空间。</li>
+<li>du：<code>du -h</code>，Disk Usage 显示目录下的文件大小。</li>
+</ul>
+</li>
+<li><p>进程信息</p>
+<ul>
+<li>ps：<code>ps aux</code>，即 Process Status，查看进程的详细状况。</li>
+<li>top：动态显示运行中的进程并排序。</li>
+<li><p>kill：<code>kill [-9] 进程代号</code>，<code>-9</code> 表示强行终止，终止指定代号的进程。</p>
+<blockquote>
+<p>使用 <code>kill</code> 命令时，最好终止当前用户开启的进程，而不是终止 <code>root</code> 身份开启的进程。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他终端命令"><a href="#其他终端命令" class="headerlink" title="其他终端命令"></a>其他终端命令</h3><h4 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h4><p>查找文件：<code>find</code> 命令功能非常强大，通常在特定目录下搜索符合条件的文件。</p>
+<ul>
+<li>若省略路径，表示在当前文件夹下查找。</li>
+<li><p><code>find</code> 命令可结合 <code>通配符</code> 一起使用。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [路径] -name <span class="string">"*.py"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h4><p>软链接：建立文件的软链接，通俗理解即 PC/MacOS 上的 <code>快捷方式</code>。</p>
+<ul>
+<li>源文件要使用绝对路径，即便于移动链接文件 (快捷方式) 仍能正常使用。</li>
+<li><p>没有 <code>-s</code> 选项是建立一个硬链接文件。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s 被链接的源文件 快捷方式的名称</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>在 Linux 中，文件名和文件的数据是分开储存的。</p>
+<p>  <img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_4-2.png" alt="图4-2软、硬链接访问文件数据"></p>
+  <center>图 4-2 软、硬链接访问文件数据</center>
+
+</li>
+</ul>
+<h4 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a>打包压缩</h4><ul>
+<li><p><code>tar</code> 是 Linux 中最常用的备份工具 ( <strong>打包并不压缩</strong> )，其命令格式如下：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选项 c：生成档案文件 (.tar)</span></span><br><span class="line"><span class="comment"># 选项 x：解开档案文件</span></span><br><span class="line"><span class="comment"># 选项 v：列出归档/解档的详细过程，显示进程</span></span><br><span class="line"><span class="comment"># 选项 f：指定档案文件名称，选项 f 后应该紧跟 .tar 文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包文件：打包放于同一目录下</span></span><br><span class="line">tar -cvf 打包文件.tar. 被打包文件路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解包文件</span></span><br><span class="line">tar - xvf 打包文件 [-C 目标路径]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>tar</code> 与 <code>gzip</code> 命令结合可实现文件 <code>打包和压缩</code>，即 <code>tar</code> 只负责打包文件， <code>gzip</code> 负责压缩文件。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件：压缩文件放于同一目录下</span></span><br><span class="line">tar - zcvf 打包文件.tar.gz 被压缩文件路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件到指定路径</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz [-C 目标路径]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://www.bilibili.com/video/av10742893?from=search&amp;seid=163310817147442185" target="_blank" rel="noopener">Eddie Woo. The RSA Encryption Algorithm. 2017. bilibili.com</a><br>[2] <a href="https://www.bilibili.com/video/av10742893/?p=1" target="_blank" rel="noopener">John cui. 轻松学习RSA加密算法原理. 2018. jianshu.com</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/09/life-is-short-we-need-python.html" title="笔记 | Python 3 入门系列教程">http://www.kofes.cn/2018/09/life-is-short-we-need-python.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/building-a-svn-server.html" rel="next" title="项目 | SVN 环境搭建与使用">
+                <i class="fa fa-chevron-left"></i> 项目 | SVN 环境搭建与使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">46</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">2.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学资源"><span class="nav-number">3.</span> <span class="nav-text">教学资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-基础"><span class="nav-number">4.</span> <span class="nav-text">Linux 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-常用终端命令"><span class="nav-number">4.1.</span> <span class="nav-text">Linux 常用终端命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">4.2.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#远程登录"><span class="nav-number">4.2.1.</span> <span class="nav-text">远程登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制文件"><span class="nav-number">4.2.2.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-高级用法"><span class="nav-number">4.2.3.</span> <span class="nav-text">SSH 高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#免密码登录"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">免密码登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置别名"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">配置别名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和权限"><span class="nav-number">4.3.</span> <span class="nav-text">用户和权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">4.3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组"><span class="nav-number">4.3.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LL-命令"><span class="nav-number">4.3.3.</span> <span class="nav-text">LL 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chmod-命令"><span class="nav-number">4.3.4.</span> <span class="nav-text">Chmod 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sudo-命令"><span class="nav-number">4.3.5.</span> <span class="nav-text">Sudo 命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统信息相关命令"><span class="nav-number">4.4.</span> <span class="nav-text">系统信息相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他终端命令"><span class="nav-number">4.5.</span> <span class="nav-text">其他终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找文件"><span class="nav-number">4.5.1.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软链接"><span class="nav-number">4.5.2.</span> <span class="nav-text">软链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包压缩"><span class="nav-number">4.5.3.</span> <span class="nav-text">打包压缩</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
