@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="贝叶斯,全概率,分布函数,数字特征," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本笔记是备战考研时，跟着张宇老师的概率论课程学习整理所得。原以为考试的资料就此搁置了，然而接触到 机器学习、统计分析 等领域后，能有机会再次重温概率论课程内容，由此才挖掘到本笔记的价值所在。当然，本笔记的主要作用是快速构建概率的基础知识体系，以便于日后的复习查阅与问题探讨，若有更进阶的需求请翻阅参考书。 概率论作为这些领域的 先修课程，理论基础尤为重要，为避免走更多弯路，我们暂且把机器学习等 应用">
+<meta name="keywords" content="贝叶斯,全概率,分布函数,数字特征">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记 | 概率论与数理统计">
+<meta property="og:url" content="http://www.kofes.cn/2018/09/probability-and-statistics.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="本笔记是备战考研时，跟着张宇老师的概率论课程学习整理所得。原以为考试的资料就此搁置了，然而接触到 机器学习、统计分析 等领域后，能有机会再次重温概率论课程内容，由此才挖掘到本笔记的价值所在。当然，本笔记的主要作用是快速构建概率的基础知识体系，以便于日后的复习查阅与问题探讨，若有更进阶的需求请翻阅参考书。 概率论作为这些领域的 先修课程，理论基础尤为重要，为避免走更多弯路，我们暂且把机器学习等 应用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-04T05:27:59.588Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记 | 概率论与数理统计">
+<meta name="twitter:description" content="本笔记是备战考研时，跟着张宇老师的概率论课程学习整理所得。原以为考试的资料就此搁置了，然而接触到 机器学习、统计分析 等领域后，能有机会再次重温概率论课程内容，由此才挖掘到本笔记的价值所在。当然，本笔记的主要作用是快速构建概率的基础知识体系，以便于日后的复习查阅与问题探讨，若有更进阶的需求请翻阅参考书。 概率论作为这些领域的 先修课程，理论基础尤为重要，为避免走更多弯路，我们暂且把机器学习等 应用">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/09/probability-and-statistics.html"/>
+
+
+
+
+
+  <title>笔记 | 概率论与数理统计 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/09/probability-and-statistics.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记 | 概率论与数理统计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T11:49:24+08:00">
+                2018-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-10-04T13:27:59+08:00" content="2018-10-04">
+                2018-10-04
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reading/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/probability-and-statistics.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/probability-and-statistics.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/probability-and-statistics.html" class="leancloud_visitors" data-flag-title="笔记 | 概率论与数理统计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,313
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本笔记是备战考研时，跟着张宇老师的概率论课程学习整理所得。原以为考试的资料就此搁置了，然而接触到 <code>机器学习</code>、<code>统计分析</code> 等领域后，能有机会再次重温概率论课程内容，由此才挖掘到本笔记的价值所在。当然，本笔记的主要作用是快速构建概率的基础知识体系，以便于日后的复习查阅与问题探讨，若有更进阶的需求请翻阅参考书。</p>
+<p>概率论作为这些领域的 <code>先修课程</code>，理论基础尤为重要，为避免走更多弯路，我们暂且把机器学习等 <code>应用领域</code> 与 <code>概率论</code> 相抽离，即单独地、有针对性、目的性地复习概率论的知识是非常有必要的。</p>
+<a id="more"></a>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.10.04：完成初稿，并更新「如何处理复杂事件」章节；</li>
+</ul>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><ul>
+<li><p>推荐盛骤老师的《概率论与数理统计·第4版》和张宇老师的《带你学概率论与数理统计·浙大4版》。</p>
+<blockquote>
+<p>数学并不是自己擅长的科目，出于这样的考虑，故选择了 <code>大学教材</code> 和 <code>考研辅导书</code>，希望借以习题辅导书复习教材内容，以短时间获得最大成效比。</p>
+</blockquote>
+<ul>
+<li>📖 | 书籍 | <a href="https://book.douban.com/subject/3165271/" target="_blank" rel="noopener">盛骤. 概率论与数理统计·第4版. 高等教育出版社</a></li>
+<li>📖 | 书籍 | <a href="https://book.douban.com/subject/26630236/" target="_blank" rel="noopener">张宇. 带你学概率论与数理统计·浙大4版. 北京理工大学出版社</a></li>
+<li>📺 | 视频 | <a href="https://www.bilibili.com/video/av14690558?from=search&amp;seid=2673720085936060940" target="_blank" rel="noopener">张宇. 2018 考研概率论强化课程. bilibili.com</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li><p>以<code>张宇老师</code> 的概率论课程为框架的，围绕 <code>五大问题</code> 展开学习与探讨：在导课部分就明确了 <code>课程体系</code> 和 <code>学习目标</code>，即学习什么、学了怎么用都在浓缩于五大问题当中。</p>
+<ul>
+<li>如何处理复杂事件 $P(A)$；</li>
+<li>如何求分布 $F(x)$、$F(x, y)$；</li>
+<li>如何求数字特征 $EX$、$DX$、$Cov(x, y)$、$\rho_{x,y}$；</li>
+<li>如何使用极限定理 ( 大样本， $n \to \infty$ );</li>
+<li>如何做估计与评价.</li>
+</ul>
+</li>
+<li><p>前 <code>四大问题</code> 主要讨论的是 <code>概率论</code> 部分的内容，<code>最后一问题</code> 则是 <code>数理统计</code> 的内容探讨。</p>
+</li>
+<li>事不宜迟，定下小目标，让自己赶紧行动起来！</li>
+</ul>
+<h2 id="壹-如何处理复杂事件"><a href="#壹-如何处理复杂事件" class="headerlink" title="壹 如何处理复杂事件"></a>壹 如何处理复杂事件</h2><h3 id="随机试验与样本空间"><a href="#随机试验与样本空间" class="headerlink" title="随机试验与样本空间"></a>随机试验与样本空间</h3><h4 id="随机试验"><a href="#随机试验" class="headerlink" title="随机试验"></a>随机试验</h4><ul>
+<li>随机试验，记作 $E$：<ul>
+<li>同条件下可重复。</li>
+<li>试验结果明确可知，且不止一个。</li>
+<li>试验前不知哪个结果会发生。</li>
+</ul>
+</li>
+</ul>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+<li><code>试验结果</code> 中每一个最简单、最基本 (不可再分的结果) 叫 <code>样本点</code> (基本事件)，记作 $\omega$。</li>
+<li>$\omega$ 的全体叫 <code>样本空间</code>，记作 $\Omega$。</li>
+<li><code>样本空间的子集</code> 叫 <code>随机事件</code>，记作 $A, B, C, …$，即英文大写字母表示。</li>
+<li>子集中：<ul>
+<li>$\Omega$ 本身为必然事件。</li>
+<li>$\emptyset$ 为不可能事件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h3><h4 id="概念梳理"><a href="#概念梳理" class="headerlink" title="概念梳理"></a>概念梳理</h4><ul>
+<li>若随机事件 $E$ 的样本空间 $\Omega$ 中满足下述两种条件，称其为古典概型：<ul>
+<li>存在 <code>有限个</code> 样本点；</li>
+<li>样本点的发生具有 <code>等可能性</code>.</li>
+</ul>
+</li>
+<li>则其概率表达式为：</li>
+</ul>
+<script type="math/tex; mode=display">
+P(A) = \frac{A中含样本点个数}{\Omega 中含样本点总数}
+\tag{1}</script><ul>
+<li><p>对于概率表达式 (1)，我们侧重关注其 <code>计数方法</code>：</p>
+<ul>
+<li><code>穷举法</code>：个数不多时，直接计数即可。</li>
+<li><p><code>集合对应法</code>：</p>
+<ul>
+<li><code>加法原理</code>：完成一件事有 $n$ 类方法，第一类方法有 $m_1$ 种方法，第二类有 $m_2$ 种方法，完成此事共 $\sum_{i = 1}^n m_i$ 种方法。</li>
+<li><code>乘法原理</code>：完成一件事有 $n$ 个步骤，第一步有 $m_1$ 种方法，第二步有 $m_2$ 种方法，第 $n$ 步有 $m_n$ 种方法，故完成此事共 $\prod_{i=1}^n m_i$ 种方法。</li>
+<li><p><code>排列</code>：从 $n$ 个不同的元素中取出 $m(\leq n)$ 个元素，并按照一定顺序排成一列，叫做排序。所有排列的个数叫排列数，记作：</p>
+<script type="math/tex; mode=display">
+A_n^m = n(n-1)···(n - m + 1) = \frac{n!}{(n - m)!}
+\tag{2}</script><p><code>全排列</code>：当 $m = n$ 时，$A_n^m = \frac{n!}{0!} = n!$ 称为全排列。</p>
+</li>
+<li><p><code>组合</code>：从 $n$ 个不同元素中取出 $m(\leq n)$ 个元素，并成一组，叫组合。所有组合个数叫组合数，记作：</p>
+<script type="math/tex; mode=display">
+C_n^m = \frac{A_n^m}{m!}
+\tag{3}</script><blockquote>
+<p>注意：按照欧美规范，对于 $A_n^m$ 或是 $C_n^m$，m 和 n 的上下位置与我们平常见的是相反的，国内的教材以相反为主。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>对立事件思想</code>：若研究对象是复杂的，则转而研究对立事件 $\overline{A}$，故有：</p>
+<script type="math/tex; mode=display">
+n - n_{\overline{A}} = n_A
+\tag{4}</script></li>
+</ul>
+</li>
+</ul>
+<h4 id="练习巩固"><a href="#练习巩固" class="headerlink" title="练习巩固"></a>练习巩固</h4><h3 id="几何概型"><a href="#几何概型" class="headerlink" title="几何概型"></a>几何概型</h3><h4 id="概念梳理-1"><a href="#概念梳理-1" class="headerlink" title="概念梳理"></a>概念梳理</h4><h4 id="练习巩固-1"><a href="#练习巩固-1" class="headerlink" title="练习巩固"></a>练习巩固</h4><h3 id="重要公式求概率"><a href="#重要公式求概率" class="headerlink" title="重要公式求概率"></a>重要公式求概率</h3><h4 id="概念梳理-2"><a href="#概念梳理-2" class="headerlink" title="概念梳理"></a>概念梳理</h4><h4 id="练习巩固-2"><a href="#练习巩固-2" class="headerlink" title="练习巩固"></a>练习巩固</h4><h2 id="贰-如何求分布"><a href="#贰-如何求分布" class="headerlink" title="贰 如何求分布"></a>贰 如何求分布</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h4><h4 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h4><h5 id="离散型随机变量"><a href="#离散型随机变量" class="headerlink" title="离散型随机变量"></a>离散型随机变量</h5><h5 id="连续型随机变量"><a href="#连续型随机变量" class="headerlink" title="连续型随机变量"></a>连续型随机变量</h5><h3 id="常见一维分布"><a href="#常见一维分布" class="headerlink" title="常见一维分布"></a>常见一维分布</h3><h4 id="两点分布"><a href="#两点分布" class="headerlink" title="两点分布"></a>两点分布</h4><h4 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h4><h4 id="几何分布"><a href="#几何分布" class="headerlink" title="几何分布"></a>几何分布</h4><h4 id="超几何分布"><a href="#超几何分布" class="headerlink" title="超几何分布"></a>超几何分布</h4><h4 id="泊松分布"><a href="#泊松分布" class="headerlink" title="泊松分布"></a>泊松分布</h4><h4 id="均匀分布"><a href="#均匀分布" class="headerlink" title="均匀分布"></a>均匀分布</h4><h4 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h4><h4 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h4><h3 id="一维随机变量及其分布函数"><a href="#一维随机变量及其分布函数" class="headerlink" title="一维随机变量及其分布函数"></a>一维随机变量及其分布函数</h3><h3 id="二维随机变量及其分布函数"><a href="#二维随机变量及其分布函数" class="headerlink" title="二维随机变量及其分布函数"></a>二维随机变量及其分布函数</h3><h2 id="叁-如何求数字特征"><a href="#叁-如何求数字特征" class="headerlink" title="叁 如何求数字特征"></a>叁 如何求数字特征</h2><h3 id="数学期望"><a href="#数学期望" class="headerlink" title="数学期望"></a>数学期望</h3><h3 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h3><h3 id="协方差"><a href="#协方差" class="headerlink" title="协方差"></a>协方差</h3><h3 id="相关系数"><a href="#相关系数" class="headerlink" title="相关系数"></a>相关系数</h3><h2 id="肆-如何使用极限定理"><a href="#肆-如何使用极限定理" class="headerlink" title="肆 如何使用极限定理"></a>肆 如何使用极限定理</h2><h3 id="依概率收敛"><a href="#依概率收敛" class="headerlink" title="依概率收敛"></a>依概率收敛</h3><h3 id="极限定理"><a href="#极限定理" class="headerlink" title="极限定理"></a>极限定理</h3><h4 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h4><h4 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h4><h2 id="伍-如何作估计"><a href="#伍-如何作估计" class="headerlink" title="伍 如何作估计"></a>伍 如何作估计</h2><h3 id="总体与样本"><a href="#总体与样本" class="headerlink" title="总体与样本"></a>总体与样本</h3><h3 id="估计方法"><a href="#估计方法" class="headerlink" title="估计方法"></a>估计方法</h3><h3 id="最大似然估计"><a href="#最大似然估计" class="headerlink" title="最大似然估计"></a>最大似然估计</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/09/probability-and-statistics.html" title="笔记 | 概率论与数理统计">http://www.kofes.cn/2018/09/probability-and-statistics.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/贝叶斯/" rel="tag"># 贝叶斯</a>
+          
+            <a href="/tags/全概率/" rel="tag"># 全概率</a>
+          
+            <a href="/tags/分布函数/" rel="tag"># 分布函数</a>
+          
+            <a href="/tags/数字特征/" rel="tag"># 数字特征</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/life-is-short-we-need-python.html" rel="next" title="笔记 | Python 3 入门系列教程">
+                <i class="fa fa-chevron-left"></i> 笔记 | Python 3 入门系列教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/data-analysis-learning-framework.html" rel="prev" title="笔记 | 数据分析学习框架">
+                笔记 | 数据分析学习框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习资料"><span class="nav-number">2.</span> <span class="nav-text">学习资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习目标"><span class="nav-number">3.</span> <span class="nav-text">学习目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-如何处理复杂事件"><span class="nav-number">4.</span> <span class="nav-text">壹 如何处理复杂事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机试验与样本空间"><span class="nav-number">4.1.</span> <span class="nav-text">随机试验与样本空间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机试验"><span class="nav-number">4.1.1.</span> <span class="nav-text">随机试验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">4.1.2.</span> <span class="nav-text">基本概念</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#古典概型"><span class="nav-number">4.2.</span> <span class="nav-text">古典概型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念梳理"><span class="nav-number">4.2.1.</span> <span class="nav-text">概念梳理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习巩固"><span class="nav-number">4.2.2.</span> <span class="nav-text">练习巩固</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几何概型"><span class="nav-number">4.3.</span> <span class="nav-text">几何概型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念梳理-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">概念梳理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习巩固-1"><span class="nav-number">4.3.2.</span> <span class="nav-text">练习巩固</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要公式求概率"><span class="nav-number">4.4.</span> <span class="nav-text">重要公式求概率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念梳理-2"><span class="nav-number">4.4.1.</span> <span class="nav-text">概念梳理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#练习巩固-2"><span class="nav-number">4.4.2.</span> <span class="nav-text">练习巩固</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-如何求分布"><span class="nav-number">5.</span> <span class="nav-text">贰 如何求分布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念-1"><span class="nav-number">5.1.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#随机变量"><span class="nav-number">5.1.1.</span> <span class="nav-text">随机变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布函数"><span class="nav-number">5.1.2.</span> <span class="nav-text">分布函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#离散型随机变量"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">离散型随机变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#连续型随机变量"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">连续型随机变量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见一维分布"><span class="nav-number">5.2.</span> <span class="nav-text">常见一维分布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两点分布"><span class="nav-number">5.2.1.</span> <span class="nav-text">两点分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二项分布"><span class="nav-number">5.2.2.</span> <span class="nav-text">二项分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几何分布"><span class="nav-number">5.2.3.</span> <span class="nav-text">几何分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超几何分布"><span class="nav-number">5.2.4.</span> <span class="nav-text">超几何分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泊松分布"><span class="nav-number">5.2.5.</span> <span class="nav-text">泊松分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#均匀分布"><span class="nav-number">5.2.6.</span> <span class="nav-text">均匀分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指数分布"><span class="nav-number">5.2.7.</span> <span class="nav-text">指数分布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正态分布"><span class="nav-number">5.2.8.</span> <span class="nav-text">正态分布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一维随机变量及其分布函数"><span class="nav-number">5.3.</span> <span class="nav-text">一维随机变量及其分布函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维随机变量及其分布函数"><span class="nav-number">5.4.</span> <span class="nav-text">二维随机变量及其分布函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-如何求数字特征"><span class="nav-number">6.</span> <span class="nav-text">叁 如何求数字特征</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数学期望"><span class="nav-number">6.1.</span> <span class="nav-text">数学期望</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方差"><span class="nav-number">6.2.</span> <span class="nav-text">方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协方差"><span class="nav-number">6.3.</span> <span class="nav-text">协方差</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关系数"><span class="nav-number">6.4.</span> <span class="nav-text">相关系数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#肆-如何使用极限定理"><span class="nav-number">7.</span> <span class="nav-text">肆 如何使用极限定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依概率收敛"><span class="nav-number">7.1.</span> <span class="nav-text">依概率收敛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极限定理"><span class="nav-number">7.2.</span> <span class="nav-text">极限定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#大数定律"><span class="nav-number">7.2.1.</span> <span class="nav-text">大数定律</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中心极限定理"><span class="nav-number">7.2.2.</span> <span class="nav-text">中心极限定理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伍-如何作估计"><span class="nav-number">8.</span> <span class="nav-text">伍 如何作估计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总体与样本"><span class="nav-number">8.1.</span> <span class="nav-text">总体与样本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估计方法"><span class="nav-number">8.2.</span> <span class="nav-text">估计方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大似然估计"><span class="nav-number">8.3.</span> <span class="nav-text">最大似然估计</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
