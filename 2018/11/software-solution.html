@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="软路由,私有云,博客搭建,智能家居,科学上网,代码托管,浏览器插件," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在输出本博文之初，意图是很纯粹的，即把平日里体验佳、少折腾、跳过坑的种种软件整理成册，以便于日后装机或朋友间安利、分享。 再者，在平日的工作、娱乐环境中，单一的软件远远不够满足我们的需求。软件虽然一定程度上解放了我们的生产力，而随着个人的需求日益增长、消费水平升级，享受的服务逐渐被分散细化，我们的工作效率提升了，但人与软件更密切的交互让我们紧密地捆绑在一起，似乎我们并没有被真正意义地 “解放” 出">
+<meta name="keywords" content="软路由,私有云,博客搭建,智能家居,科学上网,代码托管,浏览器插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极客 | Geeker 常备软件清单">
+<meta property="og:url" content="http://www.kofes.cn/2018/11/software-solution.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="在输出本博文之初，意图是很纯粹的，即把平日里体验佳、少折腾、跳过坑的种种软件整理成册，以便于日后装机或朋友间安利、分享。 再者，在平日的工作、娱乐环境中，单一的软件远远不够满足我们的需求。软件虽然一定程度上解放了我们的生产力，而随着个人的需求日益增长、消费水平升级，享受的服务逐渐被分散细化，我们的工作效率提升了，但人与软件更密切的交互让我们紧密地捆绑在一起，似乎我们并没有被真正意义地 “解放” 出">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-03T14:07:26.892Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="极客 | Geeker 常备软件清单">
+<meta name="twitter:description" content="在输出本博文之初，意图是很纯粹的，即把平日里体验佳、少折腾、跳过坑的种种软件整理成册，以便于日后装机或朋友间安利、分享。 再者，在平日的工作、娱乐环境中，单一的软件远远不够满足我们的需求。软件虽然一定程度上解放了我们的生产力，而随着个人的需求日益增长、消费水平升级，享受的服务逐渐被分散细化，我们的工作效率提升了，但人与软件更密切的交互让我们紧密地捆绑在一起，似乎我们并没有被真正意义地 “解放” 出">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/11/software-solution.html"/>
+
+
+
+
+
+  <title>极客 | Geeker 常备软件清单 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/11/software-solution.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">极客 | Geeker 常备软件清单</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T22:13:14+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-11-03T22:07:26+08:00" content="2018-11-03">
+                2018-11-03
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technique/" itemprop="url" rel="index">
+                    <span itemprop="name">Technique</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/software-solution.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/software-solution.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/software-solution.html" class="leancloud_visitors" data-flag-title="极客 | Geeker 常备软件清单">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,252
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在输出本博文之初，意图是很纯粹的，即把平日里体验佳、少折腾、跳过坑的种种软件整理成册，以便于日后装机或朋友间安利、分享。</p>
+<p>再者，在平日的工作、娱乐环境中，单一的软件远远不够满足我们的需求。软件虽然一定程度上解放了我们的生产力，而随着个人的需求日益增长、消费水平升级，享受的服务逐渐被分散细化，我们的工作效率提升了，但人与软件更密切的交互让我们紧密地捆绑在一起，似乎我们并没有被真正意义地 “解放” 出来？其次，每款软件终究是一个体，一些连贯性的交互需求，它们是很难或无法独自完成的，故我们需要更高阶的完整软件解决方案。例如，智能路由系统 ( 网络中心 + 控制中心 )、个人博客 ( 笔记 + 储存 + 分享 )、个人私有云 ( 储存 + 远程 + 共享 )、智能家居控制中心 ( 跨平台 + 控制中心 )、家庭影院中心等。即我们通过专职的服务器，运作相应的操作系统和应用程序，以提供完整的软件解决方案。</p>
+<p>最后，谈起专职的服务器便是组装一台 <code>家用服务器</code>。在服务器中，我们可通过 <code>虚拟机</code> 实现私有云、智能路由系统、Web 服务器、代码托管服务器等，把以上系统方案整合到 N in 1 的服务器中，既充分重利用了硬件资源，同时也节约了房间的物理空间。<br><a id="more"></a></p>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.10.22：完成初稿；</li>
+<li>2018.10.25：完成系统解决方案的「 个人博客解决方案 」章节内容；</li>
+<li>2018.11.02：更新「 常备软件清单 」章节内容；</li>
+<li>2018.11.03：更新「浏览器插件」章节内容；</li>
+</ul>
+<h2 id="办公利器：常备软件清单"><a href="#办公利器：常备软件清单" class="headerlink" title="办公利器：常备软件清单"></a>办公利器：常备软件清单</h2><h3 id="开篇引言"><a href="#开篇引言" class="headerlink" title="开篇引言"></a>开篇引言</h3><ul>
+<li><code>选应用的意图</code>：常备软件清单，覆盖了办公、开发、设计、写作、影音、系统等几大类别的应用，且选应用的意图都是很明确的，即办公类应用，应尽可能地提升效率以提高生产力；娱乐类应用，应更便捷地交互体验以提升幸福感；系统类应用，应融洽地接入系统以焕发 Mac 本该拥有的强大本质。</li>
+<li><code>选应用的方法</code>：再者，为什么推荐这些应用，主要考虑因素是：第一，一方面是针对优化的独占平台应用，另一方面则是个人的主战装备是 Macbook Pro，故推荐应用以 <code>MacOS</code> 先入为主，再考虑 <code>全平台通用</code> 的方案；第二，全平台兼容应用。第三，当然总有功能性应用是独占平台的，遇到此情况则提供 <code>退阶方案</code>，即寻找同类功能的优秀应用作为替代方案。</li>
+<li><code>选应用的准则</code>：其次，我们秉承 <code>免费开源</code> 的理念来寻找高质量应用，并不会一味追求免费而错过或放弃收费的应用。由于方案初制定，后期会不断补充内容，造成不便请谅解。</li>
+</ul>
+<h3 id="影音媒体"><a href="#影音媒体" class="headerlink" title="影音媒体"></a>影音媒体</h3><h4 id="IINA"><a href="#IINA" class="headerlink" title="IINA"></a>IINA</h4><ul>
+<li>应用类型：📺 | 媒体播放器</li>
+<li>是否收费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://lhc70000.github.io/iina/zh-cn/" target="_blank" rel="noopener">IINA 中文</a> | <a href="https://lhc70000.github.io/iina/" target="_blank" rel="noopener">IINA 英文</a> | <a href="https://github.com/lhc70000/iina" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费  ( GPLv3 )；</li>
+<li>在线字幕搜索和智能本地字幕匹配；</li>
+<li>满足你关于视频、音频、字幕等相关的基本功能；</li>
+<li>基于 MPV ( 神级开源解码工具 ) 的媒体播放器，支持几乎所有常用媒体播放，且稳定解码并输出高质量的影像。</li>
+</ul>
+</li>
+</ul>
+<h4 id="MPV"><a href="#MPV" class="headerlink" title="MPV"></a>MPV</h4><ul>
+<li>应用类型：📺 | 媒体播放器</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code> | <code>Android</code></li>
+<li>官方地址：<a href="https://mpv.io/" target="_blank" rel="noopener">MPV 介绍</a> | <a href="https://mpv.io/installation/" target="_blank" rel="noopener">MPV 下载</a> | <a href="https://github.com/mpv-player/mpv" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费 ( GPLv2 或更高版本 )；</li>
+<li>IINA 的退阶产品，MPV 的特性与前者相仿，但支持多平台使用。</li>
+</ul>
+</li>
+</ul>
+<h4 id="MusicLake"><a href="#MusicLake" class="headerlink" title="MusicLake"></a>MusicLake</h4><ul>
+<li>应用类型：🎵 | 音乐播放器</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code> | <code>Android</code></li>
+<li>官方地址：<a href="https://github.com/sunzongzheng/music" target="_blank" rel="noopener">Github 开源/介绍</a> | <a href="https://github.com/sunzongzheng/music/releases" target="_blank" rel="noopener">MusicLake 下载</a></li>
+<li>推荐理由：<ul>
+<li>开源免费 ( 目前免费 )；</li>
+<li>跨平台音乐播放器，可搜网易云、QQ 音乐、虾米音乐，且支持一键导入音乐平台歌单；</li>
+<li>支持云歌单同步，但需要在应用内登录；</li>
+<li>支持第三方授权登录 ( <a href="https://baike.baidu.com/item/oAuth/7153134?fr=aladdin" target="_blank" rel="noopener">OAuth</a> )，免去繁琐注册、账号隐私泄漏等问题，目前支持微博、微信、QQ、Twiter、Google 授权登录。</li>
+</ul>
+</li>
+</ul>
+<h3 id="媒体编辑"><a href="#媒体编辑" class="headerlink" title="媒体编辑"></a>媒体编辑</h3><h4 id="Permute"><a href="#Permute" class="headerlink" title="Permute"></a>Permute</h4><ul>
+<li>应用类型：📽 | 格式转换</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://software.charliemonroe.net/permute.php" target="_blank" rel="noopener">Permute 官方</a></li>
+<li>推荐理由：<ul>
+<li>主要与 <a href="#Downie">Downie</a> 配合使用，用于网络流媒体的分段视频拼接、格式转换；</li>
+<li>作为媒体编辑应用，足够应付基本的视频、音频、图片格式转换；</li>
+<li>拖拽方式操作即可实现视频拼接、音轨视频一键合成。</li>
+</ul>
+</li>
+</ul>
+<h4 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h4><ul>
+<li>应用类型：📽 | 格式转换</li>
+<li>是否付费：🆓 | 免费开源</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code></li>
+<li>官方地址：<a href="http://www.ffmpeg.org/" target="_blank" rel="noopener">FFmpeg 官方</a> | <a href="http://www.ffmpeg.org/download.html" target="_blank" rel="noopener">FFmpeg 下载</a> | <a href="http://www.ffmpeg.org/documentation.html" target="_blank" rel="noopener">FFmpeg 文档</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费  ( GPLv2 或更高版本、LGPLv2.1 或更高版本 )；</li>
+<li>Permute 的退阶产品，而退阶并不是它功能比前者弱，而是它作为 <code>音视频的完整解决方案</code>，入门成本较高；</li>
+<li>跨平台剪辑、转码、合成音频和视频；</li>
+</ul>
+</li>
+</ul>
+<h4 id="ArcTime"><a href="#ArcTime" class="headerlink" title="ArcTime"></a>ArcTime</h4><ul>
+<li>应用类型：🎞 | 媒体编辑</li>
+<li>是否付费：💵 | 增值服务内购</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code></li>
+<li>官方地址：<a href="http://www.arctime.cn/zh/index.html" target="_blank" rel="noopener">ArcTime 官方</a> | <a href="http://www.arctime.cn/zh/download.html" target="_blank" rel="noopener">ArcTime 下载</a></li>
+<li>推荐理由：<ul>
+<li>跨平台的字幕制作软件；</li>
+<li>语音识别文字，机器翻译 ( 点击了解 <a href="http://arctime.cn/zh/service.html" target="_blank" rel="noopener">增值服务</a> )；</li>
+<li>导出多种字幕格式，且支持导出面向非编软件的软字幕；</li>
+<li>无缝支持所有主流非编软件的工程文件互导入、导出。</li>
+</ul>
+</li>
+</ul>
+<h3 id="高效办公"><a href="#高效办公" class="headerlink" title="高效办公"></a>高效办公</h3><h4 id="MacDown"><a href="#MacDown" class="headerlink" title="MacDown"></a>MacDown</h4><ul>
+<li>应用类型：📝 | 文档编辑</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址： <a href="http://macdown.uranusjr.com/blog/macdown-help/" target="_blank" rel="noopener">MacDown 官方</a> | <a href="https://github.com/MacDownApp/macdown" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费；</li>
+<li>稳定且渲染速度快；</li>
+<li>纯粹的 Markdown 文本编辑器，支持本地化管理 <code>MD</code> 文档 ( 即功能类似 Windows 的 TXT 文本编辑器 )。</li>
+</ul>
+</li>
+</ul>
+<h4 id="MWeb"><a href="#MWeb" class="headerlink" title="MWeb"></a>MWeb</h4><ul>
+<li>应用类型：📝 | 文档编辑</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code> | <code>iOS</code></li>
+<li>官方地址：<a href="https://zh.mweb.im/" target="_blank" rel="noopener">MWeb 官方</a> | <a href="https://sspai.com/post/33855" target="_blank" rel="noopener">少数派评测</a></li>
+<li>推荐理由：<ul>
+<li>苹果全家桶可支持多终端云同步、云办公；</li>
+<li>支持丰富的 <code>Github Flavored Markdown (GFM)</code> 语法，另外还支持表格、TOC、LaTeX、代码块、任务列表、脚注等；</li>
+<li>内建文档分类、文档贴标签功能，即支持快速检索文章内容，也支持一体化的文档管理；</li>
+<li>丰富的 Markdown 导出配置，具体支持有：<code>jpg</code>、<code>html</code>、<code>epub</code>、<code>pdf</code>、<code>rtf</code>、<code>docx</code>；</li>
+<li>支持一键发布功能，直接发布至 <code>Wordpress</code>、<code>印象笔记</code>、<code>Blogger</code> 等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Yu-Writer"><a href="#Yu-Writer" class="headerlink" title="Yu Writer"></a>Yu Writer</h4><ul>
+<li>应用类型：📝 | 文档编辑</li>
+<li>是否付费：🆓 | 免费应用</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code> ( Coming soon )</li>
+<li>官方地址：<a href="https://ivarptr.github.io/yu-writer.site/" target="_blank" rel="noopener">Yu Writer 官网</a></li>
+<li>推荐理由：<ul>
+<li>开源免费 ( 可付费升级至 Pro 版本 )；</li>
+<li>MWeb 的退阶产品，功能几乎与 MWeb 一样，特色是多平台支持。</li>
+</ul>
+</li>
+</ul>
+<h3 id="设计工具"><a href="#设计工具" class="headerlink" title="设计工具"></a>设计工具</h3><h4 id="Adobe-Series"><a href="#Adobe-Series" class="headerlink" title="Adobe Series"></a>Adobe Series</h4><ul>
+<li>应用类型：📐 | 设计套件</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code></li>
+<li>推荐理由：Adobe 全家桶，设计师必备套件。</li>
+</ul>
+<h3 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h3><h4 id="Parallels-Desktop"><a href="#Parallels-Desktop" class="headerlink" title="Parallels Desktop"></a>Parallels Desktop</h4><ul>
+<li>应用类型：🖥 | 虚拟机软件</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://www.parallels.com/cn/" target="_blank" rel="noopener">PD 官网</a></li>
+<li><p>推荐理由：Mac 上性能首屈一指的虚拟机工具。</p>
+<blockquote>
+<p>在自己的机器上，分别用 VMware 和 PD 测试运行 Windows 10，日常使用强度 ( 编码、浏览网页、看视频等 )。相比于 VMware，PD 运行流畅且发热程度更低。当然，一两台机器的测试结果并不具有参考性，故 PD 在 MacOS 上的优势可自行体验后再决定购入使用 ( 都有试用版本体验 )。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h4><ul>
+<li>应用类型：🖥 | 虚拟机软件</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<ul>
+<li><code>MacOS</code>：支持产品 VMware  Fusion</li>
+<li><code>Window、Linux</code>：支持产品 Workstation Pro</li>
+<li><code>Window、Linux</code>：支持产品 Workstation Player</li>
+</ul>
+</li>
+<li>官方地址：<a href="https://www.vmware.com/cn/products/fusion.html" target="_blank" rel="noopener">VMware Fusion</a> | <a href="https://www.vmware.com/cn/products/workstation-pro.html" target="_blank" rel="noopener">Workstation Pro</a> | <a href="https://www.vmware.com/cn/products/workstation-player.html" target="_blank" rel="noopener">Workstation Player</a></li>
+<li>推荐理由： 跨平台虚拟化软件，即它可安装在 Windows、Linux、MacOS 的操作系统上使用。</li>
+</ul>
+<h4 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h4><ul>
+<li>应用类型：🖥 | 虚拟机软件</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code></li>
+<li>官方地址：<a href="https://www.virtualbox.org/" target="_blank" rel="noopener">VirtualBox 官网</a> | <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">VirtualBox 下载</a> | <a href="https://www.virtualbox.org/wiki/End-user_documentation" target="_blank" rel="noopener">用户手册</a> | <a href="https://www.virtualbox.org/wiki/Technical_documentation" target="_blank" rel="noopener">开源手册</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费；</li>
+<li>跨平台虚拟化软件，即它可安装在 Windows、Linux、MacOS 的操作系统上使用；</li>
+<li>可虚拟的操作系统包括 Windows、Mac OS X、Linux、OpenBSD、Solaris、IBM OS2、Android 等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="DBeaver"><a href="#DBeaver" class="headerlink" title="DBeaver"></a>DBeaver</h4><ul>
+<li>应用类型：🗄 | 数据库管理</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code></li>
+<li>官方地址：<a href="https://dbeaver.io/" target="_blank" rel="noopener">DBeaver 官网</a> | <a href="https://dbeaver.io/download/" target="_blank" rel="noopener">DBeaver 下载</a> | <a href="https://github.com/dbeaver/dbeaver/" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费 ( 可付费升级 <a href="https://dbeaver.com/" target="_blank" rel="noopener">企业版</a> )；</li>
+<li><code>通用数据库管理工具</code> 和 <code>SQL 客户端</code>，支持 MySQL, PostgreSQL, Oracle, DB2, MSSQL, Sybase, Mimer, HSQLDB, Derby 及兼容 JDBC 的数据库。</li>
+<li>它可以处理任何的 <code>外部数据源</code> ( 数据源包含数据库服务器的名称和位置、数据库驱动程序以及在登录数据库时所需的信息 )。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Sequel-Pro"><a href="#Sequel-Pro" class="headerlink" title="Sequel Pro"></a>Sequel Pro</h4><ul>
+<li>应用类型：🗄 | 数据库管理</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="http://www.sequelpro.com/" target="_blank" rel="noopener">Sequel Pro 官网</a> | <a href="https://github.com/sequelpro/sequelpro" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费；</li>
+<li>MacOS 平台独占应用，专门管理 <code>MySQL</code> 和 <code>MariaDB</code> 数据库的工具，操作界面非常友好，若仅是处理 MySQL 数据库，Sequel Pro 是你开发的最佳伴侣。</li>
+</ul>
+</li>
+</ul>
+<h4 id="FileZilla"><a href="#FileZilla" class="headerlink" title="FileZilla"></a>FileZilla</h4><ul>
+<li>应用类型：📤 | 文件传输</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code></li>
+<li>官网网址：<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla 官方</a> | <a href="https://filezilla-project.org/download.php?type=client" target="_blank" rel="noopener">FileZilla 客户端</a> | <a href="https://filezilla-project.org/download.php?type=server" target="_blank" rel="noopener">FileZilla 服务端</a> | <a href="https://filezilla-project.org/sourcecode.php" target="_blank" rel="noopener">源代码</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费 ( 可付费升级 <a href="https://filezillapro.com/" target="_blank" rel="noopener">企业版</a> )；</li>
+<li>跨平台的 <code>FTP</code> 解决方案，支持 FTP、FTPS、SFTP 等文件传输协议；</li>
+</ul>
+</li>
+</ul>
+<h4 id="CornerStone"><a href="#CornerStone" class="headerlink" title="CornerStone"></a>CornerStone</h4><ul>
+<li>应用类型：⌨️ | 代码管理</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://cornerstone.assembla.com/" target="_blank" rel="noopener">CornerStone 官网</a></li>
+<li>推荐理由：面向 Svn ( 开放源代码的版本控制系统 )，即 CornerStone 是一款拥有界面交互的 Svn 客户端。</li>
+</ul>
+<h4 id="TortoiseSVN"><a href="#TortoiseSVN" class="headerlink" title="TortoiseSVN"></a>TortoiseSVN</h4><ul>
+<li>应用类型：⌨️ | 代码管理</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>Windows</code></li>
+<li>官方地址：<a href="https://tortoisesvn.net/" target="_blank" rel="noopener">TortoiseSVN 官网</a> | <a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">TortoiseSVN  下载</a></li>
+<li>推荐理由：面向 Svn ( 开放源代码的版本控制系统 )，即 TortoiseSVN 是一款拥有界面交互的 Svn 客户端。</li>
+</ul>
+<h4 id="Git-GUI-Clients"><a href="#Git-GUI-Clients" class="headerlink" title="Git GUI Clients"></a>Git GUI Clients</h4><ul>
+<li>应用类型：⌨️ | 代码管理</li>
+<li>是否付费：🆓 | 免费使用</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>Linux</code> | <code>Android</code> | <code>iOS</code></li>
+<li>官方地址：<a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> | <a href="https://git-scm.com/downloads/guis" target="_blank" rel="noopener">Git 下载</a></li>
+<li>推荐理由：面向 Git ( 开源的分布式版本控制系统 )，即 Git GUI 是一款拥有界面交互的 Git 客户端。</li>
+</ul>
+<h3 id="网络工具"><a href="#网络工具" class="headerlink" title="网络工具"></a>网络工具</h3><h4 id="Downie"><a href="#Downie" class="headerlink" title="Downie"></a>Downie</h4><ul>
+<li>应用类型：📥 |  网络下载</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方下载：<a href="https://software.charliemonroe.net/downie.php" target="_blank" rel="noopener">Downie 官方</a> | <a href="https://sspai.com/post/40999" target="_blank" rel="noopener">少数派评测</a></li>
+<li>推荐理由：<ul>
+<li>超过 1000+ 流媒体网站的视频下载 ( YouTube、Vimeo、Bilibili、优酷、爱奇艺等 )；</li>
+<li>直接拖拽链接即可下载，但注意部分视频源以分片段形式下载，与 <a href="#Permute">Permute</a> 搭配使用即可；</li>
+<li>内置资源搜索功能。</li>
+</ul>
+</li>
+</ul>
+<h3 id="系统补全"><a href="#系统补全" class="headerlink" title="系统补全"></a>系统补全</h3><h4 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h4><ul>
+<li>应用类型：⚙️ | 系统内置 ( 包含大部分应用所需要的运行环境 )</li>
+<li>是否付费：🆓 | 免费使用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>推荐理由：<ul>
+<li>用于 MacOS 和 iOS 应用程序开发的集成开发工具 ( IDE )；</li>
+<li>既使不以开发者角度考虑，它包含了大部分应用运行所需要的依赖库 ( 运行环境 )，推荐安装。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Automator"><a href="#Automator" class="headerlink" title="Automator"></a>Automator</h4><ul>
+<li>应用类型：⚙️ | 系统内置</li>
+<li>是否付费：🆓 | 免费使用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://support.apple.com/zh-cn/guide/automator/welcome/mac" target="_blank" rel="noopener">Automator 官方</a> | <a href="https://sspai.com/post/36667" target="_blank" rel="noopener">少数派评测</a></li>
+<li>推荐理由：iOS 上大名鼎鼎的 <code>Workflow</code>、<code>捷径</code>，相信大伙不会陌生，而作为提升工作效率的神器，在 Mac 端也同样有替代的方案，它就是 <code>Automator</code> ，俗称 “扛炮”。</li>
+</ul>
+<h4 id="iStatistic"><a href="#iStatistic" class="headerlink" title="iStatistic"></a>iStatistic</h4><ul>
+<li>应用类型：🌡 | 系统监控</li>
+<li>是否付费：💵 | 付费应用</li>
+<li>支持平台：<code>MacOS</code> | <code>iOS</code></li>
+<li>推荐理由：<ul>
+<li>系统监测软件，包括性能、能耗及温度情况监测；</li>
+<li>动态化、图表化显示数据 ( 支持 Web DashBoard )，喜欢装机的朋友不妨在机箱内挂小屏幕做展示，科技感十足。</li>
+</ul>
+</li>
+</ul>
+<h4 id="加速大师"><a href="#加速大师" class="headerlink" title="加速大师"></a>加速大师</h4><ul>
+<li>应用类型：🌡 | 系统优化</li>
+<li>是否付费：🆓 | 免费使用</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：暂无 ( 只能从 <a href="https://itunes.apple.com/cn/app/%E5%8A%A0%E9%80%9F%E5%A4%A7%E5%B8%88/id1144825078?mt=12" target="_blank" rel="noopener">Mac App Store</a> 中下载，请认准小火箭的图标。但后面发现作者以另一款软件 <a href="https://itunes.apple.com/cn/app/icare-3/id1142437192" target="_blank" rel="noopener">iCare 3</a> 更新项目 )</li>
+<li>推荐理由：<ul>
+<li>轻量级系统垃圾清理工具，卸载管理工具，开机自启项管理工具；</li>
+<li>支持性能监测 ( 内存、CPU、网络 I/O ) 和内存释放的功能；</li>
+</ul>
+</li>
+</ul>
+<h4 id="Keka"><a href="#Keka" class="headerlink" title="Keka"></a>Keka</h4><ul>
+<li>应用类型：📦 | 解压缩工具</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>MacOS</code></li>
+<li>官方地址：<a href="https://www.keka.io/zh-cn/" target="_blank" rel="noopener">Keka 官网</a> | <a href="https://github.com/aonez/Keka" target="_blank" rel="noopener">Github 开源</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费 ( GPL )；</li>
+<li>MacOS 平台独占应用，支持 <code>解、压缩</code> 文件；</li>
+<li>且支持 <code>7z</code> 文件和 <code>Zip 2.0</code> 文件使用 <code>AES-256</code> 加密 ；</li>
+<li>可支持创建 7Z, ZIP, TAR, GZIP, BZIP2, XZ, LZIP, DMG, ISO 格式文件；</li>
+<li>可支持解压 7Z, RAR, TAR, GZIP, BZIP2, XZ, LZIP, DMG, ISO, LZMA, EXE, CAB, WIM, PAX, JAR, APK, APPX, CPGZ, CPIO 格式文件。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-Zip"><a href="#7-Zip" class="headerlink" title="7-Zip"></a>7-Zip</h4><ul>
+<li>应用类型：📦 | 解压缩工具</li>
+<li>是否付费：🆓 | 开源免费</li>
+<li>支持平台：<code>Windows</code> | <code>Linux</code></li>
+<li>官方地址：<a href="https://www.7-zip.org/" target="_blank" rel="noopener">7-Zip 官网</a> | <a href="https://www.7-zip.org/download.html" target="_blank" rel="noopener">7-Zip 下载</a></li>
+<li>推荐理由：<ul>
+<li>开源且完全免费 ( LGPL )；</li>
+<li>国内的解压缩工具不敢恭维，不谈性能，内嵌广告行为就是耍流氓；</li>
+<li>可支持解、压缩格式：7z, XZ, BZIP2, GZIP, TAR, ZIP, WIM</li>
+<li>仅可解压格式：ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, LZMA, MBR, MSI, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR。</li>
+</ul>
+</li>
+</ul>
+<h3 id="论文写作"><a href="#论文写作" class="headerlink" title="论文写作"></a>论文写作</h3><h4 id="Grammarly"><a href="#Grammarly" class="headerlink" title="Grammarly"></a>Grammarly</h4><ul>
+<li>应用类型：🧾 | 论文写作</li>
+<li>是否付费：💵 | 增值服务内购</li>
+<li>支持平台：<code>MacOS</code> | <code>Windows</code> | <code>MS Office</code> ( 仅 Windows ) | <code>浏览器插件</code> ( Safari、Chrome、firebox、IE )</li>
+<li>官方地址：<a href="https://www.grammarly.com/" target="_blank" rel="noopener">Grammarly 官网</a> | <a href="https://www.bilibili.com/video/av28844962" target="_blank" rel="noopener">瞎洛 ( 小姐姐 ) 评测</a></li>
+<li>推荐理由：<ul>
+<li>英文写作辅助神器；</li>
+<li>英语检查软件，可自动地单词纠错，标点符号纠错和语法纠错。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Endnote"><a href="#Endnote" class="headerlink" title="Endnote"></a>Endnote</h4><ul>
+<li>应用类型：🧾 | 文档管理</li>
+<li>是否付费：💵 | 增值服务内购</li>
+</ul>
+<h2 id="需求升级：系统解决方案"><a href="#需求升级：系统解决方案" class="headerlink" title="需求升级：系统解决方案"></a>需求升级：系统解决方案</h2><h3 id="开篇引言-1"><a href="#开篇引言-1" class="headerlink" title="开篇引言"></a>开篇引言</h3><ul>
+<li>完整软件解决方案：即我们通过 <code>专职</code> 的服务器，运作相应的 <code>操作系统</code> 和 <code>应用程序</code>，以提供完整的软件解决方案。</li>
+<li><p>下述所有 <code>解决方案</code>，原则上可在一台服务器实现的。实现原理即服务器上多开 <code>虚拟机</code>，让每台虚拟机各司其职，运作不同的系统实现不同的功能或服务。</p>
+</li>
+<li><p>这也是近些年想达成的小目标：感谢 liuspy 的文章 $^{[1]}$ 启发，才有想法去组一台 <code>家用服务器</code>，实现 <code>个人私有云 (黑群晖)</code>、<code>软路由 (OpenWrt/iKuai)</code>、<code>Web 服务器</code>、<code>代码托管服务器</code> 等。当然，在条件允许情况下，尽量把攒机过程中所做过的调研资料整理并输出文章，以便同样有折腾需求的朋友复用。</p>
+</li>
+</ul>
+<h3 id="路由系统解决方案"><a href="#路由系统解决方案" class="headerlink" title="路由系统解决方案"></a>路由系统解决方案</h3><ul>
+<li><p>需求定位：突破普通路由器诸多的瓶颈和限制，除了享受高性能的网络体验，且获得更高阶的 <code>服务体验</code> 和 <code>玩法</code>。</p>
+<blockquote>
+<p>关于服务体验和玩法，具体可参考市面上的智能路由产品，它们表现的花样已经足够多了，如 <code>科学上网</code>、<code>去广告</code>、<code>文件服务器 (FTP/SMB)</code>、<code>运行 Python 程序</code> 等，有兴致的朋友可以自行了解详情。</p>
+</blockquote>
+<ul>
+<li><p>路由系统可分为软路由和硬路由，在介绍前夕，先弄明白两者的 <code>概念</code> $^{[2, 3]}$：</p>
+<ul>
+<li><code>软路由</code>：指利用台式机或服务器配合软件 ( 虚拟机 ) 而形成的路由解决方案。简单理解，即 <code>PC + 操作系统 ( Linux / Windows )  + 专用路由程序</code> 组成的路由解决方案；</li>
+<li><code>硬路由</code>：采用特定的硬件设备，基于嵌入式系统架构，以自行开发或是现成的嵌入式操作系统配合自行开发的路由软件，提供专门的路由器功能。当然，也可理解为 <code>厂家推出的整体路由解决方案</code>，例如网件、华硕、华为、小米、TP-LINK 等生产的路由产品。</li>
+</ul>
+</li>
+<li><p>事实上，路由其实没有软、硬之分，任何路由器都由处理器、内存、路由程序存储器、网络接口模块、电源模块、输入输出部分与系统构成的。</p>
+<p>  而区分两者的概念，主要是为了更精确定位，尽量在满足自己性能需求的前提下，最大化地 <code>节约硬件成本</code> 和 <code>运作成本</code> ( 主要是耗电成本 )。</p>
+</li>
+</ul>
+</li>
+<li><p><code>涉及系统</code>：根据路由的形式，硬件架构、系统架构是不同的，故各有自适用的路由系统，选择正确的路由系统以发挥其最大效能。</p>
+<ul>
+<li>针对软路由：<a href="https://openwrt.org/start?id=zh/start" target="_blank" rel="noopener">OpenWrt (LEDE)</a>、<a href="">iKuai</a>、<a href="http://www.hi-spider.com/zh" target="_blank" rel="noopener">海蜘蛛</a>、<a href="http://firmware.koolshare.cn/LEDE_X64_fw867/" target="_blank" rel="noopener">梅林 (koolshare)</a></li>
+<li>针对硬路由：<a href="https://openwrt.org/start?id=zh/start" target="_blank" rel="noopener">OpenWrt (LEDE)</a>、<a href="http://p4davan.80x86.io/" target="_blank" rel="noopener">Padavan (荒野无灯)</a>、<a href="http://firmware.koolshare.cn/" target="_blank" rel="noopener">梅林 (支持硬件有限)</a></li>
+</ul>
+</li>
+<li><p><code>涉及硬件</code>：硬路由器的硬件架构则是专为路由器而设计的，而软路由器的硬件架构是通用的，故我们只能针对软路由器的方案制定 <code>硬件需求方案</code>，考虑本章节的主题是路由器，则硬件需求方案将留至 <code>装机篇章</code> 讲述。</p>
+</li>
+<li><p>搭建流程：</p>
+</li>
+</ul>
+<h3 id="个人博客解决方案"><a href="#个人博客解决方案" class="headerlink" title="个人博客解决方案"></a>个人博客解决方案</h3><ul>
+<li><p>需求定位：</p>
+<ul>
+<li>纯粹的图文静态博客，仅以内容即可驱动的博客载体，且不需要额外的运营成本 ( 团队运营、服务器等 )。</li>
+<li>Hexo 博客框架的免费开源性质，官方提供强大的 API，还有丰富的社区资源 ( 教程、插件、主题等 )，基本能满足你的个性化服务和需求。</li>
+<li>Hexo 支持 Markdown，上百页面秒级的渲染速度，一键即可部署至 Github。</li>
+</ul>
+</li>
+<li><p>涉及框架：<code>Hexo</code></p>
+</li>
+<li><p>涉及技术：分布式版本控制系统 <code>Git</code>。而这里，使用到的主要功能是代码托管，而托管平台我们选择 <code>Github</code> ( 当然限于国内的访问速度，你可同时部署多个平台，例如：<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>、<a href="https://gitee.com/" target="_blank" rel="noopener">Gitee</a></p>
+</li>
+<li><p>搭建流程：</p>
+<ul>
+<li>📖 | <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo. 官方使用文档. hexo.io</a> </li>
+<li>📝 | <a href="https://www.kofes.cn/2018/01/Hexo-Installation-Guide.html">Kofe. 基于 Hexo 框架在 Github 上搭建博客. kofes.cn</a></li>
+<li>📝 | <a href="http://baixin.io/2015/08/HEXO搭建个人博客/" target="_blank" rel="noopener">Panbaixin. Hexo + Github 搭建个人博客. baixin.io</a></li>
+<li>📝 | <a href="">C.J.Scarlett. How to Create a Blog with Hexo On Ubuntu. digitalocean.com</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="个人私有云解决方案"><a href="#个人私有云解决方案" class="headerlink" title="个人私有云解决方案"></a>个人私有云解决方案</h3><p>暂未定更新日期。</p>
+<h3 id="跨平台智能家居方案"><a href="#跨平台智能家居方案" class="headerlink" title="跨平台智能家居方案"></a>跨平台智能家居方案</h3><p>暂未定更新日期。</p>
+<h3 id="科学上网解决方案"><a href="#科学上网解决方案" class="headerlink" title="科学上网解决方案"></a>科学上网解决方案</h3><p>暂未定更新日期。</p>
+<h3 id="虚拟专用网络方案"><a href="#虚拟专用网络方案" class="headerlink" title="虚拟专用网络方案"></a>虚拟专用网络方案</h3><p>暂未定更新日期。</p>
+<h3 id="代码托管方案：SVN"><a href="#代码托管方案：SVN" class="headerlink" title="代码托管方案：SVN"></a>代码托管方案：SVN</h3><p>暂未定更新日期。</p>
+<h3 id="代码托管方案-：GIT"><a href="#代码托管方案-：GIT" class="headerlink" title="代码托管方案 ：GIT"></a>代码托管方案 ：GIT</h3><p>暂未定更新日期。</p>
+<h2 id="好马配好鞍：浏览器插件"><a href="#好马配好鞍：浏览器插件" class="headerlink" title="好马配好鞍：浏览器插件"></a>好马配好鞍：浏览器插件</h2><h3 id="Violentmonkey"><a href="#Violentmonkey" class="headerlink" title="Violentmonkey"></a>Violentmonkey</h3><ul>
+<li>插件性质：辅助</li>
+<li>支持平台：<code>Chrome</code> | <code>Firefox</code> | <code>Opera</code> | <code>Maxthon</code></li>
+<li>官方地址：<a href="https://violentmonkey.github.io/" target="_blank" rel="noopener">Violentmonkey 官网</a> | <a href="https://violentmonkey.github.io/get-it/" target="_blank" rel="noopener">Violentmonkey 下载</a> | <a href="https://github.com/violentmonkey/violentmonkey" target="_blank" rel="noopener">Github 开源</a></li>
+<li><p>推荐理由：开源的用户脚本管理器。</p>
+<blockquote>
+<p>用户脚本是什么：是一段代码，它们能够优化您的网页浏览体验。安装之后，有些脚本能为网站添加新的功能，有些能使网站的界面更加易用，有些则能隐藏网站上烦人的部分内容。</p>
+</blockquote>
+</li>
+<li><p>脚本库：<a href="https://greasyfork.org/zh-CN" target="_blank" rel="noopener">GreasyFork</a> | <a href="https://openuserjs.org/" target="_blank" rel="noopener">OpenUserJs</a></p>
+</li>
+<li><p>优秀脚本推荐：</p>
+<ul>
+<li><a href="https://greasyfork.org/zh-CN/scripts/369400-local-youtube-downloader" target="_blank" rel="noopener">本地 Youtube 下载器</a>：不需要透过第三方的服务就能下载 YouTube 影片。当然，Youtube 的高码率 ( 1080P、1440P、2160P ) 的媒体是音频、视频分体的，具体怎么合成可以使用 <a href="#FFmpeg">FFmpeg</a> 或 Premiere、Final Cut、iMovie 等工具。</li>
+<li><a href="https://greasyfork.org/zh-CN/scripts/18733-网盘提取工具" target="_blank" rel="noopener">网盘自动提取提取码</a>：网盘自动提取、输入提取码，省心、省力、不折腾。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Tampermonkey"><a href="#Tampermonkey" class="headerlink" title="Tampermonkey"></a>Tampermonkey</h3><ul>
+<li>插件性质：辅助</li>
+<li>支持平台：<code>Chrome</code> | <code>Firefox</code> | <code>Opera</code> | <code>Edge</code> | <code>Safari</code> | <code>Dolphin</code></li>
+<li>官方地址：<a href="https://tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey 官网</a> | <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">谷歌应用商店</a></li>
+<li>推荐理由：用户脚本管理器。</li>
+</ul>
+<h3 id="广告终结者"><a href="#广告终结者" class="headerlink" title="广告终结者"></a>广告终结者</h3><ul>
+<li>插件性质：辅助</li>
+<li>支持平台：<code>Chrome</code> | <code>360 浏览器</code> | <code>搜狗浏览器</code> | <code>UC 浏览器</code> | <code>猎豹浏览器</code> | <code>百度浏览器</code></li>
+<li>官方地址：<a href="http://www.adtchrome.com/" target="_blank" rel="noopener">官方网站</a> | <a href="https://chrome.google.com/webstore/detail/广告终结者/fpdnjdlbdmifoocedhkighhlbchbiikl?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">谷歌应用商店</a></li>
+<li>推荐理由：<ul>
+<li>可过滤网页中几乎所有的横幅、弹窗、视频广告；</li>
+<li>手动屏蔽网页广告：最喜欢的功能之一，”以氓治氓” 形容也不为过哈。</li>
+</ul>
+</li>
+</ul>
+<h3 id="谷歌学术搜索按钮"><a href="#谷歌学术搜索按钮" class="headerlink" title="谷歌学术搜索按钮"></a>谷歌学术搜索按钮</h3><ul>
+<li>插件性质：辅助</li>
+<li>支持平台：<code>Chrome</code></li>
+<li>官方地址：<a href="https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">谷歌应用商店</a></li>
+<li>推荐理由：快速检索学术论文、文献，一键下载，一键导出多种标准的引用格式；</li>
+</ul>
+<h2 id="信仰装机：家庭级服务器"><a href="#信仰装机：家庭级服务器" class="headerlink" title="信仰装机：家庭级服务器"></a>信仰装机：家庭级服务器</h2><p>暂未定更新日期。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://post.smzdm.com/p/674680/" target="_blank" rel="noopener">Liuspy. 千元 DIY 搞定 7*24 小时 N in 1 服务器. smzdm.com</a></li>
+<li>[2] <a href="http://blog.51cto.com/likespc/714064" target="_blank" rel="noopener">周晓锋. 软路由 Vs. 硬路由. 2011. 51cto.com</a></li>
+<li>[3] <a href="http://www.maixj.net/ict/ruanluyou-yingluyou-5723" target="_blank" rel="noopener">云上小悟. 软路由 Vs 硬路由. 2013. maixj.net</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/11/software-solution.html" title="极客 | Geeker 常备软件清单">http://www.kofes.cn/2018/11/software-solution.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/软路由/" rel="tag"># 软路由</a>
+          
+            <a href="/tags/私有云/" rel="tag"># 私有云</a>
+          
+            <a href="/tags/博客搭建/" rel="tag"># 博客搭建</a>
+          
+            <a href="/tags/智能家居/" rel="tag"># 智能家居</a>
+          
+            <a href="/tags/科学上网/" rel="tag"># 科学上网</a>
+          
+            <a href="/tags/代码托管/" rel="tag"># 代码托管</a>
+          
+            <a href="/tags/浏览器插件/" rel="tag"># 浏览器插件</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/data-analysis-learning-framework.html" rel="next" title="笔记 | 数据分析学习框架">
+                <i class="fa fa-chevron-left"></i> 笔记 | 数据分析学习框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhan-bin.cn" title="zhan-bin" target="_blank">zhan-bin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#办公利器：常备软件清单"><span class="nav-number">2.</span> <span class="nav-text">办公利器：常备软件清单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇引言"><span class="nav-number">2.1.</span> <span class="nav-text">开篇引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#影音媒体"><span class="nav-number">2.2.</span> <span class="nav-text">影音媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IINA"><span class="nav-number">2.2.1.</span> <span class="nav-text">IINA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPV"><span class="nav-number">2.2.2.</span> <span class="nav-text">MPV</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MusicLake"><span class="nav-number">2.2.3.</span> <span class="nav-text">MusicLake</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#媒体编辑"><span class="nav-number">2.3.</span> <span class="nav-text">媒体编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Permute"><span class="nav-number">2.3.1.</span> <span class="nav-text">Permute</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FFmpeg"><span class="nav-number">2.3.2.</span> <span class="nav-text">FFmpeg</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArcTime"><span class="nav-number">2.3.3.</span> <span class="nav-text">ArcTime</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高效办公"><span class="nav-number">2.4.</span> <span class="nav-text">高效办公</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MacDown"><span class="nav-number">2.4.1.</span> <span class="nav-text">MacDown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MWeb"><span class="nav-number">2.4.2.</span> <span class="nav-text">MWeb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Yu-Writer"><span class="nav-number">2.4.3.</span> <span class="nav-text">Yu Writer</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计工具"><span class="nav-number">2.5.</span> <span class="nav-text">设计工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Adobe-Series"><span class="nav-number">2.5.1.</span> <span class="nav-text">Adobe Series</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发工具"><span class="nav-number">2.6.</span> <span class="nav-text">开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Parallels-Desktop"><span class="nav-number">2.6.1.</span> <span class="nav-text">Parallels Desktop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VMware"><span class="nav-number">2.6.2.</span> <span class="nav-text">VMware</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VirtualBox"><span class="nav-number">2.6.3.</span> <span class="nav-text">VirtualBox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DBeaver"><span class="nav-number">2.6.4.</span> <span class="nav-text">DBeaver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sequel-Pro"><span class="nav-number">2.6.5.</span> <span class="nav-text">Sequel Pro</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FileZilla"><span class="nav-number">2.6.6.</span> <span class="nav-text">FileZilla</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CornerStone"><span class="nav-number">2.6.7.</span> <span class="nav-text">CornerStone</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TortoiseSVN"><span class="nav-number">2.6.8.</span> <span class="nav-text">TortoiseSVN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-GUI-Clients"><span class="nav-number">2.6.9.</span> <span class="nav-text">Git GUI Clients</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络工具"><span class="nav-number">2.7.</span> <span class="nav-text">网络工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Downie"><span class="nav-number">2.7.1.</span> <span class="nav-text">Downie</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统补全"><span class="nav-number">2.8.</span> <span class="nav-text">系统补全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Xcode"><span class="nav-number">2.8.1.</span> <span class="nav-text">Xcode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Automator"><span class="nav-number">2.8.2.</span> <span class="nav-text">Automator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iStatistic"><span class="nav-number">2.8.3.</span> <span class="nav-text">iStatistic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加速大师"><span class="nav-number">2.8.4.</span> <span class="nav-text">加速大师</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Keka"><span class="nav-number">2.8.5.</span> <span class="nav-text">Keka</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Zip"><span class="nav-number">2.8.6.</span> <span class="nav-text">7-Zip</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文写作"><span class="nav-number">2.9.</span> <span class="nav-text">论文写作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grammarly"><span class="nav-number">2.9.1.</span> <span class="nav-text">Grammarly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Endnote"><span class="nav-number">2.9.2.</span> <span class="nav-text">Endnote</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求升级：系统解决方案"><span class="nav-number">3.</span> <span class="nav-text">需求升级：系统解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开篇引言-1"><span class="nav-number">3.1.</span> <span class="nav-text">开篇引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由系统解决方案"><span class="nav-number">3.2.</span> <span class="nav-text">路由系统解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人博客解决方案"><span class="nav-number">3.3.</span> <span class="nav-text">个人博客解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人私有云解决方案"><span class="nav-number">3.4.</span> <span class="nav-text">个人私有云解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨平台智能家居方案"><span class="nav-number">3.5.</span> <span class="nav-text">跨平台智能家居方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#科学上网解决方案"><span class="nav-number">3.6.</span> <span class="nav-text">科学上网解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟专用网络方案"><span class="nav-number">3.7.</span> <span class="nav-text">虚拟专用网络方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码托管方案：SVN"><span class="nav-number">3.8.</span> <span class="nav-text">代码托管方案：SVN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码托管方案-：GIT"><span class="nav-number">3.9.</span> <span class="nav-text">代码托管方案 ：GIT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好马配好鞍：浏览器插件"><span class="nav-number">4.</span> <span class="nav-text">好马配好鞍：浏览器插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Violentmonkey"><span class="nav-number">4.1.</span> <span class="nav-text">Violentmonkey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tampermonkey"><span class="nav-number">4.2.</span> <span class="nav-text">Tampermonkey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广告终结者"><span class="nav-number">4.3.</span> <span class="nav-text">广告终结者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谷歌学术搜索按钮"><span class="nav-number">4.4.</span> <span class="nav-text">谷歌学术搜索按钮</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信仰装机：家庭级服务器"><span class="nav-number">5.</span> <span class="nav-text">信仰装机：家庭级服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
