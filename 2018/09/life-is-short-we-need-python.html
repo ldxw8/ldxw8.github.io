@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-1-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-2-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-10-1.png">
-<meta property="og:updated_time" content="2018-10-23T15:07:13.555Z">
+<meta property="og:updated_time" content="2018-11-05T07:41:23.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | Python 3 入门系列教程">
 <meta name="twitter:description" content="序言 本文章主要以黑马程序员的「传智播客 Python 就业班 (ij6g)」、「 Python 从入门到精通教程 」和「 廖雪峰的 Python 教程 」为主线，输出学习笔记，目的是检验自己的学习效果和日常复习之需。 本文章也可作为入门 Python 的参考资料，除了视频的基础内容外，文章还会补充视频中讲解不详细或遗漏的必要知识点。 文章的内容和知识框架，与「廖雪峰的 Python 教程」和「传">
@@ -304,8 +304,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-10-23T23:07:13+08:00" content="2018-10-23">
-                2018-10-23
+              <time itemprop="dateUpdated" datetime="2018-11-05T15:41:23+08:00" content="2018-11-05">
+                2018-11-05
               </time>
             </span>
           
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  22,170
+                  22,972
                 </span>
               
 
@@ -421,12 +421,13 @@
 <a id="more"></a>
 <h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
 <li>2018.09.03：完成初稿，且完成 Linux 基础部分的内容；</li>
-<li>2018.09.18：更新 Python 基础部分内容 ( 语言基础、函数、高级特性 )；</li>
-<li>2018.09.21：更新 Python 基础部分内容 ( 函数式编程 )；</li>
-<li>2018.10.10：更新 Python 基础部分内容 ( 模块、面向对象编程 )；</li>
-<li>2018.10.12：更新 Python 基础部分内容 ( 面向对象高级编程 )；</li>
-<li>2018.10.13：更新 Python 基础部分内容 ( 错误/调试/测试 )；</li>
-<li>2018.10.14：更新 Python 基础部分内容 ( 面向 I/O 编程 )；</li>
+<li>2018.09.18：更新 Python 基础部分内容「语言基础、函数、高级特性」；</li>
+<li>2018.09.21：更新 Python 基础部分内容「函数式编程」；</li>
+<li>2018.10.10：更新 Python 基础部分内容「模块、面向对象编程」；</li>
+<li>2018.10.12：更新 Python 基础部分内容「面向对象高级编程」；</li>
+<li>2018.10.13：更新 Python 基础部分内容「错误/调试/测试」；</li>
+<li>2018.10.14：更新 Python 基础部分内容「面向 I/O 编程」；</li>
+<li>2018.11.05：更新 Python 基础部分内容「装饰器」；</li>
 </ul>
 <h2 id="参考书目"><a href="#参考书目" class="headerlink" title="参考书目"></a>参考书目</h2><ul>
 <li><code>Python 基础</code><ul>
@@ -1298,10 +1299,32 @@
 </li>
 </ul>
 <h4 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h4><ul>
-<li><p>对于装饰器章节，除了廖雪峰老师的教程外，还可以参考程序员大咖的推文搭配学习。</p>
-<blockquote>
-<p>程序员大咖：<a href="https://mp.weixin.qq.com/s/0nZTAjeftR3Xa9T9TbQc-g" target="_blank" rel="noopener">Python 装饰器的诞生过程</a> </p>
-</blockquote>
+<li><p>提示：对于装饰器，除了廖雪峰老师的教程外 ( 侧重原理讲解 )，还可参考程序员大咖的推文 <a href="https://mp.weixin.qq.com/s/0nZTAjeftR3Xa9T9TbQc-g" target="_blank" rel="noopener">Python 装饰器的诞生过程</a> ( 侧重具体实现讲解 )。</p>
+</li>
+<li><p>引例：假设我们有 time() 函数，我们要增强 time() 函数的功能，比如在函数调用前后自动打印日志，但又不希望修改 time() 函数的定义。</p>
+<p>  这种在代码运行期间动态增加功能的方式，称之为 <code>装饰器 (Decorator)</code>。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kw)</span>:</span></span><br><span class="line">        print(<span class="string">'call %s():'</span> % func.__name__)</span><br><span class="line">        <span class="keyword">return</span> func(*args, **kw)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line">    </span><br><span class="line"><span class="meta">@log</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">time</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'2018-11-11 23:11'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>那么装饰器是如何实现的？在实现装饰器之前，我们有必要回顾函数的特性：</p>
+<ul>
+<li><code>函数作为变量传递</code>：函数作为变量来传递，代表的是一个函数对象。若函数不加括号，是不会执行的；</li>
+<li><code>函数作为参数传递</code>：一个函数可以接受另一个函数对象作为自己的参数，并对函数对象进行处理；</li>
+<li><code>函数作为返回值</code>：一个函数的返回值可以是另一个函数对象。</li>
+<li><p><code>函数嵌套及跨域访问</code>：一个函数 (主函数) 内部是可以嵌套另一个函数 (子函数) 的；</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 函数作为变量传递</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">a = add <span class="comment"># 作为变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数作为参数传递</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">excute</span><span class="params">(f)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> f(<span class="number">3</span>)</span><br><span class="line">excute(add) <span class="comment"># 作为参数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数作为返回值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_add</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> add <span class="comment"># 作为返回值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数嵌套及跨域访问</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">()</span>:</span></span><br><span class="line">    x = <span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        print(x) <span class="comment"># 被嵌套函数 inner 内部的 x 变量可以到封装域去获取</span></span><br><span class="line">    inner()</span><br><span class="line">    </span><br><span class="line">outer()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Python 中的装饰器是通过闭包实现的，即闭包就是引用了外部变量的内部函数，而闭包的实现正是利用了以上函数特性。具体实现：</p>
+<ul>
+<li><code>问题</code>：观察打印结果，从 func() 到 closure()，func 变成了closure，具体是怎么装饰的呢？</li>
+<li><p><code>解释</code>：closure 实际上是 outer(func)，func 作为参数传进 outer，outer 的子函数 inner 对 func 返回的结果进行了一番装饰，返回了一个装饰后的结果，最后 outer 返回 inner，可以说 inner 就是装饰后的 func，这就是一个函数被装饰的过程，重点在于执行 outer(func) 这个步骤，即执行 closure()。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'函数 func'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span> <span class="comment"># 函数嵌套</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'戴了 inner 帽子的'</span> + x() <span class="comment"># 跨域访问，引用了外部变量 x</span></span><br><span class="line">    <span class="keyword">return</span> inner <span class="comment"># 函数作为返回值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 函数 func 作为 outer 的参数，函数作为变量赋给 closure</span></span><br><span class="line">closure = outer(func) </span><br><span class="line"></span><br><span class="line">print( func() ) <span class="comment"># 执行原始函数</span></span><br><span class="line">print( closure() ) <span class="comment"># 执行闭包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果：</span></span><br><span class="line"><span class="comment"># 函数 func</span></span><br><span class="line"><span class="comment"># 戴了 inner 帽子的函数 func</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>装饰器语法糖 <code>@</code>：Python 给我们提供了语法糖 <code>@</code>，我们想执行 outer(func)，只需要把 outer 函数 @ 到 func 函数的上即可。具体实现：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'戴了 inner 帽子的'</span> + x()</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line"><span class="meta">@outer</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'函数 func'</span></span><br><span class="line"></span><br><span class="line">print( func() ) <span class="comment"># 输出：戴了 inner 帽子的函数 func</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h4><ul>
