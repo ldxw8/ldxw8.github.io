@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 源代码的版本控制 的重要性。为了深刻理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN。 当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。">
+<meta name="description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
 <meta name="keywords" content="svn,mac,git,版本控制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目 | SVN 环境搭建与使用">
 <meta property="og:url" content="http://www.kofes.cn/2018/08/building-a-svn-server.html">
 <meta property="og:site_name" content="Kofe">
-<meta property="og:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 源代码的版本控制 的重要性。为了深刻理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN。 当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。">
+<meta property="og:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/building-a-svn-server_3-1.png">
-<meta property="og:updated_time" content="2018-09-03T08:39:17.223Z">
+<meta property="og:updated_time" content="2018-11-05T09:39:49.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目 | SVN 环境搭建与使用">
-<meta name="twitter:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 源代码的版本控制 的重要性。为了深刻理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN。 当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。">
+<meta name="twitter:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
 <meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/building-a-svn-server_3-1.png">
 
 
@@ -300,8 +300,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-09-03T16:39:17+08:00" content="2018-09-03">
-                2018-09-03
+              <time itemprop="dateUpdated" datetime="2018-11-05T17:39:49+08:00" content="2018-11-05">
+                2018-11-05
               </time>
             </span>
           
@@ -372,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,324
+                  2,341
                 </span>
               
 
@@ -397,13 +397,13 @@
       
 
       
-        <p>最近有机会接触到公司的新项目，对于多人参与的项目，充分感受到 <code>源代码的版本控制</code> 的重要性。为了深刻理解和复用起见，本文将从 <code>搭建</code>、<code>配置</code> 和 <code>使用</code> 多方面总结 SVN。</p>
-<p>当然，版本控制的工具有很多，譬如 CVS、GIT、SVN，CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。选择哪款版本控制工具视具体情况而定。</p>
+        <p>最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 <code>源代码版本控制</code> 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 <code>搭建</code>、<code>配置</code> 和 <code>使用</code> 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。</p>
+<p>当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑到种种因素，我们不能单方面评论每种版本控制工具的优劣，故选择哪款版本控制工具视具体情况而定。</p>
 <a id="more"></a>
 <h2 id="源代码管理"><a href="#源代码管理" class="headerlink" title="源代码管理"></a>源代码管理</h2><blockquote>
 <p>介绍参考了资料 [1]。 </p>
 </blockquote>
-<h3 id="管理意义"><a href="#管理意义" class="headerlink" title="管理意义"></a>管理意义</h3><ul>
+<h3 id="管理的意义"><a href="#管理的意义" class="headerlink" title="管理的意义"></a>管理的意义</h3><ul>
 <li>目的：为了解决在软件开发过程中，由源代码引发的各种繁琐的问题。</li>
 <li>作用：<ul>
 <li>能追踪一个项目从诞生一直到定案的过程；</li>
@@ -412,15 +412,12 @@
 </li>
 <li>常见问题：<ul>
 <li><strong>代码冲突</strong>：多人操作同一个文件 ( 团队开发中的常见问题 )；</li>
-<li>无法后悔：做错了一个操作后，没有后悔药可以吃；</li>
-<li>版本备份：费空间；</li>
-<li>版本混乱：因版本备份过多造成混乱，难于找回正确的想要的版本；</li>
+<li>版本备份：费空间 ( 大数据时代，储存成本反而最 “廉价” )；</li>
 <li>权限控制：无法对源代码进行精确的权限控制；</li>
-<li>追究责任：出现了严重的 BUG，无法得知是谁干的，容易耍赖.</li>
 </ul>
 </li>
 </ul>
-<h3 id="管理工具"><a href="#管理工具" class="headerlink" title="管理工具"></a>管理工具</h3><ul>
+<h3 id="管理的工具"><a href="#管理的工具" class="headerlink" title="管理的工具"></a>管理的工具</h3><ul>
 <li>CVS：历史悠久，现在几乎没人使用。</li>
 <li>SVN：<ul>
 <li>集中式版本控制的代表；</li>
@@ -433,20 +430,20 @@
 </ul>
 </li>
 </ul>
-<h2 id="概念概述"><a href="#概念概述" class="headerlink" title="概念概述"></a>概念概述</h2><ul>
-<li>Subversion 的简称为 SVN，是一个开放源代码的版本控制系统；</li>
+<h2 id="SVN-概念概述"><a href="#SVN-概念概述" class="headerlink" title="SVN 概念概述"></a>SVN 概念概述</h2><ul>
+<li><code>Subversion</code> 的简称为 SVN，是一个开放源代码的版本控制系统；</li>
 <li>SVN 用于多个人共同开发同一个项目，目的是为了资源共享共用；</li>
 <li>SVN 服务器有 2 种 <code>运行方式</code>：独立服务器和借助 Apache。两种方式各有利弊，可自行选择。</li>
 <li>SVN <code>存储版本数据</code> 也有 2 种方式：<code>Berkeley DB</code> ( 事务安全型表类型 ) 和 <code>FSFS</code> ( 不需要数据库的存储系统 )。因为 Berkeley DB 方式在服务器中断时，有可能锁住数据，故选择 FSFS 的存储方式会更安全一点。</li>
 </ul>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="SVN-服务器"><a href="#SVN-服务器" class="headerlink" title="SVN 服务器"></a>SVN 服务器</h3><ul>
-<li><p>安装 SVN Server For Windows：<a href="https://www.visualsvn.com/server/download/" target="_blank" rel="noopener">VisualSVN Server</a> </p>
-<p>  具体安装流程就不阐述了，可参考引用文章完成配置 $^{[1,2]}$。</p>
+<h2 id="SVN-环境搭建"><a href="#SVN-环境搭建" class="headerlink" title="SVN 环境搭建"></a>SVN 环境搭建</h2><h3 id="SVN-服务器"><a href="#SVN-服务器" class="headerlink" title="SVN 服务器"></a>SVN 服务器</h3><ul>
+<li><p>安装 SVN Server For <code>Windows</code>：<a href="https://www.visualsvn.com/server/download/" target="_blank" rel="noopener">VisualSVN Server</a> </p>
+<p>  配置是通过界面操作完成的，具体安装流程就不阐述了，可参考引用文章完成配置 $^{[1,2]}$。</p>
 <blockquote>
 <p>Tips.01. 安装过程中，其中 SVN 服务器端口配置推荐使用HTTPS 的 <code>8443</code> 端口，因为 HTTPS 安全性比較高，尽管 <code>443</code> 是标准 HTTPSport。<br>Tips.02. 还有就是用于验证的身份配置：Windows 验证和 Subversion 身份验证，默认是 Subversion 身份验证。</p>
 </blockquote>
 </li>
-<li><p>安装 SVN Server For MacOS：MacOS 自带了 SVN 的服务器端和客户端功能。参考引用文章完成配置即可使用 $^{[3,4]}$。</p>
+<li><p>安装 SVN Server For <code>MacOS</code>：MacOS 自带了 SVN 的服务器端和客户端功能。参考引用文章完成配置即可使用 $^{[3,4]}$。</p>
 </li>
 </ul>
 <h3 id="SVN-客户端"><a href="#SVN-客户端" class="headerlink" title="SVN 客户端"></a>SVN 客户端</h3><ul>
@@ -457,14 +454,14 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="SVN-配置与使用"><a href="#SVN-配置与使用" class="headerlink" title="SVN 配置与使用"></a>SVN 配置与使用</h3><p>Windows 端配置和使用 SVN 可通过图形界面工具即可完成操作，详细的步骤在引用文章 [1]、[2] 中也有提及。<br>故在本章节主要讲述 Mac 环境下搭建和配置 SVN。</p>
-<h4 id="创建代码仓库"><a href="#创建代码仓库" class="headerlink" title="创建代码仓库"></a>创建代码仓库</h4><ul>
+<h3 id="SVN-配置与使用"><a href="#SVN-配置与使用" class="headerlink" title="SVN 配置与使用"></a>SVN 配置与使用</h3><p>Windows 端配置和使用 SVN，可通过图形界面工具即可完成操作，详细的步骤在引用文章 [1]、[2] 中也有提及。故在本章节主要讲述 <code>Mac</code> 环境下搭建和配置 SVN。</p>
+<h4 id="SVN-服务端配置"><a href="#SVN-服务端配置" class="headerlink" title="SVN 服务端配置"></a>SVN 服务端配置</h4><h5 id="创建代码仓库"><a href="#创建代码仓库" class="headerlink" title="创建代码仓库"></a>创建代码仓库</h5><ul>
 <li>Step.01. 新建一个 <code>svn</code> 目录，例如 <code>/Users/kofe/svn</code>，以后可在 <code>svn</code> 目录下创建多个仓库目录。</li>
 <li><p>Step.02. 打开终端，创建一个名为 <code>idea</code> 仓库，输入指令：</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指令执行成功后，会发现硬盘上多了个 /Users/kofe/svn/idea 目录</span></span><br><span class="line">svnadmin create /Users/kofe/svn/idea</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="配置用户权限"><a href="#配置用户权限" class="headerlink" title="配置用户权限"></a>配置用户权限</h4><p>主要是修改 <code>/svn/idea/conf</code> 目录下的三个文件：<code>svnserve.conf</code>、<code>Passwd</code> 文件和 <code>Authz</code> 文件。</p>
+<h5 id="配置用户权限"><a href="#配置用户权限" class="headerlink" title="配置用户权限"></a>配置用户权限</h5><p>主要是修改 <code>/svn/idea/conf</code> 目录下的三个文件：<code>svnserve.conf</code>、<code>Passwd</code> 文件和 <code>Authz</code> 文件。</p>
 <ul>
 <li><p>svnserve.conf</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># anon-access = read 代表匿名访问的时候是只读的</span></span><br><span class="line"><span class="comment"># anon-access = none 代表禁止匿名访问，需要帐号密码才能访问</span></span><br><span class="line">anon-access = <span class="built_in">read</span></span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br><span class="line">authz-bd = authz</span><br></pre></td></tr></table></figure>
@@ -476,7 +473,7 @@
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[groups] </span><br><span class="line">usergroup = kofe, lucy <span class="comment"># 格式：组名 = 用户1, 用户2, ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 [/] 代表 SVN 服务器中的所有资源库</span></span><br><span class="line"><span class="comment"># 某个组有读写权限</span></span><br><span class="line">[/]</span><br><span class="line">@usergroup = rw</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 [/] 代表 SVN 服务器中的所有资源库</span></span><br><span class="line"><span class="comment"># 某个用户有读写权限</span></span><br><span class="line"><span class="comment"># lucy = rw</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="启动关闭服务"><a href="#启动关闭服务" class="headerlink" title="启动关闭服务"></a>启动关闭服务</h4><ul>
+<h5 id="启动关闭服务"><a href="#启动关闭服务" class="headerlink" title="启动关闭服务"></a>启动关闭服务</h5><ul>
 <li><p>在终端输入下列指令：若没有任何提示，恭喜你启动成功。</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r /Users/kofe/svn</span><br><span class="line"><span class="comment"># 或输入: svnserve -d -r /User/kofe/svn/idea</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -484,7 +481,7 @@
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Current Process List:"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = ="</span></span><br><span class="line">ps -A | grep svn</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = ="</span></span><br><span class="line"><span class="built_in">kill</span> `pgrep <span class="string">"svn"</span>`</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Kill successfully!"</span> Current Process Status:</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = = = = = = = = = = = = ="</span></span><br><span class="line">ps -A | grep svn</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = = = = = = = = = = = = ="</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h4 id="代码版本控制"><a href="#代码版本控制" class="headerlink" title="代码版本控制"></a>代码版本控制</h4><blockquote>
+<h4 id="SVN-客户端操作"><a href="#SVN-客户端操作" class="headerlink" title="SVN 客户端操作"></a>SVN 客户端操作</h4><h5 id="代码版本控制"><a href="#代码版本控制" class="headerlink" title="代码版本控制"></a>代码版本控制</h5><blockquote>
 <p>当然，充分利用 SVN 图形界面工具 ( <a href="https://cornerstone.assembla.com/" target="_blank" rel="noopener">Cornerstone</a> ) 来管理源代码，可大大减小使用命令行的痛苦，提升使用效率。</p>
 </blockquote>
 <ul>
@@ -509,12 +506,11 @@
 <p><img src="/images/illustration/Project/2018/08/building-a-svn-server_3-1.png" alt="图3-1SVN 基本操作原理"></p>
 <center>图 3-1 SVN 基本操作原理</center>
 
-
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="代码版本冲突"><a href="#代码版本冲突" class="headerlink" title="代码版本冲突"></a>代码版本冲突</h4><ul>
+<h5 id="代码版本冲突"><a href="#代码版本冲突" class="headerlink" title="代码版本冲突"></a>代码版本冲突</h5><ul>
 <li><p>版本冲突原因：</p>
 <p>  假设 A、B 两用户都在版本号为 100 时更新了 <code>sample.txt</code> 文件，A 用户在修改完成之后提交 sample.txt 到服务器，这个时候提交成功，这个时候 sample.txt 文件的版本号已经变成 101 了。同时 B 用户在版本号为 100 的 sample.txt 文件上作修改，修改完成之后提交到服务器时，由于不是在当前最新的 101 版本上作的修改，所以导致提交失败。</p>
 </li>
@@ -790,7 +786,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码管理"><span class="nav-number">1.</span> <span class="nav-text">源代码管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管理意义"><span class="nav-number">1.1.</span> <span class="nav-text">管理意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理工具"><span class="nav-number">1.2.</span> <span class="nav-text">管理工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念概述"><span class="nav-number">2.</span> <span class="nav-text">概念概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境搭建"><span class="nav-number">3.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-服务器"><span class="nav-number">3.1.</span> <span class="nav-text">SVN 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-客户端"><span class="nav-number">3.2.</span> <span class="nav-text">SVN 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-配置与使用"><span class="nav-number">3.3.</span> <span class="nav-text">SVN 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建代码仓库"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建代码仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置用户权限"><span class="nav-number">3.3.2.</span> <span class="nav-text">配置用户权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动关闭服务"><span class="nav-number">3.3.3.</span> <span class="nav-text">启动关闭服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码版本控制"><span class="nav-number">3.3.4.</span> <span class="nav-text">代码版本控制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码版本冲突"><span class="nav-number">3.3.5.</span> <span class="nav-text">代码版本冲突</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码管理"><span class="nav-number">1.</span> <span class="nav-text">源代码管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管理的意义"><span class="nav-number">1.1.</span> <span class="nav-text">管理的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理的工具"><span class="nav-number">1.2.</span> <span class="nav-text">管理的工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN-概念概述"><span class="nav-number">2.</span> <span class="nav-text">SVN 概念概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN-环境搭建"><span class="nav-number">3.</span> <span class="nav-text">SVN 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-服务器"><span class="nav-number">3.1.</span> <span class="nav-text">SVN 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-客户端"><span class="nav-number">3.2.</span> <span class="nav-text">SVN 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-配置与使用"><span class="nav-number">3.3.</span> <span class="nav-text">SVN 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-服务端配置"><span class="nav-number">3.3.1.</span> <span class="nav-text">SVN 服务端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建代码仓库"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">创建代码仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置用户权限"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">配置用户权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动关闭服务"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">启动关闭服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-客户端操作"><span class="nav-number">3.3.2.</span> <span class="nav-text">SVN 客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#代码版本控制"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">代码版本控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码版本冲突"><span class="nav-number">3.3.2.2.</span> <span class="nav-text">代码版本冲突</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
