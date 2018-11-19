@@ -84,16 +84,16 @@
 <meta name="description" content="原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.来源：Proceedings of the National Acad">
 <meta name="keywords" content="数据挖掘,聚类,降维,免疫表型,机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文 | 通过非线性随机邻近嵌入自动分类细胞表达">
+<meta property="og:title" content="论文 | 通过降维方法自动分类细胞表达">
 <meta property="og:url" content="http://www.kofes.cn/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html">
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.来源：Proceedings of the National Acad">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding_1-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding_1-2.png">
-<meta property="og:updated_time" content="2018-09-03T08:41:14.631Z">
+<meta property="og:updated_time" content="2018-11-13T14:50:17.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="论文 | 通过非线性随机邻近嵌入自动分类细胞表达">
+<meta name="twitter:title" content="论文 | 通过降维方法自动分类细胞表达">
 <meta name="twitter:description" content="原文：Automatic classification of cellular expression by nonlinear stochastic embedding (ACCENSE)作者：Karthik Shekhar, Petter Brodin, Mark M.Davis and Arup K.Chakraborty.来源：Proceedings of the National Acad">
 <meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Paper/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding_1-1.jpg">
 
@@ -131,7 +131,7 @@
 
 
 
-  <title>论文 | 通过非线性随机邻近嵌入自动分类细胞表达 | Kofe</title>
+  <title>论文 | 通过降维方法自动分类细胞表达 | Kofe</title>
   
 
 
@@ -275,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">论文 | 通过非线性随机邻近嵌入自动分类细胞表达</h1>
+          <h1 class="post-title" itemprop="name headline">论文 | 通过降维方法自动分类细胞表达</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-09-03T16:41:14+08:00" content="2018-09-03">
-                2018-09-03
+              <time itemprop="dateUpdated" datetime="2018-11-13T22:50:17+08:00" content="2018-11-13">
+                2018-11-13
               </time>
             </span>
           
@@ -348,7 +348,7 @@
 
           
           
-             <span id="/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html" class="leancloud_visitors" data-flag-title="论文 | 通过非线性随机邻近嵌入自动分类细胞表达">
+             <span id="/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html" class="leancloud_visitors" data-flag-title="论文 | 通过降维方法自动分类细胞表达">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -496,21 +496,22 @@ p_{j|i} = \frac{
 \tag{3}</script><p>对于概率 $p_{j|i}$ 的几点说明：</p>
 <ul>
 <li>$d_{i,j}$ 可以使用其他距离范式替代欧式距离范式；</li>
-<li><p>原始的 SNE 算法是不对称的，为简化梯度公式，t-SNE 中让公式 (3) 的条件概率是对称的。即初始化 $p_{i|i} = 0$，对于任意的 $p_{i|j} = p_{j|i}$，可得：    </p>
+<li>原始的 SNE 算法是不对称的，为简化梯度公式，t-SNE 中让公式 (3) 的条件概率是对称的。即初始化 $p_{i|i} = 0$，对于任意的 $p_{i|j} = p_{j|i}$，可得：</li>
+</ul>
 <script type="math/tex; mode=display">
 p_{i,j} = \frac{
-  p_{j|i} + p_{i|j} 
+    p_{j|i} + p_{i|j} 
 }{2M} = \frac{
-  exp({-d_{i,j}^2} / {
-  2\sigma_i^2})
+    exp({-d_{i,j}^2} / {
+    2\sigma_i^2})
 }{ 
-  \sum_{k \neq i} exp({-d_{i,k}^2} / {
-  2\sigma_i^2})
+    \sum_{k \neq i} exp({-d_{i,k}^2} / {
+    2\sigma_i^2})
 }
-\tag{4}</script></li>
-<li><p>不同的点 $x_i$，带宽 $\sigma_i$ 的取值也是不同的。</p>
+\tag{4}</script><ul>
+<li><p>不同的点 $x_i$，方差 $\sigma_i$ 的取值也是不同的。</p>
 <ul>
-<li>公式 (3) 中的带宽 $\sigma_i$ 是确保对于每一个细胞都有相同的复杂度 (Complexity)。复杂度可理解为一个点附近的 <code>有效近邻点个数</code>。</li>
+<li>公式 (3) 中的方差 $\sigma_i$ 是确保对于每一个细胞都有相同的复杂度 (Complexity)。复杂度可理解为一个点附近的 <code>有效近邻点个数</code>。</li>
 <li>定义复杂度为 $P_i = 2^{H_{j|i}}$，其近似地解释为细胞 i 的最近邻点的数量。</li>
 <li><p>定义 $p_{j|i}$ 的香农熵 (信息熵) 为 $H_{j|i} = - \sum_j p_{j|i} \log_2 p_{j|i}$，且 $H_{j|i}$ 随着 $\sigma_i$ 的增加而增加。</p>
 <blockquote>
@@ -593,7 +594,7 @@ q_{i,j} = \frac{
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.kofes.cn/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html" title="论文 | 通过非线性随机邻近嵌入自动分类细胞表达">http://www.kofes.cn/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html</a>
+    <a href="http://www.kofes.cn/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html" title="论文 | 通过降维方法自动分类细胞表达">http://www.kofes.cn/2018/06/Automatic-classification-of-cellular-expression-by-nonlinear-stochastic-embedding.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
