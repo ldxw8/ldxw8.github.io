@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="作者：Siraj Raval课堂：The Best Way to Prepare a Dataset Easily | Bilibili | Youtube源码：llSourcell.Prepare dataset challenge | Github   本课堂的核心是讲述数据分析前夕的数据预处理过程，包括准备数据阶段和处理数据阶段。再具体以实例：通过大脑扫描公共数据集来建模、分析，预测某人是否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-20T01:43:52.051Z">
+<meta property="og:updated_time" content="2018-11-20T01:56:15.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="课堂 | 如何轻松有效地预处理数据">
 <meta name="twitter:description" content="作者：Siraj Raval课堂：The Best Way to Prepare a Dataset Easily | Bilibili | Youtube源码：llSourcell.Prepare dataset challenge | Github   本课堂的核心是讲述数据分析前夕的数据预处理过程，包括准备数据阶段和处理数据阶段。再具体以实例：通过大脑扫描公共数据集来建模、分析，预测某人是否">
@@ -298,7 +298,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-11-20T09:43:52+08:00" content="2018-11-20">
+              <time itemprop="dateUpdated" datetime="2018-11-20T09:56:15+08:00" content="2018-11-20">
                 2018-11-20
               </time>
             </span>
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,629
+                  3,637
                 </span>
               
 
@@ -565,10 +565,10 @@
 <li><code>归一化</code>：针对每一个特征 ( 维度 )，去均值和方差归一化。即把属性数据按比例缩放，让所有特征在统一数量级上运作，如此一来数据指标之间就有了可比性。</li>
 <li><code>离散化</code>：把值用区间标签或者概念标签替换，即这些标签可递归地组织成更高层概念，导致数值属性的 <code>概念分层</code>。<ul>
 <li><code>数值属性</code>：在实际操作中，即把连续型特征的值离散化，使之成为少量的区间，每个区间映射到一个离散符号。这种技术的好处在于简化了数据描述，并易于理解数据和最终的挖掘结果。</li>
-<li><code>标称 ( 分类 ) 属性</code>：标称属性具有有穷多个不同值，且值之间无序。例如地位位置、年龄层次等。对于标称属性，我们需要人工定义概念分层。</li>
+<li><code>标称 (分类) 属性</code>：标称属性具有有穷多个不同值，且值之间无序。例如地位位置、年龄层次等。对于标称属性，我们需要人工定义概念分层。</li>
 </ul>
 </li>
-<li><p><code>向量化</code>：假设我们已完成 <code>数据处理</code> 的阶段，得到可供使用的数据集。那么紧接着的步骤，即把实例数据转换成 <code>特征向量</code> ( 向量是特征的数值表示形式 )，所有实例的特征向量组成 <code>特征矩阵</code>。然后，在 <code>Python</code> 中通过 <code>Numpy</code> 和 <code>Pandas</code> 包装，成为特征矩阵的存储和运算的媒介。</p>
+<li><p><code>向量化</code>：假设我们已完成 <code>数据处理</code> 的阶段，得到可供使用的数据集。那么紧接着的步骤，即把实例数据转换成 <code>特征向量</code> ( 向量是特征的数值表示形式 )，所有实例的特征向量组成 <code>特征矩阵</code>。然后，在 <code>Python</code> 中通过 <code>Numpy</code> 和 <code>Pandas</code> 包装，即实际上让 <code>narray</code> 数组成为特征矩阵的存储和运算的媒介。</p>
 <p>  当完成以上流程后，数据预处理阶段即可告一段落，紧接着便可开始开始训练模型了。</p>
 <blockquote>
 <p>由于篇幅的缘故，数据预处理的讨论暂到此为止。当然，数据预处理的内容不仅如此，更详细的理论细节可参详 Jiewei Han 的《数据挖掘：概念与技术》$^{[1]}$。 而数据预处理在 Python 中如何实现，则参考 Keras 之父弗朗索瓦·肖莱的 《Python深度学习》$^{[2]}$。</p>
