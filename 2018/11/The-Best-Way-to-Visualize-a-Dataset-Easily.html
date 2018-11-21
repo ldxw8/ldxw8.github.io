@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据挖掘,Kaggle,数据可视化,t-SNE," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="作者：Siraj Raval课堂：The Best Way to Visualize a Dataset Easily | Bilibili | Youtube源码：llSourcell.Visualize_dataset_demo | Github    目标：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探">
+<meta name="keywords" content="数据挖掘,Kaggle,数据可视化,t-SNE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 t-SNE 降维并可视化数据">
+<meta property="og:url" content="http://www.kofes.cn/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="作者：Siraj Raval课堂：The Best Way to Visualize a Dataset Easily | Bilibili | Youtube源码：llSourcell.Visualize_dataset_demo | Github    目标：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-1.jpg">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-2.jpg">
+<meta property="og:updated_time" content="2018-11-21T11:00:19.614Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用 t-SNE 降维并可视化数据">
+<meta name="twitter:description" content="作者：Siraj Raval课堂：The Best Way to Visualize a Dataset Easily | Bilibili | Youtube源码：llSourcell.Visualize_dataset_demo | Github    目标：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html"/>
+
+
+
+
+
+  <title>利用 t-SNE 降维并可视化数据 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">利用 t-SNE 降维并可视化数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-21T15:43:57+08:00">
+                2018-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2018-11-21T19:00:19+08:00" content="2018-11-21">
+                2018-11-21
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html" class="leancloud_visitors" data-flag-title="利用 t-SNE 降维并可视化数据">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,789
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="note default"><p>作者：Siraj Raval<br>课堂：The Best Way to Visualize a Dataset Easily | <a href="https://www.bilibili.com/video/av35768109" target="_blank" rel="noopener">Bilibili</a> | <a href="https://www.youtube.com/watch?v=yQsOFWqpjkE" target="_blank" rel="noopener">Youtube</a><br>源码：llSourcell.Visualize_dataset_demo | <a href="https://github.com/llSourcell/visualize_dataset_demo" target="_blank" rel="noopener">Github</a>  </p></div>
+<ul>
+<li><p><code>目标</code>：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探索性分析以发现知识。而本课堂具体目标则是人类活动状态识别，活动状态包括：Sitting-down，Standing-up，Standing，Walking，Sitting。</p>
+<p>  具体地，通过降维方法 <code>t-SNE</code> 实现不同活动状态的数据自动 “分类” ( 更准确地说应该是聚类 )，从而在低维度 ( 二维 ) 下复现数据 ( 的特征 )，以便我们理解数据、统计分析数据。</p>
+</li>
+<li><p><code>问题</code>：若我们要将要描述如此复杂的数据，即它们拥有的特征 ( 维度 ) 过多了，相对于人类大脑只能理解二维或三维的层面，如此复杂数据我们是难以从中发现知识的。</p>
+</li>
+<li><p><code>解决</code>：通过可视化数据来描述它们的特征，具体措施是使用机器学习中的降维方法 <code>T-SNE</code> ( Distributed Stochastic Neighbor Embedding )，把高维空间中的数据以二维或三维的形式表示。</p>
+</li>
+<li><p>HAR 数据集的数据来源：参与者绑上健身追踪设备，当它们运动起来时，追踪设备会记录这些身体指标数据。</p>
+<blockquote>
+<p>关于HAR 数据集更详细的描述请参考：<a href="http://groupware.les.inf.puc-rio.br/har#ixzz4Mt0Teae2" target="_blank" rel="noopener">HAR Set 介绍</a> | <a href="https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv" target="_blank" rel="noopener">HAR Set 下载</a></p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="观察数据"><a href="#观察数据" class="headerlink" title="观察数据"></a>观察数据</h2><ul>
+<li>每一行数据代表不同的人。</li>
+<li>每一列代表某人的身体指标测量数据，如手臂或者前臂的空间位置 ( x，y，z 坐标 )。</li>
+<li>在人类活动识别数据集中，每一行 ( 实体 ) 都有类标签标记。且共有 5 种标签：Sitting-down，Standing-up，Standing，Walking，Sitting。</li>
+</ul>
+<h2 id="预处理数据"><a href="#预处理数据" class="headerlink" title="预处理数据"></a>预处理数据</h2><blockquote>
+<p>关于 <code>预处理数据</code> 的详细解释，可参考另外一篇文章：<a href="https://www.kofes.cn/2018/11/the-best-way-to-prepare-a-dataset-easily.html">Kofe. 如何轻松有效地预处理数据</a></p>
+</blockquote>
+<ul>
+<li><code>数据清洗</code>：缺失值处理、光滑噪声数据、识别和删除离群点。</li>
+<li><code>数据集成</code>：多个数据源的数据合并，存放于同一个数据仓库中。<ul>
+<li><code>实体识别问题</code>：来自多个信息源，各数据源中的实体之间如何匹配，这涉及实体识别问题。如不同数据来源于不同数据库中，现实意义上它们是同一实体，但它们属性的元数据表达却不同 ( 如主键 )。</li>
+<li><code>冗余和相关分析</code>：集成多个数据源，数据中可能有多组属性重复存在。而冗余可被相关分析检测到，如分类 ( 标称 ) 属性的卡方检验、数值属性的相关系数、数值属性的方差和协方差。</li>
+<li><code>元组重复</code>：元组级检测重复。</li>
+</ul>
+</li>
+<li><p><code>数据归约</code>：在尽可能保持数据原貌前提下，最大限度精简数据量。策略包括：</p>
+<ul>
+<li><code>维归约</code>：也称为特征归约，减少所考虑的属性的个数。方法包括：小波变换、主成分分析、属性子集选择等。当然利用冗余和相关分析也是可行的。</li>
+<li><p><code>数量归约</code>：用替代的、较小的数据表示形式替换原数据。方法包括：回归和对数线性模型、聚类、降维等。</p>
+<blockquote>
+<p>在本课堂中则使用了降维方法进行属性数量的归约，其中降维方法有：PCA、t-SNE $^{[4]}$、LargeVis $^{[5, 6]}$ 等。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>数据变换</code>：主要思想是将数据变换或统一成适合数据挖掘的形式。方法可以是数据归一化、数据离散化、概念分层等。</p>
+<ul>
+<li><code>特征构造</code>：由给定的属性构造新的属性并添加至属性集中。</li>
+<li><code>聚集分解</code>：对数据进行 <code>汇总</code> 或者 <code>聚集</code>。如聚集季度销售数据。与之相对的是 <code>分解</code>，如常见的 “日期” 属性，不同的需求，我们要解构的粒度是不同的。如预测当日的气温变化，则我们可把年和月份剔除。</li>
+<li><code>归一化</code>：针对每一个特征 ( 维度 )，去均值和方差归一化。即把属性数据按比例缩放，让所有特征在统一数量级上运作，如此一来数据指标之间就有了可比性。</li>
+<li><p><code>离散化</code>：数值属性的原始值用区间标签或者概念标签替换，即这些标签可递归地组织成更高层概念，导致数值属性的 <code>概念分层</code>。</p>
+<blockquote>
+<p>例如，我们    对年龄进行分层：1 to 17 为 Adolescent；18 to 45 为 Adult；46 以上为 Senior。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><h3 id="降维方法"><a href="#降维方法" class="headerlink" title="降维方法"></a>降维方法</h3><h4 id="降维目的"><a href="#降维目的" class="headerlink" title="降维目的"></a>降维目的</h4><ul>
+<li>通过降维算法来寻找 <code>数据内部的本质结构特征</code>，如特征选择或特征提取。<ul>
+<li><code>特征选择</code>：假定数据中包含大量冗余或无关变量 ( 或称特征、属性、指标等 )，旨在从原有变量中找出主要变量。其代表方法为 <a href="https://zh.wikipedia.org/wiki/Lasso%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">LASSO</a>。</li>
+<li><code>特征提取</code>：是将高维数据转化为低维数据的过程。在此过程中可能舍弃原有数据、创造新的变量。其代表方法为 <a href="https://zh.wikipedia.org/wiki/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90" target="_blank" rel="noopener">PCA</a>。</li>
+</ul>
+</li>
+<li>在原始的高维空间中，包含有冗余信息、噪音信息。通过降维方法，<code>减少冗余信息</code> 所造成的误差，以提高模型的精度。</li>
+</ul>
+<h4 id="降维本质"><a href="#降维本质" class="headerlink" title="降维本质"></a>降维本质</h4><ul>
+<li>机器学习领域中，降维指采用某种映射方法将原高维空间中的数据点映射到低维度的空间中。</li>
+<li>降维的本质是学习一个映射函数 $ f : x \to y$，其中 $x$ 是原始数据点的表达，$y$ 是数据点映射后的低维向量表达 ( 通常 $y$ 的维度小于 $x$ 的维度 )。$f$ 可能是显式的或隐式的、线性的或非线性的映射函数 ( 例如本例提及的 PCA 或者 t-SNE )。</li>
+<li>当我们意识到需要降维时，一般是发现了特征间的高度线性相关，而 t-SNE 主打的是非线性降维；若我们发现了线性相关，则适合使用 PCA 处理 $^{[1]}$。</li>
+</ul>
+<h4 id="降维算法"><a href="#降维算法" class="headerlink" title="降维算法"></a>降维算法</h4><h5 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h5><ul>
+<li><code>PCA</code>：主成分分析算法 ( Principal Component Analysis，PCA )，是最常用的 <code>线性降维方法</code>。它通过某种线性投影，将高维的数据映射到低维的空间中表示。为使所有样本的投影点尽可能分开，则需要在所投影的维度上数据的方差最大化。以此，使用较少的数据维度，同时保留住较多的原数据点的特性。</li>
+</ul>
+<h5 id="SNE"><a href="#SNE" class="headerlink" title="SNE"></a>SNE</h5><ul>
+<li><p><code>t-SNE</code> 可理解为 <code>SNE</code> 的特殊形式，我们先了解 SNE 的基本原理，再延伸学习 t-SNE ( 本小节可参考多篇博文比对学习，如参考资料中的 [2] - [3] )。</p>
+</li>
+<li><p>SNE 是通过 <a href="https://www.zhihu.com/question/20666664" target="_blank" rel="noopener">仿射变换</a> 将数据点映射到概率分布上，主要包括两个步骤：</p>
+<ul>
+<li><p>SNE 构建一个高维对象之间的概率分布，使得相似的对象有更高的概率被选择，而不相似的对象有较低的概率被选择。</p>
+</li>
+<li><p>SNE在低维空间里在构建这些点的概率分布，使之与高维度的概率分布之间尽可能相似。</p>
+</li>
+</ul>
+</li>
+<li><p>SNE 的实现原理：</p>
+<ul>
+<li><p>原始 SNE 先将 <code>欧几里得距离</code> 转换为 <code>条件概率</code> 来表达点与点之间的相似度。具体地，给定一个 $N$ 个高维的数据 $x_1, x_2, …, x_N$，$x_i$ 和 $x_j$ 之间的相似度可表示为 ( $x_i$ 为中心点 )： </p>
+<script type="math/tex; mode=display">
+  p_{j|i} = \frac{
+      exp({-||x^{(i)} - x^{(j)}||}^2 / {
+      2\sigma_i^2})
+  }{ 
+      \sum_{k \neq i} exp({-||x^{(i)} - x^{(k)}||}^2 / {
+      2\sigma_i^2})
+  }
+  \tag{1}</script><p>  这里的有一个参数是 $\sigma_i$，其表示以 $x_i$ 为中心点的高斯分布的方差。且对于不同的点 $x_i$ 取值不一样 $^{[2]}$ ( 具体参详 SNE 的困惑度 ( Perplexity ) )。再者，由于我们只关心不同点两两之间的相似度，所以设定 $p_{i|i} = 0$。</p>
+</li>
+<li><p>在把数据映射到低维空间后，高维数据点之间的相似性也应该在低维空间的数据点上体现出来。这里同样用条件概率的形式描述，对于低维度下的 $y_i$，我们可以指定高斯分布为方差为 $\frac{1}{\sqrt2}$。因此它们之间的相似度为:</p>
+<script type="math/tex; mode=display">
+q_{j|i} = \frac{
+  exp( {-||y^{(i)} - y^{(j)}||}^2 )
+}{ 
+  \sum_{k \neq i} exp( {-||y^{(i)} - y^{(k)}||}^2 )
+}
+\tag{2}</script></li>
+<li><p>同理，设定 $q_{i|i} = 0$。这样一来，若 $y_i$ 和 $y_j$ 真实反映了高维数据点 $x_i$ 和 $x_j$ 之间的关系，那么条件概率 $p_{j|i}$ 与 $q_{j|i}$ 应该完全相等。</p>
+<p>  这里我们只考虑 $x_i$ 与 $x_j$ 之间的条件概率，则它们可构成一个条件概率分布函数 $P$。同理，只考虑 $y_i$ 与 $y_j$ 之间的条件概率，在低维空间存在一个条件概率分布 $Q$，且应该与 $P$ 是一致的。</p>
+<p>  如何衡量两个分布之间的相似性？则我们可通过优化两分布的距离，即 <code>K-L 散度</code> ( Kullback-Leibler Divergence )。SNE 最终目标就是对所有数据点最小化这个 K-L 散度，具体地，我们可使用 <code>梯度下降算法</code> 最小化以下代价函数：</p>
+<script type="math/tex; mode=display">
+  C = D_{KL}(P || Q) = \sum_{i} \sum_{j} p_{j|i} log \frac{p_{j|i}}{q_{j|i}}
+  \tag{3}</script><p>  SNE 代价函数对 $y_i$ 求梯度后的形式如下：</p>
+<script type="math/tex; mode=display">
+  \frac{\delta C}{\delta y_i} = 
+  2 \sum_j ( p_{j|i} - q_{j|i} + p_{i|j} - q_{i|j} )( y_i - y_j )
+  \tag{4}</script></li>
+<li><p>似乎到这里问题就解决了，得到代价函数，利用梯度下降算法进行训练了。但事情远没有那么简单，因为 K-L 散度是一个非对称的度量，最小化代价函数的目的是让 $pj|i$ 和 $qj|i$ 的值尽可能的接近，即低维空间中点的相似性应当与高维空间中点的相似性一致。</p>
+<ul>
+<li>但从代价函数的形式就可以看出，考虑到离群点的情况，当 $p_{j|i}$ 较大，$q_{j|i}$ 较小时，即高维空间中两个数据点距离较近，而映射到低维空间后距离较远，那么将得到一个很高的惩罚，这没什么问题；</li>
+<li>而$p_{j|i}$ 较小，$q_{j|i}$ 较大时，即高维空间中两个数据点距离较远，而映射到低维空间距离较近，将得到一个很低的惩罚值。然而这就是问题所在，理应得到一个较高的惩罚才对。换句话说，SNE 的代价函数更关注局部结构，而忽视了全局结构。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="t-SNE"><a href="#t-SNE" class="headerlink" title="t-SNE"></a>t-SNE</h5><ul>
+<li><p>在原始 SNE 中，$p_{i|j}$ 与 $p_{j|i}$ 是不相等的，低维空间中 $q_{i|j}$ 与 $q_{j|i}$ 也是不相等的。若我们分别在高维和低维空间构造更加通用的联合概率分布 $P$ 和 $Q$，使得对任意 i, j，均有 $p_{i|j} = p_{j|i}, \, q_{i|j} = q_{j|i}$。而这种 SNE 称之为对称 SNE ( Symmetric SNE )，因此它们的概率分布可改写为 ( 同理，我们只关注不同点两两之间的相似性，故设定 $p_{i||i} = 0, q_{i||i} = 0$ ):</p>
+<script type="math/tex; mode=display">
+  p_{i, j} = \frac{
+          exp({-||x^{(i)} - x^{(j)}||}^2 / {
+          2\sigma_i^2})
+      }{ 
+          \sum_{k \neq l} exp({-||x^{(k)} - x^{(l)}||}^2 / {
+          2\sigma_i^2})
+      } \\
+  q_{i, j} = \frac{
+      exp( {-||y^{(i)} - y^{(j)}||}^2 )
+  }{ 
+      \sum_{k \neq l} exp( {-||y^{(k)} - y^{(l)}||}^2 )
+  }
+  \tag{5}</script></li>
+<li><p>这样表达方式使得整体简洁了很多。但是会引入异常值的问题。比如，$x_i$ 是异常值，那么 $||x^{(i)} - x^{(j)}||^2$ 会很大，对应的所有的 $j$, $p_{i, j}$ 都会很小，导致低维映射下的 $y_i$ 无论处在什么位置，对代价函数影响很小。</p>
+<p>  为了解决这个问题，我们将联合概率分布改写为：</p>
+<script type="math/tex; mode=display">
+  p_{i,j} = \frac{
+      p_{j|i} + p_{i|j} 
+  }{2N}
+  \tag{6}</script></li>
+<li><p>其中 N 为数据点的总数，这样定义即满足了对称性，又保证了 $x_i$ 的惩罚值不会过小。此时可以利用 KL 距离写出如下代价函数：</p>
+<script type="math/tex; mode=display">
+  C = D_{KL}(P || Q) = \sum_{i} \sum_{j} p_{i, j} log \frac{p_{i, j}}{q_{i, j}}
+  \tag{7}</script></li>
+<li><p>对称 SNE 的最大优点，即梯度计算变得简单了：</p>
+<script type="math/tex; mode=display">
+  \frac{\delta C}{\delta y_i} = 
+  4 \sum_j ( p_{i, j} - q_{i, j})( y_i - y_j )
+  \tag{8}</script><p>  但是Maaten 还指出 $^{[4]}$，对称 SNE 的效果只是略微优于原始 SNE 的效果，依然没有从根本上解决问题。我们还需要解决 <code>拥挤问题</code>。</p>
+</li>
+<li><p><code>拥挤问题</code>：就是说各个簇聚集在一起，无法区分。这是由于高维空间距离分布和低维空间距离分布的差异造成的。比如，有一高维度数据在降维到 10 维下可以有很好的表达，但是降维到两维后无法得到 “可信” 映射。</p>
+<p>  进一步说明，假设一个以数据点 $x_i$ 为中心，半径为 $r$ 的 $m$ 维球 ( 三维空间就是球 )，其体积是按 $r^m$ 增长的，假设数据点是在 m 维球中均匀分布的，我们来看看其他数据点与 $x_i$ 的距离随维度增大而产生的变化。具体，我们可参考代码 $^{[3]}$：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy.linalg <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">npoints = <span class="number">1000</span>	<span class="comment"># 抽取 1000 个 m 维球内均匀分布的点</span></span><br><span class="line">plt.figure( figsize=(<span class="number">20</span>, <span class="number">4</span>) )</span><br><span class="line"><span class="keyword">for</span> i, m <span class="keyword">in</span> enumerate((<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>)):</span><br><span class="line">    <span class="comment"># 这里模拟 m 维球中的均匀分布用到了拒绝采样</span></span><br><span class="line">    <span class="comment"># 即先生成 m 维立方中的均匀分布，再剔除 m 维球外部的点</span></span><br><span class="line">    accepts = []</span><br><span class="line">    <span class="keyword">while</span> len(accepts) &lt; <span class="number">1000</span>:</span><br><span class="line">        points = np.random.rand(<span class="number">500</span>, m)</span><br><span class="line">        accepts.extend(</span><br><span class="line">            [d <span class="keyword">for</span> d <span class="keyword">in</span> norm(points, axis=<span class="number">1</span>) <span class="keyword">if</span> d &lt;= <span class="number">1.0</span>]</span><br><span class="line">        ) <span class="comment"># 拒绝采样</span></span><br><span class="line">    accepts = accepts[:npoints]</span><br><span class="line">    ax = plt.subplot(<span class="number">1</span>, <span class="number">4</span>, i+<span class="number">1</span>)</span><br><span class="line">    ax.set_xlabel(<span class="string">'distance'</span>) <span class="comment"># x 轴表示点到圆心的距离</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">        ax.set_ylabel(<span class="string">'count'</span>) <span class="comment"># y 轴表示点的数量</span></span><br><span class="line">    ax.hist(accepts, bins=np.linspace(<span class="number">0.</span>, <span class="number">1.</span>, <span class="number">50</span>), color=<span class="string">'green'</span>)</span><br><span class="line">    ax.set_title(<span class="string">'m=&#123;0&#125;'</span>.format(str(m)), loc=<span class="string">'left'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果如图 2-1 所示。据图示反映，随着维度的增大，大部分数据点都聚集在 m 维球的表面附近，与点 $x_i$ 的距离分布极不均衡。若直接将这种距离关系保留到低维，肯定会出现拥挤问题。如何解决呢？这个时候就需要请出 $\tau$ 分布了。</p>
+<p>  <img src="/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-1.jpg" alt="图2-1半径为 r 的 m 维球上的数据分布"></p>
+  <center>图 2-1 半径为 r 的 m 维球上的数据分布</center>
+</li>
+<li><p>减轻 <code>拥挤问题</code> 的方法：在高维空间下我们使用 <code>高斯分布</code> 将距离转换为概率分布；在低维空间下，我们使用更加 <code>偏重长尾分布</code> 的方式来将距离转换为概率分布，使得高维度下中低等的距离在映射后能够有一个较大的距离。使用了自由度为 1 的 $\tau$ 分布之后的 $q$ 变化，如下:</p>
+<script type="math/tex; mode=display">
+  q_{i,j} = \frac{
+      (1 + ||y^{(i)} - y^{(j)}||^2)^{-1}
+  }{ 
+      \sum_{k \neq l} (1 + ||y^{(k)} - y^{(l)}||^2)^{-1}
+  }
+  \tag{9}</script><p>  依然用 K-L 距离衡量两个分布之间的相似性，此时梯度变为：</p>
+<script type="math/tex; mode=display">
+  \frac{\delta C}{\delta y_i} = 
+  4 \sum_j ( p_{i, j} - q_{i, j})( y_i - y_j )(1 + ||y^{(i)} - y^{(j)}||^2)^{-1}
+  \tag{10}</script></li>
+<li><p><code>总结</code>：综上所述，从不对称的 SNE 算法到 t-SNE 算法，所做的改进工作：</p>
+<ul>
+<li>把 SNE 变为对称 SNE；</li>
+<li>在低维空间中采用了 $\tau$ 分布代替原来的高斯分布，高维空间不变。</li>
+<li><p>具体算法步骤可参考了文章 [7] 的 <a href="https://zhuanlan.zhihu.com/p/33722444" target="_blank" rel="noopener">t-SNE</a> 图文解释，如图 2-2 所示。</p>
+<p><img src="/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-2.jpg" alt="图2-2t-SNE的算法步骤"></p>
+<center>图 2-2 t-SNE 的算法步骤</center>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据展示"><a href="#数据展示" class="headerlink" title="数据展示"></a>数据展示</h3><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://www.zhihu.com/question/52022955/answer/387753267" target="_blank" rel="noopener">微调. t-SNE 数据可视化算法的作用是为了降维还是认识数据. zhihu.com</a></li>
+<li>[2] <a href="http://www.datakit.cn/blog/2017/02/05/t_sne_full.html#12-sne原理推导" target="_blank" rel="noopener">Chrispher. t-SNE 完整笔记 [OL]. datakit.cn. 2017</a></li>
+<li>[3] <a href="http://bindog.github.io/blog/2016/06/04/from-sne-to-tsne-to-largevis/" target="_blank" rel="noopener">Bindog. 从 SNE 到 t-SNE 再到 LargeVis. bindog.github.io. 2016</a></li>
+<li>[4] Maaten L, Hinton G. Visualizing data using t-SNE [J]. Journal of machine learning r/esearch, 2008, 9(Nov): 2579-2605.</li>
+<li>[5] Tang J, Liu J, Zhang M, et al. Visualizing large-scale and high-dimensional data[C]. International World Wide Web Conferences Steering Committee, 2016: 287-297.</li>
+<li>[6] Tang J, Qu M, Wang M, et al. Line: Large-scale information network embedding[C]. International World Wide Web Conferences Steering Committee, 2015: 1067-1077.</li>
+<li>[7] <a href="https://zhuanlan.zhihu.com/p/33722444" target="_blank" rel="noopener">徐小贱民. 降维技术解析：PCA, t-SNE and Auto Encoders. zhihu.com</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html" title="利用 t-SNE 降维并可视化数据">http://www.kofes.cn/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
+          
+            <a href="/tags/数据可视化/" rel="tag"># 数据可视化</a>
+          
+            <a href="/tags/t-SNE/" rel="tag"># t-SNE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/the-best-way-to-prepare-a-dataset-easily.html" rel="next" title="课堂 | 如何轻松有效地预处理数据">
+                <i class="fa fa-chevron-left"></i> 课堂 | 如何轻松有效地预处理数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhan-bin.cn" title="zhan-bin" target="_blank">zhan-bin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察数据"><span class="nav-number">1.</span> <span class="nav-text">观察数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预处理数据"><span class="nav-number">2.</span> <span class="nav-text">预处理数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据可视化"><span class="nav-number">3.</span> <span class="nav-text">数据可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#降维方法"><span class="nav-number">3.1.</span> <span class="nav-text">降维方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#降维目的"><span class="nav-number">3.1.1.</span> <span class="nav-text">降维目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降维本质"><span class="nav-number">3.1.2.</span> <span class="nav-text">降维本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降维算法"><span class="nav-number">3.1.3.</span> <span class="nav-text">降维算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PCA"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">PCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SNE"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">SNE</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#t-SNE"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">t-SNE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据展示"><span class="nav-number">3.2.</span> <span class="nav-text">数据展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
