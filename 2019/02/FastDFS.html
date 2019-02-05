@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="分布式,文件系统,DFS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="余庆老师在他的 Github 上介绍关于 FastDFS 开源项目的描述：FastDFS 是一个开源的高性能分布式文件系统 ( DFS )。 它的主要功能包括文件存储，文件同步和文件访问，以及高容量和负载平衡。">
+<meta name="keywords" content="分布式,文件系统,DFS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="框架 | FastDFS 入门到应用">
+<meta property="og:url" content="http://www.kofes.cn/2019/02/FastDFS.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="余庆老师在他的 Github 上介绍关于 FastDFS 开源项目的描述：FastDFS 是一个开源的高性能分布式文件系统 ( DFS )。 它的主要功能包括文件存储，文件同步和文件访问，以及高容量和负载平衡。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2019/02/fastdfs_1-1.jpg">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2019/02/fastdfs_1-2.jpg">
+<meta property="og:updated_time" content="2019-02-05T06:43:22.082Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="框架 | FastDFS 入门到应用">
+<meta name="twitter:description" content="余庆老师在他的 Github 上介绍关于 FastDFS 开源项目的描述：FastDFS 是一个开源的高性能分布式文件系统 ( DFS )。 它的主要功能包括文件存储，文件同步和文件访问，以及高容量和负载平衡。">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2019/02/fastdfs_1-1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2019/02/FastDFS.html"/>
+
+
+
+
+
+  <title>框架 | FastDFS 入门到应用 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2019/02/FastDFS.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">框架 | FastDFS 入门到应用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-05T14:37:37+08:00">
+                2019-02-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2019-02-05T14:43:22+08:00" content="2019-02-05">
+                2019-02-05
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/FastDFS.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/FastDFS.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/FastDFS.html" class="leancloud_visitors" data-flag-title="框架 | FastDFS 入门到应用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,280
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>余庆老师在他的 Github 上介绍关于 <a href="https://github.com/happyfish100/fastdfs" target="_blank" rel="noopener">FastDFS</a> 开源项目的描述：FastDFS 是一个开源的高性能分布式文件系统 ( DFS )。 它的主要功能包括文件存储，文件同步和文件访问，以及高容量和负载平衡。</p>
+<a id="more"></a>
+<h2 id="FastDFS-简单介绍"><a href="#FastDFS-简单介绍" class="headerlink" title="FastDFS 简单介绍"></a>FastDFS 简单介绍</h2><h3 id="FastDFS-核心组件"><a href="#FastDFS-核心组件" class="headerlink" title="FastDFS 核心组件"></a>FastDFS 核心组件</h3><ul>
+<li><code>Tracker Server</code>：跟踪服务器，负责维持集群的信息；负责管理所有的 Storage Server 和 Group，每个 Storage 在启动后会连接 Tracker，告知自己所属 group 等信息，并保持周期性心跳。</li>
+<li><code>Storage server</code>：存储服务器，以 Group 为单位进行组织，任何一个 Storage Server 都应该属于某个 Group；一个 Group 可含多个 Storage server；在同一个 Group 内部，各 Storage Server 的数据自行同步、备份。</li>
+<li><p><code>Client</code>：客户端，上传、下载数据的服务器，也就是我们自己的项目所部署在的服务器。</p>
+<blockquote>
+<p>核心组件的介绍参考了 [1]、[2] 的概念叙述。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="FastDFS-组织架构"><a href="#FastDFS-组织架构" class="headerlink" title="FastDFS 组织架构"></a>FastDFS 组织架构</h3><ul>
+<li><p>结合组件的功能描述可知，FastDFS 的组织架构 $^{[2]}$ 如图 1-1 所示。</p>
+<p>  <img src="/images/illustration/Project/2019/02/fastdfs_1-1.jpg" alt="fastdfs_1-1"></p>
+  <center>图 1-1 FastDFS 的组织架构</center>
+
+</li>
+</ul>
+<h3 id="FastDFS-文件传输"><a href="#FastDFS-文件传输" class="headerlink" title="FastDFS 文件传输"></a>FastDFS 文件传输</h3><ul>
+<li><p>通过时序图，分析 FastDFS 文件上传、文件下载等操作的流程，如图 1-2 所示。</p>
+<p>  <img src="/images/illustration/Project/2019/02/fastdfs_1-2.jpg" alt="fastdfs_1-2"></p>
+  <center>图 1-2 FastDFS 文件上传、下载的时序图</center>
+</li>
+<li><p>文件上传流程：</p>
+<ul>
+<li>1) Client 询问 Tracker，发送上传文件的请求；</li>
+<li>2) Tracker 返回可调用的 <code>Storage ID: Port</code>；</li>
+<li>3) Client 直接与目标 Storage 通讯，完成文件上传；</li>
+<li>4) Storage 返回 <code>文件ID</code>，文件ID 为 <code>Group ID + FileName</code>。</li>
+</ul>
+</li>
+<li>文件下载流程：<ul>
+<li>1) Client 询问 Tracker  下载文件所在的 Storage ( 参数为 <code>文件ID</code> )；</li>
+<li>2) Tracker 返回可调用的 <code>Storage ID: Port</code>；</li>
+<li>3) Client 直接与目标 Storage 通讯，完成文件下载；</li>
+<li>4) Storage 返回 <code>文件内容</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="FastDFS-客户端"><a href="#FastDFS-客户端" class="headerlink" title="FastDFS 客户端"></a>FastDFS 客户端</h2><h3 id="Java-客户端"><a href="#Java-客户端" class="headerlink" title="Java 客户端"></a>Java 客户端</h3><ul>
+<li>调用余庆老师封装的 <a href="https://github.com/happyfish100/fastdfs-client-java" target="_blank" rel="noopener">FastDFS Client Java SDK</a>，即可实现客户端访问 FastDFS。</li>
+</ul>
+<h3 id="Python-客户端"><a href="#Python-客户端" class="headerlink" title="Python 客户端"></a>Python 客户端</h3><ul>
+<li><p><code>安装环境</code>：网上教程一般都是指 Python 2.7，在 Python 3.x 版本下跑不了，即使是通过 <code>pip3 install fdfs-client-py</code> 安装也跑不通，这里建议通过源码方式安装 $^{[3, 4]}$。</p>
+<blockquote>
+<p>源码地址：<a href="https://github.com/jefforeilly/fdfs_client-py.git" target="_blank" rel="noopener">Hay86. fdfs_client-py. Last Updated on Sept.9, 2018</a></p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Case.01.通过 pip 安装</span></span><br><span class="line">pip install fdfs_client-py-master.zip</span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">Case.02.通过 python 安装</span></span><br><span class="line"><span class="string">解压 fdfs_client-py-master.zip，进入目录 /fdfs_client-py-master</span></span><br><span class="line"><span class="string">python steup.py install</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"><span class="comment"># 安装完成后，若导入时提示缺少 mutagen、requests，请继续安装依赖包</span></span><br><span class="line">pip install mutagen</span><br><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>安装指南</code>：当然，安装指南和 <a href="https://github.com/hay86/fdfs_client-py#api-reference" target="_blank" rel="noopener">API Reference</a> 请参考源码的官方文档。</p>
+</li>
+<li><p><code>生成配置</code>：在测试代码前夕，我们还需要创建一配置文件 <code>client.conf</code>。注意配置文件名称就是 <strong>client.conf</strong>，更改为其他名称好像行不通。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># connect timeout in seconds</span></span><br><span class="line"><span class="comment"># default value is 30s</span></span><br><span class="line">connect_timeout=<span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># network timeout in seconds</span></span><br><span class="line"><span class="comment"># default value is 30s</span></span><br><span class="line">network_timeout=<span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the base path to store log files</span></span><br><span class="line">base_path=log</span><br><span class="line"></span><br><span class="line"><span class="comment"># tracker_server can ocur more than once, and tracker_server format is</span></span><br><span class="line"><span class="comment"># "host:port", host can be hostname or ip address</span></span><br><span class="line">tracker_server=<span class="number">192.168</span><span class="number">.200</span><span class="number">.221</span>:<span class="number">22122</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># standard log level as syslog, case insensitive, value list:</span></span><br><span class="line"><span class="comment">### emerge for emergency</span></span><br><span class="line"><span class="comment">### alert</span></span><br><span class="line"><span class="comment">### crit for critical</span></span><br><span class="line"><span class="comment">### error</span></span><br><span class="line"><span class="comment">### warn for warning</span></span><br><span class="line"><span class="comment">### notice</span></span><br><span class="line"><span class="comment">### info</span></span><br><span class="line"><span class="comment">### debug</span></span><br><span class="line">log_level=info</span><br><span class="line"></span><br><span class="line"><span class="comment"># if use connection pool</span></span><br><span class="line"><span class="comment"># default value is false</span></span><br><span class="line"><span class="comment"># since V4.05</span></span><br><span class="line">use_connection_pool = false</span><br><span class="line"></span><br><span class="line"><span class="comment"># connections whose the idle time exceeds this time will be closed</span></span><br><span class="line"><span class="comment"># unit: second</span></span><br><span class="line"><span class="comment"># default value is 3600</span></span><br><span class="line"><span class="comment"># since V4.05</span></span><br><span class="line">connection_pool_max_idle_time = <span class="number">3600</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if load FastDFS parameters from tracker server</span></span><br><span class="line"><span class="comment"># since V4.05</span></span><br><span class="line"><span class="comment"># default value is false</span></span><br><span class="line">load_fdfs_parameters_from_tracker=false</span><br><span class="line"></span><br><span class="line"><span class="comment"># if use storage ID instead of IP address</span></span><br><span class="line"><span class="comment"># same as tracker.conf</span></span><br><span class="line"><span class="comment"># valid only when load_fdfs_parameters_from_tracker is false</span></span><br><span class="line"><span class="comment"># default value is false</span></span><br><span class="line"><span class="comment"># since V4.05</span></span><br><span class="line">use_storage_id = false</span><br><span class="line"></span><br><span class="line"><span class="comment"># specify storage ids filename, can use relative or absolute path</span></span><br><span class="line"><span class="comment"># same as tracker.conf</span></span><br><span class="line"><span class="comment"># valid only when load_fdfs_parameters_from_tracker is false</span></span><br><span class="line"><span class="comment"># since V4.05</span></span><br><span class="line">storage_ids_filename = storage_ids.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTP settings</span></span><br><span class="line">http.tracker_server_port=<span class="number">80</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># use "#include" directive to include HTTP other settings</span></span><br><span class="line"><span class="comment">## include http.conf</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>测试代码</code>：这里假设你已成功安装了 <code>fdfs-client-py</code>，那么以一段测试代码正式开始使用。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step.01. import fdfs_client.client module</span></span><br><span class="line"><span class="comment"># Step.02. instantiate class Fdfs_client</span></span><br><span class="line"><span class="comment"># Step.03. call memeber functions</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># client.conf 配置文件放在 .py 文件同目录下</span></span><br><span class="line">client = Fdfs_client(<span class="string">'client.conf'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传文件</span></span><br><span class="line">ret = client.upload_by_filename(<span class="string">'upload.txt'</span>)</span><br><span class="line">print(ret)</span><br><span class="line"><span class="comment">## 等待 3 秒，否则下载时会报错文件不存在</span></span><br><span class="line">time.sleep(<span class="number">3</span>)  </span><br><span class="line"><span class="comment">## 新版本文件存放 Remote file_id 格式变化</span></span><br><span class="line">file_id = ret[<span class="string">'Remote file_id'</span>].replace(<span class="string">'\\'</span>, <span class="string">'/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载文件</span></span><br><span class="line">ret_download = client.download_to_file(<span class="string">'download.txt'</span>, file_id)</span><br><span class="line">print(ret_download)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>说明文档</code>：关于 <code>Fdfs_client</code> 类的成员函数详细说明请参考 <a href="https://github.com/hay86/fdfs_client-py#api-reference" target="_blank" rel="noopener">API Reference</a>：</p>
+<ul>
+<li>upload_by_filename(self, filename, meta_dict = None)</li>
+<li>upload_by_buffer(self, filebuffer, file_ext_name = None, meta_dict = None)</li>
+<li>upload_slave_by_filename(self, filename, remote_file_id, prefix_name, meta_dict = None)</li>
+<li>upload_slave_by_buffer(self, filebuffer, remote_file_id, meta_dict = None, file_ext_name = None)</li>
+<li>upload_appender_by_filename(self, local_filename, meta_dict = None)</li>
+<li>upload_appender_by_buffer(self, filebuffer, file_ext_name = None, meta_dict = None)</li>
+<li>delete_file(self, remote_file_id)</li>
+<li>download_to_file(self, local_filename, remote_file_id, offset = 0, down_bytes = 0)</li>
+<li>download_to_buffer(self, remote_file_id, offset = 0, down_bytes = 0)</li>
+<li>list_one_group(self, group_name)</li>
+<li>list_all_groups(self)</li>
+<li>list_servers(self, group_name, storage_ip = None)</li>
+<li>get_meta_data(self, remote_file_id)</li>
+<li>append_by_filename(self, local_filename, remote_fileid)</li>
+<li>append_by_buffer(self, file_buffer, remote_fileid)</li>
+<li>truncate_file(self, truncated_filesize, appender_fileid)</li>
+<li>modify_by_filename(self, filename, appender_fileid, offset = 0)</li>
+<li>modify_by_buffer(self, filebuffer, appender_fileid, offset = 0)</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://www.cnblogs.com/mafly/p/fastdfs.html" target="_blank" rel="noopener">Mafly. 分布式文件系统 FastDFS 简单了解. 2016. cnblogs.com</a></li>
+<li>[2] <a href="https://www.cnblogs.com/shenxm/p/8459292.html" target="_blank" rel="noopener">shenxm. FastDFS 的介绍. 2018. cnblogs.com</a></li>
+<li>[3] <a href="http://zifuchuan.com/me/index.php/python/725-1.html" target="_blank" rel="noopener">小草. FastDFS 的 Python 客户端. 2017. zifuchuan.com</a></li>
+<li>[4] <a href="https://blog.csdn.net/weixin_42149982/article/details/82391218" target="_blank" rel="noopener">ZbyFt. Django-FDFS 配置. 2018. csdn.net</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2019/02/FastDFS.html" title="框架 | FastDFS 入门到应用">http://www.kofes.cn/2019/02/FastDFS.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/分布式/" rel="tag"># 分布式</a>
+          
+            <a href="/tags/文件系统/" rel="tag"># 文件系统</a>
+          
+            <a href="/tags/DFS/" rel="tag"># DFS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/Raspbian-Guideline.html" rel="next" title="极客 | 树莓派能做什么？">
+                <i class="fa fa-chevron-left"></i> 极客 | 树莓派能做什么？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile/society_face_version_1.jpg"
+                alt="Kofe" />
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">More reading, pratice and thinking.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhan-bin.cn" title="zhan-bin" target="_blank">zhan-bin</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FastDFS-简单介绍"><span class="nav-number">1.</span> <span class="nav-text">FastDFS 简单介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FastDFS-核心组件"><span class="nav-number">1.1.</span> <span class="nav-text">FastDFS 核心组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastDFS-组织架构"><span class="nav-number">1.2.</span> <span class="nav-text">FastDFS 组织架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FastDFS-文件传输"><span class="nav-number">1.3.</span> <span class="nav-text">FastDFS 文件传输</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastDFS-客户端"><span class="nav-number">2.</span> <span class="nav-text">FastDFS 客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java-客户端"><span class="nav-number">2.1.</span> <span class="nav-text">Java 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-客户端"><span class="nav-number">2.2.</span> <span class="nav-text">Python 客户端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'zBhPMx9W3Q1jnEwESxxIDDgV-gzGzoHsz',
+        appKey: 'XTbOiNnxbIS5CBnxLb871gPN',
+        placeholder: '写下你的评论...',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
