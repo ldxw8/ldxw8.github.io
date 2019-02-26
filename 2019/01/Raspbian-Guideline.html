@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T02:32:30.578Z">
+<meta property="og:updated_time" content="2019-02-26T03:35:36.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="极客 | 树莓派能做什么？">
 <meta name="twitter:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
@@ -298,7 +298,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-02-26T10:32:30+08:00" content="2019-02-26">
+              <time itemprop="dateUpdated" datetime="2019-02-26T11:35:36+08:00" content="2019-02-26">
                 2019-02-26
               </time>
             </span>
@@ -574,7 +574,7 @@
 <p>比如，某个 Python 程序需要 Python 2.7 特定环境运行，而我们编译的环境是 Python 3.x ，即为了运行该程序需要把原来的 Python 3.x 给替换成 Python 2.7。同理，对于程序的依赖包，即使是同一个软件包也存在不同版本的要求。那么问题就出现在这，在同一台电脑上，为让更多程序兼容运行，这正是虚拟环境的作用之一。  </p>
 </blockquote>
 </li>
-<li><p>再者，引入 <a href="[#Conda-管理器]">Conda 管理器</a> 的概念，简单来说 Conda 是一款包管理系统。conda 与 pip 类似，它会根据你的键入需求，且自行交代清楚相互依赖的包，并实现自动化地下载、安装。</p>
+<li><p>再者，引入 <a href="#Conda-管理器">Conda 管理器</a> 的概念，简单来说 Conda 是一款包管理系统。conda 与 pip 类似，它会根据你的键入需求，且自行交代清楚相互依赖的包，并实现自动化地下载、安装。</p>
 </li>
 <li><p>基于以上两点的理解，我们正式进入正题，开始配置一个虚拟环境，并让 Jupyter Notebook 使用起来：</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 参考 Conda 管理器的 BerryConda 小节，完成 BerryConda 的安装</span></span><br><span class="line"><span class="comment"># 2. 建立一个虚拟环境运作 Conda 以方便管理各种包</span></span><br><span class="line">conda create -n your_venv_name python=3.6</span><br><span class="line"><span class="comment"># 3. 激活环境</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 4. 安装 Jupyter 包：上述内容中，Jupyter 是安装在原生环境下的</span></span><br><span class="line"><span class="comment"># 考虑到兼容性的情况 (第5点)，在该虚拟环境中再安装一个 Jupyter</span></span><br><span class="line">conda install jupyter</span><br><span class="line"><span class="comment"># 给该环境下载其他软件包也是类似操作</span></span><br><span class="line"><span class="comment"># conda install scipy numpy scikit-learn...</span></span><br><span class="line"><span class="comment"># 5. 指定版本安装 tornado，不然 Jupyter 会报错</span></span><br><span class="line">conda install tornado=4.5</span><br><span class="line"><span class="comment"># 6. 安装 nb_conda 包，让 Jupyter 支持使用虚拟环境</span></span><br><span class="line">conda install nb_conda</span><br></pre></td></tr></table></figure>
