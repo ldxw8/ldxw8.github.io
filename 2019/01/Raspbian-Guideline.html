@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="树莓派,Raspbian,博客搭建,智能家居,代码托管,服务器," />
+  <meta name="keywords" content="树莓派,Raspbian,博客搭建,服务器,数据科学," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
-<meta name="keywords" content="树莓派,Raspbian,博客搭建,智能家居,代码托管,服务器">
+<meta name="keywords" content="树莓派,Raspbian,博客搭建,服务器,数据科学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="极客 | 树莓派能做什么？">
 <meta property="og:url" content="http://www.kofes.cn/2019/01/Raspbian-Guideline.html">
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T03:50:02.442Z">
+<meta property="og:updated_time" content="2019-02-26T08:58:06.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="极客 | 树莓派能做什么？">
 <meta name="twitter:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
@@ -298,7 +298,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-02-26T11:50:02+08:00" content="2019-02-26">
+              <time itemprop="dateUpdated" datetime="2019-02-26T16:58:06+08:00" content="2019-02-26">
                 2019-02-26
               </time>
             </span>
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,796
+                  5,823
                 </span>
               
 
@@ -514,6 +514,9 @@
 </ul>
 <h3 id="Jupyter-服务器"><a href="#Jupyter-服务器" class="headerlink" title="Jupyter 服务器"></a>Jupyter 服务器</h3><h4 id="引言-2"><a href="#引言-2" class="headerlink" title="引言"></a>引言</h4><p>Jupyter Notebooks 是什么？相信做数据科学项目的同学都清楚，Jupyter 其提供了一个集成环境，无需更多附加操作就可在其中编写你的代码、运行代码、查看输出、可视化数据并查看结果。</p>
 <p>作为一款可执行端到端的数据科学工作流程的便捷工具，它不仅支持数据清理、统计建模、构建和训练机器学习模型、可视化数据等数据科学工作，而且其强大的交互性，使得它可以更具教学性的方式展示代码。</p>
+<blockquote>
+<p>当然 Jupyter 也能运行其他 Python 程序，这里只是为了代入特定场景介绍它。</p>
+</blockquote>
 <h4 id="安装-Jupyter-Notebook"><a href="#安装-Jupyter-Notebook" class="headerlink" title="安装 Jupyter Notebook"></a>安装 Jupyter Notebook</h4><ul>
 <li><p>在此之前，需要确保你安装了 <code>Python</code> 以及 <code>pip</code> 模块。</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 树莓派 Raspbian 原生内置了 Python 2.7</span></span><br><span class="line"><span class="comment"># 我们需要基于 Python 3.x 基础上运作 Jupyter，则需要先安装 Python 3.x</span></span><br><span class="line">sudo apt-get install python3.5 python3-pip</span><br></pre></td></tr></table></figure>
@@ -589,7 +592,7 @@
 </li>
 </ul>
 <h3 id="Conda-管理器"><a href="#Conda-管理器" class="headerlink" title="Conda 管理器"></a>Conda 管理器</h3><ul>
-<li><p>无论是使用 Jupyter Notebook，亦或是原生 Python 环境做数据科学相关工作，难免需要安装各种科学计算包，而且还涉及众多依赖包的安装。那么如何管理包变成了一门 “手艺活” 了，此时推荐你使用 Conda 包管理系统，繁琐的包安装工作交由 Conda 处理，你只管专心地开展数据科学工作。</p>
+<li><p>无论是使用 Jupyter Notebook，亦或是原生 Python 环境做 <code>数据科学</code> 相关工作，难免需要 <code>安装各种科学计算包</code>，而且还涉及众多依赖包的安装。那么如何管理包变成了一门 “手艺活” 了，此时推荐你使用 Conda 包管理系统，繁琐的包安装工作交由 Conda 处理，你只管专心地开展数据科学工作。</p>
 </li>
 <li><p>参考 <a href="https://www.zhihu.com/question/65430209" target="_blank" rel="noopener">树莓派 Raspbian 系统可安装 Anaconda 吗？</a>，得知树莓派安装 Conda 共有两种选择：</p>
 <ul>
@@ -717,11 +720,9 @@
           
             <a href="/tags/博客搭建/" rel="tag"># 博客搭建</a>
           
-            <a href="/tags/智能家居/" rel="tag"># 智能家居</a>
-          
-            <a href="/tags/代码托管/" rel="tag"># 代码托管</a>
-          
             <a href="/tags/服务器/" rel="tag"># 服务器</a>
+          
+            <a href="/tags/数据科学/" rel="tag"># 数据科学</a>
           
         </div>
       
@@ -852,7 +853,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
