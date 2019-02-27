@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="序言Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T07:38:36.816Z">
+<meta property="og:updated_time" content="2019-02-27T03:18:18.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目 | 基于 Hexo 框架在 Github 上搭建博客">
 <meta name="twitter:description" content="序言Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-10-25T15:38:36+08:00" content="2018-10-25">
-                2018-10-25
+              <time itemprop="dateUpdated" datetime="2019-02-27T11:18:18+08:00" content="2019-02-27">
+                2019-02-27
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,016
+                  3,050
                 </span>
               
 
@@ -420,13 +420,14 @@
 </ul>
 <h3 id="MacOS-版本"><a href="#MacOS-版本" class="headerlink" title="MacOS 版本"></a>MacOS 版本</h3><h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><ul>
 <li><p><code>Xcode</code> : Hexo 的编译依赖于 Xcode，故我们得在 Mac 上安装 Xcoce。</p>
-<blockquote>
-<p> Xcode 可自行到 <code>Apple App Store</code> 下载。</p>
-</blockquote>
+<ul>
+<li>Xcode 可自行到 <code>Apple App Store</code> 下载、安装。</li>
+<li>启动 Xcode 并进入 Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安装命令行工具。</li>
+</ul>
 </li>
 <li><p><code>Node.js</code> : Hexo 是基于 Node.js 开发的，即得配置 Hexo 的运行环境。</p>
 <ul>
-<li><a href="https://nodejs.org/" target="_blank" rel="noopener">官方下载</a>；</li>
+<li>Node.js：<a href="https://nodejs.org/" target="_blank" rel="noopener">官方下载</a>；</li>
 <li>本地安装，文件包为 <code>Node-Vx.x.x.pkg</code></li>
 <li><p>检测是否安装成功，当然返回版本信息即成功安装..</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端下输入命令:  </span></span><br><span class="line">node -v  </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
@@ -437,13 +438,13 @@
 <ul>
 <li><p><code>Github</code> 账户注册与建立 <code>Repository</code>：</p>
 <blockquote>
-<p><strong>已有账号、项目可忽略此步骤。</strong></p>
+<p>已有账号、项目可忽略此步骤，但注意代码库的配置属性。</p>
 </blockquote>
 <ul>
 <li>注册账号：<a href="https://github.com/" target="_blank" rel="noopener">GitHub 社区注册入口</a> ；</li>
 <li><p>创建代码库：</p>
 <ul>
-<li>Step.01. Add ( 右上角「+」图标 ) &gt; New Repository；  </li>
+<li>Step.01. Add ( 右上角「+」图标 ) -&gt; New Repository；  </li>
 <li>Step.02. Repository Name，填写 <code>yourname.github.io</code>；        </li>
 <li>Step.03. Repository Description，填写<code>简单描述</code>.</li>
 </ul>
@@ -467,7 +468,7 @@
    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在线安装 HEXO ( <a href="http://npm.taobao.org/" target="_blank" rel="noopener">NPM淘宝源</a> )：</p>
-   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">	npm install hexo-cli -g  </span><br><span class="line">	hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -477,7 +478,7 @@
 </ul>
 <h5 id="运作-HEXO"><a href="#运作-HEXO" class="headerlink" title="运作 HEXO"></a>运作 HEXO</h5><ul>
 <li><p>本地运作 HEXO：</p>
-   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server <span class="comment"># 或简写 hexo s</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server <span class="comment"># 或简写 hexo s</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当终端提示以下信息，则本地配置工作基本完成：</p>
 <blockquote>
@@ -486,7 +487,7 @@
 </li>
 </ul>
 <h5 id="使用-HEXO"><a href="#使用-HEXO" class="headerlink" title="使用 HEXO"></a>使用 HEXO</h5><blockquote>
-<p>[注意] 此项操作，需要确保在 Hexo 安装目录下执行。</p>
+<p>注意：此项操作，需要确保在 Hexo 安装目录下执行。</p>
 </blockquote>
 <ul>
 <li><p>新建一篇博文 ( 当然，更新过往的文章只需修改 <code>Hexo &gt; Source &gt; _Posts</code> 目录下相对应的 MarkDown 文件即可 )</p>
