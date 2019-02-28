@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-27T02:28:50.005Z">
+<meta property="og:updated_time" content="2019-02-28T06:57:20.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="极客 | 树莓派能做什么？">
 <meta name="twitter:description" content="树莓派能做什么？关于此命题，最直观感受就是看看树莓派实验室整理的一些案例，相信你心目中会有答案的。例如，打造一个家庭媒体中心 ( KODI )、配置无线路由器、搭建 BT 下载服务器、搭建代码托管服务器 ( SVN、GIt )、搭建网站服务器、搭建 Shadowsocks、用 HomeKit + Siri 声控家里电器等，即可把树莓派想象成嵌入式、微小型的服务器，这一过程就好比操作系统 ( Lin">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-02-27T10:28:50+08:00" content="2019-02-27">
-                2019-02-27
+              <time itemprop="dateUpdated" datetime="2019-02-28T14:57:20+08:00" content="2019-02-28">
+                2019-02-28
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,290
+                  6,367
                 </span>
               
 
@@ -443,7 +443,7 @@
 </ul>
 <ul>
 <li><p>完成初始化配置后，只需设置远程控制密码即可使用了。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本机 ID</span></span><br><span class="line">teamviewer info</span><br><span class="line"><span class="comment"># 设置本机密码</span></span><br><span class="line">sudo teamviewer passwd [你的密码]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看本机 ID</span></span><br><span class="line">teamviewer info</span><br><span class="line"><span class="comment"># 设置本机密码</span></span><br><span class="line">teamviewer passwd [你的密码]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -525,13 +525,13 @@
 <blockquote>
 <p>若你已经有使用 virtualenv 的经验，强烈建议在虚拟环境中安装所需版本的 jupyter notebook。</p>
 </blockquote>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于 Python 2.7</span></span><br><span class="line">sudo pip install --upgrade jupyter</span><br><span class="line"><span class="comment"># 基于 Python 3.x</span></span><br><span class="line">sudo pip3 install --upgrade jupyter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查是否安装成功，成功返回版本号</span></span><br><span class="line">jupyter --version</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基于 Python 2.7</span></span><br><span class="line">pip install --upgrade jupyter</span><br><span class="line"><span class="comment"># 基于 Python 3.x</span></span><br><span class="line">pip3 install --upgrade jupyter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查是否安装成功，成功返回版本号</span></span><br><span class="line">jupyter --version</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="配置-Jupyter-Notebook"><a href="#配置-Jupyter-Notebook" class="headerlink" title="配置 Jupyter Notebook"></a>配置 Jupyter Notebook</h4><p>配置 Jupyter Notebook，参考了文档 <a href="https://www.jianshu.com/p/639c8d939643" target="_blank" rel="noopener">[7]</a>：</p>
 <ul>
 <li><p>生成配置文件：注意不同用户组，生成的配置文件是存放在不同位置的。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置文件存放于 /root/.jupyter/jupyter_notebook_config.py </span></span><br><span class="line">sudo jupyter notebook --generate-config</span><br><span class="line"><span class="comment"># 配置文件存放于 /home/pi/.jupyter/jupyter_notebook_config.py ( 推荐 )</span></span><br><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置文件存放于 /root/.jupyter/jupyter_notebook_config.py </span></span><br><span class="line">sudo jupyter notebook --generate-config</span><br><span class="line"><span class="comment"># 配置文件存放于 /home/pi/.jupyter/jupyter_notebook_config.py ( 推荐 )</span></span><br><span class="line"><span class="comment"># /home/pi/ 为当前登录用户的工作目录</span></span><br><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置密码：终端进入 iPython / Python 环境，借助 Python 生成 SHA 密钥：</p>
 <blockquote>
@@ -583,13 +583,13 @@
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 参考 Conda 管理器的 BerryConda 小节，完成 BerryConda 的安装</span></span><br><span class="line"><span class="comment"># 2. 建立一个虚拟环境运作 Conda 以方便管理各种包</span></span><br><span class="line">conda create -n your_venv_name python=3.6</span><br><span class="line"><span class="comment"># 3. 激活环境</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 4. 安装 Jupyter 包：上述内容中，Jupyter 是安装在原生环境下的</span></span><br><span class="line"><span class="comment"># 考虑到兼容性的情况 (例如第5点的情况)，在该虚拟环境中重新安装一个 Jupyter</span></span><br><span class="line">conda install jupyter</span><br><span class="line"><span class="comment"># 给该环境下载其他软件包也是类似操作</span></span><br><span class="line"><span class="comment"># conda install scipy numpy scikit-learn...</span></span><br><span class="line"><span class="comment"># 5. 指定版本安装 tornado，不然 Jupyter 会报错</span></span><br><span class="line">conda install tornado=4.5</span><br><span class="line"><span class="comment"># 6. 安装 nb_conda 包，让 Jupyter 支持使用虚拟环境</span></span><br><span class="line">conda install nb_conda</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>若使用虚拟环境中的 Jupyter ( 自启服务的 ExecStart 设置同理 )，此时启动 Jupyter 的程序应该改为：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/pi/berryconda3/envs/your_venv_name/bin/jupyter-notebook</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /home/pi/ 为当前登录用户的工作目录</span></span><br><span class="line">/home/pi/berryconda3/envs/your_venv_name/bin/jupyter-notebook</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h5 id="打造科学环境"><a href="#打造科学环境" class="headerlink" title="打造科学环境"></a>打造科学环境</h5><h6 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a>Tensorflow</h6><p>值得庆贺的是，<a href="https://medium.com/tensorflow/tensorflow-1-9-officially-supports-the-raspberry-pi-b91669b0aa0" target="_blank" rel="noopener">Tensorflow 1.9</a> 官方版本开始支持树莓派 RaspBerry Pi 了，没有繁琐的步骤即可体验 Tensorflow！具体的安装方法大概参考 <a href="https://tensorflow.google.cn/install/pip" target="_blank" rel="noopener">Tensorflow 官方说明文档</a>。</p>
 <ul>
 <li><p>但在实操过程中还是碰到了不可预计的情况：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装 libatlas-base-dev (Required for Numpy)</span></span><br><span class="line">sudo apt install libatlas-base-dev</span><br><span class="line"><span class="comment"># 2. 同样，在虚拟环境内安装 tensorflow，虚拟环境的 Python 版本为 3.6</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 3. 安装 h5py、hdf5，不然 tf 安装过程中会报错 ( 缺少 hdf5.h 文件 )：</span></span><br><span class="line"><span class="comment"># /tmp/pip-install-ve4RnJ/h5py/h5py/api_compat.h:27:18: </span></span><br><span class="line"><span class="comment"># fatal error: hdf5.h: No such file or directory</span></span><br><span class="line"><span class="comment"># 4. 通过 conda 安装 h5py ( 好像 pip (Python3.x) 安装 h5py 会遇到缺少文件的问题？)</span></span><br><span class="line">conda install h5py </span><br><span class="line"><span class="comment"># 5. 正式安装 tensorflow</span></span><br><span class="line">pip install --upgrade --user tensorflow</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装 libatlas-base-dev (Required for Numpy)</span></span><br><span class="line">sudo apt install libatlas-base-dev</span><br><span class="line"><span class="comment"># 2. 同样，在虚拟环境内安装 tensorflow，虚拟环境的 Python 版本为 3.6</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 3. 安装 h5py、hdf5，不然 tf 安装过程中会报错 ( 缺少 hdf5.h 文件 )：</span></span><br><span class="line"><span class="comment"># /tmp/pip-install-ve4RnJ/h5py/h5py/api_compat.h:27:18: </span></span><br><span class="line"><span class="comment"># fatal error: hdf5.h: No such file or directory</span></span><br><span class="line"><span class="comment"># 4. 通过 conda 安装 h5py ( 好像 pip (Python3.x) 安装 h5py 会遇到缺少文件的问题？)</span></span><br><span class="line">conda install h5py </span><br><span class="line"><span class="comment"># 5. 正式安装 tensorflow</span></span><br><span class="line"><span class="comment"># pip --version 查看是否是虚拟环境的 pip，不然未能安装在当前环境</span></span><br><span class="line">pip install --upgrade --user tensorflow</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -602,7 +602,7 @@
 </ul>
 <h6 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h6><ul>
 <li><p>安装过程演示：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 同样，在虚拟环境内安装 keras，虚拟环境的 Python 版本为 3.6</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 2. 正式安装 keras</span></span><br><span class="line">pip install --upgrade --user keras</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 同样，在虚拟环境内安装 keras，虚拟环境的 Python 版本为 3.6</span></span><br><span class="line"><span class="built_in">source</span> activate your_venv_name</span><br><span class="line"><span class="comment"># 2. 正式安装 keras</span></span><br><span class="line"><span class="comment"># pip --version 查看是否是虚拟环境的 pip，不然未能安装在当前环境</span></span><br><span class="line">pip install --upgrade --user keras</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
