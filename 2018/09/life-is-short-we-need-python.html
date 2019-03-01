@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-1-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-2-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-10-1.png">
-<meta property="og:updated_time" content="2019-01-30T01:16:56.996Z">
+<meta property="og:updated_time" content="2019-03-01T03:15:31.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | Python 3 入门系列教程">
 <meta name="twitter:description" content="序言 本文章主要以黑马程序员的「传智播客 Python 就业班 (ij6g)」、「 Python 从入门到精通教程 」和「 廖雪峰的 Python 教程 」为主线，输出学习笔记，目的是检验自己的学习效果和日常复习之需。作为入门 Python 的参考资料，除了视频的基础内容外，文章还会补充视频中讲解不详细或遗漏的必要知识点。  文章的内容和知识框架，与「廖雪峰的 Python 教程」和「传智播客的视">
@@ -304,8 +304,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-01-30T09:16:56+08:00" content="2019-01-30">
-                2019-01-30
+              <time itemprop="dateUpdated" datetime="2019-03-01T11:15:31+08:00" content="2019-03-01">
+                2019-03-01
               </time>
             </span>
           
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  22,965
+                  23,122
                 </span>
               
 
@@ -606,6 +606,34 @@
 <h4 id="组"><a href="#组" class="headerlink" title="组"></a>组</h4><ul>
 <li>为方便用户管理，提出组的概念。在实际开发中，可预先针对组设置好权限，然后将不同的用户添加到对应组中，从而不用依次为每个用户设置权限。</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">权限名称</th>
+<th style="text-align:center">权限参数</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">user</td>
+<td style="text-align:center">u</td>
+<td style="text-align:center">文件的拥有者，一般指当前用户</td>
+</tr>
+<tr>
+<td style="text-align:center">group</td>
+<td style="text-align:center">g</td>
+<td style="text-align:center">文件所属的群组</td>
+</tr>
+<tr>
+<td style="text-align:center">other</td>
+<td style="text-align:center">o</td>
+<td style="text-align:center">其他用户</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h4 id="LL-命令"><a href="#LL-命令" class="headerlink" title="LL 命令"></a>LL 命令</h4><ul>
 <li>LL 命令即 LS 命令的扩展用法 <code>ls -al</code>。</li>
 <li>LL 命令可查看文件夹下文件的详细信息，从左往右依次是：<ul>
@@ -650,13 +678,13 @@
 </div>
 <h4 id="Chmod-命令"><a href="#Chmod-命令" class="headerlink" title="Chmod 命令"></a>Chmod 命令</h4><ul>
 <li><p>Chmod 命令：可修改 <code>用户/组</code> 对 <code>文件/目录</code> 的权限。</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一次性修改拥有者/组的权限</span></span><br><span class="line">chmod +/-rwx 文件名/目录名</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一次性修改拥有者/组的权限</span></span><br><span class="line">chmod +/-rwx 文件名/目录名</span><br><span class="line"><span class="comment"># 一次性定制给某拥有者/组赋予某文件或者目录权限</span></span><br><span class="line"><span class="comment"># 给予当前用户及所属群组对于该文件可读、可写、可执行权限</span></span><br><span class="line">chmod ug=rwx 文件名</span><br><span class="line"><span class="comment"># 给予当前用户及所属群组对于该目录下所有文件可读、可写、可执行权限</span></span><br><span class="line">chmod ug=rwx -R 目录名</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="Sudo-命令"><a href="#Sudo-命令" class="headerlink" title="Sudo 命令"></a>Sudo 命令</h4><ul>
 <li><p>Sudo 命令：使用预设 ( root, 系统管理员 ) 的身份来执行命令。</p>
 <blockquote>
-<p>Linux 系统中，通常使用标准用户登录及使用系统，通常 <code>sudo</code> 命令临时获得权限用于系统的维护与和管理。</p>
+<p>Linux 系统中，通常使用标准用户登录及使用系统，通常 <code>sudo</code> 命令临时获得权限用于系统的维护与和管理。在执行一些模块的安装过程或者配置过程中，你会经常用到它的。</p>
 </blockquote>
 </li>
 </ul>
