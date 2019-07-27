@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-2.jpg">
-<meta property="og:updated_time" content="2019-04-19T01:41:06.011Z">
+<meta property="og:updated_time" content="2019-07-27T14:44:02.957Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="讲座 | 利用 t-SNE 降维并可视化数据">
 <meta name="twitter:description" content="作者：Siraj Raval课堂：The Best Way to Visualize a Dataset Easily | Bilibili | Youtube源码：llSourcell.Visualize_dataset_demo | Github    目标：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探">
@@ -301,8 +301,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-04-19T09:41:06+08:00" content="2019-04-19">
-                2019-04-19
+              <time itemprop="dateUpdated" datetime="2019-07-27T22:44:02+08:00" content="2019-07-27">
+                2019-07-27
               </time>
             </span>
           
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,017
+                  4,192
                 </span>
               
 
@@ -474,7 +474,9 @@
 <li>当我们意识到需要降维时，一般是发现了特征间的高度线性相关。若我们发现了线性相关，则适合使用 PCA 处理 $^{[1]}$，而 t-SNE 主打的是非线性降维。</li>
 </ul>
 <h4 id="降维算法"><a href="#降维算法" class="headerlink" title="降维算法"></a>降维算法</h4><h5 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h5><ul>
-<li><code>PCA</code>：主成分分析算法 ( Principal Component Analysis，PCA )，是最常用的 <code>线性降维方法</code>。它通过某种线性投影，将高维的数据映射到低维的空间中表示。为使所有样本的投影点尽可能分开，则需要在所投影的维度上数据的方差最大化。以此，使用较少的数据维度，同时保留住较多的原数据点的特性。</li>
+<li><p><code>PCA</code>：主成分分析算法 ( Principal Component Analysis，PCA )，是最常用的 <code>线性降维方法</code>。它通过某种线性投影，将高维的数据映射到低维的空间中表示。具体工作原理是，从原始的空间中顺序地找一组相互正交的坐标轴，而且新的坐标轴选择与数据本身是密切相关的。其中，第一个新坐标轴选择是原始数据中方差最大的方向，第二个新坐标轴选取是与第一个坐标轴正交的平面中使得方差最大的方向，若继续添加第三个坐标轴，第三个轴与第一、二个轴正交的平面中方差最大的。依次类推，可以得到 $n$ 个这样的坐标轴。</p>
+<p>  而实际情况，大部分方差都包含在前面 $k$ 个坐标轴中，后面的坐标轴所含的方差几乎为 0。事实上实现对数据特征的降维处理，相当于只保留包含绝大部分方差的维度，而忽略包含方差几乎为 0 的维度。</p>
+</li>
 </ul>
 <h5 id="SNE"><a href="#SNE" class="headerlink" title="SNE"></a>SNE</h5><ul>
 <li><p><code>t-SNE</code> 可理解为 <code>SNE</code> 的特殊形式，我们先了解 SNE 的基本原理，再延伸学习 t-SNE ( 本小节可参考多篇博文比对学习，如参考资料中的 [2] - [3] )。</p>
