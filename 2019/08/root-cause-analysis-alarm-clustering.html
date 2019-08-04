@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2019/alarm-clustering_1-6.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2019/alarm-clustering_1-7.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Paper/2019/alarm-clustering_1-8.png">
-<meta property="og:updated_time" content="2019-08-04T17:35:27.663Z">
+<meta property="og:updated_time" content="2019-08-04T17:43:28.837Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 | 基于根因分析的报警聚类算法">
 <meta name="twitter:description" content="原文：Clustering intrusion detection alarms to support root cause analysis作者：Klaus Julisch来源：ACM Transactions on Information and System Security, 2003, 6(4):443-471. 背景 系统出现故障时，运维人员一般先查看错误日志定位故障原因。 业务流量小">
@@ -307,7 +307,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-08-05T01:35:27+08:00" content="2019-08-05">
+              <time itemprop="dateUpdated" datetime="2019-08-05T01:43:28+08:00" content="2019-08-05">
                 2019-08-05
               </time>
             </span>
@@ -379,7 +379,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,772
+                  4,790
                 </span>
               
 
@@ -506,17 +506,17 @@ H(C) := \min \left\{
 </li>
 <li><p>基于以上的概念，将报警日志聚类问题定义为：</p>
 <ul>
-<li>定义 $L$ 为一个日志集合，$G_i(i = 1, 2, 3……n)$ 为属性 $A_i$ 的泛化层次结构，${min_size} \in \mathbb{N}$ 为一个预设的常量。</li>
-<li><p>目标是找到一个 $L$ 的子集 $C$，簇群中元素数量满足 $|C| \geq {min_size}$，且 $H(C)$ 值最小。</p>
+<li>定义 $L$ 为一个日志集合，$G_i(i = 1, 2, 3……n)$ 为属性 $A_i$ 的泛化层次结构，$\mathcal{min_size} \in \mathbb{N}$ 为一个预设的常量。</li>
+<li><p>目标是找到一个 $L$ 的子集 $C$，簇群中元素数量满足 $|C| \geq \mathcal{min_size}$，且 $H(C)$ 值最小。</p>
 <blockquote>
-<p>${min_size}$ 是用来控制抽象程度的，即一个簇群至少包含的元素个数。若 ${min_size}$ 与 $L$ 集合的大小一样，那么我们只能使用终极抽象了；若 ${min_size} = 1$ ，则每个报警日志是它自己的抽象。</p>
+<p>$\mathcal{min_size}$ 是用来控制抽象程度的，即一个簇群至少包含的元素个数。若 $\mathcal{min_size}$ 与 $L$ 集合的大小一样，那么我们只能使用终极抽象了；若 $\mathcal{min_size} = 1$ ，则每个报警日志是它自己的抽象。</p>
 </blockquote>
 </li>
 <li><p>找到一个聚类之后，我们可以去除这些元素，然后在 $L$ 剩下的集合里找其他的聚类。</p>
 </li>
 </ul>
 </li>
-<li><p>不幸的是，这是个 NP 完全问题 ( <a href="https://en.wikipedia.org/wiki/Clique_problem" target="_blank" rel="noopener">分团问题</a> )。因此论文 $^{[2]}$ 提出了一种启发式算法，该算法满足 $|C| \geq min_size$，使 $H(C)$ 值尽量小 ( 并不一定要最小化的 $H(C)$  )。</p>
+<li><p>不幸的是，这是个 NP 完全问题 ( <a href="https://en.wikipedia.org/wiki/Clique_problem" target="_blank" rel="noopener">分团问题</a> )。因此论文 $^{[2]}$ 提出了一种启发式算法，该算法满足 $|C| \geq \mathcal{min_size}$，使 $H(C)$ 值尽量小 ( 并不一定要最小化的 $H(C)$  )。</p>
 </li>
 </ul>
 <h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><ul>
@@ -527,14 +527,14 @@ H(C) := \min \left\{
 <ul>
 <li><code>Step.01</code>: 算法假设所有的泛化层次结构 $G_i$ 都是树，这样每个报警集群都有一个唯一的、最顶层的泛化结果。</li>
 <li><code>Step.02</code>: 将 $L$ 定义为一个原始的报警日志集合，算法选择一个属性 $A_i$，将 $L$ 中所有报警的 $A_i$ 值替换为 $G_i$ 中 $A_i$ 的父值，通过这一操作不断对报警进行泛化。</li>
-<li><code>Step.03</code>: 持续步骤 2 的操作，直到找到至少可以将原始报警泛化为报警簇群的最小值  ${min_size}$。</li>
+<li><code>Step.03</code>: 持续步骤 2 的操作，直到找到至少可以将原始报警泛化为报警簇群的最小值  $\mathcal{min_size}$。</li>
 <li><code>Step.04</code>: 输出步骤 3 中找到的报警。</li>
 </ul>
 </li>
 <li><p>算法的伪代码描述： </p>
 <ul>
-<li><code>Input</code>：(报警日志集合 $L$，${min_size}$，每个属性的泛化层次结构 $G_1、…、G_n$)</li>
-<li><p><code>Output</code>：(泛化报警日志集合 $L$，${min_size}$，每个属性的泛化层次结构 $G_1、…、G_n$)</p>
+<li><code>Input</code>：(报警日志集合 $L$，$\mathcal{min_size}$，每个属性的泛化层次结构 $G_1、…、G_n$)</li>
+<li><p><code>Output</code>：(泛化报警日志集合 $L$，$\mathcal{min_size}$，每个属性的泛化层次结构 $G_1、…、G_n$)</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/* 将报警日志集合 L 保存至表 <span class="literal">T</span>，且表中每一列代表报警的一项属性 Ai */</span><br><span class="line"><span class="literal">T</span> := L</span><br><span class="line">	</span><br><span class="line">/* count 是统计当前报警记录数量的变量 (可理解为报警簇群的大小)</span><br><span class="line"> * count 初始化为 <span class="number">1</span> 可理解为当前报警为一个仅且包含它本身的簇群 */</span><br><span class="line"><span class="keyword">for</span> all alarms a <span class="keyword">in</span> <span class="literal">T</span> do a[count] = <span class="number">1</span>; </span><br><span class="line">	</span><br><span class="line">/* 开始对报警进行泛化操作 */</span><br><span class="line"><span class="keyword">while</span> ∀a∈<span class="literal">T</span>:a[count] &lt; min_size do &#123;</span><br><span class="line">	</span><br><span class="line">	// Step.1 使用启发算法选择一个属性 Ai</span><br><span class="line">	</span><br><span class="line">	// Step.2 对 L 中所有报警进行泛化：</span><br><span class="line">	// 即把报警的属性 Ai 替换为泛化层次结构 Gi 中 Ai 的父值</span><br><span class="line">	<span class="keyword">for</span> all alarms a <span class="keyword">in</span> <span class="literal">T</span> do &#123;</span><br><span class="line">		a[Ai] := parent of a[Ai] <span class="keyword">in</span> Gi;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	// Step.3 如果 a[Ai] == a’[Ai], i = <span class="number">1</span>, <span class="number">2</span>, <span class="keyword">...</span>, n</span><br><span class="line">	// 即报警的所有属性 Ai 都相同</span><br><span class="line">	<span class="keyword">while</span> identical alarms a, a<span class="string">' exist do &#123;</span></span><br><span class="line"><span class="string">		// 合并相同警报于同一个泛化报警 a 中并更新泛化警报的计数</span></span><br><span class="line"><span class="string">		Set a[count] := a[count] + a'</span>[count];</span><br><span class="line">		// 完成统计后移除报警记录 a<span class="string">'</span></span><br><span class="line"><span class="string">		Delete a'</span> from <span class="literal">T</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -556,8 +556,8 @@ H(C) := \min \left\{
   \right\} \tag{5}</script></li>
 <li><p>这里的逻辑是：</p>
 <ul>
-<li>若有一个报警 $\mathcal{a}$ 满足 $\mathcal{a}[count] \geq min_size$，那么对于所有属性 $A_i$ 均能满足 $F_i \geq f_i(\mathcal{a}[A_i]) \geq min_size$。</li>
-<li><p>相反，如果有一个属性 $A_i$ 的 $F_i &lt; min_size$，那么 $\mathcal{a}[count]$ 就不可能大于 $min_size$。所以选择 $F_i$ 值最小的属性 $A_i$ 进行泛化。</p>
+<li>若有一个报警 $\mathcal{a}$ 满足 $\mathcal{a}[count] \geq \mathcal{min_size}$，那么对于所有属性 $A_i$ 均能满足 $F_i \geq f_i(\mathcal{a}[A_i]) \geq \mathcal{min_size}$。</li>
+<li><p>相反，如果有一个属性 $A_i$ 的 $F_i &lt; \mathcal{min_size}$，那么 $\mathcal{a}[count]$ 就不可能大于 $\mathcal{min_size}$。所以选择 $F_i$ 值最小的属性 $A_i$ 进行泛化。</p>
 <blockquote>
 <p>类似于木桶定律，装水量由最短的木板决定。</p>
 </blockquote>
@@ -579,8 +579,8 @@ H(C) := \min \left\{
 </li>
 </ul>
 <h4 id="MINSIZE-参数自适应算法"><a href="#MINSIZE-参数自适应算法" class="headerlink" title="MINSIZE 参数自适应算法"></a>MINSIZE 参数自适应算法</h4><ul>
-<li>此外，关于 $min_size$ 的选择，如果选择了一个过大的 $min_size$，那么会迫使算法合并具有不同根源的报警。另一方面，如果过小，那么聚类可能会提前结束，具有相同根源的报警可能会出现在不同的聚类中。</li>
-<li>因此，设置一个初始值，可以记作 $ms_0$。定义一个较小的值 $\varepsilon (0 &lt; \varepsilon &lt; 1)$，当 $min_size$ 取值为 $ms_0$、$ms_0 \times (1 - \varepsilon )$、$ms_0 \times (1 + \varepsilon )$ 时的聚类结果相同时，我们就说此时聚类是 $ \varepsilon$-鲁棒的。</li>
+<li>此外，关于 $\mathcal{min_size}$ 的选择，如果选择了一个过大的 $\mathcal{min_size}$，那么会迫使算法合并具有不同根源的报警。另一方面，如果过小，那么聚类可能会提前结束，具有相同根源的报警可能会出现在不同的聚类中。</li>
+<li>因此，设置一个初始值，可以记作 $ms_0$。定义一个较小的值 $\varepsilon (0 &lt; \varepsilon &lt; 1)$，当 $\mathcal{min_size}$ 取值为 $ms_0$、$ms_0 \times (1 - \varepsilon )$、$ms_0 \times (1 + \varepsilon )$ 时的聚类结果相同时，我们就说此时聚类是 $ \varepsilon$-鲁棒的。</li>
 <li><p>如果不相同，则使 $ms_1 = ms_0 * (1 - \varepsilon)$，重复这个测试，直到找到一个鲁棒的最小值。</p>
 <blockquote>
 <p>需要注意的是，$ \varepsilon$-鲁棒性与特定的报警日志相关。因此，给定的最小值，可能相对于一个报警日志来说是鲁棒的，而对于另一个报警日志来说是不鲁棒的。</p>
@@ -624,7 +624,7 @@ H(C) := \min \left\{
 <p>  <img src="/images/illustration/Paper/2019/alarm-clustering_1-8.png" alt=""></p>
   <center>图 1-8 报警日志聚类流程图</center>
 </li>
-<li><p><code>min_size</code> 参数设定：考虑到日志数据中可能包含种类极多，且根据小规模数据实验表明，$min_size = \frac15 \times$ 报警日志数量时，算法已经有较好的表现，再高会增加过度聚合的风险，因此我们取 $min_size = \frac15 \times$ 报警日志数量，$\varepsilon$ 参考论文中的实验取 0.05。</p>
+<li><p><code>min_size</code> 参数设定：考虑到日志数据中可能包含种类极多，且根据小规模数据实验表明，$\mathcal{min_size} = \frac15 \times$ 报警日志数量时，算法已经有较好的表现，再高会增加过度聚合的风险，因此我们取 $\mathcal{min_size} = \frac15 \times$ 报警日志数量，$\varepsilon$ 参考论文中的实验取 0.05。</p>
 </li>
 <li><p><code>聚类停止条件</code>：考虑到部分场景下，报警日志可能较少，因此 min_size 的值也较少，此时聚类已无太大意义，因此设定聚类停止条件为：聚类结果的报警摘要数量小于等于 20 或已经存在某个类别的 count 值达到 min_size 的阈值，即停止聚类。</p>
 </li>
