@@ -254,6 +254,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2019/08/root-cause-analysis-alarm-clustering.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/root-cause-analysis-alarm-clustering.html" itemprop="url">论文 | 基于根因分析的聚类算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T20:27:58+08:00">
+                2019-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2019-08-04T21:58:02+08:00" content="2019-08-04">
+                2019-08-04
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Paper/" itemprop="url" rel="index">
+                    <span itemprop="name">Paper</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/root-cause-analysis-alarm-clustering.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/root-cause-analysis-alarm-clustering.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/08/root-cause-analysis-alarm-clustering.html" class="leancloud_visitors" data-flag-title="论文 | 基于根因分析的聚类算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,668
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <div class="note default"><p>原文：Clustering intrusion detection alarms to support root cause analysis<br>作者：Klaus Julisch<br>来源：ACM Transactions on Information and System Security, 2003, 6(4):443-471.</p></div>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li>系统出现故障时，运维人员一般先查看错误日志定位故障原因。</li>
+<li>业务流量小、逻辑复杂度低时，应用出现故障时错误日志一般较少，运维人员根据错误日志迅速定位到问题。但随着业务逻辑的迭代，系统接入的依赖服务不断增多、引入的组件不断增多，当系统出现故障时，<code>错误日志的量级急剧增加</code>。极端情况下更甚出现 “疯狂报错” 的现象，这时错误日志的内容会存在 <code>相互掩埋</code>、<code>相互影响</code> 的问题，运维人员面对报错一时难以理清逻辑， 失去焦点，没能第一时间解决最核心问题。</li>
+<li>若在报警流出现时，通过处理程序将报警进行聚类，整理出一段时间内的报警摘要。运维人员就可以在摘要信息的帮助下，先对当前的故障有一个大致的轮廓，再结合技术知识与业务知识定位故障的根本原因。</li>
+<li>围绕上面描述的问题，以及对于报警聚类处理的分析假设，本文主要做了以下事情：  <ul>
+<li><code>选定算法</code>：选定聚类算法，简单描述算法基本原理，并给出针对报警日志聚类的一种具体实现方案。  </li>
+<li><code>验证算法</code>：在分布式业务服务的系统下构造了三种不同实验场景，验证了算法的效果，并且对算法的不足进行分析阐述。</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/root-cause-analysis-alarm-clustering.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2019/02/Django.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2038,204 +2245,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/08/building-a-svn-server.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kofe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kofe">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/building-a-svn-server.html" itemprop="url">项目 | SVN 环境搭建与使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T16:24:20+08:00">
-                2018-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-
-	  
-            <span class="post-updated">
-              &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-11-05T17:39:49+08:00" content="2018-11-05">
-                2018-11-05
-              </time>
-            </span>
-          
-
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index">
-                    <span itemprop="name">Project</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/building-a-svn-server.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/building-a-svn-server.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/08/building-a-svn-server.html" class="leancloud_visitors" data-flag-title="项目 | SVN 环境搭建与使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,341
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 <code>源代码版本控制</code> 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 <code>搭建</code>、<code>配置</code> 和 <code>使用</code> 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。</p>
-<p>当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑到种种因素，我们不能单方面评论每种版本控制工具的优劣，故选择哪款版本控制工具视具体情况而定。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/building-a-svn-server.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2290,7 +2299,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2312,7 +2321,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
