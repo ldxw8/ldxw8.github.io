@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/11/The-Best-Way-to-Visualize-a-Dataset-Easily_2-2.jpg">
-<meta property="og:updated_time" content="2019-07-27T14:44:02.957Z">
+<meta property="og:updated_time" content="2019-08-05T08:49:35.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="讲座 | 利用 t-SNE 降维并可视化数据">
 <meta name="twitter:description" content="作者：Siraj Raval课堂：The Best Way to Visualize a Dataset Easily | Bilibili | Youtube源码：llSourcell.Visualize_dataset_demo | Github    目标：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探">
@@ -301,8 +301,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-07-27T22:44:02+08:00" content="2019-07-27">
-                2019-07-27
+              <time itemprop="dateUpdated" datetime="2019-08-05T16:49:35+08:00" content="2019-08-05">
+                2019-08-05
               </time>
             </span>
           
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,192
+                  4,163
                 </span>
               
 
@@ -401,7 +401,7 @@
         <div class="note default"><p>作者：Siraj Raval<br>课堂：The Best Way to Visualize a Dataset Easily | <a href="https://www.bilibili.com/video/av35768109" target="_blank" rel="noopener">Bilibili</a> | <a href="https://www.youtube.com/watch?v=yQsOFWqpjkE" target="_blank" rel="noopener">Youtube</a><br>源码：llSourcell.Visualize_dataset_demo | <a href="https://github.com/llSourcell/visualize_dataset_demo" target="_blank" rel="noopener">Github</a>  </p></div>
 <ul>
 <li><p><code>目标</code>：在本次课堂中，将对人类活动识别 ( Human Activity Recognition，HAR ) 数据集进行数据可视化呈现，并进行探索性分析以发现知识。而本课堂具体目标则是人类活动状态识别，活动状态包括：Sitting-down，Standing-up，Standing，Walking，Sitting。</p>
-<p>  具体地，通过降维方法 <code>t-SNE</code> 实现不同活动状态的数据自动 “分类” ( 更准确地说应该是聚类 )，从而在低维度 ( 二维 ) 下复现数据 ( 的特征 )，以便我们理解数据、统计分析数据。</p>
+<p>  具体地，通过降维方法 <code>t-SNE</code> 实现不同活动状态的数据自动 “分类”，从而在低维度 ( 二维 ) 下复现数据 ( 的特征 )，以便我们理解数据、统计分析数据。</p>
 </li>
 <li><p><code>问题</code>：若我们要将要描述如此复杂的数据，即它们拥有的特征 ( 维度 ) 过多了，相对于人类大脑只能理解二维或三维的层面，如此复杂数据我们是难以从中发现知识的。</p>
 </li>
@@ -440,9 +440,9 @@
 <li><p><code>数据归约</code>：在海量数据上进行复杂的数据分析和挖掘，需要时间很长且不显示。在尽可能保持数据原貌前提下，最大限度精简数据量。策略包括：</p>
 <ul>
 <li><code>维归约</code>：也称为特征归约，减少所考虑的属性的个数。方法包括：小波变换、主成分分析、属性子集选择等。当然利用冗余和相关分析也是可行的。</li>
-<li><p><code>数量归约</code>：用替代的、较小的数据表示形式替换原数据 ( 是否可理解为合并多组特征成为新的特征 )。方法包括：参数的方法，回归和对数线性模型；非参数的方法，聚类、降维、直方图、抽样和数据立方体聚集。</p>
+<li><p><code>数量归约</code>：用替代的、较小的数据集表示形式替换原数据。方法包括：参数的方法，回归和对数线性模型；非参数的方法，聚类、降维、直方图、抽样和数据立方体聚集。</p>
 <blockquote>
-<p>在本课堂中则使用了降维方法进行属性数量的归约，其中降维方法有：PCA、t-SNE $^{[4]}$、LargeVis $^{[5, 6]}$ 等。</p>
+<p>在本课堂中则使用了降维方法进行维度的归约，其中降维方法有：PCA、t-SNE $^{[4]}$、LargeVis $^{[5, 6]}$ 等。</p>
 </blockquote>
 </li>
 </ul>
