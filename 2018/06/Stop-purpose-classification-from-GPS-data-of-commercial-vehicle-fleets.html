@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="原文：Stop purpose classification from GPS data of commercial vehicle fleets作者：Sarti L, Bravi L, Sambo F.来源：Data Mining Workshops, 2017 IEEE International Conference on. IEEE, 2017: 280-287.   摘要从原始 GPS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-05T14:14:00.101Z">
+<meta property="og:updated_time" content="2019-08-06T14:29:07.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 | 从商用车队的 GPS 数据中归类车辆停留意图信息">
 <meta name="twitter:description" content="原文：Stop purpose classification from GPS data of commercial vehicle fleets作者：Sarti L, Bravi L, Sambo F.来源：Data Mining Workshops, 2017 IEEE International Conference on. IEEE, 2017: 280-287.   摘要从原始 GPS">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-08-05T22:14:00+08:00" content="2019-08-05">
-                2019-08-05
+              <time itemprop="dateUpdated" datetime="2019-08-06T22:29:07+08:00" content="2019-08-06">
+                2019-08-06
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,399
+                  3,757
                 </span>
               
 
@@ -478,7 +478,7 @@
 <li>每个 <code>汽车停靠点</code> 都有几个特性 ( 通过计算其中的 Ping )：Ping 的数量，停靠点的起点和终点 ( 属于该停靠点的 Ping 的第一个和最后一个时间戳 )，驻留时间 ( 属于该停靠点的起始时间和结束时间 ) 和形状 ( 由GPS消息的最大 (最小) 纬度/经度坐标定义 )。</li>
 <li>所有这些信息对于在第二阶段提取特征工作至关重要，即汽车停靠点意图的分类。</li>
 </ul>
-<h4 id="贴标签"><a href="#贴标签" class="headerlink" title="贴标签"></a>贴标签</h4><ul>
+<h4 id="标注标签"><a href="#标注标签" class="headerlink" title="标注标签"></a>标注标签</h4><ul>
 <li>首先，对上述程序中获得的汽车停靠点分配 <code>地面实况标签</code>。</li>
 <li>再者，将它们与 <code>工单数据</code> 进行匹配。一般来说，若车辆停留点在时间上和空间上与工单数据 $W_i$ 相匹配，则可认为该汽车停靠点就是该工单数据。<ul>
 <li><code>空间匹配</code>：对于只包含 idling 和 engine off 状态的停靠点，我们认为它满足空间上的匹配。</li>
@@ -519,7 +519,7 @@
 <li>开放式停车场;</li>
 </ul>
 </li>
-<li><p>汽车停靠点集群特征 ( Stop cluster features，CF )：其原理是存在一些工单数据和非工单数据趋向于聚类成簇，类似于 [7] 中提出的熵度量方法：对于每个停靠点，查看并收集 250 米半径内的周边环绕的停靠点数据。</p>
+<li><p>汽车停靠点集群特征 ( Stop cluster features，CF )：描述当前停靠点集周围停靠点的特征所组成的特征集。其原理是，存在一些工作状态的工单和非工作状态的工单数据，趋向于聚类成簇。类似于 [7] 中提出的熵度量方法：对于每个停靠点，查看并收集 250 米半径内的周边环绕的停靠点数据。</p>
 <ul>
 <li><p>车辆熵，计算公式为：</p>
 <script type="math/tex; mode=display">E_v = - \sum_{\nu \in V} 
@@ -533,11 +533,22 @@
 <li>邻近汽车停靠点的数量 (在其质心250米半径以内)。</li>
 </ul>
 </li>
-<li><p>序列特征 (Sequential features，SeqF).</p>
+<li><p>序列特征 (Sequential features，SeqF)：</p>
+<ul>
+<li><code>工作日内停车的次序</code>：同一辆车在白天按照停车顺序排序的 (归一化的) 相对位置。</li>
+<li><code>停车所涵盖的时间百分比</code>：停车行为在工作日中的时间占比 ( 注意该值与工作日的开始相关，且工作日的开始由一天中第一个 Ping 定义 )。这也是司机夜间休息时间的近似假设。</li>
+</ul>
 </li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>本文基于商用车队的 GPS 数据研究了停车目的识别问题。</li>
+<li>为了建立地面真实数据集，通过查看考虑到每辆车的工作单进度数据，实现了一个自动标注过程；</li>
+<li>从 GPS Ping 数据中提取了 4 组不同的特征 ( SWF、POIF、CF 和 SeqF )，且介绍了一种提取原始 GPS Ping 信号停止聚合的方法。</li>
+<li>利用提取的特征训练随机森林模型，并与两种基线模型进行性能比较。实验结果表明，本文提取总结的 4 组特征显著提高了随机森林的分类能力。</li>
 </ul>
 <h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul>
 <li>在车辆停靠点侦查技术章节中，使用的是非监督方式的算法，即基于密度的 DBSCAN 聚类算法。其中涉及密度阈值的设定多少问题，就需要对具体样本量进行考究才能决定。</li>
+<li>数据集是否可用于处理多分类问题。例如，通过扩大标签集以包含更具体的停车类型，而不是当前的二元标签 ( 工作状态与非工作状态 )。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[1] Horozov T, Narasimhan N, Vasudevan V. Using location for personalized POI recommendations in mobile environments [C]//Applications and the internet, 2006. SAINT 2006. International symposium on. IEEE, 2006: 6 pp.-129.<br>[2] Jiang K, Yin H, Wang P, et al. Learning from contextual information of geo-tagged web photos to rank personalized tourism attractions [J]. Neurocomputing, 2013, 119: 17-25.<br>[3] Palma A T, Bogorny V, Kuijpers B, et al. A clustering-based approach for discovering interesting places in trajectories [C]//Proceedings of the 2008 ACM symposium on Applied computing. ACM, 2008: 863-868.<br>[4] Gong L, Sato H, Yamamoto T, et al. Identification of activity stop locations in GPS trajectories by density-based clustering method combined with support vector machines [J]. Journal of Modern Transportation, 2015, 23(3): 202-213.<br>[5] Ester M, Kriegel H P, Sander J, et al. A density-based algorithm for discovering clusters in large spatial databases with noise [C]//Kdd. 1996, 96(34): 226-231.<br>[6] Lv M, Chen L, Xu Z, et al. The discovery of personally semantic places based on trajectory data mining [J]. Neurocomputing, 2016, 173: 1142-1153.<br>[7] Gingerich K, Maoh H, Anderson W. Classifying the purpose of stopped truck events: An application of entropy to GPS data [J]. Transportation Research Part C: Emerging Technologies, 2016, 64: 17-27.<br>[8] Sambo F, Salti S, Bravi L, et al. Integration of GPS and satellite images for detection and classification of fleet hotspots [C]//Intelligent Transportation Systems (ITSC), 2017 IEEE 20th International Conference on. IEEE, 2017: 1-6.<br>[9] Wolf J, Guensler R, Bachman W. Elimination of the travel diary: Experiment to derive trip purpose from global positioning system travel data [J]. Transportation Research Record: Journal of the Transportation Research Board, 2001 (1768): 125-134.<br>[10] Bohte W, Maat K. Deriving and validating trip purposes and travel modes for multi-day GPS-based travel surveys: A large-scale application in the Netherlands [J]. Transportation Research Part C: Emerging Technologies, 2009, 17(3): 285-297.  </p>
 
@@ -794,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GPS-和工单数据的定义"><span class="nav-number">2.2.1.</span> <span class="nav-text">GPS 和工单数据的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#侦查车辆停靠状态的方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">侦查车辆停靠状态的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贴标签"><span class="nav-number">2.2.3.</span> <span class="nav-text">贴标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类特征"><span class="nav-number">2.2.4.</span> <span class="nav-text">分类特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不足"><span class="nav-number">3.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">2.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">2.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GPS-和工单数据的定义"><span class="nav-number">2.2.1.</span> <span class="nav-text">GPS 和工单数据的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#侦查车辆停靠状态的方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">侦查车辆停靠状态的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标注标签"><span class="nav-number">2.2.3.</span> <span class="nav-text">标注标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类特征"><span class="nav-number">2.2.4.</span> <span class="nav-text">分类特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不足"><span class="nav-number">4.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
