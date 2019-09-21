@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_6-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-2.png">
-<meta property="og:updated_time" content="2019-09-15T14:31:25.400Z">
+<meta property="og:updated_time" content="2019-09-21T02:54:03.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | Java 入门系列教程">
 <meta name="twitter:description" content="由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。 需要">
@@ -303,8 +303,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-09-15T22:31:25+08:00" content="2019-09-15">
-                2019-09-15
+              <time itemprop="dateUpdated" datetime="2019-09-21T10:54:03+08:00" content="2019-09-21">
+                2019-09-21
               </time>
             </span>
           
@@ -375,7 +375,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  16,857
+                  16,896
                 </span>
               
 
@@ -1618,17 +1618,17 @@
 </li>
 </ul>
 <h2 id="捌-使用-Java-集合"><a href="#捌-使用-Java-集合" class="headerlink" title="捌 使用 Java 集合"></a>捌 使用 Java 集合</h2><h3 id="介绍集合-API"><a href="#介绍集合-API" class="headerlink" title="介绍集合 API"></a>介绍集合 API</h3><h4 id="两种基本数据结构"><a href="#两种基本数据结构" class="headerlink" title="两种基本数据结构"></a>两种基本数据结构</h4><ul>
-<li>Collection：对象的集合，如图 8-1 所示。 </li>
-<li>Map：对象间的一系列映射或关联关系，即 <code>键值对</code>，如图 8-2 所示。 </li>
-</ul>
-<p><img src="/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-1.png" alt="Collection数据结构"></p>
+<li>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对的映射表。</li>
+<li><p>Collection：对象的集合，如图 8-1 所示。 </p>
+<p>  <img src="/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-1.png" alt="Collection数据结构"></p>
 <center>图 8-1 Collection 数据结构</center>
-
-<p><img src="/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-2.png" alt="Map数据结构"></p>
-<center>图 8-2 Map 数据结构</center>
-
+</li>
+<li><p>Map：对象间的一系列映射或关联关系，即 <code>键值对</code>，如图 8-2 所示。 </p>
+<p>  <img src="/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-2.png" alt="Map数据结构"></p>
+  <center>图 8-2 Map 数据结构</center>
+</li>
+<li><p>关于图 8-1 中，部分数据结构的说明：  </p>
 <ul>
-<li>关于图 8-1 中，部分数据结构的说明：  <ul>
 <li><code>Set</code>、<code>List</code> 是 <code>Collection</code>。Set 没有重复对象，Set 实现都不会对元素排序；List 可能有重复，且其元素按顺序排列。</li>
 <li><code>SortedSet</code> 和 <code>SortedMap</code> 是特殊的集合映射，其中的元素按顺序排序。</li>
 </ul>
@@ -1674,7 +1674,7 @@
 <td style="text-align:left">无</td>
 <td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(capacity)</td>
-<td style="text-align:left">无</td>
+<td style="text-align:left">失去元素的插入顺序信息，使用 Iterator 遍历得到的结果是不确定的</td>
 </tr>
 <tr>
 <td style="text-align:left">LinkedHashSet</td>
@@ -1683,16 +1683,7 @@
 <td style="text-align:left">无</td>
 <td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(n)</td>
-<td style="text-align:left">无</td>
-</tr>
-<tr>
-<td style="text-align:left">EnumSet</td>
-<td style="text-align:left">位域</td>
-<td style="text-align:left">枚举声明</td>
-<td style="text-align:left">枚举类型的值</td>
-<td style="text-align:left">O(1)</td>
-<td style="text-align:left">O(n)</td>
-<td style="text-align:left">枚举值不能为 null</td>
+<td style="text-align:left">内部使用双向链表维护元素的插入顺序</td>
 </tr>
 <tr>
 <td style="text-align:left">TreeSet</td>
@@ -1719,11 +1710,11 @@
 <li>List 是一组 <code>有序</code> 的对象集合。</li>
 <li>列表中的每个元素都有特定的位置，且 List 接口定义了一些方法，用于查询或设定特定位置 (或叫索引) 的元素。从这个角度看，<code>List 对象和数组类似</code>，不过<code>列表的大小能按需变化</code>。</li>
 <li>和集不同，列表允许出现重复的元素。</li>
-<li>遍历循环和迭代，即依次处理每个元素。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ListCollection&lt;String&gt; c = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"><span class="keyword">for</span>( String word : c ) &#123;</span><br><span class="line">	System.out.println(word); <span class="comment">// 遍历循环</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for 循环迭代判断是否还有下一个值</span></span><br><span class="line"><span class="keyword">for</span>( Iterator&lt;String&gt; i = c.iterator(); i.hasNext(); ) &#123;</span><br><span class="line">	System.out.println( i.next() );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Iterator&lt;String&gt; iterator = c.iterator();</span><br><span class="line"><span class="keyword">while</span>( iterator.hasNext() ) &#123;</span><br><span class="line">	System.out.println( iterator.next() );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>实现 List 接口的类</li>
+<li><p>遍历循环和迭代，即依次处理每个元素。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ListCollection&lt;String&gt; c = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"><span class="keyword">for</span>( String word : c ) &#123;</span><br><span class="line">	System.out.println(word); <span class="comment">// 遍历循环</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for 循环迭代判断是否还有下一个值</span></span><br><span class="line"><span class="keyword">for</span>( Iterator&lt;String&gt; i = c.iterator(); i.hasNext(); ) &#123;</span><br><span class="line">	System.out.println( i.next() );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Iterator&lt;String&gt; iterator = c.iterator();</span><br><span class="line"><span class="keyword">while</span>( iterator.hasNext() ) &#123;</span><br><span class="line">	System.out.println( iterator.next() );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现 List 接口的类</p>
+</li>
 </ul>
 <div class="table-container">
 <table>
@@ -1740,7 +1731,7 @@
 <td style="text-align:left">ArrayList</td>
 <td style="text-align:left">数组</td>
 <td style="text-align:left">能</td>
-<td style="text-align:left">无</td>
+<td style="text-align:left">高效查找和修改</td>
 </tr>
 <tr>
 <td style="text-align:left">LinkedList</td>
@@ -1796,13 +1787,6 @@
 <td style="text-align:left">线程安全 (详情请参阅 JDK API)</td>
 </tr>
 <tr>
-<td style="text-align:left">EnumMap</td>
-<td style="text-align:left">数组</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">键为何枚举类型</td>
-</tr>
-<tr>
 <td style="text-align:left">LinkedHashMap</td>
 <td style="text-align:left">哈希表 + 列表</td>
 <td style="text-align:left">是</td>
@@ -1817,13 +1801,6 @@
 <td style="text-align:left">按照键排序</td>
 </tr>
 <tr>
-<td style="text-align:left">IdentityHashMap</td>
-<td style="text-align:left">哈希表</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">比较使用 <code>==</code>，而非 <code>equal()</code></td>
-</tr>
-<tr>
 <td style="text-align:left">WeakHashMap</td>
 <td style="text-align:left">哈希表</td>
 <td style="text-align:left">是</td>
@@ -1835,8 +1812,8 @@
 </div>
 <h4 id="Queue、BlockingQueue-接口"><a href="#Queue、BlockingQueue-接口" class="headerlink" title="Queue、BlockingQueue 接口"></a>Queue、BlockingQueue 接口</h4><ul>
 <li>队列是一组有序的元素，提取元素时按顺序从对头读取。队列插入元素的顺序实现，可分类为：<ul>
-<li>FIFO：先进先出，队列。</li>
-<li>LIFO：后进先出，栈。</li>
+<li>FIFO：先进先出 — <code>队列</code> 的特性。</li>
+<li>LIFO：后进先出 — <code>栈</code> 的特性。</li>
 </ul>
 </li>
 <li>把元素添加队列中：<ul>
