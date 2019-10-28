@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_1-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2017/09/Java_in_a_Nutshell_8-2.png">
-<meta property="og:updated_time" content="2019-10-07T07:39:01.620Z">
+<meta property="og:updated_time" content="2019-10-28T03:17:06.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | Java 入门系列教程">
 <meta name="twitter:description" content="由于对图灵出品的 O’Reilly 动物书情有独钟，至此本篇文章以动物书系列之 Java 技术手册 为主要框架，开启我的 Java 语言学习旅程。 当然，通读一遍本书之后，你会发现本书对 Java 基础知识部分的讲述一定是有所欠缺的，所以课后补充工作很有必要。如通过参考其他 Java 书籍（下文中有参考书目推荐）、优秀博文的补充，核心需求就是要输出一份便于常翻阅、可复用的读书笔记、学习笔记。 需要">
@@ -302,8 +302,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-10-07T15:39:01+08:00" content="2019-10-07">
-                2019-10-07
+              <time itemprop="dateUpdated" datetime="2019-10-28T11:17:06+08:00" content="2019-10-28">
+                2019-10-28
               </time>
             </span>
           
@@ -1343,14 +1343,12 @@
 </ul>
 <h4 id="类型擦除"><a href="#类型擦除" class="headerlink" title="类型擦除"></a>类型擦除</h4><ul>
 <li><p>Java 平台十分看重向后兼容性，问题的关键是，如果让类型系统既能使用旧的非泛型集合类又能使用新的泛型集合类，则设计者们选择 <code>校正</code> 的解决方案。</p>
+<p>  下述代码表明，<code>List</code> 与 <code>List&lt;String&gt;</code> 是兼容的，Java 通过类型擦除实现这种兼容性。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List someThings = getSomeThing();</span><br><span class="line"><span class="comment">// 这种校正不安全，即使 someThings 的内容确定是字符串</span></span><br><span class="line">List&lt;String&gt; myStrings = (List&lt;String&gt;) SomeThings;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<pre><code>上述代码表明，`List` 与 `List&lt;String&gt;` 是兼容的，Java 通过类型擦除实现这种兼容性。
-</code></pre><ul>
 <li><p>类型擦除机制还能禁止使用某些其他定义方式。</p>
+<p>  下述代码看似合法，其实是无法编译的。其实当擦除类型后，两方法的签名变成 <code>int totalOrder(Map);</code>，Java 语言规范把这种句法列为不合法的句法。</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OrderCounter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalOrder</span><span class="params">( Map&lt;String, List&lt;String&gt;&gt; orders )</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalOrder</span><span class="params">( Map&lt;String, Integer&gt; orders )</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  上述代码看似合法，其实是无法编译的。其实当擦除类型后，两方法的签名变成 <code>int totalOrder(Map);</code>，Java 语言规范把这种句法列为不合法的句法。</p>
 </li>
 </ul>
 <h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><ul>
