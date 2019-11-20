@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-03T08:40:16.858Z">
+<meta property="og:updated_time" content="2019-11-20T11:10:48.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文 | 扩展 K-Means 算法：混合数据类型的聚类方法">
 <meta name="twitter:description" content="原文：Extensions to the k-means algorithm for clustering large datasets with categorical values作者：ZHEXUE HUANG.来源：Data mining and knowledge discovery, 1998, 2(3): 283-304.   摘要在早期，大多数聚类工作主要集中在数值数据上，且它们主要">
@@ -298,8 +298,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2018-09-03T16:40:16+08:00" content="2018-09-03">
-                2018-09-03
+              <time itemprop="dateUpdated" datetime="2019-11-20T19:10:48+08:00" content="2019-11-20">
+                2019-11-20
               </time>
             </span>
           
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,724
+                  3,726
                 </span>
               
 
@@ -596,30 +596,30 @@ P(W,Q) = \sum_{l=1}^k (P_l^r + P_l^c)
 </li>
 </ul>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-距离函数"><a href="#1-距离函数" class="headerlink" title="1 距离函数"></a>1 距离函数</h3><p><code>距离函数</code>：关于数据点之间的距离函数，即数值属性刻画的对象相异性的距离度量。度量方法 $^{[1]}$ 包括闵可夫斯基距离 (闵氏距离)、欧几里得距离 (欧式距离) 和曼哈顿距离。</p>
-<p>令 $i=(x_{i1},x_{i2},…,x_{ih})$ 和 $j=(x_{j1},x_{j2},…,x_{jh})$ 是两个被 h 个属性描述的对象。 </p>
+<p>令 $i=(x_{i1},x_{i2},…,x_{ih})$ 和 $j=(x_{j1},x_{j2},…,x_{jh})$ 是两个被 p 个数值属性描述的对象。 </p>
 <p>闵氏距离是欧式距离和曼哈顿距离的推广，定义如下：</p>
 <script type="math/tex; mode=display">
 d(i, j) = \sqrt[h](
-    \sum_{f=1}^h |x_{if}-x_{jf}|^{h}
+    \sum_{f=1}^p |x_{if}-x_{jf}|^{h}
 ),h \geq 1
 \tag{1}</script><ul>
 <li>当 h = 1 时，它表示 <code>曼哈顿距离</code>，也称 <code>城市块</code> 距离 (城市两点之间的街区距离，如向南 2 个街区，横过 3 个街区，共计五个街区)，其定义如下：</li>
 </ul>
 <script type="math/tex; mode=display">
-d(i, j) = \sum_{f=1}^h |x_{if}-x_{jf}|,h \geq 1
+d(i, j) = \sum_{f=1}^p |x_{if}-x_{jf}|,h \geq 1
 \tag{2}</script><ul>
 <li>当 h = 2 时，它表示 <code>欧式距离</code>，也称 <code>直线或乌鸦飞行</code> 距离，其定义如下：</li>
 </ul>
 <script type="math/tex; mode=display">
-d(i, j) = \sqrt(\sum_{f=1}^h (x_{if}-x_{jf})^2)
+d(i, j) = \sqrt(\sum_{f=1}^p (x_{if}-x_{jf})^2)
 ,h \geq 1
 \tag{3}</script><ul>
 <li>当 h = $\infty$ 时，它表示 <code>上确界距离</code>，又称 <code>切比雪夫距离</code>，其定义如下L：</li>
 </ul>
 <script type="math/tex; mode=display">
 d(i, j) = \lim_{h \to \infty} (
-    \sum_{f=1}^h |x_{if}-x_{jf}|^h
-)^\frac{1}{h} = max_{f}^h |x_{if}-x_{jf}|
+    \sum_{f=1}^p |x_{if}-x_{jf}|^h
+)^\frac{1}{h} = \max^{p}_{f} |x_{if}-x_{jf}|
 \tag{4}</script><h3 id="2-定理证明"><a href="#2-定理证明" class="headerlink" title="2 定理证明"></a>2 定理证明</h3><p><code>定理 1</code> 的证明如下：</p>
 <ul>
 <li>让 $f_r (A_j = c_{k,j} | X) = \frac { n_{c_{k,j}} }{n}$ 为属性 $A_j$ 的第 $k$ 个标称属性 $c_{k,j}$ 的相对频率，$n$ 是 $X$ 中对象的总数，$n_{C_{k,j}}$ 是拥有标称属性 $c_{k,j}$ 的对象的计数。</li>
