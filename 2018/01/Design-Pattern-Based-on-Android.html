@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Kofe">
 <meta property="og:description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-2.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-2.png">
@@ -141,11 +141,11 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-48.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-2.png">
-<meta property="og:updated_time" content="2019-03-31T14:35:20.932Z">
+<meta property="og:updated_time" content="2021-04-14T06:37:25.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | 设计模式之 Android 实践与案例">
 <meta name="twitter:description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
-<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.svg">
 
 
 
@@ -351,8 +351,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-03-31T22:35:20+08:00" content="2019-03-31">
-                2019-03-31
+              <time itemprop="dateUpdated" datetime="2021-04-14T14:37:25+08:00" content="2021-04-14">
+                2021-04-14
               </time>
             </span>
           
@@ -674,7 +674,7 @@
 <li><p>一个对象应对其他对象有最少的了解、即类的内部如何实现与调用者、依赖者没关系，调用者或依赖者之需知道它需要的方法即可，其他一概不管。</p>
 </li>
 <li><p>图 1-1 展示了租客、中介与房间相互之间的需求关系。</p>
-<p>  <img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.png" alt="租客、中介与房间关系"></p>
+<p>  <img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.svg" alt="租客、中介与房间关系"></p>
   <center>图 1-1 租客、中介与房间关系</center>   
 
 <p>  因为租客只需要房子，即把需求转达中介，对房子具体的租金、维修、签约等交由中介处理，租客不需要再了解细节。改进效果见图 1-2。</p>
@@ -1015,13 +1015,13 @@
 <p>而这些字符组成的集合，如 “abcdcd…cdef” 这样由字符表构成的字符串则称为 <code>形式语言</code>。注意这里的语言不是文法。</p>
 <p>假设定义一个符号 S，从符号 S 出发推导上述字符串，即可得到如下推导式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">S ::= abA*ef  </span><br><span class="line">A ::= cd</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 <ul>
 <li><code>::==</code> 称为推导；  </li>
 <li><code>*</code> 表示闭包，上述推导式中意思是，符号 A 可以有 0 或 N 个重复；  </li>
 <li>非终结符号：<code>S</code> 和 <code>A</code> 则称非终结符号，即它们能推导出式子右边的表达式；  </li>
 <li>终结符号：”pqmn”，“ab”，“ef”，即无法再推导；</li>
+</ul>
+</li>
 </ul>
 <h4 id="解释器模式的使用场景"><a href="#解释器模式的使用场景" class="headerlink" title="解释器模式的使用场景"></a>解释器模式的使用场景</h4><ul>
 <li><p>某个 <code>简单语言</code> 需要解释执行且可将该语言中的语句表示为 <code>抽象语法树</code> 时可考虑使用解释器模式。</p>
