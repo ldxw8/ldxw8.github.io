@@ -141,7 +141,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-48.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-1.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-2.svg">
-<meta property="og:updated_time" content="2021-04-19T11:38:31.945Z">
+<meta property="og:updated_time" content="2021-04-19T11:44:35.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | 设计模式之 Android 实践与案例">
 <meta name="twitter:description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
@@ -351,7 +351,7 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2021-04-19T19:38:31+08:00" content="2021-04-19">
+              <time itemprop="dateUpdated" datetime="2021-04-19T19:44:35+08:00" content="2021-04-19">
                 2021-04-19
               </time>
             </span>
@@ -1324,17 +1324,16 @@
 </ul>
 <h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><h4 id="组合模式的介绍"><a href="#组合模式的介绍" class="headerlink" title="组合模式的介绍"></a>组合模式的介绍</h4><ul>
 <li>又称部分整体模式，结构型设计模式。</li>
-<li><p>它将一组相似的对象看作一个对象处理，并根据一个树状结构来组合对象，然后提供一个统一的方法去访问相应对象。</p>
-<p>  例如公司组织结构的树状图，如图 2-35 所示。</p>
-<p>  <img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-35.svg" alt="公司组织结构的树状图"></p>
+<li>它将一组相似的对象看作一个对象处理，并根据一个树状结构来组合对象，然后提供一个统一的方法去访问相应对象。</li>
+</ul>
+<p>例如公司组织结构的树状图，如图 2-35 所示。</p>
+<p><img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-35.svg" alt="公司组织结构的树状图"></p>
 <center>图 2-35 公司组织结构的树状图</center>
 
-<p>  在组合模式中，我们将这样的一个拥有分支的节点称之为枝干构件，位于树状结构顶部的枝干结构比较特殊，我们称为根结构件，因其为整个树状图的始端。同样对于像行政部和研发部这样没有分支的结构，我们称之为叶子结构，这样的一个结构就是组合模式的雏形。如图 2-36 所示。</p>
-<p>  <img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-36.svg" alt="组合模式的雏形"></p>
+<p>在组合模式中，我们将这样的一个拥有分支的节点称之为枝干构件，位于树状结构顶部的枝干结构比较特殊，我们称为根结构件，因其为整个树状图的始端。同样对于像行政部和研发部这样没有分支的结构，我们称之为叶子结构，这样的一个结构就是组合模式的雏形。如图 2-36 所示。</p>
+<p><img src="/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-36.svg" alt="组合模式的雏形"></p>
 <center>图 2-36 组合模式的雏形</center>
 
-</li>
-</ul>
 <h4 id="组合模式的定义"><a href="#组合模式的定义" class="headerlink" title="组合模式的定义"></a>组合模式的定义</h4><p>将对象组合成 <code>树状结构</code> 以表示 “部分-整体” 的 <code>层次结构</code>，使得用户对单个对象和组合对象的使用具有一致性。</p>
 <h4 id="组合模式的使用场景"><a href="#组合模式的使用场景" class="headerlink" title="组合模式的使用场景"></a>组合模式的使用场景</h4><ul>
 <li>表示对象的 <code>部分-整体</code> 层次结构时。</li>
