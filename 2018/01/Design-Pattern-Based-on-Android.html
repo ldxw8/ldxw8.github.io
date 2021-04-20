@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
+<meta name="description" content="在安卓项目中，诸如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理逆向思考此类问题，对于一些优秀项目、源码的学习障碍往往是对其设计的理解（逻辑、性能、解耦等），而非源码本身。作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态，掌握了各种设计模式，并不代表个人的设计能">
 <meta name="keywords" content="UML,Android,Java,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔记 | 设计模式之 Android 实践与案例">
 <meta property="og:url" content="http://www.kofes.cn/2018/01/Design-Pattern-Based-on-Android.html">
 <meta property="og:site_name" content="Kofe">
-<meta property="og:description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
+<meta property="og:description" content="在安卓项目中，诸如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理逆向思考此类问题，对于一些优秀项目、源码的学习障碍往往是对其设计的理解（逻辑、性能、解耦等），而非源码本身。作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态，掌握了各种设计模式，并不代表个人的设计能">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-2.svg">
@@ -141,10 +141,10 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_2-48.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-1.svg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_3-2.svg">
-<meta property="og:updated_time" content="2021-04-19T11:44:35.470Z">
+<meta property="og:updated_time" content="2021-04-20T00:58:27.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记 | 设计模式之 Android 实践与案例">
-<meta name="twitter:description" content="在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，">
+<meta name="twitter:description" content="在安卓项目中，诸如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理逆向思考此类问题，对于一些优秀项目、源码的学习障碍往往是对其设计的理解（逻辑、性能、解耦等），而非源码本身。作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。 当然，我们还要正视学习设计模式的心态，掌握了各种设计模式，并不代表个人的设计能">
 <meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Reading/2018/01/Design-Pattern-Based-on-Android_1-1.svg">
 
 
@@ -351,8 +351,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2021-04-19T19:44:35+08:00" content="2021-04-19">
-                2021-04-19
+              <time itemprop="dateUpdated" datetime="2021-04-20T08:58:27+08:00" content="2021-04-20">
+                2021-04-20
               </time>
             </span>
           
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  27,421
+                  27,329
                 </span>
               
 
@@ -448,9 +448,9 @@
       
 
       
-        <p>在你接触过的安卓项目当中，如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理，逆过来思考此类问题，对于一些优秀项目、源码的理解障碍往往是对其设计 (逻辑、性能、解耦等) 的理解，而非源码本身。而作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。</p>
-<p>当然，我们还要正视学习设计模式的心态。掌握了各种设计模式，并不代表你的设计能力与代码质量就会突飞猛进，同样在项目中运用设计模式也不是生搬硬套就解决问题了，在《 <a href="https://book.douban.com/subject/2243615/" target="_blank" rel="noopener">Head First 设计模式</a> 》一书中，则把设计模式的使用心智分为：初学者、中级人员和悟道者，虽有“玄学”的味道，但也恰当。即没有最好的模式，而是你综合众多因素，根据经验、方法来筛选合适的设计模式与你的项目结合，运用。</p>
-<p>最后，对于设计模式的学习，不要局限于《 <a href="https://book.douban.com/subject/26644935/" target="_blank" rel="noopener">Android 源码设计模式</a> 》本身，你可以搭配一些经典论文、综述，或者书籍，以至于怀疑一个问题的正误，多比对、多思考，以得到最精确的理解。而本笔记的作用也在于此，即一个设计模式的架构，或是借鉴学习，亦或是复习之需便于查询。</p>
+        <p>在安卓项目中，诸如监听器、适配器、迭代器等并不陌生，然而它们无不体现着设计模式的精髓。设计与模式的结合，往往与设计能力与代码质量息息相关。同理逆向思考此类问题，对于一些优秀项目、源码的学习障碍往往是对其设计的理解（逻辑、性能、解耦等），而非源码本身。作为开发者，知其然知其所以然，这也正是我们深入学习设计模式的理由之一。</p>
+<p>当然，我们还要正视学习设计模式的心态，掌握了各种设计模式，并不代表个人的设计能力与代码质量就能突飞猛进；同样在项目中，也不是生搬硬套设计模式就能解决问题的。在《 <a href="https://book.douban.com/subject/2243615/" target="_blank" rel="noopener">Head First 设计模式</a> 》一书中指出，即没有最好的模式，只有最适合问题的设计模式。</p>
+<p>最后，学习设计模式不要局限于《 <a href="https://book.douban.com/subject/26644935/" target="_blank" rel="noopener">Android 源码设计模式</a> 》本身，您还可以搭配一些经典论文、综述或者书籍学习，以至于怀疑一个问题的正误时，多比对、多思考，以得到正确理解。</p>
 <a id="more"></a>
 <ul>
 <li>推荐书目：<ul>
@@ -467,7 +467,7 @@
 <li>2018.01.30：完成序言；</li>
 <li>2018.01.31：更新第壹章；</li>
 <li>2018.02.05：更新第贰章 ( 共 23 种设计模式 )；</li>
-<li>2018.03.19：更新完毕.</li>
+<li>2021.04.19：所有图片资源更新为 svg 格式源；</li>
 </ul>
 <h2 id="内容总览"><a href="#内容总览" class="headerlink" title="内容总览"></a>内容总览</h2><ul>
 <li><a href="#零-本书架构">零 本书架构</a></li>
