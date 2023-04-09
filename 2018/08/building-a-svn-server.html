@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="svn,mac,git,版本控制,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
+<meta name="keywords" content="svn,mac,git,版本控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVN 环境搭建与使用">
+<meta property="og:url" content="http://www.kofes.cn/2018/08/building-a-svn-server.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/building-a-svn-server_3-1.png">
+<meta property="og:updated_time" content="2023-02-15T06:35:23.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVN 环境搭建与使用">
+<meta name="twitter:description" content="最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 源代码版本控制 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 搭建、配置 和 使用 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。 当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑">
+<meta name="twitter:image" content="http://www.kofes.cn/images/illustration/Project/2018/08/building-a-svn-server_3-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/08/building-a-svn-server.html">
+
+
+
+
+
+  <title>SVN 环境搭建与使用 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/08/building-a-svn-server.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SVN 环境搭建与使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T16:24:20+08:00">
+                2018-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2023-02-15T14:35:23+08:00" content="2023-02-15">
+                2023-02-15
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/building-a-svn-server.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/building-a-svn-server.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/08/building-a-svn-server.html" class="leancloud_visitors" data-flag-title="SVN 环境搭建与使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,341
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近有机会接触到公司的新项目，对于多人参与的项目，此刻才感受到 <code>源代码版本控制</code> 的重要性。遗憾之余，为了加深理解和复用起见，本文将从 <code>搭建</code>、<code>配置</code> 和 <code>使用</code> 多方面总结 SVN ( Subversion，开放源代码的版本控制系统 )。</p>
+<p>当然，版本控制的工具有很多，比如 CVS、GIT、SVN。CVS 几乎淘汰；GIT 适合开源软件项目；SVN 适合企业内部由项目经理统一协调的多个并行项目的开发。考虑到种种因素，我们不能单方面评论每种版本控制工具的优劣，故选择哪款版本控制工具视具体情况而定。</p>
+<a id="more"></a>
+<h2 id="源代码管理"><a href="#源代码管理" class="headerlink" title="源代码管理"></a>源代码管理</h2><blockquote>
+<p>介绍参考了资料 [1]。 </p>
+</blockquote>
+<h3 id="管理的意义"><a href="#管理的意义" class="headerlink" title="管理的意义"></a>管理的意义</h3><ul>
+<li>目的：为了解决在软件开发过程中，由源代码引发的各种繁琐的问题。</li>
+<li>作用：<ul>
+<li>能追踪一个项目从诞生一直到定案的过程；</li>
+<li>记录一个项目的所有内容变化，方便地查阅特定版本的修订情况.</li>
+</ul>
+</li>
+<li>常见问题：<ul>
+<li><strong>代码冲突</strong>：多人操作同一个文件 ( 团队开发中的常见问题 )；</li>
+<li>版本备份：费空间 ( 大数据时代，储存成本反而最 “廉价” )；</li>
+<li>权限控制：无法对源代码进行精确的权限控制；</li>
+</ul>
+</li>
+</ul>
+<h3 id="管理的工具"><a href="#管理的工具" class="headerlink" title="管理的工具"></a>管理的工具</h3><ul>
+<li>CVS：历史悠久，现在几乎没人使用。</li>
+<li>SVN：<ul>
+<li>集中式版本控制的代表；</li>
+<li>CVS 的接班人，速度和功能比 CVS 有很大幅度提升.</li>
+</ul>
+</li>
+<li>GIT：<ul>
+<li>分布式源代码管理工具；</li>
+<li>目前被大多数开源项目使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="SVN-概念概述"><a href="#SVN-概念概述" class="headerlink" title="SVN 概念概述"></a>SVN 概念概述</h2><ul>
+<li><code>Subversion</code> 的简称为 SVN，是一个开放源代码的版本控制系统；</li>
+<li>SVN 用于多个人共同开发同一个项目，目的是为了资源共享共用；</li>
+<li>SVN 服务器有 2 种 <code>运行方式</code>：独立服务器和借助 Apache。两种方式各有利弊，可自行选择。</li>
+<li>SVN <code>存储版本数据</code> 也有 2 种方式：<code>Berkeley DB</code> ( 事务安全型表类型 ) 和 <code>FSFS</code> ( 不需要数据库的存储系统 )。因为 Berkeley DB 方式在服务器中断时，有可能锁住数据，故选择 FSFS 的存储方式会更安全一点。</li>
+</ul>
+<h2 id="SVN-环境搭建"><a href="#SVN-环境搭建" class="headerlink" title="SVN 环境搭建"></a>SVN 环境搭建</h2><h3 id="SVN-服务器"><a href="#SVN-服务器" class="headerlink" title="SVN 服务器"></a>SVN 服务器</h3><ul>
+<li><p>安装 SVN Server For <code>Windows</code>：<a href="https://www.visualsvn.com/server/download/" target="_blank" rel="noopener">VisualSVN Server</a> </p>
+<p>  配置是通过界面操作完成的，具体安装流程就不阐述了，可参考引用文章完成配置 $^{[1,2]}$。</p>
+<blockquote>
+<p>Tips.01. 安装过程中，其中 SVN 服务器端口配置推荐使用HTTPS 的 <code>8443</code> 端口，因为 HTTPS 安全性比較高，尽管 <code>443</code> 是标准 HTTPSport。<br>Tips.02. 还有就是用于验证的身份配置：Windows 验证和 Subversion 身份验证，默认是 Subversion 身份验证。</p>
+</blockquote>
+</li>
+<li><p>安装 SVN Server For <code>MacOS</code>：MacOS 自带了 SVN 的服务器端和客户端功能。参考引用文章完成配置即可使用 $^{[3,4]}$。</p>
+</li>
+</ul>
+<h3 id="SVN-客户端"><a href="#SVN-客户端" class="headerlink" title="SVN 客户端"></a>SVN 客户端</h3><ul>
+<li>Windows Client：<a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">TortoiseSVN</a></li>
+<li><p>MacOS Client：<a href="https://cornerstone.assembla.com/" target="_blank" rel="noopener">Cornerstone</a></p>
+<blockquote>
+<p>在 MacOS 上可利用 SVN 图形界面工具来管理源代码，可以大大减小使用命令行的痛苦 $^{[5]}$。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="SVN-配置与使用"><a href="#SVN-配置与使用" class="headerlink" title="SVN 配置与使用"></a>SVN 配置与使用</h3><p>Windows 端配置和使用 SVN，可通过图形界面工具即可完成操作，详细的步骤在引用文章 [1]、[2] 中也有提及。故在本章节主要讲述 <code>Mac</code> 环境下搭建和配置 SVN。</p>
+<h4 id="SVN-服务端配置"><a href="#SVN-服务端配置" class="headerlink" title="SVN 服务端配置"></a>SVN 服务端配置</h4><h5 id="创建代码仓库"><a href="#创建代码仓库" class="headerlink" title="创建代码仓库"></a>创建代码仓库</h5><ul>
+<li>Step.01. 新建一个 <code>svn</code> 目录，例如 <code>/Users/kofe/svn</code>，以后可在 <code>svn</code> 目录下创建多个仓库目录。</li>
+<li><p>Step.02. 打开终端，创建一个名为 <code>idea</code> 仓库，输入指令：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指令执行成功后，会发现硬盘上多了个 /Users/kofe/svn/idea 目录</span></span><br><span class="line">svnadmin create /Users/kofe/svn/idea</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="配置用户权限"><a href="#配置用户权限" class="headerlink" title="配置用户权限"></a>配置用户权限</h5><p>主要是修改 <code>/svn/idea/conf</code> 目录下的三个文件：<code>svnserve.conf</code>、<code>Passwd</code> 文件和 <code>Authz</code> 文件。</p>
+<ul>
+<li><p>svnserve.conf</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># anon-access = read 代表匿名访问的时候是只读的</span></span><br><span class="line"><span class="comment"># anon-access = none 代表禁止匿名访问，需要帐号密码才能访问</span></span><br><span class="line">anon-access = <span class="built_in">read</span></span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br><span class="line">authz-bd = authz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Passwd 文件：在 <code>[users]</code> 下面添加账号和密码。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line"><span class="comment"># 格式：账号 = 密码</span></span><br><span class="line">kofe = 123456</span><br><span class="line">lucy = 123456</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Authz 文件：配置用户组和权限我们可以将在 Passwd 里添加的用户分配到不同的用户组里。以后就可对不同用户组设置不同的权限，没有必要对每个用户进行单独设置权限。即在 <code>[groups]</code> 下面添加组名和用户名，多个用户之间用逗号 <strong>,</strong> 隔开。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[groups] </span><br><span class="line">usergroup = kofe, lucy <span class="comment"># 格式：组名 = 用户1, 用户2, ...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 [/] 代表 SVN 服务器中的所有资源库</span></span><br><span class="line"><span class="comment"># 某个组有读写权限</span></span><br><span class="line">[/]</span><br><span class="line">@usergroup = rw</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 [/] 代表 SVN 服务器中的所有资源库</span></span><br><span class="line"><span class="comment"># 某个用户有读写权限</span></span><br><span class="line"><span class="comment"># lucy = rw</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="启动关闭服务"><a href="#启动关闭服务" class="headerlink" title="启动关闭服务"></a>启动关闭服务</h5><ul>
+<li><p>在终端输入下列指令：若没有任何提示，恭喜你启动成功。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r /Users/kofe/svn</span><br><span class="line"><span class="comment"># 或输入: svnserve -d -r /User/kofe/svn/idea</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当然，会启用也要会关闭 SVN 服务器，特别是首次配置完 SVN 服务器需要重启。<br>  Case.01. 在 <code>活动监视器</code> 中搜索 <code>svn</code>, 在列表中找到进程 <code>svnserve</code>, 点击左上角的<code>强制退出进程</code>。<br>  Case.02. 或者可通过 shell 脚本实现一键关闭。  </p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Current Process List:"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = ="</span></span><br><span class="line">ps -A | grep svn</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = ="</span></span><br><span class="line"><span class="built_in">kill</span> `pgrep <span class="string">"svn"</span>`</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Kill successfully!"</span> Current Process Status:</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = = = = = = = = = = = = ="</span></span><br><span class="line">ps -A | grep svn</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"= = = = = = = = = = = = = = = = = = = = = ="</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="SVN-客户端操作"><a href="#SVN-客户端操作" class="headerlink" title="SVN 客户端操作"></a>SVN 客户端操作</h4><h5 id="代码版本控制"><a href="#代码版本控制" class="headerlink" title="代码版本控制"></a>代码版本控制</h5><blockquote>
+<p>当然，充分利用 SVN 图形界面工具 ( <a href="https://cornerstone.assembla.com/" target="_blank" rel="noopener">Cornerstone</a> ) 来管理源代码，可大大减小使用命令行的痛苦，提升使用效率。</p>
+</blockquote>
+<ul>
+<li><p>首次导入工程文件到 SVN 服务器：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /Users/kofe/procedure/idea/SSM_DEMO，指的是需要导入的工程文件</span></span><br><span class="line"><span class="comment"># svn://localhost/idea 指把工程文件上传到 idea 目录下</span></span><br><span class="line"><span class="comment"># --username=admin --password=123456 指的是校验用户名和密码</span></span><br><span class="line"><span class="comment"># -m "初始化导入" 指的是提交的信息注释</span></span><br><span class="line">svn import /Users/kofe/procedure/idea/SSM_DEMO svn://localhost/idea --username=kofe --password=123456 -m <span class="string">"初始化导入"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从 SVN 服务器下载工程文件到本地 ( Checkout )：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn checkout svn://localhost/idea --username=kofe --password=123456 /Users/kofe/procedure/idea</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>二次提交代码到服务器：二次提交是有一个前提的, 那就是你首先需要在 SVN服务器上下载代码到本地，然后再去修改这一份代码, 才能够二次提交。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Users/kofe/procedure/idea</span><br><span class="line">svn commit -m <span class="string">"修改部分代码 (注释修改的内容)"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>SVN 基本操作原理：</p>
+<ul>
+<li><code>svn checkout</code>：将服务器代码完整下载到本地。</li>
+<li><code>svn update</code>：将服务器最新的代码下载到本地。</li>
+<li><p><code>svn commit</code>：将本地修改的内容提交到服务器。</p>
+<p><img src="/images/illustration/Project/2018/08/building-a-svn-server_3-1.png" alt="图3-1SVN 基本操作原理"></p>
+<center>图 3-1 SVN 基本操作原理</center>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="代码版本冲突"><a href="#代码版本冲突" class="headerlink" title="代码版本冲突"></a>代码版本冲突</h5><ul>
+<li><p>版本冲突原因：</p>
+<p>  假设 A、B 两用户都在版本号为 100 时更新了 <code>sample.txt</code> 文件，A 用户在修改完成之后提交 sample.txt 到服务器，这个时候提交成功，这个时候 sample.txt 文件的版本号已经变成 101 了。同时 B 用户在版本号为 100 的 sample.txt 文件上作修改，修改完成之后提交到服务器时，由于不是在当前最新的 101 版本上作的修改，所以导致提交失败。</p>
+</li>
+<li><p>版本冲突现象：</p>
+<p>  冲突发生时，SVN 会在当前工作目录中保存所有的目标文件版本 [ 上次更新版本、当前获取的版本 ( 即别人提交的版本 )、自己更新的版本、目标文件 ]。  假设文件名是 <code>sample.txt</code> ，对应的文件名分别是 ( 同时在目标文件中标记来自不同用户的更改 )：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sample.txt.r101</span><br><span class="line">sample.txt.r102</span><br><span class="line">sample.txt.mine</span><br><span class="line">sample.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>手工合并</code> SVN 冲突 $^{[6]}$，开始的时候让人觉得害怕，但有规律可循。例如有以下文本：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Mayonnaise</span><br><span class="line">Lettuce</span><br><span class="line">Tomato</span><br><span class="line">Provolone</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt;.mine</span><br><span class="line">Salami</span><br><span class="line">Mortadella</span><br><span class="line">Prosciutto</span><br><span class="line">=======</span><br><span class="line">Sauerkraut</span><br><span class="line">GrilledChicken</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;.r2</span><br></pre></td></tr></table></figure>
+<p>  一连串的大于、小于、等于号是 SVN 冲突标记，这些数据得全部删除才可以提交。在 SVN 冲突区中，或许你需要和你的同事沟通来安排冲突区的文本内容，待所有冲突区得到合理的解决之后方可再提交文件。</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是你在冲突区里面做的修改</span></span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt;.mine</span><br><span class="line">Salami</span><br><span class="line">Mortadella</span><br><span class="line">Prosciutto</span><br><span class="line">=======</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是别人在冲突区做的修改</span></span><br><span class="line">Sauerkraut</span><br><span class="line">GrilledChicken</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt;.r2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>如何降低冲突解决的复杂度：<ul>
+<li>在提交时写上明确的 Message ( 注释 )，方便以后查找用户更新的原因。</li>
+<li>养成良好的使用习惯，使用 SVN 时每次都是先提交，后更新。每天 <code>早上</code> 打开后，首先要从版本库 <code>获取最新版本</code>，每天 <code>下班前</code> 必须将已经编辑过的文档都 <code>提交</code> 到版本库。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>[1] <a href="https://www.jianshu.com/p/96f2db36044b" target="_blank" rel="noopener">PhelanGeek. SVN 服务器搭建教程. jianshu.com. 2016</a><br>[2] <a href="https://juejin.im/post/5b0e50f5f265da08ec33b74e" target="_blank" rel="noopener">RealLiuNing. Windows 10 搭建独立 SVN 服务器. jianshu.com. 2018</a><br>[3] <a href="https://juejin.im/post/58209be1a0bb9f0058c08452" target="_blank" rel="noopener">CainLuo. 搭建 MacOS 本地 SVN 服务器. juejin.im. 2016</a><br>[4] <a href="https://www.jianshu.com/p/66f085556fb2" target="_blank" rel="noopener">Sunny Fight. iOS 版本控制 SVN (Mac 环境下 SVN 的使用). jianshu.com. 2016</a><br>[5] <a href="https://www.jianshu.com/p/650342b0a0ce" target="_blank" rel="noopener">天蓝. SVN 在 Mac 上使用 Xcode+Cornerstone. jianshu.com. 2017</a><br>[6] <a href="https://www.cnblogs.com/aaronLinux/p/5521844.html" target="_blank" rel="noopener">aaronGao. svn conflict 冲突解决. cnbologs.com. 2016</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/08/building-a-svn-server.html" title="SVN 环境搭建与使用">http://www.kofes.cn/2018/08/building-a-svn-server.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/svn/" rel="tag"># svn</a>
+          
+            <a href="/tags/mac/" rel="tag"># mac</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+            <a href="/tags/版本控制/" rel="tag"># 版本控制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/J2EE-SSM-1.html" rel="next" title="Java EE：SSM 框架快速上手教程">
+                <i class="fa fa-chevron-left"></i> Java EE：SSM 框架快速上手教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/life-is-short-we-need-python.html" rel="prev" title="Python 3 快速上手教程">
+                Python 3 快速上手教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile/society_face_version_1.jpg" alt="Kofe">
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">人往往需要说很多话，然后才能归入潜默。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码管理"><span class="nav-number">1.</span> <span class="nav-text">源代码管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#管理的意义"><span class="nav-number">1.1.</span> <span class="nav-text">管理的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理的工具"><span class="nav-number">1.2.</span> <span class="nav-text">管理的工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN-概念概述"><span class="nav-number">2.</span> <span class="nav-text">SVN 概念概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN-环境搭建"><span class="nav-number">3.</span> <span class="nav-text">SVN 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-服务器"><span class="nav-number">3.1.</span> <span class="nav-text">SVN 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-客户端"><span class="nav-number">3.2.</span> <span class="nav-text">SVN 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVN-配置与使用"><span class="nav-number">3.3.</span> <span class="nav-text">SVN 配置与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-服务端配置"><span class="nav-number">3.3.1.</span> <span class="nav-text">SVN 服务端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建代码仓库"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">创建代码仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置用户权限"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">配置用户权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动关闭服务"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">启动关闭服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVN-客户端操作"><span class="nav-number">3.3.2.</span> <span class="nav-text">SVN 客户端操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#代码版本控制"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">代码版本控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码版本冲突"><span class="nav-number">3.3.2.2.</span> <span class="nav-text">代码版本冲突</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz',
+        appKey: 'jbgIHEzUigo8apYgTon6xXE8',
+        placeholder: '非常期待您的想法或意见，推荐留言~',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

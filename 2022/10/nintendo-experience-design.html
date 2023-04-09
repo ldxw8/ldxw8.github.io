@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="直觉,惊喜,故事,任天堂,体验,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本书的架构就很贴切地阐述了直觉、惊喜以及故事的设计逻辑。开篇时，留空不全的体验设计框架流程图给读者留下了悬念，让我们产生了往下探索的兴趣。然后，通过我们对任天堂经典游戏的直觉认知，徐徐道来讲熟悉的案例故事，引出观点并总结方法论，当我们掌握了一种方法论就相当于补全了一份缺失的流程地图，边学习边游戏，边收集边成长，由此产生愉悦的、惊喜的有趣体验。 继续发散思维，体验设计不仅仅应用于游戏领域，也可以运用">
+<meta name="keywords" content="直觉,惊喜,故事,任天堂,体验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="任天堂的体验设计：创造不由自主动人心弦的体验">
+<meta property="og:url" content="http://www.kofes.cn/2022/10/nintendo-experience-design.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="本书的架构就很贴切地阐述了直觉、惊喜以及故事的设计逻辑。开篇时，留空不全的体验设计框架流程图给读者留下了悬念，让我们产生了往下探索的兴趣。然后，通过我们对任天堂经典游戏的直觉认知，徐徐道来讲熟悉的案例故事，引出观点并总结方法论，当我们掌握了一种方法论就相当于补全了一份缺失的流程地图，边学习边游戏，边收集边成长，由此产生愉悦的、惊喜的有趣体验。 继续发散思维，体验设计不仅仅应用于游戏领域，也可以运用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Intuitive-Design.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Signifiers-Affordance.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Breach-Belief.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Positive.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Negative.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Lucky&Privacy.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Story-Design-Wave-Rhythm-and-Contrast.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Story-Design-Foreshadowing.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Collect&Repeat.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Approach.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Reversal&Empathy.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-1.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-2.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-3.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-4.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Hero-Travel.svg">
+<meta property="og:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Total.svg">
+<meta property="og:updated_time" content="2023-02-15T06:35:23.910Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="任天堂的体验设计：创造不由自主动人心弦的体验">
+<meta name="twitter:description" content="本书的架构就很贴切地阐述了直觉、惊喜以及故事的设计逻辑。开篇时，留空不全的体验设计框架流程图给读者留下了悬念，让我们产生了往下探索的兴趣。然后，通过我们对任天堂经典游戏的直觉认知，徐徐道来讲熟悉的案例故事，引出观点并总结方法论，当我们掌握了一种方法论就相当于补全了一份缺失的流程地图，边学习边游戏，边收集边成长，由此产生愉悦的、惊喜的有趣体验。 继续发散思维，体验设计不仅仅应用于游戏领域，也可以运用">
+<meta name="twitter:image" content="http://www.kofes.cn/images/Reading/Nintendo-experience-design/ExperienceDesign-Intuitive-Design.svg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2022/10/nintendo-experience-design.html">
+
+
+
+
+
+  <title>任天堂的体验设计：创造不由自主动人心弦的体验 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2022/10/nintendo-experience-design.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">任天堂的体验设计：创造不由自主动人心弦的体验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-10-30T10:25:04+08:00">
+                2022-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2023-02-15T14:35:23+08:00" content="2023-02-15">
+                2023-02-15
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reading/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2022/10/nintendo-experience-design.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2022/10/nintendo-experience-design.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2022/10/nintendo-experience-design.html" class="leancloud_visitors" data-flag-title="任天堂的体验设计：创造不由自主动人心弦的体验">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,108
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本书的架构就很贴切地阐述了直觉、惊喜以及故事的设计逻辑。开篇时，留空不全的体验设计框架流程图给读者留下了悬念，让我们产生了往下探索的兴趣。然后，通过我们对任天堂经典游戏的直觉认知，徐徐道来讲熟悉的案例故事，引出观点并总结方法论，当我们掌握了一种方法论就相当于补全了一份缺失的流程地图，边学习边游戏，边收集边成长，由此产生愉悦的、惊喜的有趣体验。</p>
+<p>继续发散思维，体验设计不仅仅应用于游戏领域，也可以运用到各类生活场景中。比如策划一项活动、团体讨论方案、传达演示幻灯片、设计一款产品或是培养人才等。想想谁是你要打动的对象，客户、同事、家人、恋人、朋友？寻找一个目标为出发点，跟随本书开启一场体验设计之旅，你将学习到绝妙体验的设计方法论。</p>
+<ul>
+<li><code>直觉设计</code>：让人不由自主地行动</li>
+<li><code>惊喜设计</code>：让人不由自主地沉迷</li>
+<li><code>故事设计</code>：让人不由自如地叙述</li>
+</ul>
+<a id="more"></a>
+<h2 id="理论篇"><a href="#理论篇" class="headerlink" title="理论篇"></a>理论篇</h2><h3 id="不由自主行动"><a href="#不由自主行动" class="headerlink" title="不由自主行动"></a>不由自主行动</h3><ul>
+<li>直觉设计的本质<ul>
+<li>让用户/玩家自发性地体验认知过程。</li>
+<li>让用户/玩家直观理解体验本身。</li>
+<li>符合条件反射的设计。</li>
+</ul>
+</li>
+<li><p>直觉设计的结构</p>
+<ul>
+<li>假设：自发建立“我要xx”的假设。此时玩家不知道假设是否正确。</li>
+<li>尝试：自发发起“试试xx”的行动。此时玩家不知道尝试是否正确。</li>
+<li><p>高兴：自发确认“事实xx” 是对的。此时玩家第一次确信假设和尝试，由此产生愉悦体验。</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Intuitive-Design.svg" alt> 直觉设计的结构</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>比有趣更重要的事情：游戏一开始，玩家并不是因为有趣才玩的，而是不由自主想到了才玩起来的。我们的大脑总是在寻找假设，并尝试进行验证。这种思考方式，可引用认知心理学的“示能”与“能指”来解释。</p>
+<ul>
+<li>示能（Affordance）：环境赋予动物的意义，即 <code>主动去想</code>。通俗解释就是当你看到某些东西时，脑海中浮现出要做什么的念头。</li>
+<li><p>能指（Signifiers）：为传达示能而被特别处理的信息，即 <code>被动联想</code>。比如《超级马里奥》中，马里奥的样子、所处位置、山、云朵等，正是设计师想要传达“向右走”这一示能。</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Signifiers-Affordance.svg" alt> 能指传达示能</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>比起有趣，让玩家知道游戏规则更重要。让玩家迈出冒险第一步，并让 <code>直觉设计</code> 始终引导玩家通往前方冒险。</p>
+</li>
+<li>直觉设计的延续，是设计游戏体验的基本战略，也是游戏的基本构造。<ul>
+<li>直觉设计必定包含高兴，所以玩家的情绪才会通过直觉体验一点点地提高。情绪超过某一临界值，此时玩家才会意识到 <code>有趣</code>。</li>
+<li>不是因为有趣，玩家才会高兴。而是体验产生高兴而觉得有趣。</li>
+</ul>
+</li>
+<li><p>为了达到以上目标，需要将直觉设计连接起来。设计 <code>连接</code> 的要领：</p>
+<ul>
+<li><p>用多久时间让玩家意识到有趣，请用直觉设计填补该段时间，让玩家不断产生高兴情绪。</p>
+<blockquote>
+<p>思考：玩家会对直觉设计产生疲劳和厌倦，如何弥补直觉设计的缺陷？</p>
+</blockquote>
+</li>
+<li><p>每个直觉设计都是简短的。</p>
+</li>
+<li>提高玩家获得愉悦体验的概率。<ul>
+<li>让体验本身变得简单、容易是绝对的条件。</li>
+<li>因为简单、容易，玩家才愿意假设、尝试。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>另一个直觉设计起点：玩家的 <code>共同记忆</code>，将直觉学习与玩家的生活体验连接起来。每当玩家在游戏中解开谜题，就有一种人生得到肯定的感觉。</p>
+</li>
+<li>利用人们的共同点进行直觉设计：<ul>
+<li>神经反射（先天性）：人们大脑和心灵的特性</li>
+<li>共识常识（后天性）：人们共同的记忆</li>
+</ul>
+</li>
+</ul>
+<h3 id="不由自主着迷"><a href="#不由自主着迷" class="headerlink" title="不由自主着迷"></a>不由自主着迷</h3><ul>
+<li><p>初始效应：在体验或学习开始之时，人们的注意力和学习效率是最高的。</p>
+<blockquote>
+<p>启示：活用初始效应，可以有效传达规则信息。</p>
+</blockquote>
+</li>
+<li><p>不断地学习指令或者专业知识，就像被迫无休无止地学习一样，玩家必然会感到疲劳和厌倦。</p>
+<ul>
+<li>“假设”和“尝试”的体验会给玩家带来压力，即不知道假设的正确性，尝试时会感到不安。所以玩家在体验直觉设计时，心情总是在“不安”与“高兴”之间摇摆。</li>
+<li>对于大脑而言，相同的刺激重复多次，反应会慢慢变弱。心理学称之为“心理饱和”或“心理适应”。</li>
+</ul>
+</li>
+<li>回答上述问题：连续的直觉设计让人产生疲劳和厌倦，那么如何弥补直觉设计的缺陷？“惊喜刺激”正式登场！<ul>
+<li>惊喜刺激只是在玩家特定心理状况下发挥作用，比如涉及一些 <code>禁忌</code> 话题。</li>
+<li>惊喜刺激本质在于出乎意料的体验，即意料之中的情节变成意料之外的结果，玩家会被吸引、情绪变得兴奋。</li>
+</ul>
+</li>
+<li><p>出乎玩家意料的体验设计：有意识背叛两种坚信，让意料之外的强烈体验打动玩家的心，消除疲惫与厌倦，让玩家更沉浸游戏当中。</p>
+<ul>
+<li>要点1：对前提的坚信，事先让玩家做出明确的预测，让玩家做出错误预测。 </li>
+<li><p>要点2：对日常的坚信，坚信日常生活中“禁忌不会出现”。</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Breach-Belief.svg" alt> 惊喜刺激的原理</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>惊喜设计的结构</p>
+<ul>
+<li>误解：自发做出“要做xx”的假设。让玩家坚信假设是正确的。</li>
+<li>尝试：自发发起”尝试xx”的行动。让玩家坚信尝试是正确的。</li>
+<li><p>惊讶：自发发现”xx错误”的结果，大吃一惊，此刻玩家才意识到假设、尝试是错误的。</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design.svg" alt> 惊喜设计的结构</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>惊喜设计的步骤</p>
+<ul>
+<li>Step.01：掌握玩家疲劳和厌倦的时机</li>
+<li>Step.02：事先构建让玩家产生误解的游戏主题<ul>
+<li>实操难点：让对方对前提产生误解，就必须花很长时间不断地说谎。让玩家对前提的坚信反复落空，适得其反会让玩家失去耐心，因此要注意惊喜设计的节奏。</li>
+<li>有效方法：不要颠覆对前提的坚信，而是打破对日常的坚信，用“禁忌主题”就能令人振奋惊讶。</li>
+</ul>
+</li>
+<li>Step.03：设计包含“禁忌主题”的游戏剧情。</li>
+</ul>
+</li>
+<li><p>10 种的禁忌主题</p>
+<ul>
+<li><p>积极主题：这个体验，描绘的是人类本能欲望吗？</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Positive.svg" alt> 积极的禁忌主题</p>
+</blockquote>
+</li>
+<li><p>消极主题：这个体验，是人们想要回避的东西吗？</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Negative.svg" alt> 消极的禁忌主题</p>
+</blockquote>
+</li>
+<li><p>侥幸和偶然：这个体验是否让用户下注并祈祷？</p>
+<blockquote>
+<p>为了延长游戏时间，需要有意识地 <code>剥夺</code> 不断努力、一边学习一边冒险的玩家的 <code>认真感</code>。比如让玩家不知不觉追求幸运的心情，在游戏界被称作 “侥幸”。</p>
+</blockquote>
+</li>
+<li><p>个人隐私：这个体验能否体验出个性？</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Surprise-Design-Tabu-Lucky&amp;Privacy.svg" alt> 侥幸偶然与个人隐私</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>惊喜设计，一边描绘人类出于本能想要的东西或想要回避的东西，又一边让玩家下注、祈祷，最后让玩家彰显个性或荣誉。</p>
+<blockquote>
+<p>通俗来讲，惊喜设计就是让体验持续下去的必要之恶！</p>
+</blockquote>
+</li>
+<li><p>最后，为了让玩家持续体验下去，必然要在连续的直觉设计中穿插惊喜设计。并且，为了讲述怎样的内容、营造绝妙的体验，惊喜穿插的顺序、比例都是需要反复考量与刻意设计的。</p>
+</li>
+</ul>
+<h3 id="不由自主叙述"><a href="#不由自主叙述" class="headerlink" title="不由自主叙述"></a>不由自主叙述</h3><ul>
+<li>如果游戏有意义，应该怎样设计它的体验，以及体验的意义究竟是什么？接下来便有了故事设计。</li>
+<li>首先，我们得弄明白什么是故事？故事，又被称为叙事，由内容情节与故事叙事两个要素构成。<ul>
+<li>内容情节：发生什么</li>
+<li>故事叙述：如何表达，比如文章、声音、影像等表现形式，语言选择，表达顺序等，它们都会影响故事的趣味性。</li>
+</ul>
+</li>
+</ul>
+<h4 id="吸引"><a href="#吸引" class="headerlink" title="吸引"></a>吸引</h4><ul>
+<li>运用 <code>五感</code> 和 <code>思考</code> 来叙述故事，这对大脑来说是一种很充实的体验，本书把这种体验称之为 <code>吸引</code>。</li>
+<li><p>故事叙述方式探究</p>
+<ul>
+<li>片段式叙述：<ul>
+<li>环境故事：玩家自发地收集分布在环境中的信息，构筑故事。 </li>
+<li>叙述本能：大脑是讲故事的器官，从眼睛、 鼻子、耳朵等感觉器官收集信息片段进行整合加工，与自己的人生经历对照，推测眼前正在发生什么，然后连接上下文，讲述故事。</li>
+</ul>
+</li>
+<li><p>波浪式叙述：</p>
+<ul>
+<li>在故事场景中，用折线图描述信息量多少与趋势变化。信息过多的被动场景，折线上升，反之下降。</li>
+<li>在每个场景中，包含的信息量、主动性与被动性，两种要素构成了 <code>波浪</code>。如此以来，它让叙述的本能对未来的预测变得简单容易，达到与直觉设计相似的效果。</li>
+<li><p>所有故事内容都应具备这样的结构，被称之为 <code>节奏和对比</code> 的主题。那么用该主题制作波浪的理由是什么？</p>
+<ul>
+<li>1）信息量越少，故事越容易被理解</li>
+<li>2）发展容易预想到，很快形成节奏 </li>
+<li>3）让玩家忘记时间，体验就像一连串波浪一样，愉快地摇摆</li>
+</ul>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Story-Design-Wave-Rhythm-and-Contrast.svg" alt> 沿时间轴呈现出节奏与对比的波浪</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>未来式叙述：在不知道某个信息的真正含义情况下，先提示，然后利用时间差让对方注意到其真实含义。</p>
+<blockquote>
+<p>隐藏真正含义，埋下暗示内容，称为 <code>伏笔</code>。</p>
+</blockquote>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Story-Design-Foreshadowing.svg" alt> 伏笔</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="成长"><a href="#成长" class="headerlink" title="成长"></a>成长</h4><ul>
+<li>思考体验的意义是什么？在游戏中，主人公只是虚构的角色，无论主人公成长多少，对玩家对自身都没有任何影响。所以让玩家的成长，才是游戏的意义所在。</li>
+<li><p>收集和重复</p>
+<ul>
+<li>让玩家意识到空缺，然后引导玩家收集、重复。</li>
+<li>在收集过程中，玩家多次重复同样的体验，就会自然而然地成长起来。</li>
+<li>让玩家不厌其烦地重复某种行为，即有节奏地重复，乐此不疲地收集。</li>
+<li><p>让问题处于未解决状态，保持紧张感。 </p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Collect&amp;Repeat.svg" alt> 收集和重复</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>选择和斟酌</p>
+<ul>
+<li>富贵险中求：低风险低回报，高风险高回报</li>
+<li><p>依靠直觉进行选择和斟酌，完成自己的冒险</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Approach.svg" alt> 选择和斟酌</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>成长最佳体验</p>
+<ul>
+<li>玩家可调整游戏难度，这是不可或缺的要素。</li>
+<li><p>游戏让玩家觉得“失败是你的错”是必要的。</p>
+<blockquote>
+<p>玩家根据自身能力做出选择，尽自己最大努力，得到最大限度成长。</p>
+</blockquote>
+</li>
+<li><p>游戏只是用巧妙的方法来表扬或贬低玩家，即虚拟世界中被认可尊重或无成本试错。 </p>
+</li>
+<li>对玩家行为好坏给予评价，在游戏业界被称为 <code>反馈</code>。正是有了反馈，玩家才会体会到选择与斟酌的意义。</li>
+</ul>
+</li>
+<li><p>逆转和共鸣：麻烦的同行者</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Reversal&amp;Empathy.svg" alt> 逆转和共鸣</p>
+</blockquote>
+<ul>
+<li>同行者行为会给玩家带来某种共同的情感，称之为 <code>共鸣</code>。而同行者往往是闹心的主，不时惹麻烦、不断惹恼玩家。为什么麻烦的同行者会让玩家产生共鸣？</li>
+<li>首先，我们要明白共鸣到底是怎样的一种状态。<ul>
+<li>1）玩家对主人公感兴趣</li>
+<li>2）主人公和自己有同样的想法</li>
+<li>3）用憎恨以外的情感产生共鸣</li>
+</ul>
+</li>
+<li><p>故事一开始，玩家只能通过游戏画面观察主人公，此时两者几乎没有建立联系。</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-1.svg" alt> 游戏世界的主人公与现实世界的玩家</p>
+</blockquote>
+</li>
+<li><p>而共鸣的第一条件是引起玩家感兴趣，通过做法是比较“残酷”的，给主人公带来麻烦，使其不幸并遭受打击 。</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-2.svg" alt> 引起玩家感兴趣</p>
+</blockquote>
+</li>
+<li><p>通过打击主人公，游戏成功地引起了玩家的兴趣。事实上，玩家和主人公各有各的感受。</p>
+<ul>
+<li>玩家：客观感受“主人公很痛苦、悲伤”</li>
+<li><p>主人公：主观感受“我很痛苦、很悲伤”</p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-3.svg" alt> 主观与客观感受不统一</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>主观与客观不统一，心情的方向可能是相反的，更不用说达到共鸣效果。不满足共鸣第二条件，所以玩家的心情必须从客观向主观转变。</p>
+<ul>
+<li><p>此时，麻烦的同行者该登场了！麻烦的同行者会妨碍主人公进行冒险、总是做出不可思议的行动。即麻烦的同行者让玩家与主人公的注意力集中于一个点上，更甚情感绑在一起。 </p>
+<blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Grow-Rresonance-4.svg" alt> 统一主观与客观感受</p>
+</blockquote>
+</li>
+<li><p>为什么同行者要制作麻烦呢？理由有两个：</p>
+<ul>
+<li>1）同行者有着不断给主人公制作麻烦的宿命，主人公与玩家都不得不关注他。</li>
+<li><p>2）共鸣的第三条件，用憎恨以外的情感产生共鸣。喜欢上你讨厌的人，这种超越讨厌的情感，产生共鸣、真正成长。</p>
+<blockquote>
+<p>体谅他人的烦恼，为什么会做出令他人憎恨的事，通过化解这种矛盾以建立情感。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="意志"><a href="#意志" class="headerlink" title="意志"></a>意志</h4><ul>
+<li>游戏叙述的是虚拟故事，一切都是为玩家拥有自己意志的体验，换言之，就是让玩家去书写自己的故事。</li>
+<li><p>故事有始有终，为什么故事最后要回到起点？</p>
+<ul>
+<li><p>这种模式通常以“英雄之旅”模型来进行故事设计。</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Design-Hero-Travel.svg" alt> 英雄之旅</p>
+</blockquote>
+</li>
+<li><p>旅行的本质就是关于旅行的体验。通过旅行这种体验，你会成长变成另外一个人，这是旅行的意义。</p>
+</li>
+<li>玩家通过游戏体验发生改变才有意义，比如游戏过程中遇到逆境和混乱也能冷静应对并生存下去、即使偶发性相遇也会互相体谅、温柔相待等，那么请思考此刻回到起点的我与以前的我还是一样的吗？</li>
+</ul>
+</li>
+</ul>
+<h3 id="体验设计本质"><a href="#体验设计本质" class="headerlink" title="体验设计本质"></a>体验设计本质</h3><ul>
+<li>再次回顾三种体验设计<ul>
+<li><code>直觉设计</code>：让人不由自主地行动，假设 -&gt; 尝试 -&gt; 高兴</li>
+<li><code>惊喜设计</code>：让人不由自主地沉迷，误解 -&gt; 尝试 -&gt; 惊讶</li>
+<li><code>故事设计</code>：让人不由自如地叙述，吸引 -&gt; 成长 -&gt; 意志</li>
+</ul>
+</li>
+<li>体验设计的本质：每一种体验设计都传达出情感（喜怒哀乐悲恐惊），一边营造当时情境，一边打动玩家的心。</li>
+<li><p>对三种体验设计的总结</p>
+  <blockquote class="blockquote-center"><p><img src="/images/Reading/Nintendo-experience-design/ExperienceDesign-Stoty-Total.svg" alt> 三种体验设计总结</p>
+</blockquote>
+<ul>
+<li>直觉设计是最基本的体验设计方法<ul>
+<li>它将老一套体验变成自发性体验，帮助用户凭直觉行动、学习。</li>
+<li>它利用人们的共识常识，以及神经反射，实现设计简易容易的体验。</li>
+<li>让所有用户都抱有假设，并进行尝试；让用户自身发现假设是正确的，从而感到高兴。</li>
+</ul>
+</li>
+<li>然而，连续的直觉体验会给用户带来疲劳和厌倦，让体验嘎然而止。为此，为设计让人“不由自主着迷”的体验，就需要惊喜设计。利用对前提的坚信、对日常的坚信，通过改变用户的预期，让用户大吃一惊。</li>
+<li>结合直觉设计与惊喜设计设计方式，刻意创造直观且不让人倦怠的长时间体验之旅。但是，如果体验没有意义，则不会打动用户的心，由此引入故事设计。故事设计吸引想了解情况的用户， 引导其创造自己的故事，使其成长，赋予体验意义。</li>
+</ul>
+</li>
+</ul>
+<h3 id="体验设计应用"><a href="#体验设计应用" class="headerlink" title="体验设计应用"></a>体验设计应用</h3><ul>
+<li>体验就是随时间不断流逝的过程，设计过程就是体验设计本身，而非直接创造出“有趣”的结果。</li>
+<li>观察无聊的体验、不顺畅的体验，发现降低体验价值的心理脉络后，重新设计体验，</li>
+<li>如何选择一种体验设计方式<ul>
+<li>如果问题令人费解，请运用直觉设计。</li>
+<li>如果问题让人疲倦，请运用惊喜设计。</li>
+<li>如果问题没有价值，请运用故事设计。</li>
+</ul>
+</li>
+</ul>
+<h4 id="思考-策划"><a href="#思考-策划" class="headerlink" title="思考/策划"></a>思考/策划</h4><blockquote>
+<p>问题：如何想出好点子？</p>
+</blockquote>
+<ul>
+<li>对所有人保密、思考哪些话是不能在别人面前讲的。越是暴露个人隐私、越能让自己或者他人感到惊讶和兴奋。</li>
+<li>从思考碎片的共同点中发现对你来说重要的事情。</li>
+<li>讲述一个你失去重要东西、陷入危机的事情。</li>
+</ul>
+<h4 id="讨论-引导"><a href="#讨论-引导" class="headerlink" title="讨论/引导"></a>讨论/引导</h4><blockquote>
+<p>问题：气氛沉重，谁也说不出话来？</p>
+</blockquote>
+<ul>
+<li><p>不谈好的策划，谈没用的策划。</p>
+<blockquote>
+<p>启示：逆向思维，众多没有用的策划，更加印证好的策划。</p>
+</blockquote>
+</li>
+<li><p>把团队的自我认识当作“我们自己的事情”来谈。</p>
+</li>
+<li>回顾过去发言，提出深层含义是什么。<ul>
+<li>从成员提出的意见中、一度被忽略的主张中找出意义，将其作为伏笔，这就是创造故事的引导技巧。</li>
+<li>从成员过去意见中找出重要性，让该成员成为英雄。</li>
+</ul>
+</li>
+</ul>
+<h4 id="传达-演示"><a href="#传达-演示" class="headerlink" title="传达/演示"></a>传达/演示</h4><blockquote>
+<p>问题：听众注意力下降如何破解？</p>
+</blockquote>
+<ul>
+<li><p>如何在演示中保持专注？反过来思考，在演示过程中，什么时候听众的注意力最不集中？</p>
+<blockquote>
+<p>无论内容多么充实，无聊的演示都是无聊的。在故事论中，故事内容不是重点，而是故事叙述。</p>
+</blockquote>
+</li>
+<li><p>预告下一张幻灯片的方法：</p>
+<ul>
+<li>提出疑问</li>
+<li>故意把话说到一半</li>
+<li>告诉对方进入总结阶段</li>
+<li>使用连接词</li>
+</ul>
+</li>
+<li>定期插入禁忌主题，或者沉默片刻。</li>
+<li>最后，再展示演示刚开始时放映的幻灯片。让听众获得 <strong>成长的实在感</strong>。</li>
+</ul>
+<h4 id="设计产品"><a href="#设计产品" class="headerlink" title="设计产品"></a>设计产品</h4><ul>
+<li>优先考虑用户的第一次使用，让其觉得产品简单、易用。</li>
+<li><p>通过回归日常的情节设计，将用户从产品中抽离出来。</p>
+<blockquote>
+<p>刻意让体验停止的设计，产品只不过是用户人生变得更美好的配角，使用与否都是用户的自由。</p>
+</blockquote>
+</li>
+<li><p>提供作弊选项，让用户自由选择。</p>
+</li>
+<li>总言之，无论使用什么产品，用户都能凭直觉使用产品，可随时停止，甚至刻意作弊。</li>
+</ul>
+<h4 id="培养-管理"><a href="#培养-管理" class="headerlink" title="培养/管理"></a>培养/管理</h4><ul>
+<li>故意试错、体验错误。</li>
+<li>教授与被教一起体验未知的事情。</li>
+</ul>
+<h2 id="实践篇"><a href="#实践篇" class="headerlink" title="实践篇"></a>实践篇</h2><ul>
+<li>项目背景：以本博客 2.0 升级改造为例，围绕核心内容、个人品牌（独家内容）以及阅读体验三大方面，审视本博客对于个人意义、对于他人的价值，以体验、服务、交互等多种设计思维重新定义及发布个人的博客品牌。</li>
+<li>指导思想：<ul>
+<li>一目了然了解核心内容是什么（直观、亮点）</li>
+<li>为什么他人愿意阅览分享博文（价值、吸引）</li>
+<li>怎么留住读者读下去或读更多（有用、关联）</li>
+</ul>
+</li>
+<li>独家内容：<ul>
+<li>开源项目：暂定计划是幻灯片演讲助手，只需设定好台词，便可一键实现自动演讲、AI 配音、视频录屏的智能化演讲程序。</li>
+<li>产品服务：记事类 App / 记账类 App</li>
+<li>个人相关：计划发布共同成长相关内容，建立深交关系，以激励自身与他人积极前行。</li>
+</ul>
+</li>
+<li>引流计划：不同类别的内容，受众不一样，引流平台、引流方法都应该区别对待。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2022/10/nintendo-experience-design.html" title="任天堂的体验设计：创造不由自主动人心弦的体验">http://www.kofes.cn/2022/10/nintendo-experience-design.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/直觉/" rel="tag"># 直觉</a>
+          
+            <a href="/tags/惊喜/" rel="tag"># 惊喜</a>
+          
+            <a href="/tags/故事/" rel="tag"># 故事</a>
+          
+            <a href="/tags/任天堂/" rel="tag"># 任天堂</a>
+          
+            <a href="/tags/体验/" rel="tag"># 体验</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/10/blooming-flowers-in-turn.html" rel="next" title="次第花开：藏人精神保持愉悦的秘密">
+                <i class="fa fa-chevron-left"></i> 次第花开：藏人精神保持愉悦的秘密
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/12/2022-Reviews-2023-Plans.html" rel="prev" title="回顾 2022，启航 2023">
+                回顾 2022，启航 2023 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile/society_face_version_1.jpg" alt="Kofe">
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">人往往需要说很多话，然后才能归入潜默。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理论篇"><span class="nav-number">1.</span> <span class="nav-text">理论篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不由自主行动"><span class="nav-number">1.1.</span> <span class="nav-text">不由自主行动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不由自主着迷"><span class="nav-number">1.2.</span> <span class="nav-text">不由自主着迷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不由自主叙述"><span class="nav-number">1.3.</span> <span class="nav-text">不由自主叙述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#吸引"><span class="nav-number">1.3.1.</span> <span class="nav-text">吸引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成长"><span class="nav-number">1.3.2.</span> <span class="nav-text">成长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#意志"><span class="nav-number">1.3.3.</span> <span class="nav-text">意志</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体验设计本质"><span class="nav-number">1.4.</span> <span class="nav-text">体验设计本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体验设计应用"><span class="nav-number">1.5.</span> <span class="nav-text">体验设计应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思考-策划"><span class="nav-number">1.5.1.</span> <span class="nav-text">思考/策划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#讨论-引导"><span class="nav-number">1.5.2.</span> <span class="nav-text">讨论/引导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传达-演示"><span class="nav-number">1.5.3.</span> <span class="nav-text">传达/演示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设计产品"><span class="nav-number">1.5.4.</span> <span class="nav-text">设计产品</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#培养-管理"><span class="nav-number">1.5.5.</span> <span class="nav-text">培养/管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践篇"><span class="nav-number">2.</span> <span class="nav-text">实践篇</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz',
+        appKey: 'jbgIHEzUigo8apYgTon6xXE8',
+        placeholder: '非常期待您的想法或意见，推荐留言~',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

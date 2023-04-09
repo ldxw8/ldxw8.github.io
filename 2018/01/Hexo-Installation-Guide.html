@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零成本：基于 Hexo 在 Github 上搭建博客">
+<meta property="og:url" content="http://www.kofes.cn/2018/01/Hexo-Installation-Guide.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-02-15T06:35:23.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="零成本：基于 Hexo 在 Github 上搭建博客">
+<meta name="twitter:description" content="Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。     Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/01/Hexo-Installation-Guide.html">
+
+
+
+
+
+  <title>零成本：基于 Hexo 在 Github 上搭建博客 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/01/Hexo-Installation-Guide.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">零成本：基于 Hexo 在 Github 上搭建博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T18:46:03+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2023-02-15T14:35:23+08:00" content="2023-02-15">
+                2023-02-15
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/Hexo-Installation-Guide.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/01/Hexo-Installation-Guide.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/Hexo-Installation-Guide.html" class="leancloud_visitors" data-flag-title="零成本：基于 Hexo 在 Github 上搭建博客">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,051
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Hexo $^{[1]}$，一个快速、简洁且高效的博客框架，若以个人博文为主导需求，它的强大毋庸置疑。    </p>
+<p>Hexo 支持 GitHub Flavored Markdown 的所有功能；且基于 Node.js 所带来的超快生成速度，百页博文秒级渲染；开放性 API 以及丰富的插件等，即功能来得纯粹，不失个性化定制，上手容易且操作便捷。更重要的一点，它是开源的、免费的博客框架，数据保存在本地以及 Github 上，相信在众多博客产品中选择、博弈，相信 Hexo 的表现不会令你失望。</p>
+<p>对于 Hexo 的安装、使用教程尽量遵照官方使用文档的流程操作，而本文则将侧重于 Hexo 的优化体验、实用插件等方面的内容分享。</p>
+<p>若想了解详情可访问「<a href="https://hexo.io/" target="_blank" rel="noopener">hexo.io</a>」。</p>
+<a id="more"></a>
+<h2 id="更新进程"><a href="#更新进程" class="headerlink" title="更新进程"></a>更新进程</h2><ul>
+<li>2018.01.22：完成文章初稿；</li>
+<li>2018.10.25：纠正有纰漏的地方，并重新排版；</li>
+</ul>
+<h2 id="壹-搭建环境"><a href="#壹-搭建环境" class="headerlink" title="壹 搭建环境"></a>壹 搭建环境</h2><ul>
+<li>Mac OS、Windows 环境下的配置流程和步骤大同小异，而搭建环境的大致流程为：  <ul>
+<li>Git 环境配置 ( Windows 平台需要配置 )；</li>
+<li>Node.js 环境配置；</li>
+<li>Github 账号注册和配置；</li>
+<li>Hexo 的安装和配置.</li>
+</ul>
+</li>
+<li>考虑到是流程操作类的文章，为简单起见，则我们以 MacOS 和 Windows 版本分别说明情况：<ul>
+<li><a href="#MacOS-版本">MacOS 版本</a></li>
+<li><a href="#Windows-版本">Windows 版本</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="MacOS-版本"><a href="#MacOS-版本" class="headerlink" title="MacOS 版本"></a>MacOS 版本</h3><h4 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h4><ul>
+<li><p><code>Xcode</code> : Hexo 的编译依赖于 Xcode，故我们得在 Mac 上安装 Xcoce。</p>
+<ul>
+<li>Xcode 可自行到 <code>Apple App Store</code> 下载、安装。</li>
+<li>启动 Xcode 并进入 Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安装命令行工具。</li>
+</ul>
+</li>
+<li><p><code>Node.js</code> : Hexo 是基于 Node.js 开发的，即得配置 Hexo 的运行环境。</p>
+<ul>
+<li>Node.js：<a href="https://nodejs.org/" target="_blank" rel="noopener">官方下载</a>；</li>
+<li>本地安装，文件包为 <code>Node-Vx.x.x.pkg</code></li>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装..</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 终端下输入命令:  </span></span><br><span class="line">node -v  </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>Github</code> 账户注册与建立 <code>Repository</code>：</p>
+<blockquote>
+<p>已有账号、项目可忽略此步骤，但注意代码库的配置属性。</p>
+</blockquote>
+<ul>
+<li>注册账号：<a href="https://github.com/" target="_blank" rel="noopener">GitHub 社区注册入口</a> ；</li>
+<li><p>创建代码库：</p>
+<ul>
+<li>Step.01. <code>Add ( 右上角「+」图标 ) -&gt; New Repository</code>；  </li>
+<li>Step.02. Repository Name，填写 <code>yourname.github.io</code>；        </li>
+<li>Step.03. Repository Description，填写<code>简单描述</code>.</li>
+</ul>
+</li>
+<li><p>配置代码库：</p>
+<ul>
+<li>Step.01. 进入项目 <code>yourname.github.io</code>；  </li>
+<li>Step.02. <code>Settings -&gt; GitHub Pages</code>，开启 <code>GH-Pages</code> 功能；  </li>
+<li><p>Step.03. 点击 <code>Launch Automatic Page Generator</code>.</p>
+<blockquote>
+<p>Github 将会自动替你创建出一个 <code>GH-Pages</code> 的页面。若配置没有问题，约15分钟后，<code>yourname.github.io</code> 就可以正常访问了，配置结束。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="安装-HEXO"><a href="#安装-HEXO" class="headerlink" title="安装 HEXO"></a>安装 HEXO</h4><h5 id="安装-HEXO-1"><a href="#安装-HEXO-1" class="headerlink" title="安装 HEXO"></a>安装 HEXO</h5><ul>
+<li><p>本地选择安装目录：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> your-hexo-site</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在线安装 HEXO ( <a href="http://npm.taobao.org/" target="_blank" rel="noopener">NPM淘宝源</a> )：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g  </span><br><span class="line">hexo init  </span><br><span class="line">hexo install</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="运作-HEXO"><a href="#运作-HEXO" class="headerlink" title="运作 HEXO"></a>运作 HEXO</h5><ul>
+<li><p>本地运作 HEXO：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server <span class="comment"># 或简写 hexo s</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当终端提示以下信息，则本地配置工作基本完成：</p>
+<blockquote>
+<p>Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop.</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="使用-HEXO"><a href="#使用-HEXO" class="headerlink" title="使用 HEXO"></a>使用 HEXO</h5><blockquote>
+<p>注意：此项操作，需要确保在 Hexo 安装目录下执行。</p>
+</blockquote>
+<ul>
+<li><p>新建一篇博文 ( 当然，更新过往的文章只需修改 <code>Hexo -&gt; Source -&gt; _Posts</code> 目录下相对应的 MarkDown 文件即可 )</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post <span class="string">"Article Title"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>生成博文 ( 生成静态网页 )</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="部署至-GitHub"><a href="#部署至-GitHub" class="headerlink" title="部署至 GitHub"></a>部署至 GitHub</h5><ul>
+<li><p>部署至 Git 的准备工作：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在部署前，还需要安装「Git部署插件」:  </span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment"># 若没有安装该插件，会出现情况：</span></span><br><span class="line"><span class="comment"># deloyer not found:git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再者，与 Github 连接前需要获得授权，不然会出现以下情况 ( 本机没有配置 Public Key ):</p>
+<blockquote>
+<p>Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights and the repository exists.</p>
+</blockquote>
+</li>
+<li><p>配置 <code>SSH KEY / Public KEY</code> ( <a href="https://zh.wikipedia.org/wiki/RSA加密演算法" target="_blank" rel="noopener">RSA 认证</a> )：</p>
+<blockquote>
+<p>[注意] 若之前机器上配置了 Git 的信息，请跳过该步骤。</p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 配置 Git 的 UserName 和 Email </span></span><br><span class="line"><span class="comment"># “YourAnonymousName"，可以替换成自己的用户名   </span></span><br><span class="line">git config --global user.name <span class="string">"YourAnonymousName"</span>  </span><br><span class="line"><span class="comment"># "UserName@xxx.com"，替换成自己的邮箱  </span></span><br><span class="line">git config --global user.email <span class="string">"UserName@xxx.com"</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 检查是否已经有 SSH KEY	 </span></span><br><span class="line"><span class="comment"># Step01. 列出该目录下的文件；</span></span><br><span class="line"><span class="comment"># Step02. 看是否存在「id_isa」和「id_isa.pub」文件；</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">ls</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Step03. 若存在则跳过，没有则执行此步骤「生成密钥」.</span></span><br><span class="line"><span class="comment"># 邮箱「UserName@xxx.com」替换成自己的邮箱</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"UserName@xxx.com"</span></span><br><span class="line">	</span><br><span class="line"><span class="comment"># 3. 登陆 Github, 添加 SSH KEY</span></span><br><span class="line"><span class="comment"># Step01. Avatar(头像) &gt; Settings &gt; Personal Settings &gt; SSH and GPG keys； </span></span><br><span class="line"><span class="comment"># Step02. New SSH KEY，把「id_isa.pub」的密钥粘贴过去即可.  </span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 4. 测试是否配置成功	</span></span><br><span class="line">ssh -T git@github.com</span><br><span class="line"><span class="comment"># 提示「Hi YourName! You've successfully authenticated, but GitHub does not provide shell. access.」即成功配置。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 <code>_config.yml</code> 文件 ：</p>
+<ul>
+<li><p>在 Hexo 安装目录下找到 <code>_config.yml</code> 文件，如 <code>~/你的安装目录/Hexo/_config.yml</code>。找到 <code>deploy</code> 字段，修改配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line"><span class="built_in">type</span>: git  </span><br><span class="line">repo: https://github.com/yourname/yourname.github.io.git  </span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意: 冒号后面含一个空格；使用 Github 不用 branch 字段；若使用多个 deployer，则有：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">- <span class="built_in">type</span>: heroku </span><br><span class="line">  repo:</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>部署至 Git：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy	  </span><br><span class="line">hexo d -g <span class="comment"># 即在部署之前先生成</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Windows-版本"><a href="#Windows-版本" class="headerlink" title="Windows 版本"></a>Windows 版本</h3><h4 id="配置环境-1"><a href="#配置环境-1" class="headerlink" title="配置环境"></a>配置环境</h4><blockquote>
+<p>Github 账号注册和配置和 Hexo 的安装和配置，在 Windows 与 MacOS 上是通用的。因此，在 Windows 版本中，主要阐述 Node.Js和 Git 的安装和配置即可。</p>
+</blockquote>
+<ul>
+<li><p><code>Node.js</code> 的安装和准备：</p>
+<ul>
+<li>下载并安装：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.Js for Windows x86/x64 bit</a>。</li>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v  </span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Git 的安装和准备：</p>
+<ul>
+<li>下载并安装：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git for Windows x86/x64 bit</a>。</li>
+<li><p>检测是否安装成功，当然返回版本信息即成功安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="贰-优化拓展"><a href="#贰-优化拓展" class="headerlink" title="贰 优化拓展"></a>贰 优化拓展</h2><p>至此，Hexo 的安装以及 GitHub 的配置工作暂告一段落。能正常运行使用 Hexo 是没问题的，而下面的章节则是对 Hexo 的扩展和个性化定制，根据自己的需求挑选阅读、实践。</p>
+<h3 id="套用一款主题"><a href="#套用一款主题" class="headerlink" title="套用一款主题"></a>套用一款主题</h3><ul>
+<li><p>Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至站点目录的 themes 目录下， 然后修改下配置文件即可。</p>
+</li>
+<li><p>在 Hexo 中有 <code>两份</code> 主要的 <code>配置文件</code>，其名称都是 <code>_config.yml</code>。 其中，一份位于 <code>站点根目录</code> 下，主要包含 Hexo 本身的配置；另一份位于 <code>主题目录</code> 下，这份配置由主题作者提供，主要用于配置主题相关的选项。</p>
+<p>  为了描述方便，在以下说明中，将前者称为 <code>站点配置文件</code>， 后者称为 <code>主题配置文件</code>。具体以 NexT $^{[2]}$ 为例说明，安装步骤如下。</p>
+</li>
+</ul>
+<h4 id="下载主题"><a href="#下载主题" class="headerlink" title="下载主题"></a>下载主题</h4><ul>
+<li><p>如果你熟悉 Git， 建议你使用 <code>克隆最新版本</code> 的方式，之后的更新可以通过 <code>git pull</code> 来快速更新， 而不用再次下载压缩包替换。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆最新版本</span></span><br><span class="line"><span class="built_in">cd</span> your-hexo-site  </span><br><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next. themes/next</span><br><span class="line"></span><br><span class="line"><span class="comment"># 快速更新</span></span><br><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h4><ul>
+<li><p>与所有 Hexo 主题启用的模式一样。 当 <code>克隆/下载</code> 完成后，打开 站点配置文件， 找到 <code>theme</code> 字段，并将其值更改为 <code>next</code>。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>到此，NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前， 我们最好使用 <code>hexo clean</code> 来清除 Hexo 的缓存。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="主题设定"><a href="#主题设定" class="headerlink" title="主题设定"></a>主题设定</h4><h5 id="外观设定"><a href="#外观设定" class="headerlink" title="外观设定"></a>外观设定</h5><ul>
+<li><p>选择 <code>Scheme</code>：Scheme 是 NexT 提供的一种特性，借助于 Scheme，NexT 为你提供多种不同的外观。同时，几乎所有的配置都可以在 Scheme 之间共用。目前 NexT 支持三种 Scheme：</p>
+<ul>
+<li><code>Muse</code>：默认 Scheme，黑白主调，大量留白。</li>
+<li><code>Mist</code>：Muse 的紧凑版本，整洁有序的单栏外观。</li>
+<li><p><code>Pisces</code>：双栏 Scheme，小家碧玉似的清新。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line">scheme: Pisces</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Scheme 的切换通过更改 <code>主题配置文件</code>，搜索 <code>scheme</code> 关键字。 你会看到有三行 scheme 的配置，将你需用启用的 scheme 前面注释 <code>#</code> 去除即可。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h5><ul>
+<li>设置语言：编辑<code>站点配置文件</code>， 将 <code>language</code> 设置成你所需要的语言，例如 <code>language: zh-Hans</code>。建议明确设置你所需要的语言，例如选用简体中文，配置如下 ( 更多请语言配置请参考下述表格 )：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语言</th>
+<th style="text-align:left">代码</th>
+<th style="text-align:left">设定示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">English</td>
+<td style="text-align:left">en</td>
+<td style="text-align:left">language: en</td>
+</tr>
+<tr>
+<td style="text-align:left">简体中文</td>
+<td style="text-align:left">zh-Hans</td>
+<td style="text-align:left">language: zh-Hans</td>
+</tr>
+<tr>
+<td style="text-align:left">Français</td>
+<td style="text-align:left">fr-FR</td>
+<td style="text-align:left">language: fr-FR</td>
+</tr>
+<tr>
+<td style="text-align:left">Português</td>
+<td style="text-align:left">pt</td>
+<td style="text-align:left">language: pt or pt-BR</td>
+</tr>
+<tr>
+<td style="text-align:left">繁體中文</td>
+<td style="text-align:left">zh-hk</td>
+<td style="text-align:left">language: zh-hk</td>
+</tr>
+<tr>
+<td style="text-align:left">Русский</td>
+<td style="text-align:left">язык    ru</td>
+<td style="text-align:left">language: ru</td>
+</tr>
+<tr>
+<td style="text-align:left">Deutsch</td>
+<td style="text-align:left">de</td>
+<td style="text-align:left">language: de</td>
+</tr>
+<tr>
+<td style="text-align:left">日本語</td>
+<td style="text-align:left">ja</td>
+<td style="text-align:left">language: ja</td>
+</tr>
+<tr>
+<td style="text-align:left">Indonesian</td>
+<td style="text-align:left">id</td>
+<td style="text-align:left">language: id</td>
+</tr>
+<tr>
+<td style="text-align:left">Korean</td>
+<td style="text-align:left">ko</td>
+<td style="text-align:left">language: ko</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h5><ul>
+<li><p>菜单配置包括三个部分，第一是菜单项 ( <code>名称和链接</code> )，第二是菜单项的 <code>显示文本</code>，第三是菜单项对应的 <code>图标</code>。</p>
+</li>
+<li><p>NexT 使用的是 <a href="http://fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> $^{[3]}$ 提供的图标，600+ 的图标可满足大部分需求，且适配 Retina 屏幕。</p>
+</li>
+<li><p>编辑 <code>主题配置文件</code>，修改以下内容：</p>
+  <div class="note warning"><p>请注意键值（ 如 <code>home</code> ）的大小写要严格匹配。 </p></div>
+<ul>
+<li><p>设定菜单内容，对应的字段是 <code>menu</code>，菜单内容的设置格式是：<code>item name: link</code>。其中 <code>item name</code> 是一个名称，这个名称并不直接显示在页面上，她将用于匹配图标以及翻译。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: /</span><br><span class="line">archives: /archives</span><br><span class="line"><span class="comment">#about: /about</span></span><br><span class="line"><span class="comment">#categories: /categories</span></span><br><span class="line">tags: /tags</span><br><span class="line"><span class="comment">#commonweal: /404.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 若你的站点运行在子目录中，请将链接前缀的/去掉</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>NexT 默认的菜单项有 ( 标注 <code>*</code> 的项表示需要手动创建这个页面 )：</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">键值</th>
+<th style="text-align:left">设定值</th>
+<th style="text-align:left">显示文本(简体中文)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">home</td>
+<td style="text-align:left">home: /</td>
+<td style="text-align:left">主页</td>
+</tr>
+<tr>
+<td style="text-align:left">archives</td>
+<td style="text-align:left">archives: /archives</td>
+<td style="text-align:left">归档页</td>
+</tr>
+<tr>
+<td style="text-align:left">categories</td>
+<td style="text-align:left">categories: /categories</td>
+<td style="text-align:left">分类页 <code>*</code></td>
+</tr>
+<tr>
+<td style="text-align:left">tags</td>
+<td style="text-align:left">tags: /tags</td>
+<td style="text-align:left">标签页 <code>*</code></td>
+</tr>
+<tr>
+<td style="text-align:left">about</td>
+<td style="text-align:left">about: /about</td>
+<td style="text-align:left">关于页面 <code>*</code></td>
+</tr>
+<tr>
+<td style="text-align:left">commonweal</td>
+<td style="text-align:left">commonweal: /404.html</td>
+<td style="text-align:left">公益 404 <code>*</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>设置菜单项的显示文本，在第一步中设置的菜单的名称并不直接用于界面上的展示。Hexo 在生成的时候将使用这个名称查找对应的语言翻译，并提取显示文本。</p>
+<p>   这些翻译文本放置在 NexT 主题目录下的 <code>languages/{language}.yml</code> （ {language} 为你所使用的语言 )。以简体中文为例，若你需要添加一个菜单项，比如 <code>something</code>。那么就需要修改简体中文对应的翻译文件<code>languages/zh-Hans.yml</code>，在<code>menu</code>字段下添加一项：</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: 首页</span><br><span class="line">archives: 归档</span><br><span class="line">categories: 分类</span><br><span class="line">tags: 标签</span><br><span class="line">about: 关于</span><br><span class="line">search: 搜索</span><br><span class="line">commonweal: 404</span><br><span class="line">something: 有料</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设定菜单项的图标，对应的字段是 <code>menu_icons</code>。</p>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">menu_icons:</span><br><span class="line"><span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line"><span class="comment"># Icon Mapping.</span></span><br><span class="line">home: home</span><br><span class="line">about: user</span><br><span class="line">categories: th</span><br><span class="line">tags: tags</span><br><span class="line">archives: archive</span><br><span class="line">commonweal: heartbeat</span><br><span class="line"></span><br><span class="line"><span class="comment">#  此设定格式是「item name: icon name」</span></span><br><span class="line"><span class="comment"># 「item name」与上一步所配置的菜单名字对应</span></span><br><span class="line"><span class="comment"># 「icon name」是 Font Awesome 图标的名字</span></span><br><span class="line"><span class="comment"># 「enable」用于控制是否显示图标，你可以设置成「false」来去掉图标</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="设置侧栏"><a href="#设置侧栏" class="headerlink" title="设置侧栏"></a>设置侧栏</h4><ul>
+<li><p>可以通过修改 <code>主题配置文件</code> 中的 <code>sidebar</code> 字段来控制侧栏的行为。侧栏的设置包括两个部分，其一是 <code>侧栏的位置</code>， 其二是 <code>侧栏显示的时机</code>。</p>
+</li>
+<li><p>设置侧栏的位置，修改 <code>sidebar.position</code> 的值，支持的选项有：</p>
+<blockquote>
+<p>left - 靠左放置<br>right - 靠右放置  </p>
+</blockquote>
+<p>  目前仅 Pisces Scheme 支持 position 配置。影响版本 <code>5.0.0</code> 及更低版本。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:  </span><br><span class="line">position: left</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置侧栏显示的时机，修改 <code>sidebar.display</code> 的值，支持的选项有：</p>
+<blockquote>
+<p>post - 默认行为，在文章页面（ 拥有目录列表 ）时显示<br>always - 在所有页面中都显示<br>hide - 在所有页面中都隐藏（ 可以手动展开 ）<br>remove - 完全移除  </p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line">display: post</span><br></pre></td></tr></table></figure>
+<p>   已知侧栏在 <code>use motion: false</code> 的情况下不会展示。影响版本 <code>5.0.0</code> 及更低版本。</p>
+</li>
+</ul>
+<h4 id="设置头像"><a href="#设置头像" class="headerlink" title="设置头像"></a>设置头像</h4><ul>
+<li><p>编辑 <code>主题配置文件</code>， 修改字段 <code>avatar</code>，值设置成头像的链接地址。其中，头像的链接地址可以是：</p>
+<ul>
+<li>站外链接：<code>avatar: http://example.com/avatar.png</code></li>
+<li>站内资源：放置在 <code>source/images/</code> 目录下，images 为自建目录，字段配置为 <code>avatar: /images/avatar.png</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="揽收实用插件"><a href="#揽收实用插件" class="headerlink" title="揽收实用插件"></a>揽收实用插件</h3><h2 id="叁-参考资料"><a href="#叁-参考资料" class="headerlink" title="叁 参考资料"></a>叁 参考资料</h2><p><a href="https://hexo.io/docs/" target="_blank" rel="noopener">[1] HexoJs. 使用文档. 2018</a><br><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">[2] NexT. 使用文档. 2018</a><br><a href="http://fontawesome.io/accessibility/" target="_blank" rel="noopener">[3] Dave Gandy. Font Awesome Accessibility</a><br><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">[4] 徐俊. 手把手教你搭建属于自己的博客. CSDN. 2017</a> </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/01/Hexo-Installation-Guide.html" title="零成本：基于 Hexo 在 Github 上搭建博客">http://www.kofes.cn/2018/01/Hexo-Installation-Guide.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/Java-in-a-Nutshell.html" rel="next" title="Java 快速上手教程">
+                <i class="fa fa-chevron-left"></i> Java 快速上手教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/Design-Pattern-Based-on-Android.html" rel="prev" title="场景化学习设计模式：Android 案例与实践">
+                场景化学习设计模式：Android 案例与实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile/society_face_version_1.jpg" alt="Kofe">
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">人往往需要说很多话，然后才能归入潜默。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进程"><span class="nav-number">1.</span> <span class="nav-text">更新进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#壹-搭建环境"><span class="nav-number">2.</span> <span class="nav-text">壹 搭建环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MacOS-版本"><span class="nav-number">2.1.</span> <span class="nav-text">MacOS 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境"><span class="nav-number">2.1.1.</span> <span class="nav-text">配置环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-HEXO"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装 HEXO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装-HEXO-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">安装 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运作-HEXO"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">运作 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-HEXO"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">使用 HEXO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#部署至-GitHub"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">部署至 GitHub</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-版本"><span class="nav-number">2.2.</span> <span class="nav-text">Windows 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置环境</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贰-优化拓展"><span class="nav-number">3.</span> <span class="nav-text">贰 优化拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#套用一款主题"><span class="nav-number">3.1.</span> <span class="nav-text">套用一款主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载主题"><span class="nav-number">3.1.1.</span> <span class="nav-text">下载主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启用主题"><span class="nav-number">3.1.2.</span> <span class="nav-text">启用主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题设定"><span class="nav-number">3.1.3.</span> <span class="nav-text">主题设定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#外观设定"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">外观设定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置语言"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置菜单"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">设置菜单</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置侧栏"><span class="nav-number">3.1.4.</span> <span class="nav-text">设置侧栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置头像"><span class="nav-number">3.1.5.</span> <span class="nav-text">设置头像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#揽收实用插件"><span class="nav-number">3.2.</span> <span class="nav-text">揽收实用插件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#叁-参考资料"><span class="nav-number">4.</span> <span class="nav-text">叁 参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz',
+        appKey: 'jbgIHEzUigo8apYgTon6xXE8',
+        placeholder: '非常期待您的想法或意见，推荐留言~',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

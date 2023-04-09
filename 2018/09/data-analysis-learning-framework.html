@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据分析,Excel,Python,数据库,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Kofe" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="本笔记以秦路老师的文章「如何七周成为数据分析师」为内容框架，整合相关的论文、书籍、视频资料，输出学习笔记。主要目的是检验自己的学习效果和日常复习之需。 初入数据分析的大门，笔记大部门的知识模块以阅读原资料总结整理而得，难免有理解偏差、错误的地方，若有不正当的解释还望朋友们不吝指教！">
+<meta name="keywords" content="数据分析,Excel,Python,数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析学习框架">
+<meta property="og:url" content="http://www.kofes.cn/2018/09/data-analysis-learning-framework.html">
+<meta property="og:site_name" content="Kofe">
+<meta property="og:description" content="本笔记以秦路老师的文章「如何七周成为数据分析师」为内容框架，整合相关的论文、书籍、视频资料，输出学习笔记。主要目的是检验自己的学习效果和日常复习之需。 初入数据分析的大门，笔记大部门的知识模块以阅读原资料总结整理而得，难免有理解偏差、错误的地方，若有不正当的解释还望朋友们不吝指教！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2023-02-15T06:35:23.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据分析学习框架">
+<meta name="twitter:description" content="本笔记以秦路老师的文章「如何七周成为数据分析师」为内容框架，整合相关的论文、书籍、视频资料，输出学习笔记。主要目的是检验自己的学习效果和日常复习之需。 初入数据分析的大门，笔记大部门的知识模块以阅读原资料总结整理而得，难免有理解偏差、错误的地方，若有不正当的解释还望朋友们不吝指教！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.kofes.cn/2018/09/data-analysis-learning-framework.html">
+
+
+
+
+
+  <title>数据分析学习框架 | Kofe</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79b30ca99079b04e5fbf1ad6164bf0c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kofe</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Reading / Project / Paper</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.kofes.cn/2018/09/data-analysis-learning-framework.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kofe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile/society_face_version_1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kofe">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据分析学习框架</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T09:51:49+08:00">
+                2018-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+
+	  
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2023-02-15T14:35:23+08:00" content="2023-02-15">
+                2023-02-15
+              </time>
+            </span>
+          
+
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Reading/" itemprop="url" rel="index">
+                    <span itemprop="name">Reading</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/data-analysis-learning-framework.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/data-analysis-learning-framework.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/data-analysis-learning-framework.html" class="leancloud_visitors" data-flag-title="数据分析学习框架">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,431
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本笔记以秦路老师的文章「如何七周成为数据分析师」为内容框架，整合相关的论文、书籍、视频资料，输出学习笔记。主要目的是检验自己的学习效果和日常复习之需。</p>
+<p>初入数据分析的大门，笔记大部门的知识模块以阅读原资料总结整理而得，难免有理解偏差、错误的地方，若有不正当的解释还望朋友们不吝指教！</p>
+<a id="more"></a>
+<h2 id="更新进度"><a href="#更新进度" class="headerlink" title="更新进度"></a>更新进度</h2><ul>
+<li>2018.09.29：完成初稿，形成笔记的整体框架；</li>
+<li>2018.09.30：更新「数据分析入门」章节；</li>
+</ul>
+<h2 id="学习框架"><a href="#学习框架" class="headerlink" title="学习框架"></a>学习框架</h2><ul>
+<li><code>整体框架</code>：本笔记以秦路老师的文章「如何七周成为数据分析师」$^{[1]}$ 为内容框架，整合相关的论文、书籍、视频资料，输出学习笔记。</li>
+<li><p><code>数学部分</code>：数据分析，离不开数学。关于学习资料的选择，推荐盛骤老师的《概率论与数理统计·第4版》和张宇老师的《带你学概率论与数理统计·浙大4版》。</p>
+<blockquote>
+<p>数学并不是自己擅长的科目，出于这样的考虑，故选择了 <code>大学教材</code> 和 <code>考研辅导书</code>，希望借以习题辅导书复习教材内容，以短时间获得最大成效比。</p>
+</blockquote>
+<ul>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/3165271/" target="_blank" rel="noopener">盛骤. 概率论与数理统计·第4版. 高等教育出版社</a></p>
+</li>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/26630236/" target="_blank" rel="noopener">张宇. 带你学概率论与数理统计·浙大4版. 北京理工大学出版社</a></p>
+</li>
+<li><p>📺 | 视频 | <a href="https://www.bilibili.com/video/av14690558?from=search&amp;seid=2673720085936060940" target="_blank" rel="noopener">张宇. 2018 考研概率论强化课程. bilibili.com</a></p>
+</li>
+<li><p>📝 | 文章 | <a href="https://www.kofes.cn/2018/09/probability-and-statistics.html">Kofe | 笔记 | 概率论与数理统计</a></p>
+</li>
+</ul>
+</li>
+<li><p><code>统计部分</code>：很遗憾对此部分知识不了解，在此不具体展开探讨。但《概率论与数理统计》的数理统计部分可以预先复习。</p>
+</li>
+<li><p><code>数据库部分</code>：在秦路老师的文章中，数据库部分侧重 SQL ( 结构化查询语言 ) 的讲解，当然这也是操作性和实用性很强的一模块。且据以往语言学习的经历，<code>多写、多练</code> 是必不可少的阶段，SQL 也不例外，附带的练习题目中有不少经典的实例，作为入门训练材料刚好合适。</p>
+<p>  当然，数据库的知识不仅如此，有需求的朋友可继续参阅书籍《数据库系统概念》$^{[2]}$，即以数据库工程师的角度出发，从需求到维护的流程化学习过程，整体架构上学习数据库这门学科。</p>
+<ul>
+<li><p>📝 | 文章 | <a href="http://www.w3school.com.cn/sql/index.asp" target="_blank" rel="noopener">W3CSchool SQL 教程 &amp; 练习题</a></p>
+</li>
+<li><p>📝 | 文章 | <a href="https://leetcode-cn.com/problemset/database/" target="_blank" rel="noopener">LeetCode SQL 练习题</a></p>
+</li>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/10548379/" target="_blank" rel="noopener">Abraham Silberschatz. 数据库系统概念. 机械工业出版社</a></p>
+</li>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/24250054/" target="_blank" rel="noopener">福达(Ben Forta). SQL 必知必会. 人民邮电出版社</a></p>
+</li>
+</ul>
+</li>
+<li><p><code>编程部分</code>：主导 Python 语言编程。由于篇幅的缘故，该部分内容请参阅另一篇博文：</p>
+<ul>
+<li><p>📝 | 文章 | <a href="https://www.kofes.cn/2018/09/life-is-short-we-need-python.html">Kofe | 笔记 | Python 3 入门系列教程</a></p>
+</li>
+<li><p>📝 | 文章 | <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰. Python 教程. 2018. liaoxuefeng.com</a></p>
+<blockquote>
+<p>当然，Python 的学习还可以参考廖雪峰老师的教程。</p>
+</blockquote>
+</li>
+<li><p>📖 | 书籍 | <a href="https://github.com/iamseancheney/python_for_data_analysis_2nd_chinese_version" target="_blank" rel="noopener">Iamseancheney (译). Python 数据分析 (第二版). 2017. github.com</a></p>
+<blockquote>
+<p>本书是 2017 年 10 月 20 号正式出版的，和第一版的不同之处有：<br>1) 包括 Python 教程内的所有代码升级为 <code>Python 3.6</code>；<br>2) 更新了 Anaconda 和其它包的 Python 安装方法；<br>3) 更新了 Pandas 为 2017 最新版；<br>4) 新增 <code>高级的 Pandas 工具</code> 章节；<br>5) 简要介绍和使用 <code>StatsModels</code> 和 <code>scikit-learn</code>.  </p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>研究部分</code>：自己课题的需求，数据科学方向的研究是必不可少的环节。篇幅原因，则细节在下文中展开探讨。按照惯例，为了便于知识的引用和问题的探讨，以下罗列自己所使用到的学习资料。</p>
+<ul>
+<li><p>🍉 | 书籍 | <a href="https://book.douban.com/subject/26708119/" target="_blank" rel="noopener">周志华. 机器学习 (西瓜书). 清华大学出版社</a></p>
+</li>
+<li><p>🌼 | 书籍 | <a href="https://book.douban.com/subject/27087503/" target="_blank" rel="noopener">[美] 伊恩·古德费洛. 深度学习 (花书). 人民邮电出版社</a></p>
+</li>
+<li><p>📺 | 视频 | <a href="https://www.bilibili.com/video/av15558220" target="_blank" rel="noopener">深度学习. 读书会分享视频集. bilibili.com</a></p>
+<blockquote>
+<p>视频转载自：<a href="https://www.youtube.com/playlist?list=PLsXu9MHQGs8eO64mazCnCU3bc9l25Z1ZZ" target="_blank" rel="noopener">Alena Kruchkova. Deep Learning Book Live Streams. youtube.com</a><br>若有条件科学上网的朋友，可至 Youtube 搭配在线字幕观看。</p>
+</blockquote>
+</li>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/10590856/" target="_blank" rel="noopener">李航. 统计学习方法. 清华大学出版社</a></p>
+</li>
+<li><p>📖 | 书籍 | <a href="https://book.douban.com/subject/11542972/" target="_blank" rel="noopener">[美] Jiawei Han. 数据挖掘：概念与技术 (原书第3版). 机械工业出版社</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据分析入门"><a href="#数据分析入门" class="headerlink" title="数据分析入门"></a>数据分析入门</h2><h3 id="Excel：不考虑性能和数据量"><a href="#Excel：不考虑性能和数据量" class="headerlink" title="Excel：不考虑性能和数据量"></a>Excel：不考虑性能和数据量</h3><ul>
+<li>掌握各类功能强大的函数 — <a href="https://ask.hellobi.com/blog/qinlu/5976" target="_blank" rel="noopener">常见 Excel 函数</a><ul>
+<li>清洗处理类：trim、concatenate、replace、substitute、left/right/mid、len/lenb、find、search、text</li>
+<li>关联匹配类：lookup、vlookup、index、match、row、column、offset</li>
+<li>逻辑运算类：if、and、or、is系列</li>
+<li>计算统计类：sum/sumif/sumifs、sumproduct、count/countif/countifs、max、min、rank、rand/randbetween、averagea、quartile、stdev、<code>substotal</code>、int/round</li>
+<li>时间序列类：year、month、weekday、weeknum、day、date、now、today、<code>datedif</code></li>
+</ul>
+</li>
+<li><p>Excel 常用工具 — <a href="https://ask.hellobi.com/blog/qinlu/5977" target="_blank" rel="noopener">数据分析：Excel 技巧大揭秘</a></p>
+<ul>
+<li><p><code>格式转换</code>：自定义格式规范时间。</p>
+<blockquote>
+<p>2016/11/11 写成 yyyy/MM/dd<br>2016-11-11 23:59:59 写成 yyyy-MM-dd HH:mm:ss</p>
+</blockquote>
+</li>
+<li><p><code>分列</code>：分列功能可以将某一列按照特定规则拆分，常常用来进行数据清洗。</p>
+</li>
+<li><p><code>数据透视表</code>：数据透视表的核心思想是聚合运算，将字段名相同的数据聚合起来，所谓数以类分。</p>
+<blockquote>
+<p>列和行的设置，则是按不同轴向展现数据。简单说，你想要什么结构的报表，就用什么样的拖拽方式。</p>
+</blockquote>
+</li>
+<li><p><code>删除重复项</code>：一种数据清洗和检验的快速方式。想要验证某一列有多少个唯一值，或者数据清洗，都可以使用。</p>
+</li>
+<li><code>自定义下拉菜单</code> (数据有效性)：数据有效性是一种约束，针对单元格限制其输入，也就是让其只能固定几个值。下拉菜单是一种高阶应用，通过允许下拉箭头即可。</li>
+<li><code>查找公式错误</code>：公式报错也不知道错在哪里时候可以使用该功能，尤其是各类IF嵌套或者多表关联，逻辑复杂时。查找公式错误是逐步运算的，以方便定位。</li>
+<li><code>分组和分级显示</code>：常用在报表中，在报表行数多到一定程度时，通过分组达到快速切换和隐藏的目的。</li>
+<li><p><strong><code>分析工具库</code></strong>：分析工具库是高阶分析的利器，包含很多统计计算，检验功能等工具。Excel是默认不安装的，要安装需要加载项，在工具菜单下（不同版本安装方式会有一点小差异）。</p>
+<blockquote>
+<p>分析工具库是统计包，如随机数发生器、排位与百分比排位、回归、抽样、t-检验等。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Excel 实战教程 — <a href="https://ask.hellobi.com/blog/qinlu/5978" target="_blank" rel="noopener">数据分析：手把手教你Excel实战</a></p>
+<ul>
+<li>明确目的<ul>
+<li>数据用来解决什么问题？</li>
+<li>汇总统计制作报表？</li>
+<li>数据可视化，作为一张信息图？</li>
+<li>验证某一类业务假设？</li>
+<li>提高某一个指标的KPI？</li>
+</ul>
+</li>
+<li>观察数据<ul>
+<li>数据有无缺失值<ul>
+<li>某一字段缺失数据较多，要考虑是否删除该字段（超过 50% 即没有业务意义了）</li>
+</ul>
+</li>
+<li>数据是否一致化</li>
+<li>数据是否有脏数据：乱码，错位，重复值，未匹配数据，加密数据</li>
+<li>数据标准结构</li>
+</ul>
+</li>
+<li>数据清洗：结合 <code>观察数据</code> 阶段完成的工作，对数据进行 <code>预处理操作</code>。</li>
+<li>分析过程<ul>
+<li>数据透视表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>单元格格式：数据分析师会和各种数据类型打交道，包括各类 timestamp，date，string，int，bigint，char，factor，float 等。</li>
+<li>了解中文编码：UTF-8、GBK、ASCII 码。</li>
+</ul>
+<h3 id="Excel：数据可视化"><a href="#Excel：数据可视化" class="headerlink" title="Excel：数据可视化"></a>Excel：数据可视化</h3><ul>
+<li>Excel：多种经典图表<ul>
+<li><a href="https://ask.hellobi.com/blog/qinlu/5986" target="_blank" rel="noopener">数据可视化：你想知道的经典图表全在这</a><ul>
+<li>散点图：表示两个变量之间的关系。后续的学习中，多次借用到散点，统计中的 <code>回归分析</code>，比如数据挖掘中的 <code>聚类</code>。</li>
+<li>折线图：了解某一维度在时间上的规律或者趋势。</li>
+<li>柱形图：堆积柱形图，瀑布图，横向条形图，横轴正负图。</li>
+<li>地理图：一切和空间属性有关的分析都可以用到地理图。</li>
+<li>饼图</li>
+<li>雷达图：也叫蛛网图，适合用在固定的框架内表达某种已知的结果。</li>
+<li>箱线图：它能准确地反映数据维度的离散（最大数、最小数、中位数、四分数）情况。凡是离散的数据都适用箱线图。</li>
+<li>热力图：以高亮形式展现数据。</li>
+<li>关系图</li>
+<li>矩形树图：柱形图不适合表达过多类目（比如上百）的数据，那应该怎么办？矩形树图出现了，它直观地以面积表示数值，以颜色表示类目。</li>
+<li>桑基图：常表示信息的变化和流动状态。</li>
+<li>漏斗图</li>
+</ul>
+</li>
+<li><a href="https://ask.hellobi.com/blog/qinlu/5987" target="_blank" rel="noopener">数据可视化：教你打造升职加薪的报表</a></li>
+</ul>
+</li>
+<li>PowerBI：Dashboard 仪表盘，由多个图表集合成的图表仪盘 — <a href="https://ask.hellobi.com/blog/qinlu/5989" target="_blank" rel="noopener">数据可视化：手把手打造BI</a><ul>
+<li>商业智能（Business Intelligence，BI），在传统企业中，它是一套完整的解决方案。将企业的数据有效整合，快速制作出报表以作出决策。涉及 <code>数据仓库</code>，<code>ETL</code>，<code>OLAP</code>，<code>权限控制</code> 等模块。</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据分析思维"><a href="#数据分析思维" class="headerlink" title="数据分析思维"></a>数据分析思维</h2><ul>
+<li>麦肯锡的分析思维：结构化思考，MECE原则，假设先行，关键驱动等方法论。 — <a href="https://ask.hellobi.com/blog/qinlu/6002" target="_blank" rel="noopener">快速掌握麦肯锡的分析思维</a></li>
+<li>分析思维框架：SMART、5W2H、SWOT、4P4C、六顶思考帽等 — <a href="https://ask.hellobi.com/blog/qinlu/6003" target="_blank" rel="noopener">如何建立数据分析的思维框架</a></li>
+</ul>
+<h2 id="业务知识"><a href="#业务知识" class="headerlink" title="业务知识"></a>业务知识</h2><h2 id="课题研究"><a href="#课题研究" class="headerlink" title="课题研究"></a>课题研究</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>[1] <a href="https://ask.hellobi.com/blog/qinlu/8930" target="_blank" rel="noopener">秦路. 如何七周成为数据分析师. hellobi.com. 2017</a></li>
+<li>[2] <a href="https://book.douban.com/subject/10548379/" target="_blank" rel="noopener">Abraham Silberschatz. 数据库系统概念 (原书第6版) [M]. 机械工业出版社, 2012</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Kofe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.kofes.cn/2018/09/data-analysis-learning-framework.html" title="数据分析学习框架">http://www.kofes.cn/2018/09/data-analysis-learning-framework.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+            <a href="/tags/Excel/" rel="tag"># Excel</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/probability-and-statistics.html" rel="next" title="概率论与数理统计">
+                <i class="fa fa-chevron-left"></i> 概率论与数理统计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/software-solution.html" rel="prev" title="多套软件解决方案助你提高生产力">
+                多套软件解决方案助你提高生产力 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile/society_face_version_1.jpg" alt="Kofe">
+            
+              <p class="site-author-name" itemprop="name">Kofe</p>
+              <p class="site-description motion-element" itemprop="description">人往往需要说很多话，然后才能归入潜默。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">133</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ldxw8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://dribbble.com/Kofe" target="_blank" title="Dribbble">
+                      
+                        <i class="fa fa-fw fa-dribbble"></i>Dribbble</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/ldxw8" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.acxer.cn" title="zcxer" target="_blank">zcxer</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习框架"><span class="nav-number">2.</span> <span class="nav-text">学习框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析入门"><span class="nav-number">3.</span> <span class="nav-text">数据分析入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Excel：不考虑性能和数据量"><span class="nav-number">3.1.</span> <span class="nav-text">Excel：不考虑性能和数据量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Excel：数据可视化"><span class="nav-number">3.2.</span> <span class="nav-text">Excel：数据可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分析思维"><span class="nav-number">4.</span> <span class="nav-text">数据分析思维</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务知识"><span class="nav-number">5.</span> <span class="nav-text">业务知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课题研究"><span class="nav-number">6.</span> <span class="nav-text">课题研究</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kofe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz',
+        appKey: 'jbgIHEzUigo8apYgTon6xXE8',
+        placeholder: '非常期待您的想法或意见，推荐留言~',
+        avatar:'hide',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("STGXfYUEVVq1AoccxhumXjsB-gzGzoHsz", "jbgIHEzUigo8apYgTon6xXE8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
