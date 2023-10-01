@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-1-1.jpg">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-2-1.png">
 <meta property="og:image" content="http://www.kofes.cn/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-10-1.png">
-<meta property="og:updated_time" content="2023-07-04T03:04:36.919Z">
+<meta property="og:updated_time" content="2023-07-09T16:28:48.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 3 快速上手教程">
 <meta name="twitter:description" content="本文以「 黑马 Python 从入门到精通 」和「 廖雪峰 Python 教程 」为主线，学习之余，输出笔记。由于教程定位于入门，教授内容会有道不尽的地方，为此笔记还会补充视频中解释不详尽或遗漏的知识点。 本文与「廖雪峰 Python 教程」的框架大体保持一致，没有特别的，就是科学的、优秀的方案得复用起来。大体框架编排如下（知识点细节见文章目录即可）： Linux 基础，参考 黑马 Python">
@@ -304,8 +304,8 @@
 	  
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2023-07-04T11:04:36+08:00" content="2023-07-04">
-                2023-07-04
+              <time itemprop="dateUpdated" datetime="2023-07-10T00:28:48+08:00" content="2023-07-10">
+                2023-07-10
               </time>
             </span>
           
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  23,053
+                  22,963
                 </span>
               
 
@@ -738,23 +738,23 @@
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩文件：压缩文件放于同一目录下</span></span><br><span class="line">tar - zcvf 打包文件.tar.gz 被压缩文件路径</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压缩文件到指定路径</span></span><br><span class="line">tar -zxvf 打包文件.tar.gz [-C 目标路径]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="Python-基础"><a href="#Python-基础" class="headerlink" title="Python 基础"></a>Python 基础</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="Python-优缺点"><a href="#Python-优缺点" class="headerlink" title="Python 优缺点"></a>Python 优缺点</h4><ul>
-<li>Python 是面向对象 / 过程的语言 ( 对象和过程语言各有自己的优缺点 )：<ul>
+<h2 id="Python-基础"><a href="#Python-基础" class="headerlink" title="Python 基础"></a>Python 基础</h2><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><h4 id="Python-编程范式"><a href="#Python-编程范式" class="headerlink" title="Python 编程范式"></a>Python 编程范式</h4><ul>
+<li>Python 即是面向对象也是面向过程的语言 ：<ul>
 <li>面向对象：由 <code>数据</code> 和 <code>功能组合而成的对象</code> 构建而成的程序。</li>
 <li>面向过程：由 <code>过程</code> 或仅仅是 <code>可重用代码</code> 构建起来的程序。</li>
 </ul>
 </li>
 </ul>
 <h4 id="Python-应用场景"><a href="#Python-应用场景" class="headerlink" title="Python 应用场景"></a>Python 应用场景</h4><ul>
-<li>Web 端程序：<ul>
+<li>操作系统管理：服务器运维的自动化脚本。</li>
+<li>数据科学计算：Pytorch、Tensorflow、Sklearn、NumPy、SciPy、Matplotlib 等。</li>
+<li>Web端程序：<ul>
 <li>mod_wsgi 模块：Apache 可运行用 Python 编写 Web 程序。</li>
 <li>常见 Web 框架：Django、TurboGears、Web2py、Zope 等。</li>
 </ul>
 </li>
-<li>操作系统管理：服务器运维的自动化脚本。</li>
-<li>科学计算：NumPy、SciPy、Matplotlib 等。</li>
-<li>桌面端程序：PyQt、PySide、wxPython、PyGTK 等。</li>
 <li>服务端程序：Twisted ( 支持异步网络编程和多数标准的网络协议，包括客户端和服务端 )。</li>
+<li>桌面端程序：PyQt、PySide、wxPython、PyGTK 等。</li>
 </ul>
 <h4 id="Python-解释器"><a href="#Python-解释器" class="headerlink" title="Python 解释器"></a>Python 解释器</h4><ul>
 <li><p>当我们编写 Python 代码时，我们得到的是一个包含 Python 代码的以 <code>.py</code> 为扩展名的文本文件。要运行代码，就需要 Python 解释器去执行 <code>xxx.py</code> 文件。</p>
@@ -770,110 +770,94 @@
 <li>iPython 是基于 CPython 之上的一个交互式解释器，即 iPython 只是在交互方式上有所增强，但是执行 Python 代码的功能和 CPython 是完全一样的。</li>
 <li>在命令行下运行  <code>ipython</code> 即可启动 iPython 交互式解释器。</li>
 <li><p>CPython 用 <code>&gt;&gt;&gt;</code> 作为提示符，而 IPython 用 <code>In [序号]:</code> 作为提示符。</p>
-<p><img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-1-1.jpg" alt="图6-1-1Python与iPython提示符表现形式"></p>
-<center>图 6-1-1 Python 与 iPython 提示符表现形式</center>
+<p><img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-1-1.jpg" alt="Python与iPython提示符表现形式"></p>
+<center>CPython 与 iPython 提示符表现形式</center>
 </li>
 </ul>
 </li>
-<li><p>PyCharm</p>
-<p>  工欲善其事，必先利其器。为帮助开发者更便捷、更高效来开发 Python 程序，一款集成开发编辑器 ( IDE ) 显得格外重要。IDE 除了快捷键、插件外，重要的是它还支持 <code>调试程序</code>。</p>
+<li><p>PyCharm：工欲善其事，必先利其器。为帮助开发者更便捷、更高效来开发 Python 程序，一款集成开发编辑器 ( IDE ) 显得格外重要。IDE 除了快捷键、插件外，重要的是它还支持 <code>调试程序</code>。</p>
 <blockquote>
 <p>当然，支持 Python 程序开发的 IDE 还有很多优秀的产品：如：<a href="http://marketplace.eclipse.org/content/pydev-python-ide-eclipse" target="_blank" rel="noopener">Eclipse with PyDev</a></p>
 </blockquote>
 </li>
 </ul>
-<h4 id="第一个程序"><a href="#第一个程序" class="headerlink" title="第一个程序"></a>第一个程序</h4><ul>
-<li><p>新建并运行 python 程序：<code>vi python_sample.py</code> 开始编写程序；通过 <code>python python_sample.py</code> 执行程序。以下为简单的 Python 示例：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 声明部分</span></span><br><span class="line"><span class="comment"># 取机器 Path 中指定的第一个 python 来执行脚本</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># python.py 文件中包含中文字符，Python2 在文件头加入以下语句 ( Python3 是默认支持的 )：</span></span><br><span class="line"><span class="comment"># -*- coding=utf-8 -*-	</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 代码部分</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Life is short, you need python."</span>)</span><br><span class="line"></span><br><span class="line">a = 100</span><br><span class="line">A = 200</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a &gt;= 100: <span class="comment"># 冒号 ":" 结尾，缩进的语句即为代码块</span></span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(-A) <span class="comment"># Python 是大小写敏感的</span></span><br></pre></td></tr></table></figure>
+<h4 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h4><ul>
+<li>新建并运行 python 程序：<code>vi python_sample.py</code> 开始编写程序；通过 <code>python python_sample.py</code> 执行程序。</li>
+<li><p>以下为简单 Python 示例：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># "#!" 称为 Sha-bang，解释伴随行，此处用于指明执行脚本的解释器</span></span><br><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># python.py 文件若包含中文字符，Python2 要在文件头加入以下语句，Python3 是默认支持的：</span></span><br><span class="line"><span class="comment"># -*- coding=utf-8 -*-	</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Hello World!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Python 是大小写敏感的</span></span><br><span class="line">a = 100</span><br><span class="line">A = 200</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a &gt;= 100:</span><br><span class="line">	<span class="built_in">print</span>(a)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	<span class="built_in">print</span>(-A)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h3><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
+<h3 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h3><h4 id="代码注释"><a href="#代码注释" class="headerlink" title="代码注释"></a>代码注释</h4><ul>
 <li><p>行注释、块注释：行注释的风格与 Linux 中 Shell 脚本的注释相同，即以 <code>#</code> 开头的注释；块注释使用三个单引号 <code>&#39;</code> 或三个双引号 <code>&quot;</code> 包裹实现。</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 行注释</span></span><br><span class="line"><span class="comment"># line 1...</span></span><br><span class="line"><span class="comment"># line 2...</span></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">' 单引号块注释</span></span><br><span class="line"><span class="string">' line 1</span></span><br><span class="line"><span class="string">' line 2</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">" 双引号块注释</span></span><br><span class="line"><span class="string">" line 1</span></span><br><span class="line"><span class="string">" line 2</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><ul>
 <li><code>整型</code>：可处理 <code>任意大小</code> 的整数，当然包括 <code>负整数</code>。例如 0，1，100，-8080 等。</li>
-<li><p><code>浮点型</code>：即含有小数点的数，如 1.23，1.23e9 ( 1.23x10$^9$ )，1.23e-5 ( 1.23x10$^{-5}$ )</p>
-<blockquote>
-<p>1) 整数和浮点数在计算机内部存储的方式是不同的；<br>2) 整数运算永远是精确的，而浮点数运算则可能会有四舍五入的误差。</p>
-</blockquote>
+<li><code>浮点型</code>：即含有小数点的数，如 1.23，1.23e9 ( 1.23x10$^9$ )，1.23e-5 ( 1.23x10$^{-5}$ )<ul>
+<li>整数和浮点数在计算机内部存储的方式是不同的。  </li>
+<li>整数运算永远是精确的，而浮点数运算则可能会有四舍五入的误差。</li>
+</ul>
 </li>
-<li><p><code>字符型</code>：以单引号 <code>&#39;</code> 或双引号 <code>&quot;</code> ( 表示方式不同而已 ) 括起来的任意文本。例如 <code>&#39;(1+2)\%3 == 0&#39;</code>，或者 <code>&quot;The &#39;a&#39; is a lowercase letter of &#39;A&#39;&quot;</code>。</p>
-</li>
+<li><code>字符型</code>：以单引号 <code>&#39;</code> 或双引号 <code>&quot;</code> ( 表示方式不同而已 ) 括起来的任意文本。例如 <code>&#39;(1+2)\%3 == 0&#39;</code>，或者 <code>&quot;The &#39;a&#39; is a lowercase letter of &#39;A&#39;&quot;</code>。</li>
 <li><code>布尔型</code>：True / Flase 两种值。<ul>
 <li>布尔运算：and、or、not，例如 <code>(3 &gt; 2) and (1 &gt; 2)</code>，输出 Flase。</li>
 </ul>
 </li>
 <li><code>空值</code>：None，注意 None 不能理解为 0，因为 0 是有意义的，而 None 是一个特殊的空值。</li>
+<li>Python 中数据类型是没有大小限制的，若想定义无限大，可定义为无限大，即 <code>inf</code>。</li>
 </ul>
-<blockquote>
-<p>Python 中的数据类型是没有大小限制的，若想定义无限大，可定义为无限大，即 <code>inf</code>。</p>
-</blockquote>
 <h4 id="常量变量"><a href="#常量变量" class="headerlink" title="常量变量"></a>常量变量</h4><h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h5><ul>
-<li>常量：例如定义 <code>PI = 3.14159</code>，其实际也是变量，只是约定俗成罢了。</li>
+<li>常量：例如定义 <code>PI = 3.14159</code>，其实际也是变量，只是约定俗成罢了。这里 PI 可被重新赋值覆盖。</li>
 </ul>
 <h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><ul>
 <li>形如 <code>param = value</code> 的形式赋予变量值，但不用赋变量数据类型。</li>
 <li><p>变量的输入与输出：</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">high = int( input(Please enter your high:) )</span><br><span class="line"><span class="comment"># input() 默认输出 String 类型</span></span><br><span class="line">print(<span class="string">"Your high is: %d"</span> % high);</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input() 默认输出 String 类型</span></span><br><span class="line">high = int( input(Please enter your high:) )</span><br><span class="line">print(<span class="string">"Your high is: %d"</span> % high)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h4><ul>
 <li>一个字节，表示的最大的整数就是 255，即十进制为 255，二进制为 <code>11111111</code>。若想表示更大的整数则需要更多的字节。</li>
-<li><p><code>ASCII</code>：127 个字符编码，即大小写字母、数字和一些特殊字符。例如大些字母 A，对应的 ASCII 为 65。</p>
-<blockquote>
-<p>但处理中文显然一个字节是不够的 ( 至少两个字节 )，且还不能与 ASCII 编码冲突，所以中国制定了<code>GB2312</code> 编码。  </p>
-<p>然而，世界有上百种语言，日本把日文编到 <code>Shift_JIS</code> 里，韩国把韩文编到 <code>Euc-kr</code> 里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。   </p>
-<p>因此，Unicode 应运而生 $^{[3]}$。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p>
-</blockquote>
-</li>
-<li><p><code>Unicode</code>：2 字节及以上。</p>
-<blockquote>
-<p>为节约空间，把 Unicode 编码转化为“可变长编码”的 UTF-8 编码。</p>
-</blockquote>
-</li>
-<li><p><code>UTF-8</code>：根据数字大小编写 1 ~ 6 字节，英文字母 1 字节，汉字 3 字节 ( 生僻字符用到 4 ~ 6 字节 )。</p>
-</li>
-<li><p>ACSII、Unicode 与 UTF-8 的关系</p>
-</li>
+<li><code>ASCII</code>：127 个字符编码，即大小写字母、数字及特殊字符。例如大些字母 A，对应的 ASCII 为 65。<ul>
+<li>但处理中文显然一个字节是不够的（至少两个字节），且还不能与 ASCII 编码冲突，所以中国制定了<code>GB2312</code> 编码。  </li>
+<li>那么，问题是世界有上百种语言，日文编到 <code>Shift_JIS</code> 、韩文编到 <code>Euc-kr</code>，各国的标准不可避免会出现冲突，特别是在多语言混合文本中，显示将出现乱码。   </li>
+<li>为此，Unicode 编码应运而生 $^{[3]}$，Unicode把所有语言都统一到一套编码中，这样就不会再有乱码问题了。</li>
 </ul>
-<center>表 6-2-1 ACSII、Unicode 与 UTF-8 的关系</center>
-
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">字符</th>
-<th style="text-align:center">ASCII</th>
-<th style="text-align:center">Unicode</th>
-<th style="text-align:center">UTF-8</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">A</td>
-<td style="text-align:center">0100 0001</td>
-<td style="text-align:center">00000000 01000001</td>
-<td style="text-align:center">01000001</td>
-</tr>
-<tr>
-<td style="text-align:center">中</td>
-<td style="text-align:center">—</td>
-<td style="text-align:center">01001110 00101101</td>
-<td style="text-align:center">11100100 10111000 1010 1101</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
-<li><p>启示：计算机系统通用的字符编码工作方式，如图 6-2-1 所示。</p>
+</li>
+<li><code>Unicode</code>：2 字节及以上。为节约空间，可把 Unicode 编码转化为 “可变长编码” 的 UTF-8 编码。</li>
+<li><code>UTF-8</code>：根据数字大小编写 1 ~ 6 字节，英文字母 1 字节，汉字 3 字节（生僻字符用到 4 ~ 6 字节）。</li>
+<li><p>ACSII、Unicode 与 UTF-8 的关系</p>
+  <table>
+  <thead align="center">
+  <tr>
+      <th width="10%">字符</th>
+      <th width="20%">ASCII</th>
+      <th width="30%">Unicode</th>
+      <th width="50%">UTF-8</th>
+  </tr>
+  </thead>
+  <tbody align="center">
+  <tr>
+      <td>A</td>
+      <td>0100 0001</td>
+      <td>00000000 01000001</td>
+      <td>01000001</td>
+  </tr>
+  <tr>
+      <td>中</td>
+      <td>--</td>
+      <td>01001110 00101101</td>
+      <td>11100100 10111000 1010 1101</td>
+  </tr>
+  </tbody>
+  </table>
+</li>
+<li><p>启示：计算机系统通用的字符编码工作方式，如下图所示。</p>
 <ul>
 <li>用记事本编辑时，从文件读取的 UTF-8 字符被转换为 Unicode 字符到内存里，当保存的时再把 Unicode 转换为 UTF-8 保存到文件；</li>
 <li><p>浏览网页时，服务器会把动态生成的 Unicode 内容转换为 UTF-8 再传输到浏览器。</p>
-<p><img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-2-1.png" alt="图6-2-1计算机系统通用的字符编码工作方式"></p>
-<center>图 6-2-1 计算机系统通用的字符编码工作方式</center>
-
+<blockquote class="blockquote-center"><p><img src="/images/illustration/Programme/2018/09/life-is-short-we-need-python_6-2-1.png" alt> 计算机系统通用的字符编码工作方式</p>
+</blockquote>
 </li>
 </ul>
 </li>
@@ -881,108 +865,97 @@
 <h4 id="字符串-列表-元组-字典"><a href="#字符串-列表-元组-字典" class="headerlink" title="字符串/列表/元组/字典"></a>字符串/列表/元组/字典</h4><h5 id="字符串-Str"><a href="#字符串-Str" class="headerlink" title="字符串 Str"></a>字符串 Str</h5><ul>
 <li><p>Python 3 中，字符串是以 Unicode 编码的。</p>
 <ul>
-<li>Python 的字符串类型为 String，内存中以 Unicode 表示。若在网络中传输，则可以把 string 类型的数据变成以字节为单位的 <code>bytes</code>。</li>
-<li><p><code>encode()</code> 与 <code>decode()</code>：</p>
+<li>Python 的字符串类型为 String，内存中以 Unicode 编码表示。若在网络中传输则可以把 String 类型的数据变成以字节为单位的 <code>Bytes</code>。</li>
+<li><p>encode 与 decode 函数：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 英文字符可用 ASCII 编码 Bytes</span></span><br><span class="line"><span class="string">"ABC"</span>.encode(<span class="string">"ascii"</span>)</span><br><span class="line"><span class="comment"># 中文字符可用 UTF-8 编码</span></span><br><span class="line"><span class="comment"># 中文编码超过了 ASCII 编码的范围，强制使用 ASCII 编码会抛出异常</span></span><br><span class="line"><span class="string">"中国"</span>.encode(<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 <ul>
-<li>英文字符可用 ASCII 编码 Bytes，即 <code>&quot;ABC&quot;.encode(&quot;ascii&quot;)</code>。</li>
-<li><p>中文字符可用 UTF-8 编码，即 <code>&quot;中国&quot;.encode(&quot;utf-8&quot;)</code>。</p>
-<blockquote>
-<p>含有中文的 str 无法用 ASCII 编码，因中文编码的范围超过了 ASCII 编码的范围。强制编码会抛出异常：<br><code>&#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in range(128)</code>。</p>
-</blockquote>
+<li><p>常用数据类型转换：</p>
+  <table>
+  <thead align="center">
+  <tr>
+      <th width="20%">函数格式</th>
+      <th width="30%">使用示例</th>
+      <th width="50%">描述</th>
+  </tr>
+  </thead>
+  <tbody align="center">
+  <tr>
+      <td>int(x [,base])</td>
+      <td>int("8")<br>int('A', base = 16)</td>
+      <td>可转换的包括 String 类型和其他数字类型，但高精度数字转换会丢失精度</td>
+  </tr>
+  <tr>
+      <td>float(x)</td>
+      <td>float(1)<br>float("1")</td>
+      <td>可转换 String 和其他数字类型，不足的位数用 0 补齐，例如 1 会变成 1.0</td>
+  </tr>
+  <tr>
+      <td>comple(real,imag)</td>
+      <td>complex("1")<br>complex(1,2)</td>
+      <td>第一个参数可以是 String 或者数字，第二个参数只能为数字类型，第二个参数没有时默认为 0</td>
+  </tr>
+  <tr>
+      <td>str(x)</td>
+      <td>str(1)</td>
+      <td>将数字转化为 String</td>
+  </tr>
+  <tr>
+      <td>repr(x)</td>
+      <td>repr(Object)</td>
+      <td>返回一个对象的 String 格式</td>
+  </tr>
+  <tr>
+      <td>eval(str)</td>
+      <td>eval("12+23")</td>
+      <td>执行一个字符串表达式，返回计算的结果，如例子中返回 35</td>
+  </tr>
+  <tr>
+      <td>tuple(seq)</td>
+      <td>tuple((1,2,3,4))</td>
+      <td>参数可以是元组、列表或字典。若为字典时，返回字典的 key 组成的集合</td>
+  </tr>
+  <tr>
+      <td>list(s)</td>
+      <td>list((1,2,3,4))</td>
+      <td>将序列转变成一个列表，参数可为元组、字典、列表。若为字典时，返回字典的 key 组成的集合</td>
+  </tr>
+  <tr>
+      <td>set(s)</td>
+      <td>set(['b', 'r', 'u', 'o', 'n'])<br>set("asdfg")</td>
+      <td>将一个可迭代对象转变为可变集合且去重复，返回结果可以用来计算差集 x - y、并集 x l y、交集 x & y</td>
+  </tr>
+  <tr>
+      <td>frozenset(s)</td>
+      <td>frozenset([0, 1, 2, 3, 4, 5])</td>
+      <td>将一个可迭代对象转变成不可变集合，参数为元组、字典、列表等</td>
+  </tr>
+  <tr>
+      <td>chr(x)</td>
+      <td>chr(0x30)</td>
+      <td>chr() 用一个范围在 range (0～255) 内的整数作参数，返回一个对应的字符。<br>返回值是当前整数对应的 ASCII 字符。</td>
+  </tr>
+  <tr>
+      <td>ord(x)</td>
+      <td>ord('a')</td>
+      <td>返回对应的 ASCII 数值，或者 Unicode 数值</td>
+  </tr>
+  <tr>
+      <td>hex(x)</td>
+      <td>hex(12)</td>
+      <td>把整数 x 转换为 16 进制字符串</td>
+  </tr>
+  <tr>
+      <td>oct(x)</td>
+      <td>oct(12)</td>
+      <td>把整数 x 转换为 8 进制字符串</td>
+  </tr>
+  </tbody>
+  </table>
 </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>常用数据类型转换，见表 6-2-2 所示：</p>
-</li>
-</ul>
-<center>表 6-2-2 常用数据类型转换说明表</center>
-
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>函数格式</th>
-<th>使用示例</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int(x [,base])</td>
-<td>int(“8”) 或 int(‘A’, base = 16)</td>
-<td>可转换的包括 String 类型和其他数字类型，但高精度转换会丢失精度</td>
-</tr>
-<tr>
-<td>float(x)</td>
-<td>float(1) 或 float(“1”)</td>
-<td>可转换 String 和其他数字类型，不足的位数用 0 补齐，例如 1 会变成 1.0</td>
-</tr>
-<tr>
-<td>comple(real,imag)</td>
-<td>complex(“1”) 或 complex(1,2)</td>
-<td>第一个参数可以是 String 或者数字，第二个参数只能为数字类型，第二个参数没有时默认为 0</td>
-</tr>
-<tr>
-<td>str(x)</td>
-<td>str(1)</td>
-<td>将数字转化为 String</td>
-</tr>
-<tr>
-<td>repr(x)</td>
-<td>repr(Object)</td>
-<td>返回一个对象的 String 格式</td>
-</tr>
-<tr>
-<td>eval(str)</td>
-<td>eval(“12+23”)</td>
-<td>执行一个字符串表达式，返回计算的结果，如例子中返回 35</td>
-</tr>
-<tr>
-<td>tuple(seq)</td>
-<td>tuple((1,2,3,4))</td>
-<td>参数可以是元组、列表或字典。若为字典时，返回字典的 key 组成的集合</td>
-</tr>
-<tr>
-<td>list(s)</td>
-<td>list((1,2,3,4))</td>
-<td>将序列转变成一个列表，参数可为元组、字典、列表。若为字典时，返回字典的 key 组成的集合</td>
-</tr>
-<tr>
-<td>set(s)</td>
-<td>set([‘b’, ‘r’, ‘u’, ‘o’, ‘n’])或者set(“asdfg”)</td>
-<td>将一个可迭代对象转变为可变集合且去重复，返回结果可以用来计算差集 <code>x - y</code>、并集 <code>x l y</code>、交集 <code>x &amp; y</code></td>
-</tr>
-<tr>
-<td>frozenset(s)</td>
-<td>frozenset([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</td>
-<td>将一个可迭代对象转变成不可变集合，参数为元组、字典、列表等</td>
-</tr>
-<tr>
-<td>chr(x)</td>
-<td>chr(0x30)</td>
-<td>chr() 用一个范围在 range (0～255) 内的整数作参数，返回一个对应的字符。返回值是当前整数对应的 ASCII 字符。</td>
-</tr>
-<tr>
-<td>ord(x)</td>
-<td>ord(‘a’)</td>
-<td>返回对应的 ASCII 数值，或者 Unicode 数值</td>
-</tr>
-<tr>
-<td>hex(x)</td>
-<td>hex(12)</td>
-<td>把整数 x 转换为 16 进制字符串</td>
-</tr>
-<tr>
-<td>oct(x)</td>
-<td>oct(12)</td>
-<td>把整数 x 转换为 8 进制字符串</td>
-</tr>
-</tbody>
-</table>
-</div>
-<ul>
 <li><p>字符串输入和输出：</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = input(<span class="string">"Enter your name:"</span>)</span><br><span class="line">age = int( input(<span class="string">"Enter your age:"</span>) )</span><br><span class="line">print(<span class="string">"name: %s, age: %d"</span> % (name, age))</span><br></pre></td></tr></table></figure>
 </li>
@@ -2191,7 +2164,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书目"><span class="nav-number">2.</span> <span class="nav-text">参考书目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学资源"><span class="nav-number">3.</span> <span class="nav-text">教学资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-基础"><span class="nav-number">4.</span> <span class="nav-text">Linux 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-常用终端命令"><span class="nav-number">4.1.</span> <span class="nav-text">Linux 常用终端命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">4.2.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#远程登录"><span class="nav-number">4.2.1.</span> <span class="nav-text">远程登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制文件"><span class="nav-number">4.2.2.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-高级用法"><span class="nav-number">4.2.3.</span> <span class="nav-text">SSH 高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#免密码登录"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">免密码登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置别名"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">配置别名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和权限"><span class="nav-number">4.3.</span> <span class="nav-text">用户和权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">4.3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组"><span class="nav-number">4.3.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LL-命令"><span class="nav-number">4.3.3.</span> <span class="nav-text">LL 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chmod-命令"><span class="nav-number">4.3.4.</span> <span class="nav-text">Chmod 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sudo-命令"><span class="nav-number">4.3.5.</span> <span class="nav-text">Sudo 命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统信息相关命令"><span class="nav-number">4.4.</span> <span class="nav-text">系统信息相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他终端命令"><span class="nav-number">4.5.</span> <span class="nav-text">其他终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找文件"><span class="nav-number">4.5.1.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软链接"><span class="nav-number">4.5.2.</span> <span class="nav-text">软链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包压缩"><span class="nav-number">4.5.3.</span> <span class="nav-text">打包压缩</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-基础"><span class="nav-number">5.</span> <span class="nav-text">Python 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">5.1.</span> <span class="nav-text">引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-优缺点"><span class="nav-number">5.1.1.</span> <span class="nav-text">Python 优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-应用场景"><span class="nav-number">5.1.2.</span> <span class="nav-text">Python 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-解释器"><span class="nav-number">5.1.3.</span> <span class="nav-text">Python 解释器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个程序"><span class="nav-number">5.1.4.</span> <span class="nav-text">第一个程序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言基础"><span class="nav-number">5.2.</span> <span class="nav-text">语言基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">5.2.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">5.2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量变量"><span class="nav-number">5.2.3.</span> <span class="nav-text">常量变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常量"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量"><span class="nav-number">5.2.3.2.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符编码"><span class="nav-number">5.2.4.</span> <span class="nav-text">字符编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串-列表-元组-字典"><span class="nav-number">5.2.5.</span> <span class="nav-text">字符串/列表/元组/字典</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串-Str"><span class="nav-number">5.2.5.1.</span> <span class="nav-text">字符串 Str</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列表-List"><span class="nav-number">5.2.5.2.</span> <span class="nav-text">列表 List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#元组-Tuple"><span class="nav-number">5.2.5.3.</span> <span class="nav-text">元组 Tuple</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典-Dict"><span class="nav-number">5.2.5.4.</span> <span class="nav-text">字典 Dict</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合-Set"><span class="nav-number">5.2.5.5.</span> <span class="nav-text">集合 Set</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件判断"><span class="nav-number">5.2.6.</span> <span class="nav-text">条件判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环结构"><span class="nav-number">5.2.7.</span> <span class="nav-text">循环结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">5.3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义函数"><span class="nav-number">5.3.1.</span> <span class="nav-text">定义函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数"><span class="nav-number">5.3.2.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归函数"><span class="nav-number">5.3.3.</span> <span class="nav-text">递归函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级特性"><span class="nav-number">5.4.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切片"><span class="nav-number">5.4.1.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代"><span class="nav-number">5.4.2.</span> <span class="nav-text">迭代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表生成式"><span class="nav-number">5.4.3.</span> <span class="nav-text">列表生成式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器"><span class="nav-number">5.4.4.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器"><span class="nav-number">5.4.5.</span> <span class="nav-text">迭代器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">5.5.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶函数"><span class="nav-number">5.5.1.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MapReduce"><span class="nav-number">5.5.1.1.</span> <span class="nav-text">MapReduce</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Map-函数"><span class="nav-number">5.5.1.1.1.</span> <span class="nav-text">Map 函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Reduce-函数"><span class="nav-number">5.5.1.1.2.</span> <span class="nav-text">Reduce 函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Filter"><span class="nav-number">5.5.1.2.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sorted"><span class="nav-number">5.5.1.3.</span> <span class="nav-text">Sorted</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回函数"><span class="nav-number">5.5.2.</span> <span class="nav-text">返回函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数作为返回值"><span class="nav-number">5.5.2.1.</span> <span class="nav-text">函数作为返回值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包"><span class="nav-number">5.5.2.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名函数"><span class="nav-number">5.5.3.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰器"><span class="nav-number">5.5.4.</span> <span class="nav-text">装饰器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏函数"><span class="nav-number">5.5.5.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">5.6.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念-1"><span class="nav-number">5.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用模块"><span class="nav-number">5.6.2.</span> <span class="nav-text">使用模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三方模块"><span class="nav-number">5.6.3.</span> <span class="nav-text">第三方模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块搜索路径"><span class="nav-number">5.6.4.</span> <span class="nav-text">模块搜索路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象编程"><span class="nav-number">5.7.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类和实例"><span class="nav-number">5.7.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问限制"><span class="nav-number">5.7.2.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承和多态"><span class="nav-number">5.7.3.</span> <span class="nav-text">继承和多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取对象信息"><span class="nav-number">5.7.4.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例属性和类属性"><span class="nav-number">5.7.5.</span> <span class="nav-text">实例属性和类属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象高级编程"><span class="nav-number">5.8.</span> <span class="nav-text">面向对象高级编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-property"><span class="nav-number">5.8.1.</span> <span class="nav-text">使用 @property</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多重继承"><span class="nav-number">5.8.2.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定制类"><span class="nav-number">5.8.3.</span> <span class="nav-text">定制类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#slots"><span class="nav-number">5.8.3.1.</span> <span class="nav-text">__slots__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getattr"><span class="nav-number">5.8.3.2.</span> <span class="nav-text">__getattr__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iter"><span class="nav-number">5.8.3.3.</span> <span class="nav-text">__iter__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call"><span class="nav-number">5.8.3.4.</span> <span class="nav-text">__call__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更多定制"><span class="nav-number">5.8.3.5.</span> <span class="nav-text">更多定制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用枚举类"><span class="nav-number">5.8.4.</span> <span class="nav-text">使用枚举类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误-调试-测试"><span class="nav-number">5.9.</span> <span class="nav-text">错误/调试/测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">5.9.1.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#返回错误码"><span class="nav-number">5.9.1.1.</span> <span class="nav-text">返回错误码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#异常错误"><span class="nav-number">5.9.1.2.</span> <span class="nav-text">异常错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用栈"><span class="nav-number">5.9.1.3.</span> <span class="nav-text">调用栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#抛出异常"><span class="nav-number">5.9.1.4.</span> <span class="nav-text">抛出异常</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试"><span class="nav-number">5.9.2.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单元测试"><span class="nav-number">5.9.3.</span> <span class="nav-text">单元测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向-I-O-编程"><span class="nav-number">5.10.</span> <span class="nav-text">面向 I/O 编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存-取本地数据"><span class="nav-number">5.10.1.</span> <span class="nav-text">存/取本地数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读文件"><span class="nav-number">5.10.1.1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#File-like-Object"><span class="nav-number">5.10.1.2.</span> <span class="nav-text">File-like Object</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二进制文件"><span class="nav-number">5.10.1.3.</span> <span class="nav-text">二进制文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#写文件"><span class="nav-number">5.10.1.4.</span> <span class="nav-text">写文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringIO-BytesIO"><span class="nav-number">5.10.2.</span> <span class="nav-text">StringIO/BytesIO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#StringIO"><span class="nav-number">5.10.2.1.</span> <span class="nav-text">StringIO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BytesIO"><span class="nav-number">5.10.2.2.</span> <span class="nav-text">BytesIO</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作文件和目录"><span class="nav-number">5.10.3.</span> <span class="nav-text">操作文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#环境变量"><span class="nav-number">5.10.3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作文件和目录-1"><span class="nav-number">5.10.3.2.</span> <span class="nav-text">操作文件和目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化"><span class="nav-number">5.10.4.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-基础"><span class="nav-number">5.10.5.</span> <span class="nav-text">JSON 基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-进阶"><span class="nav-number">5.10.6.</span> <span class="nav-text">JSON 进阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步-I-O"><span class="nav-number">5.10.7.</span> <span class="nav-text">同步 I/O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步-I-O"><span class="nav-number">5.10.8.</span> <span class="nav-text">异步 I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#协程"><span class="nav-number">5.10.8.1.</span> <span class="nav-text">协程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Asyncio"><span class="nav-number">5.10.8.2.</span> <span class="nav-text">Asyncio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Async-Await"><span class="nav-number">5.10.8.3.</span> <span class="nav-text">Async / Await</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Aiohttp"><span class="nav-number">5.10.8.4.</span> <span class="nav-text">Aiohttp</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新进度"><span class="nav-number">1.</span> <span class="nav-text">更新进度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书目"><span class="nav-number">2.</span> <span class="nav-text">参考书目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教学资源"><span class="nav-number">3.</span> <span class="nav-text">教学资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-基础"><span class="nav-number">4.</span> <span class="nav-text">Linux 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-常用终端命令"><span class="nav-number">4.1.</span> <span class="nav-text">Linux 常用终端命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">4.2.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#远程登录"><span class="nav-number">4.2.1.</span> <span class="nav-text">远程登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制文件"><span class="nav-number">4.2.2.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSH-高级用法"><span class="nav-number">4.2.3.</span> <span class="nav-text">SSH 高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#免密码登录"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">免密码登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置别名"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">配置别名</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和权限"><span class="nav-number">4.3.</span> <span class="nav-text">用户和权限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念"><span class="nav-number">4.3.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组"><span class="nav-number">4.3.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LL-命令"><span class="nav-number">4.3.3.</span> <span class="nav-text">LL 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chmod-命令"><span class="nav-number">4.3.4.</span> <span class="nav-text">Chmod 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sudo-命令"><span class="nav-number">4.3.5.</span> <span class="nav-text">Sudo 命令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统信息相关命令"><span class="nav-number">4.4.</span> <span class="nav-text">系统信息相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他终端命令"><span class="nav-number">4.5.</span> <span class="nav-text">其他终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查找文件"><span class="nav-number">4.5.1.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软链接"><span class="nav-number">4.5.2.</span> <span class="nav-text">软链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包压缩"><span class="nav-number">4.5.3.</span> <span class="nav-text">打包压缩</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-基础"><span class="nav-number">5.</span> <span class="nav-text">Python 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">5.1.</span> <span class="nav-text">引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-编程范式"><span class="nav-number">5.1.1.</span> <span class="nav-text">Python 编程范式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-应用场景"><span class="nav-number">5.1.2.</span> <span class="nav-text">Python 应用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-解释器"><span class="nav-number">5.1.3.</span> <span class="nav-text">Python 解释器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hello-World"><span class="nav-number">5.1.4.</span> <span class="nav-text">Hello World</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语言基础"><span class="nav-number">5.2.</span> <span class="nav-text">语言基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码注释"><span class="nav-number">5.2.1.</span> <span class="nav-text">代码注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">5.2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量变量"><span class="nav-number">5.2.3.</span> <span class="nav-text">常量变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常量"><span class="nav-number">5.2.3.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#变量"><span class="nav-number">5.2.3.2.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符编码"><span class="nav-number">5.2.4.</span> <span class="nav-text">字符编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串-列表-元组-字典"><span class="nav-number">5.2.5.</span> <span class="nav-text">字符串/列表/元组/字典</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串-Str"><span class="nav-number">5.2.5.1.</span> <span class="nav-text">字符串 Str</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#列表-List"><span class="nav-number">5.2.5.2.</span> <span class="nav-text">列表 List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#元组-Tuple"><span class="nav-number">5.2.5.3.</span> <span class="nav-text">元组 Tuple</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字典-Dict"><span class="nav-number">5.2.5.4.</span> <span class="nav-text">字典 Dict</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合-Set"><span class="nav-number">5.2.5.5.</span> <span class="nav-text">集合 Set</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件判断"><span class="nav-number">5.2.6.</span> <span class="nav-text">条件判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环结构"><span class="nav-number">5.2.7.</span> <span class="nav-text">循环结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">5.3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义函数"><span class="nav-number">5.3.1.</span> <span class="nav-text">定义函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数参数"><span class="nav-number">5.3.2.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#递归函数"><span class="nav-number">5.3.3.</span> <span class="nav-text">递归函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级特性"><span class="nav-number">5.4.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切片"><span class="nav-number">5.4.1.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代"><span class="nav-number">5.4.2.</span> <span class="nav-text">迭代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表生成式"><span class="nav-number">5.4.3.</span> <span class="nav-text">列表生成式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器"><span class="nav-number">5.4.4.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器"><span class="nav-number">5.4.5.</span> <span class="nav-text">迭代器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">5.5.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶函数"><span class="nav-number">5.5.1.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MapReduce"><span class="nav-number">5.5.1.1.</span> <span class="nav-text">MapReduce</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Map-函数"><span class="nav-number">5.5.1.1.1.</span> <span class="nav-text">Map 函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Reduce-函数"><span class="nav-number">5.5.1.1.2.</span> <span class="nav-text">Reduce 函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Filter"><span class="nav-number">5.5.1.2.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sorted"><span class="nav-number">5.5.1.3.</span> <span class="nav-text">Sorted</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回函数"><span class="nav-number">5.5.2.</span> <span class="nav-text">返回函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数作为返回值"><span class="nav-number">5.5.2.1.</span> <span class="nav-text">函数作为返回值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#闭包"><span class="nav-number">5.5.2.2.</span> <span class="nav-text">闭包</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名函数"><span class="nav-number">5.5.3.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#装饰器"><span class="nav-number">5.5.4.</span> <span class="nav-text">装饰器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#偏函数"><span class="nav-number">5.5.5.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块"><span class="nav-number">5.6.</span> <span class="nav-text">模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本概念-1"><span class="nav-number">5.6.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用模块"><span class="nav-number">5.6.2.</span> <span class="nav-text">使用模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三方模块"><span class="nav-number">5.6.3.</span> <span class="nav-text">第三方模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块搜索路径"><span class="nav-number">5.6.4.</span> <span class="nav-text">模块搜索路径</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象编程"><span class="nav-number">5.7.</span> <span class="nav-text">面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#类和实例"><span class="nav-number">5.7.1.</span> <span class="nav-text">类和实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问限制"><span class="nav-number">5.7.2.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#继承和多态"><span class="nav-number">5.7.3.</span> <span class="nav-text">继承和多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取对象信息"><span class="nav-number">5.7.4.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实例属性和类属性"><span class="nav-number">5.7.5.</span> <span class="nav-text">实例属性和类属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象高级编程"><span class="nav-number">5.8.</span> <span class="nav-text">面向对象高级编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-property"><span class="nav-number">5.8.1.</span> <span class="nav-text">使用 @property</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多重继承"><span class="nav-number">5.8.2.</span> <span class="nav-text">多重继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定制类"><span class="nav-number">5.8.3.</span> <span class="nav-text">定制类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#slots"><span class="nav-number">5.8.3.1.</span> <span class="nav-text">__slots__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getattr"><span class="nav-number">5.8.3.2.</span> <span class="nav-text">__getattr__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iter"><span class="nav-number">5.8.3.3.</span> <span class="nav-text">__iter__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#call"><span class="nav-number">5.8.3.4.</span> <span class="nav-text">__call__</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更多定制"><span class="nav-number">5.8.3.5.</span> <span class="nav-text">更多定制</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用枚举类"><span class="nav-number">5.8.4.</span> <span class="nav-text">使用枚举类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误-调试-测试"><span class="nav-number">5.9.</span> <span class="nav-text">错误/调试/测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">5.9.1.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#返回错误码"><span class="nav-number">5.9.1.1.</span> <span class="nav-text">返回错误码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#异常错误"><span class="nav-number">5.9.1.2.</span> <span class="nav-text">异常错误</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#调用栈"><span class="nav-number">5.9.1.3.</span> <span class="nav-text">调用栈</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#抛出异常"><span class="nav-number">5.9.1.4.</span> <span class="nav-text">抛出异常</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试"><span class="nav-number">5.9.2.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单元测试"><span class="nav-number">5.9.3.</span> <span class="nav-text">单元测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向-I-O-编程"><span class="nav-number">5.10.</span> <span class="nav-text">面向 I/O 编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存-取本地数据"><span class="nav-number">5.10.1.</span> <span class="nav-text">存/取本地数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#读文件"><span class="nav-number">5.10.1.1.</span> <span class="nav-text">读文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#File-like-Object"><span class="nav-number">5.10.1.2.</span> <span class="nav-text">File-like Object</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二进制文件"><span class="nav-number">5.10.1.3.</span> <span class="nav-text">二进制文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#写文件"><span class="nav-number">5.10.1.4.</span> <span class="nav-text">写文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#StringIO-BytesIO"><span class="nav-number">5.10.2.</span> <span class="nav-text">StringIO/BytesIO</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#StringIO"><span class="nav-number">5.10.2.1.</span> <span class="nav-text">StringIO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BytesIO"><span class="nav-number">5.10.2.2.</span> <span class="nav-text">BytesIO</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作文件和目录"><span class="nav-number">5.10.3.</span> <span class="nav-text">操作文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#环境变量"><span class="nav-number">5.10.3.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作文件和目录-1"><span class="nav-number">5.10.3.2.</span> <span class="nav-text">操作文件和目录</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序列化"><span class="nav-number">5.10.4.</span> <span class="nav-text">序列化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-基础"><span class="nav-number">5.10.5.</span> <span class="nav-text">JSON 基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-进阶"><span class="nav-number">5.10.6.</span> <span class="nav-text">JSON 进阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步-I-O"><span class="nav-number">5.10.7.</span> <span class="nav-text">同步 I/O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步-I-O"><span class="nav-number">5.10.8.</span> <span class="nav-text">异步 I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#协程"><span class="nav-number">5.10.8.1.</span> <span class="nav-text">协程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Asyncio"><span class="nav-number">5.10.8.2.</span> <span class="nav-text">Asyncio</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Async-Await"><span class="nav-number">5.10.8.3.</span> <span class="nav-text">Async / Await</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Aiohttp"><span class="nav-number">5.10.8.4.</span> <span class="nav-text">Aiohttp</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
